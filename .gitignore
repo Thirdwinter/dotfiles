@@ -1,0 +1,11 @@
+/nvim-data/
+/nushell/history.txt
+/nushell/ssh.nu
+/nvim/lazy-lock.json
+/yazi/state
+/yazi/plugins
+/yazi/flavors
+/wezterm/backdrops/*
+!/wezterm/backdrops/longmao.jpeg
+!/wezterm/backdrops/h7_bai.png
+/wezterm.bak/
