@@ -167,7 +167,7 @@ vim.keymap.set('n', 'gpr', '<cmd>lua require("goto-preview").goto_preview_refere
 --INFO: 关于session
 -- load the session for the current directory
 local resession = require 'resession'
-vim.keymap.set('n', '<leader>ss', resession.save_tab, { desc = '[S]ave [Session]' })
+vim.keymap.set('n', '<leader>ss', resession.save, { desc = '[S]ave [Session]' })
 vim.keymap.set('n', '<leader>sl', resession.load, { desc = '[L]oad [S]ession' })
 vim.keymap.set('n', '<leader>sd', resession.delete, { desc = '[D]elete [S]ession' })
 -- select a session to load

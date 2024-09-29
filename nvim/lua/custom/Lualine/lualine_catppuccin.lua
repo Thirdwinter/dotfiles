@@ -107,7 +107,7 @@ local config = {
         fmt = function(str)
           return vim.api.nvim_win_get_width(0) < 110 and str:sub(1, 1) or str
         end,
-        icon = '',
+        icon = '󰀘',
         color = { gui = 'bold' },
         separator = { left = separators.left_rounded, right = separators.right_rounded },
       },

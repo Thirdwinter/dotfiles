@@ -52,16 +52,16 @@ function BackDrops:_set_opt(window)
       background = {
          {
             source = { File = wezterm.GLOBAL.background },
-            height = '100%',
-            width = '100%',
-            opacity = 0.5,
+            -- height = '100%',
+            -- width = '100%',
+            opacity = 0.1,
             -- horizontal_align = 'Center',
          },
          {
             source = { Color = colors.background },
             height = '100%',
             width = '100%',
-            opacity = 0.6,
+            opacity = 0.2,
          },
       },
    }

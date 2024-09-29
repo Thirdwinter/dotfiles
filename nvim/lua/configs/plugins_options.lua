@@ -6,7 +6,7 @@ M.transparent_background = function()
   if vim.g.neovide then
     return false
   else
-    return true
+    return false 
   end
 end
 -- M.transparent_background = vim.g.neovide and false or true

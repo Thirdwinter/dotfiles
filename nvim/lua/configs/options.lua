@@ -60,7 +60,7 @@ vim.opt.splitbelow = true
 --  参见 `:help 'list'`
 --  和 `:help 'listchars'`
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = '╎ ', trail = '·', nbsp = '␣' }
 
 -- 实时预览替换，边输入边预览！
 vim.opt.inccommand = 'split'
