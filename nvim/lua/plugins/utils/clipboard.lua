@@ -1,5 +1,12 @@
+if true then
+  return {}
+end
 return {
   'EtiamNullam/deferred-clipboard.nvim',
-  event = 'VeryLazy',
-  opts = {},
+  config = function()
+    require('deferred-clipboard').setup {
+      lazy = true,
+      force_init_unnamed = true,
+    }
+  end,
 }
