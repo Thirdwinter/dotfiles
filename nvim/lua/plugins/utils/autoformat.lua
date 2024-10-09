@@ -34,6 +34,7 @@ return { -- Autoformat
       lua = { 'stylua' },
       yaml = { 'yamlfmt' },
       go = { 'gofumpt' },
+      xml = { 'xmlformatter' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --
