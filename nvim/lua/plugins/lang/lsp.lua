@@ -26,7 +26,7 @@ return {
 
       -- LSP 的有用状态更新。
       -- 注意：`opts = {}` 与调用 `require('fidget').setup({})` 相同
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',       opts = {} },
 
       -- 允许由 nvim-cmp 提供的额外功能
       'hrsh7th/cmp-nvim-lsp',
@@ -57,10 +57,10 @@ return {
           perfix = '●',
         },
         signs = { active = signs }, -- 是否在边缘显示诊断图标
-        underline = true, -- 是否给诊断信息下的文本加下划线
-        severity_sort = true, -- 是否根据严重性级别排序
-        update_in_insert = true, -- 在插入模式下是否更新诊断信息
-        float = { -- 浮动窗口的配置
+        underline = true,           -- 是否给诊断信息下的文本加下划线
+        severity_sort = true,       -- 是否根据严重性级别排序
+        update_in_insert = true,    -- 在插入模式下是否更新诊断信息
+        float = {                   -- 浮动窗口的配置
           focusable = false,
           style = 'minimal',
           border = 'rounded',
@@ -196,7 +196,7 @@ return {
 
       require('mason').setup()
 
-      local ensure_installed = { 'yapf', 'shfmt', 'stylua', 'snakefmt', 'lua-language-server' }
+      local ensure_installed = { 'stylua', 'lua-language-server' }
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       require('mason-lspconfig').setup {
