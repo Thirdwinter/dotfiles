@@ -79,7 +79,7 @@ vim.opt.laststatus = 3
 -- 禁用击键回显
 vim.opt.showcmd = false
 
-vim.cmd.language 'zh_CN.UTF-8'
+--vim.cmd.language 'zh_CN.UTF-8'
 -- 使用系统剪切板--
 -- vim.opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus"
 vim.opt.clipboard = 'unnamedplus'
