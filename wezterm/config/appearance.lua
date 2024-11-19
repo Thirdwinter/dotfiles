@@ -8,7 +8,7 @@ return {
    webgpu_preferred_adapter = gpus[1],
    front_end = 'WebGpu', -- WebGpu OpenGL
    webgpu_power_preference = 'HighPerformance',
-
+   -- default_cursor_style = 'SteadyBlock',
    colors = {
       cursor_bg = '#f38ba8',
       -- background = '#1f1f28',
@@ -53,7 +53,7 @@ return {
    integrated_title_button_alignment = 'Right',
    initial_cols = 108,
    initial_rows = 30,
-   window_padding = { left = 3, right = 3, top = 3, bottom = 0 },
+   window_padding = { left = 0, right = 0, top = 0, bottom = 0 },
    window_close_confirmation = 'NeverPrompt',
    window_frame = {
       active_titlebar_bg = '#181825',

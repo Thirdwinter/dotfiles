@@ -9,6 +9,10 @@ if platform.is_win then
    options.default_prog = { 'D:\\Scoop\\apps\\nu\\current\\nu.exe' }
    options.launch_menu = {
       {
+         label = 'Nushell',
+         args = { 'D:\\Scoop\\apps\\nu\\current\\nu.exe' },
+      },
+      {
          label = 'Zsh',
          args = {
             'D:\\Scoop\\apps\\msys2\\current\\msys2_shell.cmd',
@@ -18,10 +22,6 @@ if platform.is_win then
             '-here',
             '-ucrt64',
          },
-      },
-      {
-         label = 'Nushell',
-         args = { 'D:\\Scoop\\apps\\nu\\current\\nu.exe' },
       },
       { label = 'PowerShell', args = { 'powershell' } },
       {
