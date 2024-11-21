@@ -1,11 +1,11 @@
 local wezterm = require('wezterm')
 local gpu_adapters = require('utils.gpu_adapter')
-local gpus = wezterm.gui.enumerate_gpus()
+-- local gpus = wezterm.gui.enumerate_gpus()
 local colors = require('colors.custom')
 return {
    animation_fps = 60,
    max_fps = 60,
-   webgpu_preferred_adapter = gpus[1],
+   webgpu_preferred_adapter = gpu_adapters:pick_best(),
    front_end = 'WebGpu', -- WebGpu OpenGL
    webgpu_power_preference = 'HighPerformance',
    -- default_cursor_style = 'SteadyBlock',
@@ -40,7 +40,7 @@ return {
 
    -- tab bar
    enable_tab_bar = true,
-   hide_tab_bar_if_only_one_tab = true,
+   -- hide_tab_bar_if_only_one_tab = true,
    tab_max_width = 25,
    show_tab_index_in_tab_bar = true,
    use_fancy_tab_bar = true,
