@@ -71,9 +71,10 @@ vim.opt.cursorline = true
 -- 在光标上方和下方保持的最小屏幕行数
 vim.opt.scrolloff = 10
 
--- 4格tap
+-- 2格tap
 vim.opt.tabstop = 2
-
+vim.opt.shiftwidth = 2
+vim.o.expandtab = true
 -- only one statusline
 vim.opt.laststatus = 3
 -- 禁用击键回显
