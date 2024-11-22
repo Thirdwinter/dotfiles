@@ -12,6 +12,7 @@ alias cls = clear
 alias cd.. = cd ..
 alias cdd = cd D:/
 alias cdc = cd C:/
+alias rm = rm -i
 alias gaa = git add --all
 alias gbr = git branch
 alias gcm = git commit -m
