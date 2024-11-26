@@ -46,7 +46,8 @@ vim.keymap.set('n', '<C-Down>', '<Cmd>resize +2<CR>', { desc = 'Resize split dow
 vim.keymap.set('n', '<C-Left>', '<Cmd>vertical resize -2<CR>', { desc = 'Resize split left' })
 vim.keymap.set('n', '<C-Right>', '<Cmd>vertical resize +2<CR>', { desc = 'Resize split right' })
 
-vim.api.nvim_set_keymap('i', 'jj', '<Esc>', { noremap = true, silent = true })
+--INFO: 禁用jj快捷键退出：
+-- vim.api.nvim_set_keymap('i', 'jj', '<Esc>', { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('n', '<A-i>', '<cmd>m .-2<cr>==', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<A-k>', '<cmd>m .+1<cr>==', { noremap = true, silent = true })
