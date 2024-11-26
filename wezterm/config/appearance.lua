@@ -11,29 +11,29 @@ return {
    -- default_cursor_style = 'SteadyBlock',
    colors = {
       cursor_bg = '#f38ba8',
-      -- background = '#1f1f28',
+      background = '#1E1E2E',
       cursor_border = '#f5e0dc',
       cursor_fg = '#11111b',
    },
    color_scheme = 'catppuccin-mocha', ---@type 'duskfox'| 'Dracula+' | 'Tokyo Night Moon' |'catppuccin-mocha'
 
-   window_background_opacity = 0.2,
+   -- window_background_opacity = 0.2,
    term = 'xterm-256color',
    -- background
-   background = {
-      {
-         source = { File = wezterm.GLOBAL.background },
-         -- height = '100%',
-         -- width = '100%',
-         opacity = 0.1,
-      },
-      {
-         source = { Color = colors.background },
-         height = '100%',
-         width = '100%',
-         opacity = 0.2,
-      },
-   },
+   -- background = {
+   -- {
+   --    source = { File = wezterm.GLOBAL.background },
+   --    -- height = '100%',
+   --    -- width = '100%',
+   --    opacity = 0.1,
+   -- },
+   -- {
+   --    source = { Color = colors.background },
+   --    height = '100%',
+   --    width = '100%',
+   --    opacity = 0.2,
+   -- },
+   -- },
 
    -- scrollbar
    enable_scroll_bar = false,
