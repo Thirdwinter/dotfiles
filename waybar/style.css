@@ -1,0 +1,148 @@
+* {
+  min-height: 0px;
+  min-width: 0px;
+  font-family: "Maple Mono NF CN", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+window#waybar {
+  background-color: transparent;
+}
+
+#workspaces button {
+  border-radius: 5px; /* 增加圆角 */
+  margin: 0.2rem; /* 均匀外边距 */
+  padding-left: 0.65rem;
+  padding-right: 0.65rem;
+  background-color: #f5c2e7; /* 马卡龙粉 */
+  color: #1e1e2e; /* Mocha Base */
+}
+
+#workspaces button:hover {
+  box-shadow: inherit;
+  text-shadow: inherit;
+  color: #f5c2e7; /* 与背景色对比 */
+  background-color: #1e1e2e;
+}
+
+#workspaces button.active {
+  background-color: #89b4fa; /* Mocha Blue */
+  color: #1e1e2e;
+}
+
+#workspaces button.urgent {
+  background-color: #f38ba8; /* Mocha Red */
+  color: #ffffff; /* 提高对比度 */
+}
+
+#clock,
+#pulseaudio,
+#custom-notification,
+#custom-setwallpaper,
+#battery,
+#cava,
+#cpu,
+#tray,
+#memory,
+#network,
+#window,
+#mpris {
+  min-height: 0px;
+  min-width: 0px;
+  padding-left: 0.4rem;  /* 调整内边距 */
+  padding-right: 0.4rem;  /* 调整内边距 */
+  border-radius: 6px;
+  margin: 0.1rem;   /* 均匀外边距 */
+  background-color: #1e1e2e; /* 马卡龙暖橙 */
+  color: #1e1e2e;
+}
+
+#mpris.playing {
+  color: #a6e3a1; /* Mocha Green */
+}
+
+#mpris.paused {
+  color: #9399b2; /* Mocha Subtext1 */
+}
+
+#custom-sep {
+  padding: 0px;
+  color: #585b70; /* Mocha Surface2 */
+}
+
+#cava {
+  color: #f9e2af;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+}
+
+#cpu {
+  background-color: #94e2d5; /* Mocha Teal */
+  color: #1e1e2e;
+}
+
+#memory {
+  background-color: #cba6f7; /* Mocha Lavender */
+  color: #1e1e2e;
+}
+
+#clock {
+  background-color: #b4befe; /* Mocha Light Blue */
+  color: #1e1e2e;
+}
+
+#network {
+  background-color: #a6e3a1; /* Mocha Green */
+  color: #1e1e2e;
+}
+
+#window {
+  background-color: #f5c2e7; /* 马卡龙粉 */
+  color: #1e1e2e;
+}
+
+#pulseaudio {
+  background-color: #89b4fa; /* Mocha Blue */
+  color: #1e1e2e;
+}
+
+#pulseaudio.muted {
+  background-color: #a6adc8; /* Mocha Subtext0 */
+  color: #1e1e2e;
+}
+
+#custom-notification {
+  background-color: #f38ba8; /* Mocha Red */
+  color: #ffffff; /* 高对比 */
+  padding-left: 0.7rem;
+  font-size: 14px;
+}
+
+#tray {
+  background-color: #cba6f7; /* Mocha Lavender */
+  color: #1e1e2e;
+  padding: 0.4rem;
+}
+
+#custom-setwallpaper {
+  background-color: #fab387; /* 马卡龙暖橙 */
+  color: #1e1e2e;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  font-size: 14px;
+}
+
+#battery {
+  background-color: #f38ba8; /* Mocha Red */
+  color: #ffffff; /* 提高对比度 */
+  font-size: 14px;
+}
+
+tooltip {
+  background-color: #181825; /* Mocha Crust */
+  border: 2px solid #89b4fa; /* Mocha Blue */
+  color: #cdd6f4; /* Mocha Text */
+}

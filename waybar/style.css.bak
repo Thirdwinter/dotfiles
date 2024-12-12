@@ -1,0 +1,136 @@
+* {
+  min-height: 0px; /* 设置为正方形高度 */
+  min-width: 0px;  /* 设置为正方形宽度 */
+  font-family: "Maple Mono NF CN", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+window#waybar {
+  background-color: transparent;
+}
+
+#workspaces button {
+  border-radius: 5px; /* 增加圆角 */
+  margin: 0.2rem; /* 均匀外边距 */
+  padding-left: 0.65rem;
+  padding-right: 0.65rem;
+  background-color: #1e1e2e;
+  color: #cdd6f4;
+}
+
+#workspaces button:hover {
+  box-shadow: inherit;
+  text-shadow: inherit;
+  color: #1e1e2e;
+  background-color: #cdd6f4;
+}
+
+#workspaces button.active {
+  background-color: #1e1e2e;
+  color: #89b4fa;
+}
+
+#workspaces button.urgent {
+  background-color: #1e1e2e;
+  color: #f38ba8;
+}
+
+#clock,
+#pulseaudio,
+#custom-notification,
+#custom-setwallpaper,
+#battery,
+#cava,
+#cpu,
+#tray,
+#memory,
+#network,
+#window,
+#mpris {
+  min-height: 0px; /* 设置为正方形高度 */
+  min-width: 0px;  /* 设置为正方形宽度 */
+  padding-left: 0.4rem;  /* 调整内边距 */
+  padding-right: 0.4rem;  /* 调整内边距 */
+  border-radius: 6px; /* 增加圆角 */
+  margin: 0.1rem;   /* 均匀外边距 */
+  background-color: #1e1e2e;
+}
+
+#mpris.playing {
+  color: #a6e3a1;
+}
+
+#mpris.paused {
+  color: #9399b2;
+}
+
+#custom-sep {
+  padding: 0px;
+  color: #585b70;
+}
+
+#cava {
+  color: #a6e3a1;
+}
+
+window#waybar.empty #window {
+  background-color: transparent;
+}
+
+#cpu {
+  color: #94e2d5;
+}
+
+#memory {
+  color: #cba6f7;
+}
+
+#clock {
+  color: #74c7ec;
+}
+
+#network {
+  color: #94e2d5;
+}
+
+#window {
+  color: #a6e3a1;
+}
+
+#pulseaudio {
+  color: #b4befe;
+}
+
+#pulseaudio.muted {
+  color: #a6adc8;
+}
+
+#custom-notification {
+  color: #f38ba8;
+  padding-left: 0.7rem;
+  font-size: 14px;
+}
+
+
+#tray{
+  color: #cba6f7;
+  padding: 0.4rem;
+}
+
+#custom-setwallpaper {
+  color: #cba6f7;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  font-size: 14px;
+}
+
+#battery {
+  color: #f38ba8;
+  font-size: 14px;
+}
+
+tooltip {
+  background-color: #181825;
+  border: 2px solid #89b4fa;
+}
