@@ -9,18 +9,18 @@ vim.keymap.set('n', '<leader>q', '<Cmd>confirm q<CR>', { noremap = true, silent 
 vim.keymap.set('n', '<leader>w', '<Cmd>w!<CR>', { noremap = true, silent = true, desc = 'Save' })
 
 --INFO: NeoVide
--- if vim.g.neovide then
-vim.keymap.set('n', '<C-s>', ':w<CR>', { noremap = true, silent = true }) -- Save
-vim.keymap.set('v', '<C-c>', '"+y', { noremap = true, silent = true }) -- Copy
-vim.keymap.set('n', '<C-v>', '"+P', { noremap = true, silent = true }) -- Paste normal mode
-vim.keymap.set('v', '<C-v>', '"+P', { noremap = true, silent = true }) -- Paste visual mode
-vim.keymap.set('c', '<C-v>', '<C-R>+', { noremap = true, silent = true }) -- Paste command mode
-vim.keymap.set('i', '<C-v>', '<ESC>l"+Pli', { noremap = true, silent = true }) -- Paste insert mode
--- end
+if vim.g.neovide then
+  vim.keymap.set('n', '<C-s>', ':w<CR>', { noremap = true, silent = true }) -- Save
+  vim.keymap.set('v', '<C-c>', '"+y', { noremap = true, silent = true }) -- Copy
+  vim.keymap.set('i', '<C-v>', '"+P', { noremap = true, silent = true }) -- Paste normal mode
+  -- vim.keymap.set('v', '<C-v>', '"+P', { noremap = true, silent = true }) -- Paste visual mode
+  vim.keymap.set('c', '<C-v>', '<C-R>+', { noremap = true, silent = true }) -- Paste command mode
+  vim.keymap.set('i', '<C-v>', '<ESC>l"+Pli', { noremap = true, silent = true }) -- Paste insert mode
+end
 
 -- Allow clipboard copy paste in neovim
-vim.api.nvim_set_keymap('', '<C-v>', '+p<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('!', '<C-v>', '<C-R>+', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('', '<C-v>', '+p<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-v>', '<C-R>+', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('t', '<C-v>', '<C-R>+', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<C-v>', '<C-R>+', { noremap = true, silent = true })
 
