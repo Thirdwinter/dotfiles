@@ -9,9 +9,9 @@
   "fixed-center": true,
   "modules-left": [
     "hyprland/workspaces",
-    "hyprland/window",
+    "hyprland/window"
   ],
-    //"wlr/taskbar"
+  //"wlr/taskbar"
   "modules-center": [],
   "modules-right": [
     "mpris",
@@ -26,10 +26,9 @@
     "custom/setwallpaper",
     "battery"
   ],
-  "custom/setwallpaper":{
-    "format":"●",
-    "on-click":"$HOME/.config/waybar/scripts/set_swww_wallpaper.sh"
-
+  "custom/setwallpaper": {
+    "format": "●",
+    "on-click": "$HOME/.config/waybar/scripts/set_swww_wallpaper.sh"
   },
   "wlr/taskbar": {
     "format": "{icon}",
@@ -42,15 +41,15 @@
       "firefoxdeveloperedition": "firefox-developer-edition"
     },
     "rewrite": {
-        "Firefox Web Browser": "Firefox",
-        "Foot Server": "Terminal"
+      "Firefox Web Browser": "Firefox",
+      "Foot Server": "Terminal"
     }
-},
+  },
   "cava": {
     //"cava_config": "$HOME/.config/cava/config",
     "framerate": 60,
     "autosens": 1,
-    "sensitivity":1,
+    "sensitivity": 1,
     "bars": 10,
     "lower_cutoff_freq": 50,
     "higher_cutoff_freq": 10000,
@@ -64,7 +63,16 @@
     "waves": false,
     "noise_reduction": 0.77,
     "input_delay": 2,
-    "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+    "format-icons": [
+      "▁",
+      "▂",
+      "▃",
+      "▄",
+      "▅",
+      "▆",
+      "▇",
+      "█"
+    ],
     "actions": {
       "on-click-right": "mode"
     }
@@ -73,15 +81,18 @@
     //"player":"playerctld",
     "max-length": 40,
     "interval": 1,
-    "dynamic-order": ["artist", "title"],
+    "dynamic-order": [
+      "artist",
+      "title"
+    ],
     "format": "{player_icon} {dynamic}",
     "format-paused": "{status_icon} <i>{dynamic}</i>",
     "status-icons": {
-      "paused": "",
+      "paused": ""
     },
     "player-icons": {
-      "default": "",
-    },
+      "default": ""
+    }
   },
   "hyprland/workspaces": {
     "format": "{id}",
@@ -89,48 +100,48 @@
     "sort-by-number": true,
     "all-outputs": true,
     "disable-scroll": false,
-    "active-only": false,
+    "active-only": false
   },
   "hyprland/window": {
-    "format": "{class}",
+    "format": "{class}"
   },
   "tray": {
     "show-passive-items": true,
-    "spacing": 5,
+    "spacing": 5
   },
   "clock": {
     "format": " {:%H:%M}",
     "format-alt": " {:L%Y-%m-%d  %H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "calendar": {
-      "mode"          : "month",
-      "mode-mon-col"  : 3,
-      "weeks-pos"     : "right",
-      "on-scroll"     : 1,
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
       "format": {
-        "months":     "<span color='#ffead3'><b>{}</b></span>",
-        "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-        "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-        "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-        "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
       }
     }
   },
   "cpu": {
     "format": " {usage}%",
     "tooltip": true,
-    "interval": 1,
+    "interval": 1
   },
   "memory": {
     "interval": 10,
-    "format": " {used:.1f}G",
+    "format": " {used:.1f}G"
   },
   "network": {
     "tooltip-format": "{essid}({ipaddr})  {bandwidthUpBytes}  {bandwidthDownBytes}",
-    "interval":1,
-    "format-alt":"{essid}({ipaddr})  {bandwidthUpBytes}  {bandwidthDownBytes}",
-    "format-wifi":"\uf1eb ",
-    "format-disconnected":"\uf071 Disconnected"
+    "interval": 1,
+    "format-alt": "{essid}({ipaddr})  {bandwidthUpBytes}  {bandwidthDownBytes}",
+    "format-wifi": "\uf1eb ",
+    "format-disconnected": "\uf071 Disconnected"
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
@@ -142,43 +153,52 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": [" ", " ", " "],
+      "default": [
+        " ",
+        " ",
+        " "
+      ]
     },
-    "on-click": "pavucontrol",
+    "on-click": "pavucontrol"
   },
   "custom/sep": {
     "format": "|",
-    "tooltip": false,
+    "tooltip": false
   },
   "battery": {
     "interval": 60,
     "states": {
-        "warning": 30,
-        "critical": 15
+      "warning": 30,
+      "critical": 15
     },
     "format": "{capacity}% {icon}",
-    "format-icons": [" ", " ", " ", " ", " "],
-    "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
-
+    "format-icons": [
+      " ",
+      " ",
+      " ",
+      " ",
+      " "
+    ],
+    "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown"
   },
-   "custom/notification": {
-  	"tooltip": true,
-  	"format": "{icon}",
-  	"format-icons": {
-  		"notification": " <span foreground='red'><sup></sup></span>",
-  		"none": " ",
-  		"dnd-notification": " <span foreground='red'><sup></sup></span>",
-  		"dnd-none": " ",
-  		"inhibited-notification": " <span foreground='red'><sup></sup></span>",
-  		"inhibited-none": " ",
-  		"dnd-inhibited-notification": " <span foreground='red'><sup></sup></span>",
-  		"dnd-inhibited-none": " "
-  	},
-  	"return-type": "json",
-  	"exec-if": "which swaync-client",
-  	"exec": "swaync-client -swb",
-  	"on-click": "swaync-client -t -sw",
-  	"on-click-right": "swaync-client -d -sw",
-  	"escape": true
-  },
+  "custom/notification": {
+    "tooltip": true,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": " <span foreground='red'><sup></sup></span>",
+      "none": " ",
+      "dnd-notification": " <span foreground='red'><sup></sup></span>",
+      "dnd-none": " ",
+      "inhibited-notification": " <span foreground='red'><sup></sup></span>",
+      "inhibited-none": " ",
+      "dnd-inhibited-notification": " <span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": " "
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  }
 }

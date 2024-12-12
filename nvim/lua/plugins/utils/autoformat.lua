@@ -36,6 +36,7 @@ return { -- Autoformat
       go = { 'gofumpt' },
       xml = { 'xmlformatter' },
       c = { 'clang-format' },
+      json = { 'cland-format' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --
