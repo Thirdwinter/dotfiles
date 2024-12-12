@@ -4,12 +4,6 @@ CapsLock::
     Send, {Esc} ; 发送Esc键
 return
 
-;CapsLock + o快速插入邮箱
-CapsLock & o::
-    SendMode, Input
-    SendInput, zzx15601035637@outlook.com
-return
-
 ;切换大小写锁定
 CapsLock & `::
     Send, {Blind}{CapsLock}
