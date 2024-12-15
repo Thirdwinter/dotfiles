@@ -1,7 +1,7 @@
 window {
     font-family: CaskaydiaCove Nerd Font, monospace;
     font-size: 12pt;
-    color: #f4dfcd; 
+    color: #f4dfcd;
     background-color: rgba(30, 30, 46, .69);
 }
 
@@ -36,7 +36,7 @@ button:hover {
 
 #suspend {
     background-image: image(url("/home/thirdwinter/.config/wlogout/icons/sleep.png"));
-} 
+}
 
 #shutdown {
     background-image: image(url("/home/thirdwinter/.config/wlogout/icons/power.png"));

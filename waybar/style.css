@@ -10,6 +10,34 @@ window#waybar {
   background-color: transparent;
 }
 
+#taskbar {
+  /*padding-left: 0.4rem;*/
+  /* 调整内边距 */
+  /*padding-right: 0.4rem;*/
+  /* 调整内边距 */
+  border-radius: 5px;
+  margin: 0.1rem;
+}
+
+#taskbar button {
+  padding-left: 0.4rem;
+  /* 调整内边距 */
+  padding-right: 0.4rem;
+  /* 调整内边距 */
+  border-radius: 5px;
+  margin: 0.1rem;
+
+  color: #1e1e2e;
+  background-color: #f5c2e7;
+}
+
+#taskbar button.active {
+  border-radius: 5px;
+  color: #1e1e2e;
+  background-color: #89b4fa;
+}
+
+
 #workspaces button {
   border-radius: 5px;
   /* 增加圆角 */

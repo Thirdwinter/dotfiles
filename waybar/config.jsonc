@@ -15,7 +15,6 @@
   "modules-center": [],
   "modules-right": [
     "mpris",
-    "cava",
     "cpu",
     "memory",
     "network",
@@ -31,7 +30,7 @@
     "on-click": "$HOME/.config/waybar/scripts/set_swww_wallpaper.sh"
   },
   "wlr/taskbar": {
-    "format": "{icon}",
+    "format": "{name}",
     "icon-size": 14,
     "icon-theme": "Numix-Circle",
     "tooltip-format": "{title}",
