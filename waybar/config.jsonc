@@ -27,7 +27,7 @@
   ],
   "custom/setwallpaper": {
     "format": "●",
-    "on-click": "$HOME/.config/waybar/scripts/set_swww_wallpaper.sh"
+    "on-click": "$HOME/.config/hypr/Scripts/random_swww_wallpaper.sh"
   },
   "wlr/taskbar": {
     "format": "{name}",
@@ -178,7 +178,7 @@
       " ",
       " "
     ],
-    "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown"
+    "on-click": "$HOME/.config/hypr/Scripts/wlogout.sh"
   },
   "custom/notification": {
     "tooltip": true,

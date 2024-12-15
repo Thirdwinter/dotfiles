@@ -1,51 +1,73 @@
 window {
-    font-family: CaskaydiaCove Nerd Font, monospace;
-    font-size: 12pt;
-    color: #f4dfcd;
-    background-color: rgba(30, 30, 46, .69);
+    font-family: Maple Mono NF CN;
+    font-size: 16pt;
+    color: #1e1e1e;
+    background-color: rgba(24, 27, 32, 0.8);
 }
 
 button {
     background-repeat: no-repeat;
     background-position: center;
-    font-size: 40px;
-    padding-top: 100px;
-    padding-bottom: 100px;
-    background-size: 60%;
+    background-size: 20%;
+    background-color: transparent;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.3s ease-in;
+    box-shadow: 0 0 10px 2px transparent;
+    border-radius: 20px;
+    margin: 10px;
     border: none;
-    color: #d5b497;
-    text-shadow: none;
-    border-radius: 20px 20px 20px 20px;
-    background-color: rgba(1, 121, 111, 0);
-    margin: 1px;
-    transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+button:focus {
+    box-shadow: none;
+    background-size: 20%;
 }
 
 button:hover {
-    background-color: rgba(184, 149, 80, 0.3);
-}
-
-#lock {
-    background-image: image(url("/home/thirdwinter/.config/wlogout/icons/lock.png"));
-    background-size: 70%;
-}
-
-#logout {
-    background-image: image(url("/home/thirdwinter/.config/wlogout/icons/logout.png"));
-}
-
-#suspend {
-    background-image: image(url("/home/thirdwinter/.config/wlogout/icons/sleep.png"));
+    background-size: 50%;
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, .4);
+    background-color: #a6e3a1;
+    color: transparent;
+    transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682), box-shadow 0.5s ease-in;
 }
 
 #shutdown {
-    background-image: image(url("/home/thirdwinter/.config/wlogout/icons/power.png"));
+    background-image: image(url("./icons/power.png"));
+}
+
+#shutdown:hover {
+    background-image: image(url("./icons/power-hover.png"));
+}
+
+#logout {
+    background-image: image(url("./icons/logout.png"));
+
+}
+
+#logout:hover {
+    background-image: image(url("./icons/logout-hover.png"));
 }
 
 #reboot {
-    background-image: image(url("/home/thirdwinter/.config/wlogout/icons/restart.png"));
+    background-image: image(url("./icons/restart.png"));
+}
+
+#reboot:hover {
+    background-image: image(url("./icons/restart-hover.png"));
+}
+
+#lock {
+    background-image: image(url("./icons/lock.png"));
+}
+
+#lock:hover {
+    background-image: image(url("./icons/lock-hover.png"));
 }
 
 #hibernate {
-    background-image: image(url("/home/thirdwinter/.config/wlogout/icons/hibernate.png"));
+    background-image: image(url("./icons/hibernate.png"));
+}
+
+#hibernate:hover {
+    background-image: image(url("./icons/hibernate-hover.png"));
 }
