@@ -3,14 +3,6 @@ local catppuccin_theme_mode_color = require('custom.Lualine.themes.catppuccin').
 local separators = require('custom.Lualine.chars').separators
 local spinner_chars = require('custom.Lualine.chars').spinner_char
 
-local function vimmode()
-  return ''
-end
-
-local function vimmode_hl()
-  return { fg = 'black' }
-end
-
 local function scroll_bar()
   local chars = setmetatable(spinner_chars, {
     __index = function()
@@ -102,7 +94,6 @@ local config = {
   sections = {
     lualine_a = {
       {
-        -- vimmode,
         'mode',
         fmt = function(str)
           return vim.api.nvim_win_get_width(0) < 110 and str:sub(1, 1) or str
@@ -127,10 +118,6 @@ local config = {
         padding = { right = 0, left = 1 },
       },
     },
-    -- ["cod-github"] = "",
-    --     ["cod-github_action"] = "",
-    --     ["cod-github_alt"] = "",
-    --     ["cod-github_inverted"] = "",
     lualine_c = {
 
       { scroll_bar, padding = { right = 0, left = 1 }, color = scroll_bar_hl },
@@ -156,13 +143,9 @@ local config = {
 
     lualine_y = {
       {
-        -- 'filetype',
         file_info,
         separator = { left = separators.left_rounded },
         padding = { left = 0, right = 1 },
-        -- cond = function()
-        --   return vim.api.nvim_win_get_width(0) > 80
-        -- end,
       },
     },
 
@@ -170,7 +153,6 @@ local config = {
       {
         dir_info,
         separator = { right = separators.right_rounded, left = separators.left_rounded },
-        -- padding = { left = 0, right = 0 },
         color = { gui = 'bold' },
       },
     },
