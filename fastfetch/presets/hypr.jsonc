@@ -1,17 +1,17 @@
 //   _____ _____ _____ _____ _____ _____ _____ _____ _____ 
 //  |   __|  _  |   __|_   _|   __|   __|_   _|     |  |  |
 //  |   __|     |__   | | | |   __|   __| | | |   --|     |
-//  |__|  |__|__|_____| |_| |__|  |_____| |_| |_____|__|__|  NYARCH
+//  |__|  |__|__|_____| |_| |__|  |_____| |_| |_____|__|__|  HYPRLAND
 //
 //  by Bina
 {
     "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
     "logo": {
-        "source": "~/.config/fastfetch/images/nyarch.png",
+        "source": "~/.config/fastfetch/images/hypr.png",
         "type": "kitty",
-        "height": 14,
+        "height": 18,
         "padding": {
-            "top": 1
+            "top": 2
         }
     },
     "display": {
@@ -22,63 +22,83 @@
         "break",
         "break",
         {
+            "type": "custom",
+            "format": "\u001b[90m  \u001b[31m  \u001b[32m  \u001b[33m  \u001b[34m  \u001b[35m  \u001b[36m  \u001b[37m"
+        },
+        "break",
+        {
             "type": "title",
             "keyWidth": 10
         },
-        {
-            "type": "custom",
-            "format": "~~~~~~~~~~~~~~~~~~~~~~~~~~",
-        },
+        "break",
         {
             "type": "os",
-            "key": "󰀘 ",
+            "key": " ",
             "keyColor": "34", // = color4
         },
         {
             "type": "kernel",
-            "key": "󰀘 ",
+            "key": " ",
             "keyColor": "34",
         },
         {
             "type": "packages",
             "format": "{} (pacman)",
-            "key": "󰀘 ",
+            "key": " ",
             "keyColor": "34",
         },
         {
             "type": "shell",
-            "key": "󰀘 ",
+            "key": " ",
             "keyColor": "34",
         },
         {
             "type": "terminal",
-            "key": "󰀘 ",
+            "key": " ",
             "keyColor": "34",
         },
         {
             "type": "wm",
-            "key": "󰀘 ",
+            "key": " ",
+            "keyColor": "34",
+        },
+        {
+            "type": "cursor",
+            "key": " ",
+            "keyColor": "34",
+        },
+        {
+            "type": "terminalfont",
+            "key": " ",
             "keyColor": "34",
         },
         {
             "type": "uptime",
-            "key": "󰀘 ",
+            "key": " ",
+            "keyColor": "34",
+        },
+        {
+            "type": "datetime",
+            "format": "{1}-{3}-{11}",
+            "key": " ",
             "keyColor": "34",
         },
         {
             "type": "media",
-            "key": "󰀘 ",
+            "key": "󰝚 ",
             "keyColor": "34",
         },
         {
             "type": "player",
-            "key": "󰀘 ",
+            "key": " ",
             "keyColor": "34",
         },
+        "break",
         {
-            "type": "colors",
-            "symbol": "circle",
+            "type": "custom",
+            "format": "\u001b[90m  \u001b[31m  \u001b[32m  \u001b[33m  \u001b[34m  \u001b[35m  \u001b[36m  \u001b[37m"
         },
+        "break",
         "break",
     ]
 }

@@ -3,6 +3,7 @@ window {
 	border: 5px solid #1e1e2e;
 	background-color: #cdd6f4;
 	border-radius: 15px;
+	border: none;
 }
 
 #input {
@@ -74,4 +75,5 @@ window {
 	border: none;
 	border-radius: 15px;
 	background-color: #89b4fa;
+	border: none;
 }
