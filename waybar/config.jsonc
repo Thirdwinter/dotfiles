@@ -15,14 +15,13 @@
   "modules-center": [],
   "modules-right": [
     "mpris",
-    "cpu",
     "memory",
-    "network",
-    "pulseaudio",
     "clock",
+    "pulseaudio",
+    "network",
     "custom/notification",
-    "tray",
     "custom/setwallpaper",
+    "tray",
     "battery"
   ],
   "custom/setwallpaper": {
