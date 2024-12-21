@@ -6,7 +6,7 @@ sort_by = "natural"
 sort_sensitive = true
 sort_reverse = true
 sort_dir_first = true
-show_hidden = true 
+show_hidden = false 
 show_symlink = true
 
 [opener]
@@ -34,7 +34,7 @@ cd_origin = "top-center"
 cd_offset = [0, 2, 50, 3]
 
 # create
-create_title = "Create:"
+create_title = ["Create:", "Create (dir):"]
 create_origin = "top-center"
 create_offset = [0, 2, 50, 3]
 
