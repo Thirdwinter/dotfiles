@@ -90,8 +90,8 @@ window#waybar {
   /* 调整内边距 */
   padding-right: 0.4rem;
   /* 调整内边距 */
-  border-radius: 6px;
-  margin: 0.1rem;
+  border-radius: 5px;
+  margin: 0.2rem;
   /* 均匀外边距 */
   background-color: #1e1e2e;
   /* 马卡龙暖橙 */

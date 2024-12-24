@@ -142,19 +142,17 @@
     "format-disconnected": "\uf071 Disconnected"
   },
   "pulseaudio": {
-    "format": "{icon} {volume}%",
+    "format": "{icon}{volume}%",
     "format-muted": " ",
     "format-icons": {
-      "headphone": " ",
-      "hands-free": "󰂑",
-      "headset": "󰂑",
-      "phone": "",
-      "portable": "",
-      "car": "",
+      //  "headphone": " ",
+      //  "hands-free": "󰂑",
+      //  "headset": "󰂑",
+      //  "phone": "",
+      //  "portable": "",
+      //  "car": "",
       "default": [
-        " ",
-        " ",
-        " "
+        " "
       ]
     },
     "on-click": "pavucontrol"
