@@ -40,6 +40,7 @@ return { -- Autoformat
       json = { 'cland-format' },
       zsh = { 'beautysh' },
       sh = { 'beautysh' },
+      rust = { 'rustfmt' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --

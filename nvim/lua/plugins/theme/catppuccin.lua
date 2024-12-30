@@ -1,4 +1,9 @@
-local transparent = require('configs.plugins_options').transparent_background()
+local function transparent_background_nd()
+  if vim.g.neovide then
+    return false
+  end
+  return true
+end
 
 return {
   'catppuccin/nvim',
@@ -6,7 +11,7 @@ return {
   priority = 1000,
   opts = {
     term_colors = true,
-    transparent_background = transparent,
+    transparent_background = transparent_background_nd(),
     integrations = {
       cmp = true,
       gitsigns = true,
