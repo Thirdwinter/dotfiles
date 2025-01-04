@@ -47,7 +47,14 @@ return {
       properties = {},
       types = {},
       operators = {},
-      -- miscs = {}, -- Uncomment to turn off hard-coded styles
+    },
+    highlight_overrides = {
+      -- mocha = function(mocha)
+      --   return {
+      --     Comment = { fg = mocha.flamingo },
+      --     Identifier = { fg = mocha.mauve },
+      --   }
+      -- end,
     },
     -- custom_highlights = function(C)
     --   return {

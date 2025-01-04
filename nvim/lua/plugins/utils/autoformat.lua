@@ -33,7 +33,7 @@ return { -- Autoformat
     formatters_by_ft = {
       lua = { 'stylua' },
       yaml = { 'yamlfmt' },
-      go = { 'gofumpt' },
+      go = { 'gofmt' },
       xml = { 'xmlformatter' },
       c = { 'clang-format' },
       cpp = { 'clang-format' },
@@ -41,6 +41,8 @@ return { -- Autoformat
       zsh = { 'beautysh' },
       sh = { 'beautysh' },
       rust = { 'rustfmt' },
+      typescript = { 'ts-standard' },
+      typescriptreact = { 'ts-standard' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --

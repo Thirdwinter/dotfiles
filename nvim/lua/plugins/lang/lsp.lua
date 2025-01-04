@@ -154,6 +154,7 @@ return {
           -- 如果你使用的语言服务器支持它们
           --
           -- 这可能是不需要的，因为它们会替换你的一些代码
+          vim.lsp.inlay_hint.enable(true)
           if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
             map('<leader>th', function()
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
@@ -184,6 +185,9 @@ return {
         lua_ls = {
           settings = {
             Lua = {
+              hint = {
+                enable = true,
+              },
               completion = {
                 callSnippet = 'Replace',
               },
@@ -221,8 +225,37 @@ return {
 
       local local_servers = {
         jdtls = {},
-        gopls = {},
-        rust_analyzer = {},
+        gopls = {
+          settings = {
+            gopls = {
+              hints = {
+                assignVariableTypes = true,
+                compositeLiteralFields = true,
+                compositeLiteralTypes = true,
+                constantValues = true,
+                functionTypeParameters = true,
+                parameterNames = true,
+                rangeVariableTypes = true,
+              },
+            },
+          },
+        },
+        rust_analyzer = {
+          settings = {
+            imports = {
+              granularity = { group = 'module' },
+              prefix = 'self',
+            },
+            cargo = {
+              buildScripts = {
+                enable = true,
+              },
+            },
+            procMacro = {
+              enable = true,
+            },
+          },
+        },
         basedpyright = {
           cmd = { 'basedpyright-langserver', '--stdio' },
           root_dir = function(fname)
