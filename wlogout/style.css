@@ -1,21 +1,28 @@
-window {
-    font-family: Maple Mono NF CN;
-    font-size: 16pt;
-    color: #1e1e1e;
-    background-color: rgba(158, 226, 213, 0.2);
+* {
+    font-family: "Maple Mono NF CN";
+	background-image: none;
+	transition: 20ms;
+	box-shadow: none;
 }
 
+window {
+    background: url("./blurred_wallpaper.png");
+    background-size: cover;
+    font-size: 16pt;
+    color: #cdd6f4;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8); /* Optional shadow to enhance the effect */
+}
+
+
 button {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 20%;
-    background-color: transparent;
-    animation: gradient_f 20s ease-in infinite;
-    transition: all 0.3s ease-in;
-    box-shadow: 0 0 10px 2px transparent;
-    border-radius: 20px;
-    margin: 10px;
-    border: none;
+	background-repeat: no-repeat;
+    	background-position: center;
+    	background-size: 20%;
+    	background-color: rgba(200, 220, 255, 0);
+    	animation: gradient_f 20s ease-in infinite;
+    	border-radius: 20px; /* Increased border radius for a more rounded look */
+	border:0px;
+	transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.682), box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 button:focus {
