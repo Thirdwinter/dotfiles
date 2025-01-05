@@ -9,10 +9,9 @@
 
 /*****----- Configuration -----*****/
 configuration {
-	modi:                       "drun,run,filebrowser,window";
+	modi:                       "drun,filebrowser,window";
     show-icons:                 true;
     display-drun:               " Apps";
-    display-run:                " Run";
     display-filebrowser:        " Files";
     display-window:             " Windows";
 	drun-display-format:        "{name}";
@@ -115,6 +114,7 @@ prompt {
 textbox-prompt-colon {
     enabled:                     true;
     padding:                     5px 0px;
+    width:                       20px;
     expand:                      false;
     str:                         "";
     background-color:            inherit;
