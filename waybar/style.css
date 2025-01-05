@@ -7,7 +7,9 @@
 }
 
 window#waybar {
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white background */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Optional shadow to enhance the effect */
+  border-radius: 15px; /* Optional rounded corners */
 }
 
 #taskbar {
@@ -39,7 +41,7 @@ window#waybar {
 
 
 #workspaces button {
-  border-radius: 5px;
+  border-radius: 50%;
   /* 增加圆角 */
   margin: 0.2rem;
   /* 均匀外边距 */
@@ -95,7 +97,7 @@ window#waybar {
   /* 调整内边距 */
   padding-right: 0.4rem;
   /* 调整内边距 */
-  border-radius: 5px;
+  border-radius: 15px;
   margin: 0.2rem;
   /* 均匀外边距 */
   background-color: #1e1e2e;
@@ -104,13 +106,14 @@ window#waybar {
 }
 
 #mpris.playing {
-  color: #a6e3a1;
+  background-color: transparent;
+  color: #45475a;
   /* Mocha Green */
 }
 
 #mpris.paused {
   color: #9399b2;
-  /* Mocha Subtext1 */
+  background-color: transparent;
 }
 
 #custom-sep {
@@ -134,64 +137,69 @@ window#waybar.empty #window {
 }
 
 #memory {
-  background-color: #cba6f7;
+  /*background-color: #cba6f7;*/
+  background-color: transparent;
   /* Mocha Lavender */
   color: #1e1e2e;
 }
 
 #clock {
-  background-color: #b4befe;
+  /*background-color: #b4befe;*/
+  background-color: transparent;
   /* Mocha Light Blue */
   color: #1e1e2e;
 }
 
 #network {
-  background-color: #a6e3a1;
+  background-color: transparent;
   /* Mocha Green */
   color: #1e1e2e;
 }
 
 #window {
-  background-color: #f5c2e7;
+  background-color: transparent;
   /* 马卡龙粉 */
   color: #1e1e2e;
 }
 
 #pulseaudio {
-  background-color: #89b4fa;
+  background-color: transparent;
   /* Mocha Blue */
   color: #1e1e2e;
 }
 
 #pulseaudio.muted {
-  background-color: #a6adc8;
+  background-color: transparent;
   /* Mocha Subtext0 */
   color: #1e1e2e;
 }
 
 #custom-notification {
-  background-color: #f38ba8;
+  background-color: transparent;
   /* Mocha Red */
-  color: #ffffff;
+  color: #1E1E2E;
   /* 高对比 */
-  padding-left: 0.7rem;
-  font-size: 14px;
+  /*padding-left: 0.7rem;*/
+  /*font-size: 14px;*/
 }
 
 #tray {
-  background-color: #cba6f7;
+  /*border: 2px solid black;*/
+  /*background-color: #cba6f7;*/
+  background-color: transparent;
   /* Mocha Lavender */
   color: #1e1e2e;
   padding: 0.4rem;
 }
 
 #custom-setwallpaper {
-  background-color: #fab387;
+  border-radius: 50%;
+  background-color: transparent;
   /* 马卡龙暖橙 */
   color: #1e1e2e;
-  padding-left: 0.8rem;
-  padding-right: 0.8rem;
-  font-size: 14px;
+  /*padding-left: 0.8rem;*/
+  /*padding-right: 0.8rem;*/
+  /*font-size: 14px;*/
 }
 
 #battery {

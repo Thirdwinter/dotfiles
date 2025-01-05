@@ -2,21 +2,22 @@
   "layer": "top",
   "position": "top",
   "height": 30,
-  "spacing": 2,
+  "spacing": 1,
   "exclusive": true,
   "gtk-layer-shell": true,
   "passthrough": false,
   "fixed-center": true,
   "modules-left": [
     "hyprland/workspaces",
-    "hyprland/window"
+    "hyprland/window",
+    "mpris",
   ],
   //"wlr/taskbar"
-  "modules-center": [],
+  "modules-center": [
+    "clock"
+  ],
   "modules-right": [
-    "mpris",
     "memory",
-    "clock",
     "pulseaudio",
     "network",
     "custom/notification",
@@ -93,7 +94,7 @@
     }
   },
   "hyprland/workspaces": {
-    "format": "{id}",
+    "format": "{icon}",
     "on-click": "activate",
     "sort-by-number": true,
     "all-outputs": true,
@@ -108,8 +109,8 @@
     "spacing": 5
   },
   "clock": {
-    "format": " {:%H:%M}",
-    "format-alt": " {:L%Y-%m-%d  %H:%M}",
+    "format-alt": " {:%H:%M}",
+    "format": " {:L%Y年%m月%d日  %H时%M分}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "calendar": {
       "mode": "month",
