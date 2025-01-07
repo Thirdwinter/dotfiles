@@ -5,7 +5,7 @@ screenshot
 effect-blur=9x5
 effect-vignette=0.5:0.5
 color=1f1d2e80
-font="Inter"
+font="Maple Mono NF CN"
 indicator
 indicator-radius=200
 indicator-thickness=20
@@ -32,7 +32,7 @@ bs-hl-color=31748f
 grace=2
 grace-no-mouse
 grace-no-touch
-datestr=%b %e%a
+datestr=%Y-%m-%d
 timestr=%I:%m
 fade-in=0.2
 ignore-empty-password

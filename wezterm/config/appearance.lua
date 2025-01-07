@@ -1,13 +1,13 @@
 local wezterm = require('wezterm')
 -- local gpu_adapters = require('utils.gpu_adapter')
--- local gpus = wezterm.gui.enumerate_gpus()
+local gpus = wezterm.gui.enumerate_gpus()
 local colors = require('colors.custom')
 return {
-   -- animation_fps = 60,
-   -- max_fps = 60,
+   animation_fps = 60,
+   max_fps = 60,
    -- webgpu_preferred_adapter = gpu_adapters:pick_best(),
-   -- front_end = 'WebGpu', -- WebGpu OpenGL
-   -- webgpu_power_preference = 'HighPerformance',
+   front_end = 'WebGpu', -- WebGpu OpenGL
+   webgpu_power_preference = 'HighPerformance',
    -- default_cursor_style = 'SteadyBlock',
    colors = {
       cursor_bg = '#f38ba8',
@@ -15,6 +15,7 @@ return {
       cursor_border = '#f5e0dc',
       cursor_fg = '#11111b',
    },
+   default_cursor_style = 'SteadyBar',
    color_scheme = 'catppuccin-mocha', ---@type 'duskfox'| 'Dracula+' | 'Tokyo Night Moon' |'catppuccin-mocha'
 
    -- window_background_opacity = 0.2,
