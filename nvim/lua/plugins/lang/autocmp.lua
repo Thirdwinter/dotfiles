@@ -1,4 +1,7 @@
 ---@diagnostic disable: undefined-global
+if vim.g.cmpUsed ~= 'cmp' then
+  return {}
+end
 local function has_words_before()
   local line, col = (unpack or table.unpack)(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match '%s' == nil
@@ -79,7 +82,7 @@ return { -- Autocompletion
         Struct = '󰙅 ',
         Event = ' ',
         Operator = '󰆕 ',
-        TypeParameter = '',
+        TypeParameter = '󰬛 ',
       },
     }
     cmp.setup {
@@ -121,9 +124,9 @@ return { -- Autocompletion
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<CR>'] = cmp.mapping.confirm { select = true },
-        ['<C-Space>'] = cmp.mapping.complete {},
-        ['<c-j>'] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Select, count = 1 },
-        ['<c-k>'] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Select, count = 1 },
+        ['<c-n>'] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Select, count = 1 },
+        ['<c-p>'] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Select, count = 1 },
+        ['<c-j>'] = cmp.mapping.confirm { select = true },
         ['<Tab>'] = cmp.mapping(function(fallback)
           if is_visible(cmp) then
             cmp.select_next_item { behavior = cmp.SelectBehavior.Select, count = 1 }

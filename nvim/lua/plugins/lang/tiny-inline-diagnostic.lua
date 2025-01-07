@@ -16,8 +16,16 @@ return {
   config = function()
     -- Default configuration
     require('tiny-inline-diagnostic').setup {
-      preset = 'ghost', -- Can be: "modern", "classic", "minimal", "ghost", "simple", "nonerdfont", "amongus"
-
+      preset = 'modern', -- Can be: "modern", "classic", "minimal", "ghost", "simple", "nonerdfont", "amongus"
+      hi = {
+        error = 'DiagnosticError',
+        warn = 'DiagnosticWarn',
+        info = 'DiagnosticInfo',
+        hint = 'DiagnosticHint',
+        arrow = 'NonText',
+        background = 'CursorLine', -- Can be a highlight or a hexadecimal color (#RRGGBB)
+        mixing_color = 'CursorLine', -- Can be None or a hexadecimal color (#RRGGBB). Used to blend the background color with the diagnostic background color with another color.
+      },
       options = {
         -- Throttle the update of the diagnostic when moving cursor, in milliseconds.
         -- You can increase it if you have performance issues.

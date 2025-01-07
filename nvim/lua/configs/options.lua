@@ -4,6 +4,8 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.g.borderStyle = 'single'
+vim.g.cmpUsed = 'blink' ---@type 'blink' | 'cmp'
 -- 如果你在终端中安装并选择了 Nerd 字体，则设置为 true
 vim.g.have_nerd_font = true
 

@@ -23,6 +23,7 @@ return {
       { 'williamboman/mason.nvim', config = true }, -- 注意：必须在依赖之前加载
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
+      'saghen/blink.cmp',
 
       -- LSP 的有用状态更新。
       -- 注意：`opts = {}` 与调用 `require('fidget').setup({})` 相同
@@ -35,42 +36,42 @@ return {
       --INFO: disable diagnostic using tiny-inline-diagnostic
 
       -- 导入必要的模块
-      -- local vim_diagnostic = vim.diagnostic
-      --
-      -- -- 定义诊断图标
-      -- local signs = {
-      --   { name = 'DiagnosticSignError', text = '', color = 'DiagnosticError' },
-      --   { name = 'DiagnosticSignWarn', text = '', color = 'DiagnosticWarn' },
-      --   { name = 'DiagnosticSignHint', text = '', color = 'DiagnosticHint' },
-      --   { name = 'DiagnosticSignInfo', text = '', color = 'DiagnosticInfo' },
-      -- }
-      --
-      -- -- 注册诊断图标
-      -- for _, sign in ipairs(signs) do
-      --   vim.fn.sign_define(sign.name, { text = sign.text, texthl = sign.color, numhl = '' })
-      -- end
-      --
-      -- -- 配置诊断显示
-      -- vim_diagnostic.config {
-      --   -- underline = true,
-      --   -- update_in_insert = false,
-      --   virtual_text = {
-      --     spacing = 4,
-      --     perfix = '●',
-      --   },
-      --   signs = { active = signs }, -- 是否在边缘显示诊断图标
-      --   underline = true, -- 是否给诊断信息下的文本加下划线
-      --   severity_sort = true, -- 是否根据严重性级别排序
-      --   update_in_insert = true, -- 在插入模式下是否更新诊断信息
-      --   float = { -- 浮动窗口的配置
-      --     focusable = false,
-      --     style = 'minimal',
-      --     border = 'rounded',
-      --     -- source = 'always',
-      --     header = '',
-      --     prefix = '',
-      --   },
-      -- }
+      local vim_diagnostic = vim.diagnostic
+
+      -- 定义诊断图标
+      local signs = {
+        { name = 'DiagnosticSignError', text = '', color = 'DiagnosticError' },
+        { name = 'DiagnosticSignWarn', text = '', color = 'DiagnosticWarn' },
+        { name = 'DiagnosticSignHint', text = '', color = 'DiagnosticHint' },
+        { name = 'DiagnosticSignInfo', text = '', color = 'DiagnosticInfo' },
+      }
+
+      -- 注册诊断图标
+      for _, sign in ipairs(signs) do
+        vim.fn.sign_define(sign.name, { text = sign.text, texthl = sign.color, numhl = '' })
+      end
+
+      -- 配置诊断显示
+      vim_diagnostic.config {
+        -- underline = true,
+        -- update_in_insert = false,
+        -- virtual_text = {
+        --   spacing = 4,
+        --   perfix = '●',
+        -- },
+        signs = { active = signs }, -- 是否在边缘显示诊断图标
+        underline = true, -- 是否给诊断信息下的文本加下划线
+        severity_sort = true, -- 是否根据严重性级别排序
+        update_in_insert = true, -- 在插入模式下是否更新诊断信息
+        float = { -- 浮动窗口的配置
+          focusable = false,
+          style = 'minimal',
+          border = 'rounded',
+          -- source = 'always',
+          header = '',
+          prefix = '',
+        },
+      }
 
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
@@ -156,7 +157,7 @@ return {
           -- 如果你使用的语言服务器支持它们
           --
           -- 这可能是不需要的，因为它们会替换你的一些代码
-          vim.lsp.inlay_hint.enable(true)
+          vim.lsp.inlay_hint.enable(false)
           if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
             map('<leader>th', function()
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
