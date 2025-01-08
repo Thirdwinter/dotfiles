@@ -1,6 +1,6 @@
 --INFO: 一些自定义的颜色
 
-vim.cmd.colorscheme 'catppuccin-mocha' ---@type 'monet'|'tokyonight'|'nightly'|'yash'|'everforest'|'newpaper'|'nightfox'|'terafox'|'dracula'|'dracula-soft'
+vim.cmd.colorscheme 'catppuccin-mocha' ---@type 'tokyonight'|'catppuccin'|'rose-pine-main'|'nightfox'|'terafox'|'dracula'|'dracula-soft'
 -- Hide semantic highlights for functions
 -- vim.api.nvim_set_hl(0, '@lsp.type.function', {})
 

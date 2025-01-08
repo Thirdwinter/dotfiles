@@ -3,7 +3,6 @@
 --  注意：必须在插件加载之前设置（否则会使用错误的 leader）
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-
 vim.g.borderStyle = 'single'
 vim.g.cmpUsed = 'blink' ---@type 'blink' | 'cmp'
 -- 如果你在终端中安装并选择了 Nerd 字体，则设置为 true

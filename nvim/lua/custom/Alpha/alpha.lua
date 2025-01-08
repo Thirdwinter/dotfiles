@@ -45,20 +45,8 @@ dashboard.section.buttons.val = {
 
 dashboard.section.footer.val = getGreeting 'ThirdWinter'
 
--- vim.api.nvim_create_autocmd("User", {
---   pattern = "LazyVimStarted",
---   desc = "Add Alpha dashboard footer",
---   once = true,
---   callback = function()
--- local stats = require("lazy").stats()
--- local ms = math.floor(stats.startuptime * 100 + 0.5) / 100
--- dashboard.section.footer.val =
---   { " ", " ", " ", " Loaded " .. stats.count .. " plugins  in " .. ms .. " ms " }
 dashboard.section.header.val = vim.split(logo, '\n')
 dashboard.section.header.opts = { hl = 'DashboardFooter', position = 'center' }
--- pcall(vim.cmd.AlphaRedraw)
--- end,
--- })
 dashboard.config.layout = {
   { type = 'padding', val = 2 },
   dashboard.section.header,
