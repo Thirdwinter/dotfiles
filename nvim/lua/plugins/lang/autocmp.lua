@@ -51,7 +51,6 @@ return { -- Autocompletion
     -- See `:help cmp`
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
-
     vim.api.nvim_set_hl(0, 'CmpCursorLine', { bg = '#a6e3a1', fg = '#1e1e2e', bold = true })
     luasnip.config.setup {}
     require('lspkind').init {
@@ -109,12 +108,15 @@ return { -- Autocompletion
       completion = { completeopt = 'menu,menuone,noinsert' },
       window = {
         completion = {
-          border = 'rounded',
+          border = vim.g.borderStyle,
           scrollbar = false,
           col_offset = -3,
           winhighlight = 'CursorLine:CmpCursorLine',
         },
-        documentation = cmp.config.window.bordered { winhighlight = 'CursorLine:CmpCursorLine' },
+        documentation = cmp.config.window.bordered {
+          winhighlight = 'CursorLine:CmpCursorLine',
+          border = vim.g.borderStyle,
+        },
         -- documentation = {
         --   border = 'rounded',
         -- },

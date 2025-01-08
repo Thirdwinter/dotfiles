@@ -171,16 +171,11 @@ return {
       --  当你添加 nvim-cmp，luasnip 等，Neovim 现在有 *更多* 的功能。
       --  因此，我们使用 nvim cmp 创建新的功能，然后将其广播到服务器。
       local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
-      -- capabilities = vim.tbl_deep_extend('force', capabilities, {
-      --   semanticTokensProvider = {
-      --     full = true,
-      --   },
-      -- })
+      -- capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+      capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities())
 
       local mason_servers = {
         clangd = { capabilities = { offsetEncoding = 'utf-8' }, cmd = { 'clangd' } },
-        ['clang-format'] = { capabilities = { offsetEncoding = 'utf-8' }, cmd = { 'clang-format' } },
         pylsp = {
           pyflake = { enabled = false },
           pylint = { enabled = false },
@@ -194,8 +189,6 @@ return {
               completion = {
                 callSnippet = 'Replace',
               },
-              -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-              -- diagnostics = { disable = { 'missing-fields' } },
             },
           },
         },
@@ -206,25 +199,21 @@ return {
       local ensure_installed = { 'stylua', 'lua-language-server' }
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
-      require('mason-lspconfig').setup {
-        handlers = {
-          function(server_name)
-            local server = mason_servers[server_name] or {}
-            -- This handles overriding only values explicitly passed
-            -- by the server configuration above. Useful when disabling
-            -- certain features of an LSP (for example, turning off formatting for tsserver)
-            server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            -- NOTE: Uncomment this line if you want to change hover highlight
-            -- But this will change help page highlight too!
-            -- vim.api.nvim_set_hl(0, 'NormalFloat', { bg = palette.crust, fg = palette.text })
-            server.handler = {
-              ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'single' }),
-              ['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'single' }),
-            }
-            require('lspconfig')[server_name].setup(server)
-          end,
-        },
-      }
+      -- Define custom handlers for hover and signature help
+      local lspconfig = require 'lspconfig'
+      -- local custom_handlers = {
+      --   ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'single' }),
+      --   ['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'single' }),
+      -- }
+      local function setup_server_mason(server_name, config)
+        -- Extend capabilities with defaults and server-specific capabilities
+        config.capabilities = vim.tbl_deep_extend('force', {}, capabilities, config.capabilities or {})
+        -- config.handlers = vim.tbl_deep_extend('force', {}, custom_handlers, config.handlers or {})
+        lspconfig[server_name].setup(config)
+      end
+      for server_name, config in pairs(mason_servers) do
+        setup_server_mason(server_name, config)
+      end
 
       local local_servers = {
         jdtls = {},

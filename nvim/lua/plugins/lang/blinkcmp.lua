@@ -1,6 +1,8 @@
 if vim.g.cmpUsed ~= 'blink' then
   return {}
 end
+
+-- local max = math.ceil(vim.api.nvim_win_get_width(0) * 0.55)
 return {
   'saghen/blink.cmp',
   -- optional: provides snippets for the snippet source
@@ -16,10 +18,6 @@ return {
   ---@type blink.cmp.Config
   opts = {
     signature = { enabled = true },
-    -- 'default' for mappings similar to built-in completion
-    -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
-    -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
-    -- See the full "keymap" documentation for information on defining your own keymap.
     keymap = {
       preset = 'none',
       ['<C-e>'] = { 'show', 'hide' },
@@ -68,7 +66,7 @@ return {
       kind_icons = {
         Text = '󰉿 ',
         Method = '󰆧 ',
-        Function = '󰊕 ',
+        Function = 'F ',
         Constructor = ' ',
         Field = '󰜢 ',
         Variable = '󰀫 ',
@@ -100,15 +98,25 @@ return {
       menu = {
         scrollbar = false,
         border = vim.g.borderStyle,
-        auto_show = true,
+        -- auto_show = true,
+        auto_show = function(ctx)
+          -- 判断是否是命令行模式
+          local is_cmdline_mode = ctx.mode == 'cmdline'
+          -- 判断命令行类型是否为搜索命令（/ 或 ?）
+          local is_search_cmd = vim.tbl_contains({ '/', '?' }, vim.fn.getcmdtype())
+
+          -- 返回 false 当处于命令行模式或搜索模式
+          return not (is_cmdline_mode or is_search_cmd)
+        end,
         draw = {
+          align_to = 'none',
           columns = {
             { 'kind_icon', gap = 1, 'kind' },
             { 'label', 'label_description', gap = 1 },
           },
           components = {
             label = {
-              width = { fill = true, max = 60 },
+              width = { fill = true, max = 40 },
               text = function(ctx)
                 local highlights_info = require('colorful-menu').blink_highlights(ctx)
                 if highlights_info ~= nil then
