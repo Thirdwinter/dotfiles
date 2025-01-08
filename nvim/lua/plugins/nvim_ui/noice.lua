@@ -10,7 +10,7 @@ return {
       require('noice').notify(...)
     end
   end,
-  version = '4.4.7', -- Make sure to update this to something recent!
+  -- version = '4.4.7', -- Make sure to update this to something recent!
   dependencies = {
     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
     'MunifTanjim/nui.nvim',
@@ -62,19 +62,30 @@ return {
       hover = {
         silent = true,
       },
+      documentation = {
+        view = 'hover',
+        ---@type NoiceViewOptions
+        opts = {
+          lang = 'markdown',
+          replace = true,
+          render = 'plain',
+          format = { '{message}' },
+        },
+      },
     },
     views = {
       cmdline_popup = {
         border = {
-          style = 'rounded',
+          style = vim.g.borderStyle,
         },
       },
       hover = {
+        scrollbar = false,
         size = {
           max_width = 40,
         },
         border = {
-          style = 'rounded',
+          style = vim.g.borderStyle,
           padding = { 0, 'rounded' == 'none' and 2 or 0 },
         },
         position = {

@@ -1,13 +1,9 @@
--- 注意：插件可以指定依赖项。
---
--- 依赖项也是适当的插件规范 - 你可以为顶层插件做的任何事情，也可以为依赖项做。
---
--- 使用 `dependencies` 键来指定特定插件的依赖项
-
-return { -- 模糊查找器（文件，lsp 等）
+-- 模糊查找器（文件，lsp 等）
+return {
   'nvim-telescope/telescope.nvim',
   event = 'VimEnter',
-  branch = '0.1.x',
+  -- branch = '0.1.x',
+  tag = '0.1.8',
   dependencies = {
     'nvim-lua/plenary.nvim',
     { -- 如果遇到错误，请参见 telescope-fzf-native README 安装说明
@@ -59,8 +55,16 @@ return { -- 模糊查找器（文件，lsp 等）
             ['<c-enter>'] = 'to_fuzzy_refine',
             ['<esc>'] = actions.close,
             ['jj'] = actions.close,
-            ['<C-p>'] = false,
-            ['<C-n>'] = false,
+            ['<C-p>'] = {
+              actions.move_selection_previous,
+              type = 'action',
+              opts = { nowait = true, silent = true },
+            },
+            ['<C-n>'] = {
+              actions.move_selection_next,
+              type = 'action',
+              opts = { nowait = true, silent = true },
+            },
             ['<C-k>'] = {
               actions.move_selection_previous,
               type = 'action',
@@ -90,20 +94,7 @@ return { -- 模糊查找器（文件，lsp 等）
     -- 如果安装了 Telescope 扩展，则启用它们
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
-
     -- 参见 `:help telescope.builtin`
-    -- local builtin = require 'telescope.builtin'
-
-    -- 稍微高级一点的例子，覆盖默认行为和主题
-    -- vim.keymap.set('n', '<leader>/', function()
-    --     -- 你可以传递额外的配置给 Telescope 来改变主题、布局等。
-    --     builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-    --         winblend = 10,
-    --         previewer = false,
-    --     })
-    -- end, { desc = '[/] Fuzzily search in current buffer' })
-
-    -- 也可以传递额外的配置选项。
     -- 参见 `:help telescope.builtin.live_grep()` 了解特定键的信息
   end,
 }
