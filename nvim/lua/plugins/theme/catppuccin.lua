@@ -40,7 +40,7 @@ return {
       conditionals = { 'italic' },
       loops = {},
       functions = { 'italic' },
-      keywords = { 'italic' },
+      keywords = { 'italic', 'bold' },
       strings = {},
       variables = {},
       numbers = {},
