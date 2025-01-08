@@ -1,3 +1,24 @@
+--INFO: enabled formaters
+local formaters = {
+  lua = { 'stylua' },
+  yaml = { 'yamlfmt' },
+  go = { 'gofmt' },
+  xml = { 'xmlformatter' },
+  c = { 'clang-format' },
+  cpp = { 'clang-format' },
+  json = { 'jq' },
+  jsonc = { 'jq' },
+  zsh = { 'beautysh' },
+  sh = { 'beautysh' },
+  rust = { 'rustfmt' },
+  typescript = { 'ts-standard' },
+  typescriptreact = { 'ts-standard' },
+
+  -- Conform can also run multiple formatters sequentially
+  -- python = { "isort", "black" },
+  -- You can use 'stop_after_first' to run the first available formatter from the list
+  -- javascript = { "prettierd", "prettier", stop_after_first = true },
+}
 return { -- Autoformat
   'stevearc/conform.nvim',
   event = { 'BufWritePre' },
@@ -30,24 +51,6 @@ return { -- Autoformat
         lsp_format = lsp_format_opt,
       }
     end,
-    formatters_by_ft = {
-      lua = { 'stylua' },
-      yaml = { 'yamlfmt' },
-      go = { 'gofmt' },
-      xml = { 'xmlformatter' },
-      c = { 'clang-format' },
-      cpp = { 'clang-format' },
-      json = { 'cland-format' },
-      zsh = { 'beautysh' },
-      sh = { 'beautysh' },
-      rust = { 'rustfmt' },
-      typescript = { 'ts-standard' },
-      typescriptreact = { 'ts-standard' },
-      -- Conform can also run multiple formatters sequentially
-      -- python = { "isort", "black" },
-      --
-      -- You can use 'stop_after_first' to run the first available formatter from the list
-      -- javascript = { "prettierd", "prettier", stop_after_first = true },
-    },
+    formatters_by_ft = formaters,
   },
 }

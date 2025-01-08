@@ -157,22 +157,13 @@ return {
     },
     sources = {
       default = { 'snippets', 'lsp', 'path', 'buffer', 'lazydev' },
+      cmdline = {},
       providers = {
         lsp = {
           name = 'LSP',
           fallbacks = {
             'lazydev',
           },
-          transform_items = function(_, items)
-            -- the default transformer will do this
-            for _, item in ipairs(items) do
-              if item.kind == require('blink.cmp.types').CompletionItemKind.Snippet then
-                item.score_offset = item.score_offset - 3
-              end
-            end
-            -- you can define your own filter for rime item
-            return items
-          end,
         },
         lazydev = {
           name = 'Development',

@@ -2,6 +2,7 @@ return {
   'rcarriga/nvim-notify',
   event = 'VeryLazy',
   opts = {
+    render = 'compact',
     level = 2,
     stages = 'fade_in_slide_out',
     timeout = 1500,
@@ -18,6 +19,5 @@ return {
   init = function()
     local notify = require 'notify'
     vim.notify = notify
-    -- vim.keymap.set("n", "<leader>fh", "<Cmd>Telescope notify<CR>", { desc = "Notify History" })
   end,
 }

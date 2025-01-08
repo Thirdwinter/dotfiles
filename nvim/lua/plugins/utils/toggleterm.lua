@@ -6,7 +6,7 @@ return {
   version = '*',
   event = 'VeryLazy',
   opts = function()
-    require 'custom.Toggleterm'
+    require 'custom.Toggleterm.shell'
   end,
   -- opts = {--[[ things you want to change go here]]
   -- },

@@ -1,3 +1,17 @@
+--INFO: treesitter ensure_installed
+local ensure_installed = {
+  'lua',
+  'vim',
+  'go',
+  'rust',
+  'c',
+  'python',
+  'json',
+  'yaml',
+  'ini',
+  'toml',
+  'markdown',
+}
 return { -- 高亮显示、编辑和导航代码
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
@@ -6,20 +20,7 @@ return { -- 高亮显示、编辑和导航代码
   config = function()
     require('nvim-treesitter.configs').setup {
       modules = {},
-      ensure_installed = {
-        'lua',
-        'vim',
-        'go',
-        'rust',
-        'c',
-        'python',
-        'json',
-        'yaml',
-        'xml',
-        'ini',
-        'toml',
-        'markdown',
-      },
+      ensure_installed = ensure_installed,
       -- Install parsers synchronously (only applied to `ensure_installed`)
       sync_install = false,
       -- Automatically install missing parsers when entering buffer
@@ -44,7 +45,7 @@ return { -- 高亮显示、编辑和导航代码
       },
       -- 启用基于 Treesitter 的代码格式化(=)
       indent = {
-        enable = true,
+        enable = false,
       },
     }
     -- 开启代码折叠

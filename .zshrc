@@ -202,6 +202,9 @@ alias gps="git push"
 alias gpl="git pull"
 alias lg="lazygit"
 alias f="clear;fastfetch"
+alias ...="cd ../../"
+alias ....="cd ../../../"
+alias .....="cd ../../../../"
 
 # p10k 限制提示符目录长度 方式为限制目录节，最大数量为3
 export POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_last_folder"
