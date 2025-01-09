@@ -1,14 +1,14 @@
 local lsp_servers = {
   --INFO: install by mason
-  clangd = require 'plugins.lang.lsp_pack.clangd',
-  lua_ls = require 'plugins.lang.lsp_pack.lua_ls',
-  basedpyright = require 'plugins.lang.lsp_pack.basedpyright',
+  clangd = require 'custom.Lang.lsp.clangd',
+  lua_ls = require 'custom.Lang.lsp.lua_ls',
+  basedpyright = require 'custom.Lang.lsp.basedpyright',
   jdtls = {},
   jsonls = {},
 
   --INFO: local lsp servers
-  gopls = require 'plugins.lang.lsp_pack.gopls',
-  rust_analyzer = require 'plugins.lang.lsp_pack.rust_analyzer',
+  gopls = require 'custom.Lang.lsp.gopls',
+  rust_analyzer = require 'custom.Lang.lsp.rust_analyzer',
 }
 
 --INFO: mason_ensure_installed
@@ -36,9 +36,9 @@ return {
   },
   config = function()
     --INFO: disable diagnostic using tiny-inline-diagnostic
-    require 'plugins.lang.lsp_pack.diagnostic'
+    require 'custom.Lang.diagnostic'
     --INFO: lsp 相关的自动命令和键位映射
-    require 'plugins.lang.lsp_pack.lsp_cmd'
+    require 'custom.Lang.lsp_cmd'
 
     local lspconfig = require 'lspconfig'
     local capabilities = vim.lsp.protocol.make_client_capabilities()
