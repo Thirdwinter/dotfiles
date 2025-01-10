@@ -43,7 +43,7 @@ dashboard.section.buttons.val = {
   -- dashboard.button('d', '󱗼  Dotfiles', ':e $HOME/dotfiles <CR>'),
 }
 
-dashboard.section.footer.val = getGreeting 'ThirdWinter'
+dashboard.section.footer.val = getGreeting(vim.g.Username)
 
 dashboard.section.header.val = vim.split(logo, '\n')
 dashboard.section.header.opts = { hl = 'DashboardFooter', position = 'center' }

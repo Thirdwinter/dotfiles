@@ -1,5 +1,4 @@
-require 'configs.options'
-
+--INFO: set lazyrepo and local path
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
@@ -10,7 +9,8 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
-require 'lazy_setup'
+require 'configs.options' --INFO: Options must be loaded before plugins
+require 'lazy_setup' --INFO: loadind lazy plugins
 require 'configs.basic_keymaps'
 require 'configs.basic_autocmd'
-require 'configs.hl'
+require 'configs.hl' --INFO: colorscheme setting in 'config.hl'

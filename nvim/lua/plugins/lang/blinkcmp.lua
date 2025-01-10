@@ -2,7 +2,7 @@ if vim.g.cmpUsed ~= 'blink' then
   return {}
 end
 
--- local max = math.ceil(vim.api.nvim_win_get_width(0) * 0.55)
+local max = vim.api.nvim_win_get_width(0)
 return {
   'saghen/blink.cmp',
   -- optional: provides snippets for the snippet source
@@ -17,10 +17,37 @@ return {
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
   opts = {
-    signature = { enabled = true },
+    signature = {
+      enabled = true,
+      window = {
+        border = vim.g.borderStyle,
+      },
+    },
     keymap = {
+      cmdline = {
+        preset = 'none',
+        ['<Tab>'] = {
+          function(cmp)
+            local is_search_cmd = vim.tbl_contains({ '/', '?' }, vim.fn.getcmdtype())
+            if is_search_cmd then
+              cmp.accept {
+                callback = function()
+                  vim.api.nvim_feedkeys('\n', 'n', true)
+                end,
+              }
+            else
+              cmp.accept()
+            end
+          end,
+        },
+        ['<CR>'] = { 'select_and_accept', 'fallback' },
+        ['<C-e>'] = { 'show', 'hide' },
+        ['<C-p>'] = { 'select_prev', 'fallback' },
+        ['<C-n>'] = { 'select_next', 'fallback' },
+      },
       preset = 'none',
       ['<C-e>'] = { 'show', 'hide' },
+      ['<C-i>'] = { 'hide_documentation', 'show_documentation' },
       ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
       ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
       ['<C-p>'] = { 'select_prev', 'fallback' },
@@ -56,12 +83,7 @@ return {
     },
 
     appearance = {
-      -- Sets the fallback highlight groups to nvim-cmp's highlight groups
-      -- Useful for when your theme doesn't support blink.cmp
-      -- Will be removed in a future release
       use_nvim_cmp_as_default = true,
-      -- Set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-      -- Adjusts spacing to ensure icons are aligned
       nerd_font_variant = 'mono',
       kind_icons = {
         Text = '󰉿 ',
@@ -98,25 +120,26 @@ return {
       menu = {
         scrollbar = false,
         border = vim.g.borderStyle,
-        -- auto_show = true,
-        auto_show = function(ctx)
-          -- 判断是否是命令行模式
-          local is_cmdline_mode = ctx.mode == 'cmdline'
-          -- 判断命令行类型是否为搜索命令（/ 或 ?）
-          local is_search_cmd = vim.tbl_contains({ '/', '?' }, vim.fn.getcmdtype())
-
-          -- 返回 false 当处于命令行模式或搜索模式
-          return not (is_cmdline_mode or is_search_cmd)
-        end,
+        auto_show = true,
+        -- auto_show = function(ctx)
+        --   -- 判断是否是命令行模式
+        --   ---@diagnostic disable-next-line: unused-local
+        --   local is_cmdline_mode = ctx.mode == 'cmdline'
+        --   -- 判断命令行类型是否为搜索命令（/ 或 ?）
+        --   local is_search_cmd = vim.tbl_contains({ '/', '?' }, vim.fn.getcmdtype())
+        --
+        --   -- 返回 false 当处于命令行模式或搜索模式
+        --   return not is_search_cmd
+        -- end,
         draw = {
           align_to = 'none',
           columns = {
-            { 'kind_icon', gap = 1, 'kind' },
-            { 'label', 'label_description', gap = 1 },
+            { 'label' },
+            { 'kind_icon', 'kind' },
           },
           components = {
             label = {
-              width = { fill = true, max = 40 },
+              width = { fill = true, max = math.ceil(max * 0.25) },
               text = function(ctx)
                 local highlights_info = require('colorful-menu').blink_highlights(ctx)
                 if highlights_info ~= nil then
@@ -139,6 +162,17 @@ return {
                 return highlights
               end,
             },
+            kind = {
+              ellipsis = true,
+              width = { fill = false },
+            },
+            label_description = {
+              width = { max = 10 },
+              text = function(ctx)
+                return ctx.label_description
+              end,
+              highlight = 'BlinkCmpLabelDescription',
+            },
           },
         },
       },
@@ -146,6 +180,8 @@ return {
       -- Show documentation when selecting a completion item
       documentation = {
         window = {
+          max_width = math.ceil(max * 0.6),
+          max_height = 10,
           border = vim.g.borderStyle,
         },
         auto_show = true,
@@ -157,7 +193,7 @@ return {
     },
     sources = {
       default = { 'snippets', 'lsp', 'path', 'buffer', 'lazydev' },
-      cmdline = {},
+      -- cmdline = {},
       providers = {
         lsp = {
           name = 'LSP',

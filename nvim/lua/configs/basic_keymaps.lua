@@ -7,7 +7,9 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<leader>Q', '<Cmd>qa!<CR>', { noremap = true, silent = true, desc = 'Close Nvim' })
 vim.keymap.set('n', '<leader>q', '<Cmd>confirm q<CR>', { noremap = true, silent = true, desc = '退出' })
 vim.keymap.set('n', '<leader>w', '<Cmd>w!<CR>', { noremap = true, silent = true, desc = 'Save' })
-
+vim.keymap.set('n', '<leader>ld', function()
+  vim.diagnostic.open_float { source = true }
+end, { noremap = true, silent = true, desc = 'Diagnostic Info' })
 --INFO: NeoVide
 if vim.g.neovide then
   vim.keymap.set('n', '<C-s>', ':w<CR>', { noremap = true, silent = true }) -- Save

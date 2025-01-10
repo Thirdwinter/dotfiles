@@ -28,7 +28,7 @@ return {
 
       -- 在当前文档中模糊查找所有符号。
       -- 符号是变量、函数、类型等。
-      map('<leader>lds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+      -- map('<leader>lds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
 
       -- 在当前工作区中模糊查找所有符号。
       -- 类似于文档符号，只是搜索整个项目。

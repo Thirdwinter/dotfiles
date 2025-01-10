@@ -4,10 +4,11 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.g.borderStyle = 'single'
+-- vim.g.borderStyle = { '┌', '─', '┐', '│', '┘', '─', '└', '│' }
 vim.g.cmpUsed = 'blink' ---@type 'blink' | 'cmp'
 -- 如果你在终端中安装并选择了 Nerd 字体，则设置为 true
 vim.g.have_nerd_font = true
-
+vim.g.Username = 'ThirdWinter'
 -- [[ 设置选项 ]]
 -- 参见 `:help vim.opt`
 -- 注意：你可以根据自己喜好更改这些选项！

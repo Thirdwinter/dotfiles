@@ -1,12 +1,17 @@
 -- 导入必要的模块
 local vim_diagnostic = vim.diagnostic
-
+-- local mocha = require 'catppuccin.palettes.mocha'
+-- -- 添加波浪线样式，不修改高亮颜色
+-- vim.api.nvim_set_hl(0, 'DiagnosticUnderlineError', { undercurl = true, sp = mocha.red })
+-- vim.api.nvim_set_hl(0, 'DiagnosticUnderlineWarn', { undercurl = true, sp = mocha.yellow })
+-- vim.api.nvim_set_hl(0, 'DiagnosticUnderlineInfo', { undercurl = true, sp = mocha.green })
+-- vim.api.nvim_set_hl(0, 'DiagnosticUnderlineHint', { undercurl = true, sp = mocha.sky })
 -- 定义诊断图标
 local signs = {
-  { name = 'DiagnosticSignError', text = '', color = 'DiagnosticError' },
-  { name = 'DiagnosticSignWarn', text = '', color = 'DiagnosticWarn' },
-  { name = 'DiagnosticSignHint', text = '', color = 'DiagnosticHint' },
-  { name = 'DiagnosticSignInfo', text = '', color = 'DiagnosticInfo' },
+  { name = 'DiagnosticSignError', text = '', color = 'DiagnosticError' },
+  { name = 'DiagnosticSignWarn', text = '', color = 'DiagnosticWarn' },
+  { name = 'DiagnosticSignHint', text = '', color = 'DiagnosticHint' },
+  { name = 'DiagnosticSignInfo', text = '', color = 'DiagnosticInfo' },
 }
 
 -- 注册诊断图标
@@ -17,8 +22,6 @@ end
 -- 配置诊断显示
 return {
   vim_diagnostic.config {
-    -- underline = true,
-    -- update_in_insert = false,
     -- virtual_text = {
     --   spacing = 4,
     --   perfix = '●',
@@ -27,10 +30,11 @@ return {
     underline = true, -- 是否给诊断信息下的文本加下划线
     severity_sort = true, -- 是否根据严重性级别排序
     update_in_insert = true, -- 在插入模式下是否更新诊断信息
+    -- float = false,
     float = { -- 浮动窗口的配置
-      focusable = false,
+      focusable = true,
       style = 'minimal',
-      border = 'rounded',
+      border = vim.g.borderStyle,
       -- source = 'always',
       header = '',
       prefix = '',

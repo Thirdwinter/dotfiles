@@ -10,6 +10,7 @@ local zsh = Terminal:new {
     vim.cmd 'startinsert!'
     vim.api.nvim_buf_set_keymap(term.bufnr, 'n', 'q', '<cmd>close<CR>', { noremap = true, silent = true })
   end,
+  ---@diagnostic disable-next-line: unused-local
   on_close = function(term)
     vim.cmd 'startinsert!'
   end,
@@ -30,6 +31,7 @@ local nu = Terminal:new {
     vim.cmd 'startinsert!'
     vim.api.nvim_buf_set_keymap(term.bufnr, 'n', 'q', '<cmd>close<CR>', { noremap = true, silent = true })
   end,
+  ---@diagnostic disable-next-line: unused-local
   on_close = function(term)
     vim.cmd 'startinsert!'
   end,
@@ -40,6 +42,7 @@ end
 -- 设置键映射
 vim.api.nvim_set_keymap('n', '<leader>tn', '<cmd>lua _nu_toggle()<CR>', { noremap = true, silent = true, desc = 'float nushell' })
 
+---@diagnostic disable-next-line: lowercase-global
 function shell_toggle()
   local os_name = vim.uv.os_uname().sysname
   if os_name == 'Windows_NT' then
