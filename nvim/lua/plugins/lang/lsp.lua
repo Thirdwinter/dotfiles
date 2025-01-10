@@ -3,7 +3,7 @@ local lsp_servers = {
   clangd = require 'custom.Lang.lsp.clangd',
   lua_ls = require 'custom.Lang.lsp.lua_ls',
   basedpyright = require 'custom.Lang.lsp.basedpyright',
-  jdtls = {},
+  jdtls = require 'custom.Lang.lsp.jdtls',
   jsonls = {},
 
   --INFO: local lsp servers
@@ -50,7 +50,7 @@ return {
     require('mason-tool-installer').setup { ensure_installed = mason_ensure_installed }
     local custom_handlers = {
       --   ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'single' }),
-      --   ['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'single' }),
+      -- ['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' }),
     }
 
     for server_name, server_opts in pairs(lsp_servers) do
