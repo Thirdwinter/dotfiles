@@ -4,13 +4,8 @@
 # BEGIN_KITTY_FONTS
 font_family      family='Maple Mono NF CN' postscript_name=MapleMono-NF-CN-Regular features='cv03 ss01 ss02 ss04 ss05 ss07'
 bold_font        family='Maple Mono NF CN' postscript_name=MapleMono-NF-CN-Bold features='cv03 ss01 ss02 ss04 ss05 ss07'
-# italic_font      family='Maple Mono NF CN' style=Italic features='cv03=0 +ss01 +ss02 +ss04 +ss05 +ss07'
-# bold_italic_font family='Maple Mono NF CN' postscript_name=MapleMono-NF-CN-BoldItalic features='-cv03 ss01 ss02 ss04 ss05 ss07'
-
-# font_family      family="CaskaydiaMono Nerd Font"
-# bold_font        auto
-italic_font      family="CaskaydiaMono Nerd Font" style=Italic postscript_name=CaskaydiaMonoNerdFont-Italic
-bold_italic_font family="CaskaydiaMono Nerd Font" postscript_name=CaskaydiaMonoNerdFont-BoldItalic
+italic_font      family='Maple Mono NF CN' style=Italic features='cv03=0 +ss01 +ss02 +ss04 +ss05 +ss07'
+bold_italic_font family='Maple Mono NF CN' postscript_name=MapleMono-NF-CN-BoldItalic features='-cv03 ss01 ss02 ss04 ss05 ss07'
 # END_KITTY_FONTS
 
 
