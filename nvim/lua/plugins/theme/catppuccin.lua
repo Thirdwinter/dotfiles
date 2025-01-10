@@ -20,6 +20,7 @@ return {
       treesitter = true,
       notify = true,
       mason = true,
+      rainbow_delimiters = true,
       -- mini = {
       --   enabled = true,
       --   indentscope_color = '',
@@ -50,12 +51,16 @@ return {
       operators = {},
     },
     highlight_overrides = {
-      -- mocha = function(mocha)
-      --   return {
-      --     Comment = { fg = mocha.flamingo },
-      --     Identifier = { fg = mocha.mauve },
-      --   }
-      -- end,
+      mocha = function(mocha)
+        return {
+          -- Comment = { fg = mocha.flamingo },
+          -- Identifier = { fg = mocha.mauve },
+          DiagnosticUnderlineError = { undercurl = true, sp = mocha.red },
+          DiagnosticUnderlineWarn = { undercurl = true, sp = mocha.yellow },
+          DiagnosticUnderlineInfo = { undercurl = true, sp = mocha.green },
+          DiagnosticUnderlineHint = { undercurl = true, sp = mocha.sky },
+        }
+      end,
     },
     -- custom_highlights = function(C)
     --   return {
