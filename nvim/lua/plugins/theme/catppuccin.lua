@@ -53,8 +53,8 @@ return {
     highlight_overrides = {
       mocha = function(mocha)
         return {
-          -- Comment = { fg = mocha.flamingo },
-          -- Identifier = { fg = mocha.mauve },
+          Normal = { bg = '#1e1e2e' },
+          -- NormalFolat = { bg = '#1e1e2e' },
           DiagnosticUnderlineError = { undercurl = true, sp = mocha.red },
           DiagnosticUnderlineWarn = { undercurl = true, sp = mocha.yellow },
           DiagnosticUnderlineInfo = { undercurl = true, sp = mocha.green },

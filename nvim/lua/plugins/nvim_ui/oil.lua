@@ -20,6 +20,9 @@ return {
       ['<BS>'] = 'actions.parent',
     },
   },
+  keys = {
+    { '-', '<CMD>Oil --float<CR>', desc = 'Oil open parent directory' },
+  },
   -- Optional dependencies
   dependencies = { { 'echasnovski/mini.icons', opts = {} } },
   -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons

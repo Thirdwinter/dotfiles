@@ -2,7 +2,8 @@ return {
   'hedyhli/outline.nvim',
   lazy = true,
   cmd = { 'Outline', 'OutlineOpen' },
-  opts = {
-    -- Your setup opts here
+  opts = {},
+  keys = {
+    { '<leader>lso', '<CMD>Outline<CR>', { desc = '[S]ymblol [O]utline' } },
   },
 }

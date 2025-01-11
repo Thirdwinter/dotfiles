@@ -1,5 +1,8 @@
+--INFO: 强化'%'选中
 return {
   'andymass/vim-matchup',
   event = { 'BufReadPost', 'BufNewFile' },
-  opts = {},
+  config = function()
+    vim.g.matchup_matchparen_offscreen = { methon = 'popup' }
+  end,
 }

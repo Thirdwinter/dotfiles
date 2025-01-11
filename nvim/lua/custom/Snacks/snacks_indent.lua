@@ -17,15 +17,24 @@ return {
   scope = {
     enabled = true, -- enable highlighting the current scope
     priority = 200,
-    char = '│',
+    char = '┋',
     underline = false, -- underline the start of the scope
     only_current = false, -- only show scope in the current window
-    hl = 'SnacksIndentScope', ---@type string|string[] hl group for scopes
+    hl = {
+      'SnacksIndent1',
+      'SnacksIndent2',
+      'SnacksIndent3',
+      'SnacksIndent4',
+      'SnacksIndent5',
+      'SnacksIndent6',
+      'SnacksIndent7',
+      'SnacksIndent8',
+    },
   },
   chunk = {
     -- when enabled, scopes will be rendered as chunks, except for the
     -- top-level scope which will be rendered as a scope.
-    enabled = true,
+    enabled = false,
     -- only show chunk scopes in the current window
     only_current = false,
     priority = 200,

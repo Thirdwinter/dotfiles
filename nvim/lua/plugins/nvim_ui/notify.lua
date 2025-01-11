@@ -2,10 +2,10 @@ return {
   'rcarriga/nvim-notify',
   event = 'VeryLazy',
   opts = {
-    render = 'compact',
     level = 2,
-    stages = 'fade_in_slide_out',
-    timeout = 1500,
+    render = 'wrapped-compact',
+    stages = 'slide',
+    timeout = 1000,
     max_height = function()
       return math.floor(vim.o.lines * 0.75)
     end,

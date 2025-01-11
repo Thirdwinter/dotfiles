@@ -9,19 +9,34 @@ return {
     indent = require 'custom.Snacks.snacks_indent',
     notifier = {
       enabled = false,
-      timeout = 3000,
     },
     quickfile = { enabled = true },
     scroll = {
       enabled = true,
     },
-    statuscolumn = { enabled = false },
-    words = { enabled = false },
-    styles = {
-      -- notification = {
-      --   -- wo = { wrap = true } -- Wrap notifications
-      -- }
+    scratch = {
+      enabled = false,
     },
+    statuscolumn = {
+      enabled = true,
+      left = { 'sign', 'fold' }, -- priority of signs on the left (high to low)
+      right = { 'git' }, -- priority of signs on the right (high to low)
+      folds = {
+        open = true, -- show open fold icons
+        git_hl = false, -- use Git Signs hl for fold icons
+      },
+      git = {
+        -- patterns to match Git signs
+        patterns = { 'GitSign', 'MiniDiffSign' },
+      },
+      refresh = 50, -- refresh at most every 50ms
+    },
+    words = { enabled = false },
+    -- styles = {
+    --   notification = {
+    --     wo = { wrap = true }, -- Wrap notifications
+    --   },
+    -- },
   },
   keys = {},
 }
