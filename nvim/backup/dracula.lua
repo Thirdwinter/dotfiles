@@ -1,6 +1,9 @@
+if true then
+  return {}
+end
 if vim.g.neovide then
   return {
-    "binhtran432k/dracula.nvim",
+    'binhtran432k/dracula.nvim',
     lazy = false,
     priority = 1000,
     opts = {
@@ -21,7 +24,7 @@ if vim.g.neovide then
 end
 
 return {
-  "binhtran432k/dracula.nvim",
+  'binhtran432k/dracula.nvim',
   lazy = false,
   priority = 1000,
   opts = {
@@ -34,8 +37,8 @@ return {
       functions = { italic = true },
       variables = { italic = true },
       -- Background styles. Can be "dark", "transparent" or "normal"
-      sidebars = "transparent", -- style for sidebars, see below
-      floats = "transparent", -- style for floating windows
+      sidebars = 'transparent', -- style for sidebars, see below
+      floats = 'transparent', -- style for floating windows
     },
   },
 }

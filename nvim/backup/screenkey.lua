@@ -1,3 +1,6 @@
+if true then
+  return {}
+end
 return {
   'NStefan002/screenkey.nvim',
   cmds = {
