@@ -3,8 +3,8 @@
 --  注意：必须在插件加载之前设置（否则会使用错误的 leader）
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-vim.g.borderStyle = 'single'
--- vim.g.borderStyle = { '┌', '─', '┐', '│', '┘', '─', '└', '│' }
+-- vim.g.borderStyle = 'none'
+vim.g.borderStyle = { '┌', '─', '┐', '│', '┘', '─', '└', '│' }
 vim.g.cmpUsed = 'blink' ---@type 'blink' | 'cmp'
 -- 如果你在终端中安装并选择了 Nerd 字体，则设置为 true
 vim.g.have_nerd_font = true
@@ -62,7 +62,7 @@ vim.opt.splitbelow = true
 --  参见 `:help 'list'`
 --  和 `:help 'listchars'`
 vim.opt.list = true
--- vim.opt.listchars = { tab = '╎ ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- 实时预览替换，边输入边预览！
 vim.opt.inccommand = 'split'
