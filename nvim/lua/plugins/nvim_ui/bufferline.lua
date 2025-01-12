@@ -7,6 +7,31 @@ return {
     'nvim-tree/nvim-web-devicons',
   },
   config = function()
+    vim.keymap.set('n', '<Leader>bp', '<Cmd>BufferLinePick<CR>', { desc = '选择buffer', noremap = true, silent = true })
+    vim.keymap.set('n', '<Leader>bd', '<Cmd>BufferLinePickClose<CR>', { desc = '选择buffer关闭', noremap = true, silent = true })
+    vim.keymap.set('n', '<Leader>bh', '<Cmd>BufferLineCloseLeft<CR>', { desc = '关闭左侧buffer', noremap = true, silent = true })
+    vim.keymap.set('n', '<Leader>bl', '<Cmd>BufferLineCloseRight<CR>', { desc = '关闭右侧buffer', noremap = true, silent = true })
+    vim.keymap.set('n', 'L', '<Cmd>bnext<CR>', { desc = '下一个buffer', noremap = true, silent = true })
+    vim.keymap.set('n', 'H', '<Cmd>bprev<CR>', { desc = '上一个buffer', noremap = true, silent = true })
+    vim.keymap.set('n', '<Leader>c', "<Cmd>lua require('mini.bufremove').delete(0,false)<CR>", { desc = '关闭当前buffer', noremap = true, silent = true })
+    vim.keymap.set('n', '<leader>bo', function()
+      local filetypes = { 'OverseerList', 'Terminal', 'quickfix', 'terminal' }
+      local buftypes = { 'terminal', 'toggleterm', 'neotree' }
+
+      local current_buf = vim.api.nvim_get_current_buf()
+      local buffers = vim.api.nvim_list_bufs()
+
+      for _, bufnr in ipairs(buffers) do
+        if bufnr ~= current_buf then
+          local buf = vim.api.nvim_get_option_value('buftype', { buf = bufnr })
+          local ft = vim.api.nvim_get_option_value('filetype', { buf = bufnr })
+          if not vim.tbl_contains(buftypes, buf) and not vim.tbl_contains(filetypes, ft) then
+            vim.api.nvim_buf_delete(bufnr, { force = true })
+          end
+        end
+      end
+    end, { desc = '关闭其它buffer', noremap = true, silent = true })
+
     require('bufferline').setup {
       highlights = {
         fill = {
@@ -52,4 +77,18 @@ return {
       },
     }
   end,
+  -- keys = {
+  --   { '<Leader>bp', '<Cmd>BufferLinePick<CR>', desc = '选择buffer' },
+  --   { '<Leader>bd', '<Cmd>BufferLinePickClose<CR>', desc = '选择buffer关闭' },
+  --   { '<Leader>bh', '<Cmd>BufferLineCloseLeft<CR>', desc = '关闭左侧buffer' },
+  --   { '<Leader>bl', '<Cmd>BufferLineCloseRight<CR>', desc = '关闭右侧buffer' },
+  --   { '<Leader>c', "<Cmd>lua require('mini.bufremove').delete(0,false)<CR>", desc = '关闭当前buffer' },
+  --   { 'L', '<Cmd>bnext<CR>', desc = '下一个buffer' },
+  --   { 'H', '<Cmd>bprev<CR>', desc = '上一个buffer' },
+  --   {
+  --     '<leader>bo',
+  --     '<Cmd>BufferLineCloseOthers<CR>',
+  --     desc = '关闭其它buffer',
+  --   },
+  -- },
 }

@@ -69,64 +69,66 @@ vim.keymap.set('n', '<Leader>pl', '<Cmd>Lazy<CR>', { desc = 'Lazy', noremap = tr
 vim.keymap.set('n', '<Leader>pm', '<Cmd>Mason<CR>', { desc = 'Mason', noremap = true, silent = true })
 
 --INFO: 关于Telescope
-vim.keymap.set('n', '<F8>', '<Cmd>Telescope find_files<CR>', { desc = 'Open Telescope File Explorer', noremap = true, silent = true })
-vim.keymap.set('t', '<F8>', '<Cmd>Telescope find_files<CR>', { desc = 'Open Telescope File Explorer', noremap = true, silent = true })
-vim.keymap.set('i', '<F8>', '<Esc><Cmd>Telescope find_files<CR>', { desc = 'Open Telescope File Explorer', noremap = true, silent = true })
-vim.keymap.set('n', '<Leader>fct', '<Cmd>Telescope colorscheme<CR>', { desc = '[F]ind [C]olorschemes', noremap = true, silent = true })
-vim.keymap.set(
-  'n',
-  '<Leader>fo',
-  '<Cmd>lua require("telescope").extensions.notify.notify()<CR>',
-  { desc = '[F]ind [O]ld [N]otifications', noremap = true, silent = true }
-)
-local builtin = require 'telescope.builtin'
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp' })
-vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = '[F]ind [K]eymaps' })
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = '[F]ind [F]iles' })
-vim.keymap.set('n', '<leader>fs', builtin.builtin, { desc = '[F]ind [S]elect Telescope' })
-vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = '[F]ind current [W]ord' })
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = '[F]ind by [G]rep' })
-vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = '[F]ind [D]iagnostics' })
-vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = '[F]ind [R]esume' })
-vim.keymap.set('n', '<leader>f.', builtin.oldfiles, { desc = '[F]ind Recent Files ("." for repeat)' })
-vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = '[F]ind existing buffers' })
-vim.keymap.set('n', '<leader>f/', function()
-  builtin.live_grep {
-    grep_open_files = true,
-    prompt_title = 'Live Grep in Open Files',
-  }
-end, { desc = '[F]ind [/] in Open Files' })
 
--- 搜索你的 Neovim 配置文件的快捷方式
-vim.keymap.set('n', '<leader>fn', function()
-  builtin.find_files { cwd = vim.fn.stdpath 'config' }
-end, { desc = '[F]ind [N]eovim files' })
-
+-- vim.keymap.set('n', '<F8>', '<Cmd>Telescope find_files<CR>', { desc = 'Open Telescope File Explorer', noremap = true, silent = true })
+-- vim.keymap.set('t', '<F8>', '<Cmd>Telescope find_files<CR>', { desc = 'Open Telescope File Explorer', noremap = true, silent = true })
+-- vim.keymap.set('i', '<F8>', '<Esc><Cmd>Telescope find_files<CR>', { desc = 'Open Telescope File Explorer', noremap = true, silent = true })
+-- vim.keymap.set('n', '<Leader>fct', '<Cmd>Telescope colorscheme<CR>', { desc = '[F]ind [C]olorschemes', noremap = true, silent = true })
+-- vim.keymap.set(
+--   'n',
+--   '<Leader>fo',
+--   '<Cmd>lua require("telescope").extensions.notify.notify()<CR>',
+--   { desc = '[F]ind [O]ld [N]otifications', noremap = true, silent = true }
+-- )
+-- local builtin = require 'telescope.builtin'
+-- vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp' })
+-- vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = '[F]ind [K]eymaps' })
+-- vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = '[F]ind [F]iles' })
+-- vim.keymap.set('n', '<leader>fs', builtin.builtin, { desc = '[F]ind [S]elect Telescope' })
+-- vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = '[F]ind current [W]ord' })
+-- vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = '[F]ind by [G]rep' })
+-- vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = '[F]ind [D]iagnostics' })
+-- vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = '[F]ind [R]esume' })
+-- vim.keymap.set('n', '<leader>f.', builtin.oldfiles, { desc = '[F]ind Recent Files ("." for repeat)' })
+-- vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = '[F]ind existing buffers' })
+-- vim.keymap.set('n', '<leader>f/', function()
+--   builtin.live_grep {
+--     grep_open_files = true,
+--     prompt_title = 'Live Grep in Open Files',
+--   }
+-- end, { desc = '[F]ind [/] in Open Files' })
+--
+-- -- 搜索你的 Neovim 配置文件的快捷方式
+-- vim.keymap.set('n', '<leader>fn', function()
+--   builtin.find_files { cwd = vim.fn.stdpath 'config' }
+-- end, { desc = '[F]ind [N]eovim files' })
+--
 --INFO: 关于buffer
-vim.keymap.set('n', '<Leader>bp', '<Cmd>BufferLinePick<CR>', { desc = '选择buffer', noremap = true, silent = true })
-vim.keymap.set('n', '<Leader>bd', '<Cmd>BufferLinePickClose<CR>', { desc = '选择buffer关闭', noremap = true, silent = true })
-vim.keymap.set('n', '<Leader>bh', '<Cmd>BufferLineCloseLeft<CR>', { desc = '关闭左侧buffer', noremap = true, silent = true })
-vim.keymap.set('n', '<Leader>bl', '<Cmd>BufferLineCloseRight<CR>', { desc = '关闭右侧buffer', noremap = true, silent = true })
-vim.keymap.set('n', 'L', '<Cmd>bnext<CR>', { desc = '下一个buffer', noremap = true, silent = true })
-vim.keymap.set('n', 'H', '<Cmd>bprev<CR>', { desc = '上一个buffer', noremap = true, silent = true })
-vim.keymap.set('n', '<Leader>c', "<Cmd>lua require('mini.bufremove').delete(0,false)<CR>", { desc = '关闭当前buffer', noremap = true, silent = true })
-vim.keymap.set('n', '<leader>bo', function()
-  local filetypes = { 'OverseerList', 'Terminal', 'quickfix', 'terminal' }
-  local buftypes = { 'terminal', 'toggleterm', 'neotree' }
 
-  local current_buf = vim.api.nvim_get_current_buf()
-  local buffers = vim.api.nvim_list_bufs()
-
-  for _, bufnr in ipairs(buffers) do
-    if bufnr ~= current_buf then
-      local buf = vim.api.nvim_get_option_value('buftype', { buf = bufnr })
-      local ft = vim.api.nvim_get_option_value('filetype', { buf = bufnr })
-      if not vim.tbl_contains(buftypes, buf) and not vim.tbl_contains(filetypes, ft) then
-        vim.api.nvim_buf_delete(bufnr, { force = true })
-      end
-    end
-  end
-end, { desc = '关闭其它buffer', noremap = true, silent = true })
+-- vim.keymap.set('n', '<Leader>bp', '<Cmd>BufferLinePick<CR>', { desc = '选择buffer', noremap = true, silent = true })
+-- vim.keymap.set('n', '<Leader>bd', '<Cmd>BufferLinePickClose<CR>', { desc = '选择buffer关闭', noremap = true, silent = true })
+-- vim.keymap.set('n', '<Leader>bh', '<Cmd>BufferLineCloseLeft<CR>', { desc = '关闭左侧buffer', noremap = true, silent = true })
+-- vim.keymap.set('n', '<Leader>bl', '<Cmd>BufferLineCloseRight<CR>', { desc = '关闭右侧buffer', noremap = true, silent = true })
+-- vim.keymap.set('n', 'L', '<Cmd>bnext<CR>', { desc = '下一个buffer', noremap = true, silent = true })
+-- vim.keymap.set('n', 'H', '<Cmd>bprev<CR>', { desc = '上一个buffer', noremap = true, silent = true })
+-- vim.keymap.set('n', '<Leader>c', "<Cmd>lua require('mini.bufremove').delete(0,false)<CR>", { desc = '关闭当前buffer', noremap = true, silent = true })
+-- vim.keymap.set('n', '<leader>bo', function()
+--   local filetypes = { 'OverseerList', 'Terminal', 'quickfix', 'terminal' }
+--   local buftypes = { 'terminal', 'toggleterm', 'neotree' }
+--
+--   local current_buf = vim.api.nvim_get_current_buf()
+--   local buffers = vim.api.nvim_list_bufs()
+--
+--   for _, bufnr in ipairs(buffers) do
+--     if bufnr ~= current_buf then
+--       local buf = vim.api.nvim_get_option_value('buftype', { buf = bufnr })
+--       local ft = vim.api.nvim_get_option_value('filetype', { buf = bufnr })
+--       if not vim.tbl_contains(buftypes, buf) and not vim.tbl_contains(filetypes, ft) then
+--         vim.api.nvim_buf_delete(bufnr, { force = true })
+--       end
+--     end
+--   end
+-- end, { desc = '关闭其它buffer', noremap = true, silent = true })
 
 --INFO: 关于Go-To-Preview
 

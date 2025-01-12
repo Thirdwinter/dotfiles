@@ -18,6 +18,6 @@ return {
   },
 
   config = function()
-    require 'custom.Lualine.lualine_catppuccin'
+    require 'custom.Lualine.lualine'
   end,
 }

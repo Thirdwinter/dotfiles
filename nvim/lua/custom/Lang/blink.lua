@@ -60,7 +60,7 @@ return {
     kind_icons = {
       Text = '󰉿 ',
       Method = '󰆧 ',
-      Function = 'F ',
+      Function = '󰊕 ',
       Constructor = ' ',
       Field = '󰜢 ',
       Variable = '󰀫 ',
@@ -86,6 +86,12 @@ return {
     },
   },
   completion = {
+    list = {
+      selection = {
+        preselect = true,
+        auto_insert = false,
+      },
+    },
     keyword = { range = 'full' },
     -- NOTE: some LSPs may add auto brackets themselves anyway
     accept = { auto_brackets = { enabled = true } },
@@ -162,7 +168,7 @@ return {
     },
 
     -- Display a preview of the selected item on the current line
-    ghost_text = { enabled = false },
+    ghost_text = { enabled = true },
   },
   sources = {
     default = { 'snippets', 'lsp', 'path', 'buffer', 'lazydev' },

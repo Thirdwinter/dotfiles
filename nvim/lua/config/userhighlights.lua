@@ -23,6 +23,6 @@ vim.api.nvim_set_hl(0, 'BlinkCmpDoc', { bg = vim.g.Popbg })
 vim.api.nvim_set_hl(0, 'BlinkCmpDocBorder', { fg = vim.g.Popfg, bg = vim.g.Popbg })
 vim.api.nvim_set_hl(0, 'BlinkCmpSignatureHelp', { bg = vim.g.Popbg })
 vim.api.nvim_set_hl(0, 'BlinkCmpSignatureHelpBorder', { fg = vim.g.Popfg, bg = vim.g.Popbg })
-
+vim.api.nvim_set_hl(0, 'BlinkCmpGhostText', { fg = '#9399B3' })
 -- vim.api.nvim_set_hl(0, 'BlinkCmpMenu', { bg = '#11111b' })
 -- vim.api.nvim_set_hl(0, 'BlinkCmpMenuBorder', { bg = '#11111b' })

@@ -9,8 +9,8 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
-require 'configs.options' --INFO: Options must be loaded before plugins
+require 'config.options' --INFO: Options must be loaded before plugins
 require 'lazy_setup' --INFO: loadind lazy plugins
-require 'configs.keymaps'
-require 'configs.autocmd'
-require 'configs.userhighlights' --INFO: colorscheme setting in 'config.hl'
+require 'config.keymaps'
+require 'config.autocmd'
+require 'config.userhighlights' --INFO: colorscheme setting in 'config.hl'
