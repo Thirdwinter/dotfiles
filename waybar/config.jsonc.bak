@@ -21,13 +21,60 @@
     "pulseaudio",
     "network",
     "custom/notification",
-    // "custom/setwallpaper",
+    "custom/setwallpaper",
     "tray",
     "battery"
   ],
   "custom/setwallpaper": {
     "format": "●",
     "on-click": "$HOME/.config/hypr/Scripts/random_swww_wallpaper.sh"
+  },
+  "wlr/taskbar": {
+    "format": "{name}",
+    "icon-size": 14,
+    "icon-theme": "Numix-Circle",
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "app_ids-mapping": {
+      "firefoxdeveloperedition": "firefox-developer-edition"
+    },
+    "rewrite": {
+      "Firefox Web Browser": "Firefox",
+      "Foot Server": "Terminal"
+    }
+  },
+  "cava": {
+    //"cava_config": "$HOME/.config/cava/config",
+    "framerate": 60,
+    "autosens": 1,
+    "sensitivity": 1,
+    "bars": 10,
+    "lower_cutoff_freq": 50,
+    "higher_cutoff_freq": 10000,
+    "method": "pulse",
+    "source": "auto",
+    "stereo": true,
+    "reverse": false,
+    "hide_on_silence": true,
+    "bar_delimiter": 0,
+    "monstercat": false,
+    "waves": false,
+    "noise_reduction": 0.77,
+    "input_delay": 2,
+    "format-icons": [
+      "▁",
+      "▂",
+      "▃",
+      "▄",
+      "▅",
+      "▆",
+      "▇",
+      "█"
+    ],
+    "actions": {
+      "on-click-right": "mode"
+    }
   },
   "mpris": {
     //"player":"playerctld",
@@ -52,23 +99,7 @@
     "sort-by-number": true,
     "all-outputs": true,
     "disable-scroll": false,
-    "active-only": false,
-	"format-icons": {
-        "1": "壹",
-        "2": "贰",
-        "3": "叁",
-        "4": "肆",
-        "5": "伍",
-        "6": "陆",
-        "7": "柒",
-        "8": "捌",
-        "9": "玖",
-        "10": "拾",
-	 },
-    // "persistent-workspaces": {
-    //   "*": 3
-    // }
-
+    "active-only": false
   },
   "hyprland/window": {
     "format": "{class}"
@@ -153,7 +184,7 @@
                            "format-icons"
         : {
           "notification" : " <span foreground='red'><sup></sup></span>",
-          "none" : "",
+          "none" : " ",
           "dnd-notification" :
               " <span foreground='red'><sup></sup></span>",
           "dnd-none" : " ",
@@ -171,53 +202,5 @@
         : "swaync-client -t -sw",
           "on-click-right" : "swaync-client -d -sw",
                              "escape" : true
-  },
-    "cava": {
-    //"cava_config": "$HOME/.config/cava/config",
-    "framerate": 60,
-    "autosens": 1,
-    "sensitivity": 1,
-    "bars": 10,
-    "lower_cutoff_freq": 50,
-    "higher_cutoff_freq": 10000,
-    "method": "pulse",
-    "source": "auto",
-    "stereo": true,
-    "reverse": false,
-    "hide_on_silence": true,
-    "bar_delimiter": 0,
-    "monstercat": false,
-    "waves": false,
-    "noise_reduction": 0.77,
-    "input_delay": 2,
-    "format-icons": [
-      "▁",
-      "▂",
-      "▃",
-      "▄",
-      "▅",
-      "▆",
-      "▇",
-      "█"
-    ],
-    "actions": {
-      "on-click-right": "mode"
-    }
-  },
-
-  "wlr/taskbar": {
-    "format": "{name}",
-    "icon-size": 14,
-    "icon-theme": "Numix-Circle",
-    "tooltip-format": "{title}",
-    "on-click": "activate",
-    "on-click-middle": "close",
-    "app_ids-mapping": {
-      "firefoxdeveloperedition": "firefox-developer-edition"
-    },
-    "rewrite": {
-      "Firefox Web Browser": "Firefox",
-      "Foot Server": "Terminal"
-    }
-  },
+  }
 }
