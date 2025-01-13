@@ -3,6 +3,7 @@
 --  注意：必须在插件加载之前设置（否则会使用错误的 leader）
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+vim.g.snacks_animate = true
 -- vim.g.borderStyle = 'none'
 vim.g.borderStyle = { '┌', '─', '┐', '│', '┘', '─', '└', '│' }
 vim.g.cmpUsed = 'blink' ---@type 'blink' | 'cmp'

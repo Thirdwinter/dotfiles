@@ -1,9 +1,9 @@
-if true then
-  return {}
-end
+-- if true then
+--   return {}
+-- end
 return {
   'OXY2DEV/markview.nvim',
-  -- lazy = false, -- Recommended
+  lazy = false, -- Recommended
   -- event = 'VeryLazy',
   -- ft = "markdown" -- If you decide to lazy-load anyway
 
@@ -15,4 +15,11 @@ return {
 
     'nvim-tree/nvim-web-devicons',
   },
+  config = function()
+    local presets = require('markview.presets').headings
+
+    require('markview').setup {
+      headings = presets.simple,
+    }
+  end,
 }

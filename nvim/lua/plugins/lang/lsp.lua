@@ -29,7 +29,7 @@ return {
 
     -- LSP 的有用状态更新。
     -- 注意：`opts = {}` 与调用 `require('fidget').setup({})` 相同
-    { 'j-hui/fidget.nvim', opts = {} },
+    -- { 'j-hui/fidget.nvim' },
 
     -- 允许由 nvim-cmp 提供的额外功能
     -- 'hrsh7th/cmp-nvim-lsp',
@@ -43,7 +43,13 @@ return {
     local lspconfig = require 'lspconfig'
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     -- capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
-    capabilities = vim.tbl_deep_extend('force', capabilities, require('blink.cmp').get_lsp_capabilities())
+    capabilities = vim.tbl_deep_extend(
+      'force',
+      capabilities,
+      require('blink.cmp').get_lsp_capabilities {
+        textDocument = { completion = { completionItem = { snippetSupport = false } } },
+      }
+    )
 
     require('mason').setup()
 

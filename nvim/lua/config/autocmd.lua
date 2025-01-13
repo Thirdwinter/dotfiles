@@ -49,6 +49,6 @@ vim.api.nvim_create_autocmd('VimLeavePre', {
 vim.api.nvim_create_autocmd('ColorScheme', {
   pattern = '*',
   callback = function()
-    vim.cmd 'source ~/.config/nvim/lua/config/userhighlights.lua'
+    vim.cmd 'source ~/.config/nvim/lua/config/highlights.lua'
   end,
 })

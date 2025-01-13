@@ -8,6 +8,16 @@ vim.keymap.set('n', '<leader>ld', function()
   vim.diagnostic.open_float { source = true }
 end, { noremap = true, silent = true, desc = 'Diagnostic Info' })
 
+-- 分割当前行，光标块内的字符在当前行
+vim.keymap.set('n', '<leader>k', function()
+  local row, col = unpack(vim.api.nvim_win_get_cursor(0)) -- 获取当前光标位置
+  local line = vim.api.nvim_get_current_line() -- 获取当前行内容
+  local before = line:sub(1, col + 1) -- 光标前的内容
+  local after = line:sub(col + 2) -- 光标后的内容
+  vim.api.nvim_set_current_line(before) -- 设置当前行为光标前的内容
+  vim.api.nvim_buf_set_lines(0, row, row, false, { after }) -- 在当前行后插入光标后的内容
+end, { desc = '分割当前行', noremap = true, silent = true })
+
 --INFO: NeoVide
 if vim.g.neovide then
   vim.keymap.set('n', '<C-s>', ':w<CR>', { noremap = true, silent = true }) -- Save
@@ -49,20 +59,6 @@ vim.keymap.set('i', '<C-a>', '<esc><cmd>normal! ggVG<cr>', { noremap = true, sil
 --INFO: 关于注释
 vim.api.nvim_set_keymap('n', '<leader>/', 'gcc', { desc = '注释' })
 vim.api.nvim_set_keymap('v', '<leader>/', 'gcc<Esc>', { desc = '注释' })
-
---INFO: Set Emacs keybindings in insert mode
-vim.keymap.set('i', '<C-a>', '<Home>', { noremap = true, silent = true })
-vim.keymap.set('i', '<C-e>', '<End>', { noremap = true, silent = true })
-vim.keymap.set('i', '<C-f>', '<Right>', { noremap = true, silent = true })
-vim.keymap.set('i', '<C-b>', '<Left>', { noremap = true, silent = true })
-vim.keymap.set('i', '<A-f>', '<C-Right>', { noremap = true, silent = true })
-vim.keymap.set('i', '<A-b>', '<C-Left>', { noremap = true, silent = true })
-vim.keymap.set('i', '<C-d>', '<Del>', { noremap = true, silent = true })
-vim.keymap.set('i', '<C-k>', '<C-o>D', { noremap = true, silent = true })
-vim.keymap.set('i', '<C-y>', '<C-r>+', { noremap = true, silent = true })
-vim.keymap.set('i', '<C-n>', '<Down>', { noremap = true, silent = true })
-vim.keymap.set('i', '<C-p>', '<Up>', { noremap = true, silent = true })
-vim.keymap.set('i', '<C-h>', '<BS>', { noremap = true, silent = true })
 
 --INFO: 关于Package Manager
 vim.keymap.set('n', '<Leader>pl', '<Cmd>Lazy<CR>', { desc = 'Lazy', noremap = true, silent = true })
@@ -172,16 +168,41 @@ vim.keymap.set('n', '<Leader>pm', '<Cmd>Mason<CR>', { desc = 'Mason', noremap = 
 
 -- vim.keymap.set('n', '-', '<CMD>Oil --float<CR>', { desc = 'Open parent directory' })
 --
--- vim.keymap.set('t', '<F7>', '<Cmd>ToggleTerm<CR>', { desc = 'ToggleTerm float' })
--- vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = '退出终端模式' })
+vim.keymap.set('t', '<F7>', '<Cmd>ToggleTerm<CR>', { desc = 'ToggleTerm float' })
+vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = '退出终端模式' })
 
 --INFO: 关于neo-tree
 
--- vim.keymap.set('n', '<leader>e', '<Cmd>Neotree toggle<CR>', { desc = 'Toggle Explorer', noremap = true, silent = true })
--- vim.keymap.set('n', '<leader>o', function()
---   if vim.bo.filetype == 'neo-tree' then
---     vim.cmd.wincmd 'p'
---   else
---     vim.cmd 'Neotree focus'
---   end
--- end, { desc = 'Toggle Explorer Focus', noremap = true, silent = true })
+vim.keymap.set('n', '<leader>e', '<Cmd>Neotree toggle<CR>', { desc = 'Toggle Explorer', noremap = true, silent = true })
+vim.keymap.set('n', '<leader>o', function()
+  if vim.bo.filetype == 'neo-tree' then
+    vim.cmd.wincmd 'p'
+  else
+    vim.cmd 'Neotree focus'
+  end
+end, { desc = 'Toggle Explorer Focus', noremap = true, silent = true })
+
+vim.keymap.set({ 'n', 's' }, '<c-f>', function()
+  if not require('noice.lsp').scroll(4) then
+    return '<c-f>'
+  end
+end, { silent = true, expr = true })
+
+vim.keymap.set({ 'n', 's' }, '<c-b>', function()
+  if not require('noice.lsp').scroll(-4) then
+    return '<c-b>'
+  end
+end, { silent = true, expr = true })
+--INFO: Set Emacs keybindings in insert mode
+vim.api.nvim_set_keymap('i', '<C-a>', '<Home>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-e>', '<End>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-f>', '<Right>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-b>', '<Left>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<A-f>', '<C-Right>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<A-b>', '<C-Left>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-d>', '<Del>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-k>', '<C-o>D', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-y>', '<C-r>+', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-n>', '<Down>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-p>', '<Up>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-h>', '<BS>', { noremap = true, silent = true })

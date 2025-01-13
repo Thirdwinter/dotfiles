@@ -30,8 +30,8 @@ return {
       ['<C-n>'] = { 'select_next', 'fallback' },
     },
     preset = 'none',
-    ['<C-e>'] = { 'show', 'hide' },
-    ['<C-i>'] = { 'hide_documentation', 'show_documentation' },
+    ['<C-i>'] = { 'show', 'hide' },
+    ['<C-->'] = { 'hide_documentation', 'show_documentation' },
     ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
     ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
     ['<C-p>'] = { 'select_prev', 'fallback' },
@@ -163,12 +163,12 @@ return {
         border = vim.g.borderStyle,
         scrollbar = false,
       },
-      auto_show = true,
+      auto_show = false,
       auto_show_delay_ms = 100,
     },
 
     -- Display a preview of the selected item on the current line
-    ghost_text = { enabled = true },
+    ghost_text = { enabled = false },
   },
   sources = {
     default = { 'snippets', 'lsp', 'path', 'buffer', 'lazydev' },

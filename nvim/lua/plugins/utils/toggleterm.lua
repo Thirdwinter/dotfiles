@@ -8,10 +8,10 @@ return {
   opts = function()
     require 'custom.Toggleterm.shell'
   end,
-  keys = {
-    { '<F7>', 't', '<Cmd>ToggleTerm<CR>', { desc = 'ToggleTerm float' } },
-    { '<Esc><Esc>', 't', '<C-\\><C-n>', { desc = '退出终端模式' } },
-  },
+  -- keys = {
+  --   { '<F7>', 't', '<Cmd>ToggleTerm<CR>', { desc = 'ToggleTerm float' } },
+  --   { '<Esc><Esc>', 't', '<C-\\><C-n>', { desc = '退出终端模式' } },
+  -- },
   -- opts = {--[[ things you want to change go here]]
   -- },
 }

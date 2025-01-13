@@ -19,131 +19,119 @@ return {
     --   If not available, we use `mini` as the fallback
     'rcarriga/nvim-notify',
   },
-  opts = function()
-    vim.keymap.set({ 'n', 'i', 's' }, '<c-f>', function()
-      if not require('noice.lsp').scroll(4) then
-        return '<c-f>'
-      end
-    end, { silent = true, expr = true })
-
-    vim.keymap.set({ 'n', 'i', 's' }, '<c-b>', function()
-      if not require('noice.lsp').scroll(-4) then
-        return '<c-b>'
-      end
-    end, { silent = true, expr = true })
-
-    return {
-      presets = {
-        long_message_to_split = true,
-        command_palette = false, -- position the cmdline and popupmenu together
-        inc_rename = true, -- enables an input dialog for inc-rename.nvim
-        lsp_doc_border = false, -- add a border to hover docs and signature help
-      },
-      cmdline = {
-        format = {
-          search_down = {
-            view = 'cmdline',
+  opts = {
+    presets = {
+      long_message_to_split = true,
+      command_palette = false, -- position the cmdline and popupmenu together
+      inc_rename = true, -- enables an input dialog for inc-rename.nvim
+      lsp_doc_border = false, -- add a border to hover docs and signature help
+    },
+    cmdline = {
+      format = {
+        search_down = {
+          view = 'cmdline',
+        },
+        search_up = {
+          view = 'cmdline',
+        },
+        substitute = {
+          pattern = {
+            '^:%s*%%s?n?o?m?/',
+            "^:'<,'>%s*s?n?m?/",
+            '^:%d+,%d+%s*s?n?m?/',
           },
-          search_up = {
-            view = 'cmdline',
-          },
-          substitute = {
-            pattern = {
-              '^:%s*%%s?n?o?m?/',
-              "^:'<,'>%s*s?n?m?/",
-              '^:%d+,%d+%s*s?n?m?/',
-            },
-            icon = ' /',
-            view = 'cmdline',
-            lang = 'regex',
-          },
+          icon = ' /',
+          view = 'cmdline',
+          lang = 'regex',
         },
       },
-      lsp = {
-        override = {
-          ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
-          ['vim.lsp.util.stylize_markdown'] = true,
-          ['cmp.entry.get_documentation'] = true,
-        },
-        progress = {
-          enabled = false,
-        },
-        message = {
-          enabled = false,
-        },
-        hover = {
-          silent = true,
-        },
-        signature = {
-          enabled = false,
-        },
-        documentation = {
-          view = 'hover',
-          ---@type NoiceViewOptions
-          opts = {
-            lang = 'markdown',
-            replace = true,
-            render = 'plain',
-            format = { '{message}' },
-          },
+    },
+    lsp = {
+      override = {
+        ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
+        ['vim.lsp.util.stylize_markdown'] = true,
+        ['cmp.entry.get_documentation'] = true,
+      },
+      progress = {
+        enabled = true,
+        view = 'mini',
+      },
+      message = {
+        enabled = true,
+      },
+      hover = {
+        silent = true,
+      },
+      signature = {
+        enabled = false,
+      },
+      documentation = {
+        view = 'hover',
+        ---@type NoiceViewOptions
+        opts = {
+          lang = 'markdown',
+          replace = true,
+          render = 'plain',
+          format = { '{message}' },
         },
       },
-      views = {
-        cmdline_popup = {
-          position = {
-            row = 5,
-            col = '50%',
-          },
-          size = {
-            width = 60,
-            height = 'auto',
-          },
-          border = {
-            style = vim.g.borderStyle,
-          },
+    },
+    views = {
+      cmdline_popup = {
+        position = {
+          row = 5,
+          col = '50%',
         },
-        popupmenu = {
-          relative = 'editor',
-          position = {
-            row = 8,
-            col = '50%',
-          },
-          size = {
-            width = 60,
-            height = 10,
-          },
-          border = {
-            style = vim.g.borderStyle,
-            padding = { 0, 1 },
-          },
-          win_options = {
-            winhighlight = { Normal = 'Normal', FloatBorder = 'DiagnosticError' },
-          },
+        size = {
+          width = 60,
+          height = 'auto',
         },
-        hover = {
-          scrollbar = false,
-          size = {
-            max_width = 40,
-          },
-          border = {
-            style = vim.g.borderStyle,
-            -- padding = { 0, 'rounded' == 'none' and 2 or 0 },
-          },
-          position = {
-            -- row = 2,
-            -- col = 3,
-            -- row = 'rounded' == 'none' and 1 or 2,
-          },
-          win_options = {
-            winhighlight = { Normal = 'UserMenu', FloatBorder = 'UserMenuBorder' },
-          },
-        },
-        mini = {
-          win_options = {
-            winblend = 0,
-          },
+        border = {
+          style = vim.g.borderStyle,
         },
       },
-    }
-  end,
+      popupmenu = {
+        relative = 'editor',
+        position = {
+          row = 8,
+          col = '50%',
+        },
+        size = {
+          width = 60,
+          height = 10,
+        },
+        border = {
+          style = vim.g.borderStyle,
+          padding = { 0, 1 },
+        },
+        win_options = {
+          winhighlight = { Normal = 'Normal', FloatBorder = 'DiagnosticError' },
+        },
+      },
+      hover = {
+        scrollbar = false,
+        size = {
+          max_width = 40,
+        },
+        border = {
+          style = vim.g.borderStyle,
+          -- padding = { 0, 'rounded' == 'none' and 2 or 0 },
+        },
+        position = {
+          -- row = 2,
+          -- col = 3,
+          -- row = 'rounded' == 'none' and 1 or 2,
+        },
+        win_options = {
+          winhighlight = { Normal = 'UserMenu', FloatBorder = 'UserMenuBorder' },
+        },
+      },
+      mini = {
+        win_options = {
+          winhighlight = { Normal = 'DiagnosticError', FloatBorder = 'DiagnosticError' },
+          winblend = 0,
+        },
+      },
+    },
+  },
 }

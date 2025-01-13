@@ -11,6 +11,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require 'config.options' --INFO: Options must be loaded before plugins
 require 'lazy_setup' --INFO: loadind lazy plugins
-require 'config.keymaps'
 require 'config.autocmd'
-require 'config.userhighlights' --INFO: colorscheme setting in 'config.hl'
+require 'config.highlights' --INFO: colorscheme setting in 'config.highlights'
+require 'config.keymaps'

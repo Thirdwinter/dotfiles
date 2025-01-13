@@ -9,7 +9,7 @@ if normal_hl and normal_hl.background then
 else
   vim.g.Popbg = '#1e1e2e'
 end
-vim.g.Popfg = '#A6E3A1'
+vim.g.Popfg = '#cdd6f5'
 
 vim.api.nvim_set_hl(0, 'CursorLine', { bg = '#4F536D' })
 vim.api.nvim_set_hl(0, 'Visual', { bg = '#138376' })
