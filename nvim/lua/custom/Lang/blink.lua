@@ -172,7 +172,7 @@ return {
   },
   sources = {
     default = { 'snippets', 'lsp', 'path', 'buffer', 'lazydev' },
-    -- cmdline = {},
+    cmdline = {},
     providers = {
       lsp = {
         name = 'LSP',

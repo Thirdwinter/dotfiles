@@ -14,3 +14,5 @@ require 'lazy_setup' --INFO: loadind lazy plugins
 require 'config.autocmd'
 require 'config.highlights' --INFO: colorscheme setting in 'config.highlights'
 require 'config.keymaps'
+
+vim.cmd.colorscheme 'rose-pine-moon' ---@type 'tokyonight'|'catppuccin'|'rose-pine-moon'

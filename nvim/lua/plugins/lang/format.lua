@@ -6,13 +6,15 @@ local formaters = {
   xml = { 'xmlformatter' },
   c = { 'clang-format' },
   cpp = { 'clang-format' },
-  json = { 'jq' },
-  jsonc = { 'clang-format' },
+  json = { 'fixjson' },
+  jsonc = { 'fixjson' },
   zsh = { 'beautysh' },
   sh = { 'beautysh' },
   rust = { 'rustfmt' },
   typescript = { 'ts-standard' },
   typescriptreact = { 'ts-standard' },
+  typst = { 'typstfmt' },
+  css = { 'prettier' },
 
   -- Conform can also run multiple formatters sequentially
   -- python = { "isort", "black" },

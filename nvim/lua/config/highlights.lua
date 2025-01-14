@@ -1,5 +1,4 @@
 --INFO: 一些自定义的颜色
-vim.cmd.colorscheme 'catppuccin-mocha' ---@type 'tokyonight'|'catppuccin'|'rose-pine-main'|'nightfox'|'terafox'|'dracula'|'dracula-soft'
 
 --INFO: 获取主题背景色
 

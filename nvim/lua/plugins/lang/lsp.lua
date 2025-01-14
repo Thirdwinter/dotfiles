@@ -4,7 +4,9 @@ local lsp_servers = {
   lua_ls = require 'custom.Lang.lsp.lua_ls',
   basedpyright = require 'custom.Lang.lsp.basedpyright',
   jdtls = require 'custom.Lang.lsp.jdtls',
-  jsonls = {},
+  jsonls = require 'custom.Lang.lsp.jsonls',
+  tinymist = {},
+  cssls = {},
 
   --INFO: local lsp servers
   gopls = require 'custom.Lang.lsp.gopls',

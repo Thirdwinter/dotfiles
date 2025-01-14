@@ -46,6 +46,16 @@ return {
         },
       },
     },
+    messages = {
+      -- NOTE: If you enable messages, then the cmdline is enabled automatically.
+      -- This is a current Neovim limitation.
+      enabled = true, -- enables the Noice messages UI
+      view = 'notify', -- default view for messages
+      view_error = 'notify', -- view for errors
+      view_warn = 'notify', -- view for warnings
+      view_history = 'messages', -- view for :messages
+      view_search = 'virtualtext', -- view for search count messages. Set to `false` to disable
+    },
     lsp = {
       override = {
         ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
@@ -105,7 +115,7 @@ return {
           padding = { 0, 1 },
         },
         win_options = {
-          winhighlight = { Normal = 'Normal', FloatBorder = 'DiagnosticError' },
+          winhighlight = { Normal = 'Normal', FloatBorder = 'UserMenuBorder' },
         },
       },
       hover = {
@@ -115,12 +125,6 @@ return {
         },
         border = {
           style = vim.g.borderStyle,
-          -- padding = { 0, 'rounded' == 'none' and 2 or 0 },
-        },
-        position = {
-          -- row = 2,
-          -- col = 3,
-          -- row = 'rounded' == 'none' and 1 or 2,
         },
         win_options = {
           winhighlight = { Normal = 'UserMenu', FloatBorder = 'UserMenuBorder' },
