@@ -7,50 +7,24 @@
 }
 
 window#waybar {
-  background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white background */
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Optional shadow to enhance the effect */
-  border-radius: 15px; /* Optional rounded corners */
+  background-color: rgba(
+    166,
+    173,
+    200,
+    0.4
+  ); /* Semi-transparent white background */
+  box-shadow: 0 4px 30px rgba(166, 173, 200, 0.9); /* Optional shadow to enhance the effect */
+  border-radius: 10px; /* Optional rounded corners */
 }
-
-#taskbar {
-  /*padding-left: 0.4rem;*/
-  /* 调整内边距 */
-  /*padding-right: 0.4rem;*/
-  /* 调整内边距 */
-  border-radius: 5px;
-  margin: 0.1rem;
-}
-
-#taskbar button {
-  padding-left: 0.4rem;
-  /* 调整内边距 */
-  padding-right: 0.4rem;
-  /* 调整内边距 */
-  border-radius: 5px;
-  margin: 0.1rem;
-
-  color: #1e1e2e;
-  background-color: #f5c2e7;
-}
-
-#taskbar button.active {
-  border-radius: 5px;
-  color: #1e1e2e;
-  background-color: #89b4fa;
-}
-
 #workspaces {
   /*margin: 5px 1px 6px 1px;*/
   /*padding: 0px 1px;*/
-  border-radius: 15px;
+  border-radius: 10px;
   border: 0px;
   font-weight: bold;
   font-style: normal;
   opacity: 0.85;
   font-size: 16px;
-  border-color: #1e1e2e;
-  /*border-radius: 50%;*/
-  /* 增加圆角 */
   margin: 0.2rem;
   /* 均匀外边距 */
   /*padding-left: 0.65rem;*/
@@ -66,7 +40,7 @@ window#waybar {
 }
 
 #workspaces button {
-  border-radius: 15px;
+  border-radius: 10px;
   /* 增加圆角 */
   /*margin: 0.1rem;*/
   /* 均匀外边距 */
@@ -96,7 +70,7 @@ window#waybar {
   min-width: 20px;
 
   transition: all 0.2s ease-in-out;
-  opacity:1.0;
+  opacity: 1;
 }
 
 #workspaces button.urgent {
@@ -206,7 +180,7 @@ window#waybar.empty #window {
 #custom-notification {
   background-color: transparent;
   /* Mocha Red */
-  color: #1E1E2E;
+  color: #1e1e2e;
   /* 高对比 */
   /*padding-left: 0.7rem;*/
   /*font-size: 14px;*/
@@ -216,10 +190,11 @@ window#waybar.empty #window {
   border: 0px solid black;
   /*background-color: #cba6f7;*/
   /*background-color: transparent;*/
-  background:#585b70;
+  background: #585b70;
   /*opacity: 0.2;*/
   /* Mocha Lavender */
   color: #1e1e2e;
+  border-radius: 10px;
   padding-right: 0.4rem;
   padding-left: 0.4rem;
   padding-top: 0rem;
@@ -237,11 +212,12 @@ window#waybar.empty #window {
 }
 
 #battery {
-  background-color: #f38ba8;
+  background-color: #ea9a97;
   /* Mocha Red */
   color: #ffffff;
   /* 提高对比度 */
   font-size: 14px;
+  border-radius: 10px;
 }
 
 tooltip {

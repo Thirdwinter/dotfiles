@@ -12,7 +12,6 @@
     "hyprland/window",
     "mpris"
   ],
-  //"wlr/taskbar"
   "modules-center": [
     "clock"
   ],
@@ -21,7 +20,6 @@
     "pulseaudio",
     "network",
     "custom/notification",
-    // "custom/setwallpaper",
     "tray",
     "battery"
   ],
@@ -30,15 +28,14 @@
     "on-click": "$HOME/.config/hypr/Scripts/random_swww_wallpaper.sh"
   },
   "mpris": {
-    //"player":"playerctld",
     "max-length": 40,
     "interval": 1,
     "dynamic-order": [
       "artist",
       "title"
     ],
-    "format": "{player_icon} {dynamic}",
-    "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "format": "  {player_icon} {dynamic}",
+    "format-paused": "  {status_icon} <i>{dynamic}</i>",
     "status-icons": {
       "paused": ""
     },
@@ -53,22 +50,18 @@
     "all-outputs": true,
     "disable-scroll": false,
     "active-only": false,
-	"format-icons": {
-        "1": "壹",
-        "2": "贰",
-        "3": "叁",
-        "4": "肆",
-        "5": "伍",
-        "6": "陆",
-        "7": "柒",
-        "8": "捌",
-        "9": "玖",
-        "10": "拾",
-	 },
-    // "persistent-workspaces": {
-    //   "*": 3
-    // }
-
+    "format-icons": {
+      "1": "壹",
+      "2": "贰",
+      "3": "叁",
+      "4": "肆",
+      "5": "伍",
+      "6": "陆",
+      "7": "柒",
+      "8": "捌",
+      "9": "玖",
+      "10": "拾"
+    }
   },
   "hyprland/window": {
     "format": "{class}"
@@ -108,19 +101,13 @@
     "tooltip-format": "{essid}({ipaddr})  {bandwidthUpBytes}  {bandwidthDownBytes}",
     "interval": 1,
     "format-alt": "{essid}({ipaddr})  {bandwidthUpBytes}  {bandwidthDownBytes}",
-    "format-wifi": "\uf1eb ",
-    "format-disconnected": "\uf071 Disconnected"
+    "format-wifi": " ",
+    "format-disconnected": " Disconnected"
   },
   "pulseaudio": {
     "format": "{icon}{volume}%",
     "format-muted": " ",
     "format-icons": {
-      //  "headphone": " ",
-      //  "hands-free": "󰂑",
-      //  "headset": "󰂑",
-      //  "phone": "",
-      //  "portable": "",
-      //  "car": "",
       "default": [
         " "
       ]
@@ -148,32 +135,26 @@
     "on-click": "$HOME/.config/hypr/Scripts/wlogout.sh"
   },
   "custom/notification": {
-    "tooltip" : true,
-                "format" : "{icon}",
-                           "format-icons"
-        : {
-          "notification" : " <span foreground='red'><sup></sup></span>",
-          "none" : "",
-          "dnd-notification" :
-              " <span foreground='red'><sup></sup></span>",
-          "dnd-none" : " ",
-          "inhibited-notification" :
-              " <span foreground='red'><sup></sup></span>",
-          "inhibited-none" : " ",
-          "dnd-inhibited-notification" :
-              " <span foreground='red'><sup></sup></span>",
-          "dnd-inhibited-none" : " "
-        },
-          "return-type" : "json",
-                          "exec-if" : "which swaync-client",
-                                      "exec" : "swaync-client -swb",
-                                               "on-click"
-        : "swaync-client -t -sw",
-          "on-click-right" : "swaync-client -d -sw",
-                             "escape" : true
+    "tooltip": true,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": " <span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": " <span foreground='red'><sup></sup></span>",
+      "dnd-none": " ",
+      "inhibited-notification": " <span foreground='red'><sup></sup></span>",
+      "inhibited-none": " ",
+      "dnd-inhibited-notification": " <span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": " "
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
   },
-    "cava": {
-    //"cava_config": "$HOME/.config/cava/config",
+  "cava": {
     "framerate": 60,
     "autosens": 1,
     "sensitivity": 1,
@@ -204,7 +185,6 @@
       "on-click-right": "mode"
     }
   },
-
   "wlr/taskbar": {
     "format": "{name}",
     "icon-size": 14,
@@ -219,5 +199,5 @@
       "Firefox Web Browser": "Firefox",
       "Foot Server": "Terminal"
     }
-  },
+  }
 }
