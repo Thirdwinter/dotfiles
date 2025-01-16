@@ -171,7 +171,7 @@ return {
     ghost_text = { enabled = false },
   },
   sources = {
-    default = { 'snippets', 'lsp', 'path', 'buffer', 'lazydev' },
+    default = { 'snippets', 'lsp', 'path', 'buffer', 'lazydev', 'markdown' },
     cmdline = {},
     providers = {
       lsp = {
@@ -183,6 +183,11 @@ return {
       lazydev = {
         name = 'Development',
         module = 'lazydev.integrations.blink',
+      },
+      markdown = {
+        name = 'RenderMarkdown',
+        module = 'render-markdown.integ.blink',
+        fallbacks = { 'lsp' },
       },
     },
   },

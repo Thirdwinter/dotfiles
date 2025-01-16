@@ -7,6 +7,9 @@ local lsp_servers = {
   jsonls = require 'custom.Lang.lsp.jsonls',
   tinymist = {},
   cssls = {},
+  bashls = {
+    filetypes = { 'sh', 'zsh' },
+  },
 
   --INFO: local lsp servers
   gopls = require 'custom.Lang.lsp.gopls',
