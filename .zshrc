@@ -1,11 +1,11 @@
-fpath+=.zfunc/
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+fpath+=.zfunc/
 # Start configuration added by Zim install {{{
 #
 # User configuration sourced by interactive shells
@@ -135,9 +135,6 @@ for key ('j') bindkey -M vicmd ${key} history-substring-search-down
 unset key
 # }}} End configuration added by Zim install
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 
 ####### fzf #######
 # Set up fzf key bindings and fuzzy completion
@@ -153,7 +150,14 @@ _fzf_compgen_dir() {
     fd --type=d --hidden --exclude .git . "$1"
 }
 export FZF_COMPLETION_TRIGGER='\'
-export FZF_DEFAULT_OPTS="--pointer='█' --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 --color=selected-bg:#45475a"
+# export FZF_DEFAULT_OPTS="--pointer='█' --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 --color=selected-bg:#45475a"
+export FZF_DEFAULT_OPTS="
+    --pointer='█'
+    --color=fg:#908caa,bg:#232136,hl:#ea9a97
+    --color=fg+:#e0def4,bg+:#393552,hl+:#ea9a97
+    --color=border:#44415a,header:#3e8fb0,gutter:#232136
+    --color=spinner:#f6c177,info:#9ccfd8
+    --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
 
 # yazi Shell wrapper
 function y() {
@@ -175,7 +179,6 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 # force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
 zstyle ':completion:*' menu no
 # preview directory's content with eza when completing cd
-# zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'lsd --color always --icon always $realpath'
 # custom fzf flags
 # NOTE: fzf-tab does not follow FZF_DEFAULT_OPTS by default
@@ -185,8 +188,6 @@ zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2
 zstyle ':fzf-tab:*' use-fzf-default-opts yes
 # switch group using `<` and `>`
 zstyle ':fzf-tab:*' switch-group '<' '>'
-
-
 
 alias ls="lsd"
 alias ll="lsd -l"
@@ -209,22 +210,11 @@ alias .....="cd ../../../../"
 # p10k 限制提示符目录长度 方式为限制目录节，最大数量为3
 export POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_last_folder"
 export POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
-eval "$(zoxide init zsh)"
-
-
-# export LANG=zh_CN.UTF-8
-# export GTK_IM_MODULE=fcitx
-# #QT_IM_MODULE=fcitx
-# export XMODIFIERS=@im=fcitx
-# #INPUT_METHOD=fcitx
-# export SDL_IM_MODULE=fcitx
-
 export WORKON_HOME=~/.WORKON_HOME
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 export VIRTUALENVWRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh
 source /usr/bin/virtualenvwrapper_lazy.sh
 # source /usr/share/nvm/init-nvm.sh
-
 # [ -s "${HOME}/.g/env" ] && \. "${HOME}/.g/env"  # g shell setup
 export GOPATH=~/.gopath
 export GOBIN=$GOPATH/bin
@@ -232,6 +222,9 @@ export GOROOT=/usr/lib/go
 export PATH=$PATH:$GOPATH
 export PATH=$PATH:$GOBIN
 export PATH=$PATH:$GOROOT/bin
-
-# Created by `pipx` on 2024-12-04 11:00:23
 export PATH="$PATH:/home/thirdwinter/.local/bin"
+
+eval "$(zoxide init zsh)"
+eval "$(direnv hook zsh)"
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
