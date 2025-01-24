@@ -1,3 +1,4 @@
+fpath+=.zfunc/
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -5,7 +6,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-fpath+=.zfunc/
 # Start configuration added by Zim install {{{
 #
 # User configuration sourced by interactive shells
@@ -150,6 +150,7 @@ _fzf_compgen_dir() {
     fd --type=d --hidden --exclude .git . "$1"
 }
 export FZF_COMPLETION_TRIGGER='\'
+
 # export FZF_DEFAULT_OPTS="--pointer='█' --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 --color=selected-bg:#45475a"
 export FZF_DEFAULT_OPTS="
     --pointer='█'
@@ -224,7 +225,21 @@ export PATH=$PATH:$GOBIN
 export PATH=$PATH:$GOROOT/bin
 export PATH="$PATH:/home/thirdwinter/.local/bin"
 
-eval "$(zoxide init zsh)"
-eval "$(direnv hook zsh)"
+# eval "$(zoxide init zsh)"
+source $HOME/.zoxiderc
+_direnv_hook() {
+  trap -- '' SIGINT
+  eval "$("/usr/bin/direnv" export zsh)"
+  trap - SIGINT
+}
+typeset -ag precmd_functions
+if (( ! ${precmd_functions[(I)_direnv_hook]} )); then
+  precmd_functions=(_direnv_hook $precmd_functions)
+fi
+typeset -ag chpwd_functions
+if (( ! ${chpwd_functions[(I)_direnv_hook]} )); then
+  chpwd_functions=(_direnv_hook $chpwd_functions)
+fi
+# eval "$(direnv hook zsh)"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

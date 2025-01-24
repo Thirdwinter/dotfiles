@@ -69,7 +69,7 @@ window#waybar {
   color: #1e1e2e;
   min-width: 20px;
 
-  transition: all 0.2s ease-in-out;
+  /*transition: all 0.2s ease-in-out;*/
   opacity: 1;
 }
 

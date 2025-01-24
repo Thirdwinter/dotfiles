@@ -9,10 +9,9 @@
 
 /*****----- Configuration -----*****/
 configuration {
-	modi:                       "drun,filebrowser,window";
-    show-icons:                 true;
+	modi:                       "drun,window";
     display-drun:               " Apps";
-    display-filebrowser:        " Files";
+    show-icons:                 true;
     display-window:             " Windows";
 	drun-display-format:        "{name}";
 	window-format:              "{w} · {c} · {t}";
@@ -55,7 +54,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       800px;
+    width:                       650px;
     x-offset:                    0px;
     y-offset:                    0px;
 

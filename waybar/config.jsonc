@@ -100,9 +100,9 @@
   "network": {
     "tooltip-format": "{essid}({ipaddr})  {bandwidthUpBytes}  {bandwidthDownBytes}",
     "interval": 1,
-    "format-alt": "{essid}({ipaddr})  {bandwidthUpBytes}  {bandwidthDownBytes}",
     "format-wifi": " ",
-    "format-disconnected": " Disconnected"
+    "on-click": "iwgtk",
+    "format-disconnected": " NONE"
   },
   "pulseaudio": {
     "format": "{icon}{volume}%",
