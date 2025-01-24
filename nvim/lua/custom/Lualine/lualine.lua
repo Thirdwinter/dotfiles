@@ -87,7 +87,7 @@ local config = {
     },
     ignore_focus = { 'neo-tree', 'alpha' },
     -- theme = require('custom.Lualine.themes.cp').catppuccin(),
-    theme = 'rose-pine', ---@type 'catppuccin' | 'rose-pine'
+    theme = 'catppuccin', ---@type 'catppuccin' | 'rose-pine'
     component_separators = '',
     section_separators = '',
   },

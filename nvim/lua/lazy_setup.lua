@@ -7,8 +7,8 @@ require('lazy').setup {
     'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   },
   checker = {
-    enabled = true,
-    notify = true,
+    enabled = false,
+    notify = false,
   },
   ui = {
     border = 'none',

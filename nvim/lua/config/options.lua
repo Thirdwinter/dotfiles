@@ -10,6 +10,13 @@ vim.g.cmpUsed = 'blink' ---@type 'blink' | 'cmp'
 -- 如果你在终端中安装并选择了 Nerd 字体，则设置为 true
 vim.g.have_nerd_font = true
 vim.g.Username = 'ThirdWinter'
+vim.g.transparent = function()
+  if vim.g.neovide then
+    return false
+  else
+    return true
+  end
+end
 -- [[ 设置选项 ]]
 -- 参见 `:help vim.opt`
 -- 注意：你可以根据自己喜好更改这些选项！

@@ -38,18 +38,24 @@ return {
           bg = '',
         },
         buffer_selected = {
-          fg = '#eba0ac',
-          bold = false,
+          fg = '#94e2d5',
+          bg = '',
+          bold = true,
           italic = true,
         },
-        indicator_selected = {
-          fg = '#eba0ac',
+        -- indicator_selected = {
+        --   fg = '#eba0ac',
+        --   bg = '',
+        -- },
+        background = {
+          -- fg = '<colour-value-here>',
+          bg = '',
         },
       },
 
       options = {
         indicator = {
-          icon = '┃', -- this should be omitted if indicator style is not 'icon'
+          icon = '', -- this should be omitted if indicator style is not 'icon'
           style = 'icon', ---@type 'icon' | 'underline' | 'none'
         },
 
@@ -68,7 +74,7 @@ return {
           },
         },
 
-        themable = true,
+        themable = false,
         show_buffer_icons = true,
         show_buffer_close_icons = false,
         show_close_icon = false,

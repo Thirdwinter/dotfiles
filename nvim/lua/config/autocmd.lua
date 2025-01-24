@@ -46,9 +46,11 @@ vim.api.nvim_create_autocmd('VimLeavePre', {
 -- })
 
 -- INFO: 主题变化时候重新加载自定义高亮
-vim.api.nvim_create_autocmd('ColorScheme', {
-  pattern = '*',
-  callback = function()
-    vim.cmd 'source ~/.config/nvim/lua/config/highlights.lua'
-  end,
-})
+if not vim.g.transparent() then
+  vim.api.nvim_create_autocmd('ColorScheme', {
+    pattern = '*',
+    callback = function()
+      vim.cmd 'source ~/.config/nvim/lua/config/highlights.lua'
+    end,
+  })
+end

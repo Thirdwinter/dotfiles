@@ -1,17 +1,17 @@
 --INFO: 一些自定义的颜色
 
 --INFO: 获取主题背景色
-
 local normal_hl = vim.api.nvim_get_hl_by_name('Normal', true)
+vim.g.Popfg = '#cdd6f5'
 if normal_hl and normal_hl.background then
   vim.g.Popbg = string.format('#%06x', normal_hl.background)
 else
-  vim.g.Popbg = '#1e1e2e'
+  vim.g.Popbg = ''
+  vim.g.Popfg = ''
 end
-vim.g.Popfg = '#cdd6f5'
 
-vim.api.nvim_set_hl(0, 'CursorLine', { bg = '#4F536D' })
-vim.api.nvim_set_hl(0, 'Visual', { bg = '#138376' })
+vim.api.nvim_set_hl(0, 'CursorLine', { bg = '#4f536d' })
+-- vim.api.nvim_set_hl(0, 'Visual', { bg = '#138376' })
 
 vim.api.nvim_set_hl(0, 'UserMenu', { bg = vim.g.Popbg })
 vim.api.nvim_set_hl(0, 'UserMenuBorder', { fg = vim.g.Popfg, bg = vim.g.Popbg })

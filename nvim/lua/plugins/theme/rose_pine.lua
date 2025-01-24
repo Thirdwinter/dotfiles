@@ -10,7 +10,7 @@ return {
 
       enable = {
         terminal = true,
-        -- legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
+        legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
         migrations = true, -- Handle deprecated options automatically
       },
 
@@ -59,10 +59,7 @@ return {
         -- },
       },
 
-      highlight_groups = {
-        -- Comment = { fg = "foam" },
-        -- VertSplit = { fg = "muted", bg = "muted" },
-      },
+      highlight_groups = {},
 
       before_highlight = function(group, highlight, palette)
         -- Disable all undercurls
