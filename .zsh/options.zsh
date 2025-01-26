@@ -18,18 +18,19 @@ colors
 
 # 初始化补全系统并指定缓存位置
 autoload -Uz compinit
-compinit -d "${XDG_CACHE_HOME}/zsh/zcompdump"
+compinit -d "$HOME/.cache/zsh/zcompdump"
 
 #####################
 ### 历史记录配置
 #####################
-HISTFILE="$XDG_CACHE_HOME/zsh/.zhistory"  # XDG 规范路径
+HISTFILE="$HOME/.cache/zsh/.zhistory"
 HISTSIZE=10000         # 内存记录数
 SAVEHIST=10000         # 持久化记录数
 
 # 历史记录行为 (合并重复选项)
 setopt EXTENDED_HISTORY      # 记录时间戳和持续时间
 setopt SHARE_HISTORY         # 跨终端共享
+setopt APPEND_HISTORY
 setopt INC_APPEND_HISTORY    # 实时追加
 setopt HIST_IGNORE_ALL_DUPS  # 自动去重
 setopt HIST_IGNORE_SPACE     # 忽略空格开头的命令
@@ -55,8 +56,9 @@ unsetopt EQUALS           # 禁用 = 命令扩展
 #####################
 
 # 自动建议配置
-ZSH_AUTOSUGGEST_USE_ASYNC="true"        # 异步加载提升性能
-ZSH_AUTOSUGGEST_MANUAL_REBIND=1         # 手动绑定优化响应
+ZSH_AUTOSUGGEST_USE_ASYNC=1        # 异步加载提升性能
+ZSH_AUTOSUGGEST_STARTEGY=(history completion)
+# ZSH_AUTOSUGGEST_MANUAL_REBIND=1         # 手动绑定优化响应
 # ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#D3D3D3,underline"  # 灰色下划线样式
 
 # 语法高亮配置
