@@ -23,9 +23,9 @@ export XDG_PICTURES_DIR="$HOME/Pictures"
 export XDG_VIDEOS_DIR="$HOME/Videos"
 
 
-# p10k 限制提示符目录长度 方式为限制目录节，最大数量为3
-export POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_last_folder"
-export POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
+# # p10k 限制提示符目录长度 方式为限制目录节，最大数量为3
+# export POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_last"
+# export POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 
 export WORKON_HOME=~/.WORKON_HOME
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
