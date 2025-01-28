@@ -8,17 +8,15 @@
 
 window#waybar {
   background-color: rgba(
-    166,
-    173,
-    200,
-    0.4
+    127,
+    132,
+    156,
+    0.8
   ); /* Semi-transparent white background */
   box-shadow: 0 4px 30px rgba(166, 173, 200, 0.9); /* Optional shadow to enhance the effect */
   border-radius: 10px; /* Optional rounded corners */
 }
 #workspaces {
-  /*margin: 5px 1px 6px 1px;*/
-  /*padding: 0px 1px;*/
   border-radius: 10px;
   border: 0px;
   font-weight: bold;
@@ -26,58 +24,31 @@ window#waybar {
   opacity: 0.85;
   font-size: 16px;
   margin: 0.2rem;
-  /* 均匀外边距 */
-  /*padding-left: 0.65rem;*/
-  /*padding-right: 0.65rem;*/
   padding-top: 0rem;
   padding-bottom: 0rem;
-
   background: #585b70;
-
-  /* 马卡龙粉 */
-  /*color: #1e1e2e;*/
-  /* Mocha Base */
 }
 
 #workspaces button {
   border-radius: 10px;
-  /* 增加圆角 */
-  /*margin: 0.1rem;*/
-  /* 均匀外边距 */
-  /*padding-left: 0.4rem;*/
-  /*padding-right: 0.4rem;*/
   padding-top: 0rem;
   padding-bottom: 0rem;
-
-  /*background-color: #f5c2e7;*/
-  /* 马卡龙粉 */
-  /*color: #1e1e2e;*/
-  /* Mocha Base */
 }
 
 #workspaces button:hover {
   box-shadow: inherit;
   text-shadow: inherit;
-  /*color: #f5c2e7;*/
-  /* 与背景色对比 */
-  /*background-color: #1e1e2e;*/
 }
 
 #workspaces button.active {
   background-color: #89b4fa;
-  /* Mocha Blue */
   color: #1e1e2e;
   min-width: 20px;
-
-  /*transition: all 0.2s ease-in-out;*/
   opacity: 1;
 }
 
 #workspaces button.urgent {
-  /*background-color: #f38ba8;*/
-  /* Mocha Red */
   color: #ffffff;
-  /* 提高对比度 */
 }
 
 #clock,
