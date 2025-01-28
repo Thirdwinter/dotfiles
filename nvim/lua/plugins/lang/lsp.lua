@@ -60,13 +60,14 @@ return {
 
     require('mason-tool-installer').setup { ensure_installed = mason_ensure_installed }
     local custom_handlers = {
-      --   ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'single' }),
-      -- ['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' }),
+      ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'single' }),
+      ['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' }),
     }
 
     for server_name, server_opts in pairs(lsp_servers) do
       server_opts.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server_opts.capabilities or {})
       server_opts.handlers = vim.tbl_deep_extend('force', {}, custom_handlers, server_opts.handlers or {})
+      -- server_opts.handlers = vim.tbl_deep_extend('force', {}, custom_handlers)
       lspconfig[server_name].setup(server_opts)
     end
 

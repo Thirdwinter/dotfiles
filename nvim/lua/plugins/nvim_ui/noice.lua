@@ -70,6 +70,7 @@ return {
         enabled = true,
       },
       hover = {
+        -- enabled = false,
         silent = true,
       },
       signature = {
@@ -102,20 +103,20 @@ return {
       },
       popupmenu = {
         relative = 'editor',
-        position = {
-          row = 8,
-          col = '50%',
-        },
+        -- position = {
+        --   row = 8,
+        --   col = '50%',
+        -- },
         size = {
           width = 60,
           height = 10,
         },
         border = {
           style = vim.g.borderStyle,
-          padding = { 0, 1 },
+          -- padding = { 0, 1 },
         },
         win_options = {
-          winhighlight = { Normal = 'Normal', FloatBorder = 'UserMenuBorder' },
+          winhighlight = { Normal = 'UserMenu', FloatBorder = 'UserMenuBorder' },
         },
       },
       hover = {
