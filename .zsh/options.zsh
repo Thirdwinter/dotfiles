@@ -23,7 +23,7 @@ compinit -d "$HOME/.cache/zsh/zcompdump"
 #####################
 ### 历史记录配置
 #####################
-HISTFILE="$HOME/.cache/zsh/.zhistory"
+HISTFILE="$HOME/.cache/zsh/zhistory"
 HISTSIZE=10000         # 内存记录数
 SAVEHIST=10000         # 持久化记录数
 
