@@ -16,6 +16,7 @@
     "clock"
   ],
   "modules-right": [
+    "cpu",
     "memory",
     "pulseaudio",
     "network",

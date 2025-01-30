@@ -60,7 +60,7 @@ return {
 
     require('mason-tool-installer').setup { ensure_installed = mason_ensure_installed }
     local custom_handlers = {
-      ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'single' }),
+      ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'single', style = 'list' }),
       ['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' }),
     }
 

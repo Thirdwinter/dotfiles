@@ -32,11 +32,6 @@ return {
       refresh = 50, -- refresh at most every 50ms
     },
     words = { enabled = false },
-    -- styles = {
-    --   notification = {
-    --     wo = { wrap = true }, -- Wrap notifications
-    --   },
-    -- },
   },
   keys = {},
 }

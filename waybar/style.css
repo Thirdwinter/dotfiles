@@ -105,7 +105,7 @@ window#waybar.empty #window {
 }
 
 #cpu {
-  background-color: #94e2d5;
+  background-color: transparent;
   /* Mocha Teal */
   color: #1e1e2e;
 }
