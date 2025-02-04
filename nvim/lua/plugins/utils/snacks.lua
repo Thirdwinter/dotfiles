@@ -3,6 +3,7 @@ return {
   priority = 1000,
   lazy = false,
   opts = {
+    explorer = {},
     bigfile = { enabled = true },
     dashboard = { enabled = false },
     input = { enabled = false },

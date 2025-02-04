@@ -3,13 +3,16 @@ require("full-border"):setup({
 	type = ui.Border.ROUNDED,
 })
 
-require("git"):setup()
-
--- ~/.config/yazi/init.lua
 THEME.git = THEME.git or {}
-THEME.git.modified_sign = "M"
-THEME.git.deleted_sign = "D"
--- ~/.config/yazi/init.lua
+THEME.git.added = ui.Style():fg("#a6e3a1")
+THEME.git.untracked = ui.Style():fg("gray")
+THEME.git.modified = ui.Style():fg("#f9e2af")
+THEME.git.added_sign = ""
+THEME.git.untracked_sign = ""
+THEME.git.modified_sign = ""
+THEME.git.deleted_sign = ""
+require("git"):setup({})
+
 function Linemode:size_and_mtime()
 	local year = os.date("%Y")
 	local time = (self._file.cha.modified or 0)

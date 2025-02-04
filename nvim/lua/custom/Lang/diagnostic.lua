@@ -22,6 +22,10 @@ end
 -- 配置诊断显示
 return {
   vim_diagnostic.config {
+    virtual_text = false,
+    -- virtual_lines = {
+    --   only_current_line = true,
+    -- },
     -- virtual_text = {
     --   spacing = 4,
     --   perfix = '●',

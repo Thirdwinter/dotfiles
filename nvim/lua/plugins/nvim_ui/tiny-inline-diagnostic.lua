@@ -1,3 +1,6 @@
+-- if true then
+--   return {}
+-- end
 return {
   'rachartier/tiny-inline-diagnostic.nvim',
   -- event = "LspAttach", -- Or `LspAttach`
