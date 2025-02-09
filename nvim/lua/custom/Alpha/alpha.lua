@@ -1,5 +1,6 @@
 local alpha = require 'alpha'
 local dashboard = require 'alpha.themes.dashboard'
+local logo = require('custom.Alpha.logo').A1
 -- DASHBOARD HEADER
 
 local function getGreeting(name)
@@ -28,7 +29,6 @@ local function getGreeting(name)
   return datetime .. '  ' .. greetingsTable[greetingIndex] .. ', ' .. name
 end
 
-local logo = require('custom.Alpha.logo').neovim
 dashboard.section.buttons.val = {
   dashboard.button('f', '  Find file', '<CMD>silent Telescope find_files hidden=true no_ignore=true <CR>'),
   dashboard.button('t', '  Find text', '<CMD>silent Telescope live_grep <CR>'),

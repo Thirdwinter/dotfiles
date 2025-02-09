@@ -4,7 +4,7 @@ require('lazy').setup {
     { import = 'plugins.utils' },
     { import = 'plugins.theme' },
     { import = 'plugins.lang' },
-    'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+    -- 'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   },
   git = {
     -- defaults for the `Lazy log` command

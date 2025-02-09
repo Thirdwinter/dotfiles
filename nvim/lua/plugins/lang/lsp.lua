@@ -7,6 +7,7 @@ local lsp_servers = {
   jsonls = require 'custom.Lang.lsp.jsonls',
   tinymist = {},
   cssls = {},
+  vtsls = {},
   bashls = {
     filetypes = { 'sh', 'zsh' },
   },
@@ -29,7 +30,7 @@ return {
     -- 自动将 LSP 和相关工具安装到 Neovim 的 stdpath
     { 'williamboman/mason.nvim', config = true }, -- 注意：必须在依赖之前加载
     'williamboman/mason-lspconfig.nvim',
-    'WhoIsSethDaniel/mason-tool-installer.nvim',
+    -- 'WhoIsSethDaniel/mason-tool-installer.nvim',
     'saghen/blink.cmp',
 
     -- LSP 的有用状态更新。
@@ -58,7 +59,7 @@ return {
 
     require('mason').setup()
 
-    require('mason-tool-installer').setup { ensure_installed = mason_ensure_installed }
+    -- require('mason-tool-installer').setup { ensure_installed = mason_ensure_installed }
     local custom_handlers = {
       ['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'single', style = 'list' }),
       ['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' }),

@@ -15,11 +15,11 @@
 }
 {
     "label" : "hibernate",
-    "action" : "swaylock -f && systemctl hibernate",
+    "action" : "systemctl hibernate",
     "keybind" : "h"
 }
 {
     "label" : "lock",
-    "action" : "swaylock",
+    "action" : "hyprlock",
     "keybind" : "l"
 }

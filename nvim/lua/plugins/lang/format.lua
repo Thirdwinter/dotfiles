@@ -2,7 +2,7 @@
 local formaters = {
   lua = { 'stylua' },
   yaml = { 'yamlfmt' },
-  go = { 'gofmt' },
+  go = { 'goimports' },
   xml = { 'xmlformatter' },
   c = { 'clang-format' },
   cpp = { 'clang-format' },
