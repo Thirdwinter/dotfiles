@@ -3,9 +3,9 @@
 [manager]
 ratio = [1, 3, 4]
 sort_by = "natural"
-sort_sensitive = true
-sort_reverse = true
-sort_dir_first = true
+sort_sensitive = false
+sort_reverse = false
+sort_dir_first = false
 show_hidden = false 
 show_symlink = true
 
