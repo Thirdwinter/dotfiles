@@ -96,7 +96,7 @@
   },
   "memory": {
     "interval": 10,
-    "format": " {used:.1f}G"
+    "format": "◉ {used:.1f}G"
   },
   "network": {
     "tooltip-format": "{essid}({ipaddr})  {bandwidthUpBytes}  {bandwidthDownBytes}",

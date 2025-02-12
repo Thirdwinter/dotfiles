@@ -29,8 +29,8 @@ export XDG_VIDEOS_DIR="$HOME/Videos"
 
 export WORKON_HOME=~/.WORKON_HOME
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
-export VIRTUALENVWRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh
-source /usr/bin/virtualenvwrapper_lazy.sh
+#export VIRTUALENVWRAPPER_SCRIPT=/usr/bin/virtualenvwrapper.sh
+#source /usr/bin/virtualenvwrapper_lazy.sh
 # source /usr/share/nvm/init-nvm.sh
 # [ -s "${HOME}/.g/env" ] && \. "${HOME}/.g/env"  # g shell setup
 export GOPATH=~/.gopath
