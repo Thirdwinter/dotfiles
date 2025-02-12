@@ -21,6 +21,8 @@ M.separators = {
   right_rounded = '',
   right_rounded_thin = '',
   circle = '●',
+  left_some = '',
+  right_some = ' ',
 }
 M.spinner_char = {
   ' ',

@@ -3,6 +3,9 @@ local catppuccin_theme_mode_color = require('custom.Lualine.themes.catppuccin').
 local separators = require('custom.Lualine.chars').separators
 local spinner_chars = require('custom.Lualine.chars').spinner_char
 
+local left_separators = separators.left_some
+local right_separators = separators.right_some
+
 local function scroll_bar()
   local chars = setmetatable(spinner_chars, {
     __index = function()
@@ -100,7 +103,7 @@ local config = {
         end,
         icon = '󰀘',
         color = { gui = 'bold' },
-        separator = { left = separators.left_rounded, right = separators.right_rounded },
+        separator = { left = left_separators, right = right_separators },
       },
     },
 
@@ -108,13 +111,13 @@ local config = {
       {
         'branch',
         icon = { ' ', align = 'left' },
-        separator = { right = separators.right_rounded },
+        separator = { right = right_separators },
         padding = { left = 1 },
       },
       {
         'diff',
         symbols = { added = ' ', modified = ' ', removed = ' ' },
-        separator = { right = separators.right_rounded },
+        separator = { right = right_separators },
         padding = { right = 0, left = 1 },
       },
     },
@@ -123,7 +126,7 @@ local config = {
       { scroll_bar, padding = { right = 0, left = 1 }, color = scroll_bar_hl },
       {
         'location',
-        separator = { right = separators.right_rounded },
+        separator = { right = right_separators },
         padding = { left = 1 },
         cond = function()
           return vim.api.nvim_win_get_width(0) > 110
@@ -138,13 +141,13 @@ local config = {
       { micro },
     },
     lualine_x = {
-      { lsp_info, separator = { left = separators.left_rounded } },
+      { lsp_info, separator = { left = left_separators } },
     },
 
     lualine_y = {
       {
         file_info,
-        separator = { left = separators.left_rounded },
+        separator = { left = left_separators },
         padding = { left = 0, right = 1 },
       },
     },
@@ -152,7 +155,7 @@ local config = {
     lualine_z = {
       {
         dir_info,
-        separator = { right = separators.right_rounded, left = separators.left_rounded },
+        separator = { right = right_separators, left = left_separators },
         color = { gui = 'bold' },
       },
     },
