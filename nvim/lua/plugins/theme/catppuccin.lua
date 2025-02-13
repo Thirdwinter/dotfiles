@@ -21,6 +21,7 @@ return {
       notify = true,
       mason = true,
       rainbow_delimiters = true,
+      snacks = true,
       -- mini = {
       --   enabled = true,
       --   indentscope_color = '',

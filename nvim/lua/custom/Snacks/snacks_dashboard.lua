@@ -24,20 +24,12 @@ local function getGreeting()
   return datetime .. '  ' .. greetingsTable[greetingIndex] .. ', ' .. vim.g.Username
 end
 return {
-  width = 60,
-  row = nil, -- dashboard position. nil for center
-  col = nil, -- dashboard position. nil for center
-  pane_gap = 4, -- empty columns between vertical panes
-  autokeys = '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', -- autokey sequence
-  -- These settings are used by some built-in sections
   preset = {
     keys = {
       { icon = ' ', key = 'f', desc = 'Find file', action = ':silent Telescope find_files hidden=true no_ignore=true' },
-      -- { icon = ' ', key = 't', desc = 'Find text', action = ':silent Telescope live_grep ' },
       { icon = ' ', key = 'g', desc = 'Find Text', action = ":lua Snacks.dashboard.pick('live_grep')" },
       { icon = ' ', key = 'r', desc = 'Recent Files', action = ":lua Snacks.dashboard.pick('oldfiles')" },
-      { icon = ' ', key = 'n', desc = 'Neovim Settings', action = ":lua require 'telescope.builtin'.find_files { cwd = vim.fn.stdpath 'config' }" },
-      -- { icon = ' ', key = 'c', desc = 'Config', action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
+      { icon = ' ', key = 'n', desc = 'Neovim Settings', action = ":lua require 'telescope.builtin'.find_files { cwd = vim.fn.stdpath 'config' }" },
       { icon = ' ', key = 'l', desc = 'Load Session', action = ":lua require'resession'.load'last'" },
       { icon = '󱐥 ', key = 'u', desc = 'Update plugins', action = ':Lazy update' },
       { icon = ' ', key = 'q', desc = 'Quit', action = ':qa' },
