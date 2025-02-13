@@ -34,21 +34,182 @@ return {
 
     require('bufferline').setup {
       highlights = {
-        fill = {
-          bg = '',
-        },
         buffer_selected = {
           fg = '#94e2d5',
           bg = '',
           bold = true,
           italic = true,
         },
-        -- indicator_selected = {
-        --   fg = '#eba0ac',
-        --   bg = '',
-        -- },
+
+        fill = {
+          bg = '',
+        },
         background = {
-          -- fg = '<colour-value-here>',
+          bg = '',
+        },
+        tab = {
+          bg = '',
+        },
+        tab_selected = {
+          bg = '',
+        },
+        tab_separator = {
+          bg = '',
+        },
+        tab_separator_selected = {
+          bg = '',
+        },
+        tab_close = {
+          bg = '',
+        },
+        close_button = {
+          bg = '',
+        },
+        close_button_visible = {
+          bg = '',
+        },
+        close_button_selected = {
+          bg = '',
+        },
+        buffer_visible = {
+          bg = '',
+        },
+        numbers = {
+          bg = '',
+        },
+        numbers_visible = {
+          bg = '',
+        },
+        numbers_selected = {
+          bg = '',
+        },
+        diagnostic = {
+          bg = '',
+        },
+        diagnostic_visible = {
+          bg = '',
+        },
+        diagnostic_selected = {
+          bg = '',
+        },
+        hint = {
+          bg = '',
+        },
+        hint_visible = {
+          bg = '',
+        },
+        hint_selected = {
+          bg = '',
+        },
+        hint_diagnostic = {
+          bg = '',
+        },
+        hint_diagnostic_visible = {
+          bg = '',
+        },
+        hint_diagnostic_selected = {
+          bg = '',
+        },
+        info = {
+          bg = '',
+        },
+        info_visible = {
+          bg = '',
+        },
+        info_selected = {
+          bg = '',
+        },
+        info_diagnostic = {
+          bg = '',
+        },
+        info_diagnostic_visible = {
+          bg = '',
+        },
+        info_diagnostic_selected = {
+          bg = '',
+        },
+        warning = {
+          bg = '',
+        },
+        warning_visible = {
+          bg = '',
+        },
+        warning_selected = {
+          bg = '',
+        },
+        warning_diagnostic = {
+          bg = '',
+        },
+        warning_diagnostic_visible = {
+          bg = '',
+        },
+        warning_diagnostic_selected = {
+          bg = '',
+        },
+        error = {
+          bg = '',
+        },
+        error_visible = {
+          bg = '',
+        },
+        error_selected = {
+          bg = '',
+        },
+        error_diagnostic = {
+          bg = '',
+        },
+        error_diagnostic_visible = {
+          bg = '',
+        },
+        error_diagnostic_selected = {
+          bg = '',
+        },
+        modified = {
+          bg = '',
+        },
+        modified_visible = {
+          bg = '',
+        },
+        modified_selected = {
+          bg = '',
+        },
+        duplicate_selected = {
+          bg = '',
+        },
+        duplicate_visible = {
+          bg = '',
+        },
+        duplicate = {
+          bg = '',
+        },
+        separator_selected = {
+          bg = '',
+        },
+        separator_visible = {
+          bg = '',
+        },
+        separator = {
+          bg = '',
+        },
+        indicator_visible = {
+          bg = '',
+        },
+        indicator_selected = {
+          bg = '',
+        },
+        pick_selected = {
+          bg = '',
+        },
+        pick_visible = {
+          bg = '',
+        },
+        pick = {
+          bg = '',
+        },
+        offset_separator = {
+          bg = '',
+        },
+        trunc_marker = {
           bg = '',
         },
       },
@@ -56,7 +217,7 @@ return {
       options = {
         indicator = {
           icon = '', -- this should be omitted if indicator style is not 'icon'
-          style = 'icon', ---@type 'icon' | 'underline' | 'none'
+          style = 'none', ---@type 'icon' | 'underline' | 'none'
         },
 
         get_element_icon = function(element)
@@ -83,18 +244,4 @@ return {
       },
     }
   end,
-  -- keys = {
-  --   { '<Leader>bp', '<Cmd>BufferLinePick<CR>', desc = '选择buffer' },
-  --   { '<Leader>bd', '<Cmd>BufferLinePickClose<CR>', desc = '选择buffer关闭' },
-  --   { '<Leader>bh', '<Cmd>BufferLineCloseLeft<CR>', desc = '关闭左侧buffer' },
-  --   { '<Leader>bl', '<Cmd>BufferLineCloseRight<CR>', desc = '关闭右侧buffer' },
-  --   { '<Leader>c', "<Cmd>lua require('mini.bufremove').delete(0,false)<CR>", desc = '关闭当前buffer' },
-  --   { 'L', '<Cmd>bnext<CR>', desc = '下一个buffer' },
-  --   { 'H', '<Cmd>bprev<CR>', desc = '上一个buffer' },
-  --   {
-  --     '<leader>bo',
-  --     '<Cmd>BufferLineCloseOthers<CR>',
-  --     desc = '关闭其它buffer',
-  --   },
-  -- },
 }

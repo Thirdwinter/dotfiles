@@ -16,8 +16,8 @@ require('lazy').setup {
     notify = false,
   },
   ui = {
-    border = 'none',
-    backdrop = 60,
+    border = vim.g.borderStyle,
+    backdrop = 100,
   },
   change_detection = {
     -- automatically check for config file changes and reload the ui

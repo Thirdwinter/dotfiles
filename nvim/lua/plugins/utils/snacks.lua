@@ -4,7 +4,7 @@ return {
   lazy = false,
   opts = {
     bigfile = { enabled = true },
-    dashboard = { enabled = false },
+    dashboard = require 'custom.Snacks.snacks_dashboard',
     input = { enabled = false },
     indent = require 'custom.Snacks.snacks_indent',
     notifier = {
