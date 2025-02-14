@@ -80,7 +80,7 @@ vim.api.nvim_create_autocmd({ 'WinEnter', 'VimEnter', 'BufEnter', 'UIEnter', 'Bu
       if #buflist_cache > 1 then
         vim.o.showtabline = 2 -- always
       else -- don't reset the option if it's already at default value
-        vim.o.showtabline = 0 -- only when #tabpages > 1
+        vim.o.showtabline = 1 -- only when #tabpages > 1
       end
     end)
   end,

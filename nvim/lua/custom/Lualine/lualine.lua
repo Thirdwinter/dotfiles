@@ -38,7 +38,9 @@ local function scroll_bar_hl()
 end
 
 local function dir_info()
-  local dir_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
+  local current_dir = vim.fn.getcwd()
+  local home_dir = vim.fn.expand '~'
+  local dir_name = current_dir == home_dir and '~' or vim.fn.fnamemodify(current_dir, ':t')
   return vim.api.nvim_win_get_width(0) < 110 and string.format('%s', '󰉖 ') or string.format('%s %s', '󰉖 ', dir_name)
 end
 
@@ -90,7 +92,7 @@ local config = {
     },
     ignore_focus = { 'neo-tree', 'alpha' },
     -- theme = require('custom.Lualine.themes.cp').catppuccin(),
-    theme = 'catppuccin', ---@type 'catppuccin' | 'rose-pine' | 'tokyonight'
+    theme = 'tokyonight', ---@type 'catppuccin' | 'rose-pine' | 'tokyonight'
     component_separators = '',
     section_separators = '',
   },
@@ -141,21 +143,21 @@ local config = {
       { micro },
     },
     lualine_x = {
-      { lsp_info, separator = { left = left_separators } },
+      { lsp_info, separator = { right = right_separators, left = left_separators } },
     },
 
     lualine_y = {
       {
         file_info,
-        separator = { left = left_separators },
-        padding = { left = 0, right = 1 },
+        separator = { right = right_separators },
+        -- padding = { left = 0, right = 1 },
       },
     },
 
     lualine_z = {
       {
         dir_info,
-        separator = { right = right_separators, left = left_separators },
+        separator = { right = right_separators },
         color = { gui = 'bold' },
       },
     },
