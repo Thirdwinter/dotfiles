@@ -12,7 +12,7 @@ if not vim.g.transparent() then
     vim.g.Popfg = ''
   end
 
-  vim.api.nvim_set_hl(0, 'CursorLine', { bg = '#4f536d' })
+  -- vim.api.nvim_set_hl(0, 'CursorLine', { bg = '#4f536d' })
   -- vim.api.nvim_set_hl(0, 'Visual', { bg = '#138376' })
 
   vim.api.nvim_set_hl(0, 'UserMenu', { bg = vim.g.Popbg })

@@ -59,10 +59,9 @@ unsetopt EQUALS           # 禁用 = 命令扩展
 ZSH_AUTOSUGGEST_USE_ASYNC=1        # 异步加载提升性能
 ZSH_AUTOSUGGEST_STARTEGY=(history completion)
 # ZSH_AUTOSUGGEST_MANUAL_REBIND=1         # 手动绑定优化响应
-# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#D3D3D3,underline"  # 灰色下划线样式
-
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#585b70"
 # 语法高亮配置
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp root line)
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern regexp root line)
 ZSH_HIGHLIGHT_MAXLENGTH=512  # 防止长命令卡顿
 
 #####################

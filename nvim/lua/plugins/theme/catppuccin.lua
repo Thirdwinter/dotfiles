@@ -1,17 +1,10 @@
-local function transparent_background_nd()
-  if vim.g.neovide then
-    return false
-  end
-  return true
-end
-
 return {
   'catppuccin/nvim',
   name = 'catppuccin',
   priority = 1000,
   opts = {
     term_colors = true,
-    transparent_background = transparent_background_nd(),
+    transparent_background = vim.g.transparent(),
     integrations = {
       cmp = true,
       blink_cmp = true,
@@ -54,7 +47,7 @@ return {
     highlight_overrides = {
       mocha = function(mocha)
         return {
-          Normal = { bg = '#1e1e2e' },
+          -- Normal = { bg = '#1e1e2e' },
           -- NormalFolat = { bg = '#1e1e2e' },
           DiagnosticUnderlineError = { undercurl = true, sp = mocha.red },
           DiagnosticUnderlineWarn = { undercurl = true, sp = mocha.yellow },

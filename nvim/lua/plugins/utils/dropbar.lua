@@ -3,7 +3,7 @@
 -- end
 return {
   'Bekaboo/dropbar.nvim',
-  event = 'VeryLazy',
+  event = 'BufEnter',
   dependencies = {
     'nvim-telescope/telescope-fzf-native.nvim',
   },

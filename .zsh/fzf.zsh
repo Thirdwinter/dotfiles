@@ -1,10 +1,10 @@
 export FZF_DEFAULT_OPTS="
-    --pointer='█'
-    --color=fg:#908caa,bg:#1e1e2e,hl:#ea9a97
-    --color=fg+:#e0def4,bg+:#393552,hl+:#ea9a97
-    --color=border:#44415a,header:#3e8fb0,gutter:#232136
-    --color=spinner:#f6c177,info:#9ccfd8
-    --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
+--pointer='█'
+--color=fg:#908caa,hl:#ea9a97
+--color=fg+:#e0def4,hl+:#ea9a97
+--color=border:#44415a,header:#3e8fb0,gutter:#232136
+--color=spinner:#f6c177,info:#9ccfd8
+--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
 
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -29,7 +29,7 @@ zstyle ':fzf-tab:complete:*:*' fzf-preview '
     bat --color=always $realpath 2>/dev/null || cat $realpath
   elif [[ -d $realpath ]]; then
     lsd -1 --color=always $realpath
-  fi'
+fi'
 zstyle ':fzf-tab:*' use-fzf-default-opts yes
 
 # Set up fzf key bindings and fuzzy completion

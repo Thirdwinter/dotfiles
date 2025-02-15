@@ -1,21 +1,30 @@
+@import "colors.css";
+
+/* You can now use all the color variables inside the file. */
+/* 您现在可以使用文件中的所有颜色变量。 */
+
 * {
   min-height: 0px;
   min-width: 0px;
   font-family: "Maple Mono NF CN", sans-serif;
   font-size: 14px;
   font-weight: 600;
+  /*background: transparent;*/
 }
 
 window#waybar {
-  background-color: rgba(
-    127,
-    132,
-    156,
-    0.8
-  ); /* Semi-transparent white background */
+  /*background-color: rgba(*/
+  /*  127,*/
+  /*  132,*/
+  /*  156,*/
+  /*  0.8*/
+  /*);*/
+  /*opacity: 0.7;*/
+  background-color: @on_secondary_fixed_variant;
   box-shadow: 0 4px 30px rgba(166, 173, 200, 0.9); /* Optional shadow to enhance the effect */
   border-radius: 10px; /* Optional rounded corners */
 }
+
 #workspaces {
   border-radius: 10px;
   border: 0px;
@@ -41,14 +50,14 @@ window#waybar {
 }
 
 #workspaces button.active {
-  background-color: #89b4fa;
-  color: #1e1e2e;
+  background-color: @primary;
+  color: @on_primary;
   min-width: 20px;
   opacity: 1;
 }
 
 #workspaces button.urgent {
-  color: #ffffff;
+  color: @on_error;
 }
 
 #clock,
@@ -67,104 +76,83 @@ window#waybar {
   min-width: 0px;
   padding-top: 0rem;
   padding-bottom: 0rem;
-  padding-left: 0.4rem;
-  /* 调整内边距 */
-  padding-right: 0.4rem;
-  /* 调整内边距 */
+  padding-left: 0.4rem; /* 调整内边距 */
+  padding-right: 0.4rem; /* 调整内边距 */
   border-radius: 15px;
-  margin: 0.2rem;
-  /* 均匀外边距 */
-  background-color: #1e1e2e;
-  /* 马卡龙暖橙 */
-  color: #1e1e2e;
+  margin: 0.2rem; /* 均匀外边距 */
+  background-color: @surface;
+  color: @on_surface;
 }
 
 #mpris.playing {
   background-color: transparent;
-  color: #45475a;
-  /* Mocha Green */
+  color: @on_surface_variant;
 }
 
 #mpris.paused {
-  color: #9399b2;
+  color: @on_surface_variant;
   background-color: transparent;
 }
 
 #custom-sep {
   padding: 0px;
-  color: #585b70;
-  /* Mocha Surface2 */
+  color: @outline;
 }
 
 #cava {
-  color: #f9e2af;
+  color: @error;
 }
 
 window#waybar.empty #window {
   background-color: transparent;
 }
-
+window#waybar.fullscreen #window {
+  color: @error;
+}
 #cpu {
   background-color: transparent;
-  /* Mocha Teal */
-  color: #1e1e2e;
+  color: @on_surface;
 }
 
 #memory {
-  /*background-color: #cba6f7;*/
   background-color: transparent;
-  /* Mocha Lavender */
-  color: #1e1e2e;
+  color: @on_surface;
 }
 
 #clock {
-  /*background-color: #b4befe;*/
   background-color: transparent;
-  /* Mocha Light Blue */
-  color: #1e1e2e;
+  color: @on_surface;
 }
 
 #network {
   background-color: transparent;
-  /* Mocha Green */
-  color: #1e1e2e;
+  color: @on_surface;
 }
 
 #window {
   background-color: transparent;
-  /* 马卡龙粉 */
-  color: #1e1e2e;
+  color: @on_surface;
 }
 
 #pulseaudio {
   background-color: transparent;
-  /* Mocha Blue */
-  color: #1e1e2e;
+  color: @on_surface;
 }
 
 #pulseaudio.muted {
   background-color: transparent;
-  /* Mocha Subtext0 */
-  color: #1e1e2e;
+  color: @on_surface;
 }
 
 #custom-notification {
   background-color: transparent;
-  /* Mocha Red */
-  color: #1e1e2e;
-  /* 高对比 */
-  /*padding-left: 0.7rem;*/
-  /*font-size: 14px;*/
+  color: @error;
 }
 
 #tray {
   border: 0px solid black;
-  /*background-color: #cba6f7;*/
-  /*background-color: transparent;*/
-  background: #585b70;
-  /*opacity: 0.2;*/
-  /* Mocha Lavender */
-  color: #1e1e2e;
+  background: @secondary_container;
+  color: @on_surface;
   border-radius: 10px;
   padding-right: 0.4rem;
   padding-left: 0.4rem;
@@ -175,27 +163,18 @@ window#waybar.empty #window {
 #custom-setwallpaper {
   border-radius: 50%;
   background-color: transparent;
-  /* 马卡龙暖橙 */
-  color: #1e1e2e;
-  /*padding-left: 0.8rem;*/
-  /*padding-right: 0.8rem;*/
-  /*font-size: 14px;*/
+  color: @primary;
 }
 
 #battery {
-  background-color: #ea9a97;
-  /* Mocha Red */
-  color: #ffffff;
-  /* 提高对比度 */
+  background-color: @error;
+  color: @surface_container_lowest;
   font-size: 14px;
   border-radius: 10px;
 }
 
 tooltip {
-  background-color: #181825;
-  /* Mocha Crust */
-  border: 2px solid #89b4fa;
-  /* Mocha Blue */
-  color: #cdd6f4;
-  /* Mocha Text */
+  background-color: @surface_container_highest;
+  border: 2px solid @primary;
+  color: @on_surface;
 }

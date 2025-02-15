@@ -12,9 +12,10 @@ local formaters = {
   sh = { 'beautysh' },
   rust = { 'rustfmt' },
   typescript = { 'ts-standard' },
-  typescriptreact = { 'ts-standard' },
+  typescriptreact = { 'prettier' },
   typst = { 'typstfmt' },
   css = { 'prettier' },
+  scss = { 'prettier' },
 
   -- Conform can also run multiple formatters sequentially
   -- python = { "isort", "black" },
