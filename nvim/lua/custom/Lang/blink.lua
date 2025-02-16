@@ -7,8 +7,9 @@ return {
       border = vim.g.borderStyle,
     },
   },
-  keymap = {
-    cmdline = {
+  cmdline = {
+    enabled = false,
+    keymap = {
       preset = 'none',
       ['<Tab>'] = {
         function(cmp)
@@ -29,6 +30,8 @@ return {
       ['<C-p>'] = { 'select_prev', 'fallback' },
       ['<C-n>'] = { 'select_next', 'fallback' },
     },
+  },
+  keymap = {
     preset = 'none',
     ['<C-i>'] = { 'show', 'hide' },
     ['<C-->'] = { 'hide_documentation', 'show_documentation' },
@@ -172,7 +175,8 @@ return {
   },
   sources = {
     default = { 'snippets', 'lsp', 'path', 'buffer', 'lazydev', 'markdown' },
-    cmdline = {},
+    -- cmdline = {},
+
     providers = {
       lsp = {
         name = 'LSP',
