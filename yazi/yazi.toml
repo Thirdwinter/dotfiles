@@ -8,6 +8,19 @@ sort_reverse = false
 sort_dir_first = false
 show_hidden = false 
 show_symlink = true
+cwd = { fg = "#c3c5dd", bold = true }
+
+hovered = { fg = "#dde1ff", bg = "#384379" }
+preview_hovered = { underline = true, bold = true }
+
+find_keyword = { fg = "#c3c5dd", italic = true }
+find_position = { fg = "#e5bad8", bg = "reset", italic = true }
+
+
+border_symbol = "│"
+border_style = { fg = "#b9c3ff" }
+
+syntect_theme = "~/.config/yazi/Catppuccin-latte.tmTheme"
 
 [opener]
 edit = [
@@ -15,99 +28,67 @@ edit = [
 	{ run = "nvim %*", block = true, for = "windows" },
 ]
 
-# [open]
-# prepend_rules = [
-#
-# 	{ name = "*/", use = ["edit", "open"] },
-#
-# 	{ mime = "text/*", use = ["edit"] },
-# 	{ name = "*.json", use = "edit" },
-#
-# 	# Multiple openers for a single rule
-# 	{ name = "*.html", use = ["open", "edit"] },
-#
-# ]
-# [input]
-# cursor_blink = false
-#
-# # cd
-# cd_title  = "Change directory:"
-# cd_origin = "top-center"
-# cd_offset = [ 0, 2, 50, 3 ]
-#
-# # create
-# create_title  = [ "Create:", "Create (dir):" ]
-# create_origin = "top-center"
-# create_offset = [ 0, 2, 50, 3 ]
-#
-# # rename
-# rename_title  = "Rename:"
-# rename_origin = "hovered"
-# rename_offset = [ 0, 1, 50, 3 ]
-#
-# # filter
-# filter_title  = "Filter:"
-# filter_origin = "top-center"
-# filter_offset = [ 0, 2, 50, 3 ]
-#
-# # find
-# find_title  = [ "Find next:", "Find previous:" ]
-# find_origin = "top-center"
-# find_offset = [ 0, 2, 50, 3 ]
-#
-# # search
-# search_title  = "Search via {n}:"
-# search_origin = "top-center"
-# search_offset = [ 0, 2, 50, 3 ]
-#
-# # shell
-# shell_title  = [ "Shell:", "Shell (block):" ]
-# shell_origin = "top-center"
-# shell_offset = [ 0, 2, 50, 3 ]
-#
-# [confirm]
-# # trash
-# trash_title 	= "Trash {n} selected file{s}?"
-# trash_origin	= "center"
-# trash_offset	= [ 0, 0, 70, 20 ]
-#
-# # delete
-# delete_title 	= "Permanently delete {n} selected file{s}?"
-# delete_origin	= "center"
-# delete_offset	= [ 0, 0, 70, 20 ]
-#
-# # overwrite
-# overwrite_title   = "Overwrite file?"
-# overwrite_content = "Will overwrite the following file:"
-# overwrite_origin  = "center"
-# overwrite_offset  = [ 0, 0, 50, 15 ]
-#
-# # quit
-# quit_title   = "Quit?"
-# quit_content = "The following tasks are still running, are you sure you want to quit?"
-# quit_origin  = "center"
-# quit_offset  = [ 0, 0, 50, 15 ]
-#
-# [pick]
-# open_title  = "Open with:"
-# open_origin = "hovered"
-# open_offset = [ 0, 1, 50, 7 ]
-#
-# [which]
-# sort_by      	 = "none"
-# sort_sensitive = false
-# sort_reverse 	 = false
-# sort_translit  = false
+[mode]
+normal_main = { fg = "#212c61", bg = "#b9c3ff", bold = true }
+normal_alt = { fg = "#384379", bg = "#e3e1e9" }
 
-# [log]
-# enabled = false
+select_main = { fg = "#2c2f42", bg = "#c3c5dd", bold = true }
+select_alt = { fg = "#434659", bg = "#e3e1e9" }
 
+unset_main = { fg = "#44263e", bg = "#e5bad8", bold = true }
+unset_alt = { fg = "#5c3c55", bg = "#e3e1e9" }
+
+[status]
+separator_open = ""
+separator_close = ""
+
+perm_type = { fg = "#b9c3ff" }
+perm_read = { fg = "#f5bd6f" }
+perm_write = { fg = "#b1c5ff" }
+perm_exec = { fg = "#fbb0d8" }
+perm_sep = { fg = "#e3e1e9" }
+
+[which]
+mask = { bg = "#1f1f25" }
+cand = { fg = "#b9c3ff" }
+rest = { bg = "#1f1f25" }
+desc = { fg = "#c3c5dd" }
+separator = "  "
+separator_style = { fg = "#e5bad8" }
+
+[notify]
+title_info = { fg = "#91d5ad" }
+title_warn = { fg = "#f5bd6f" }
+title_error = { fg = "#ffb4ab" }
+
+[filetype]
+rules = [
+  # Images
+  { mime = "image/*", fg = "#c3c5dd" },
+
+  # Videos
+  { mime = "video/*", fg = "#e5bad8" },
+  { mime = "audio/*", fg = "#e5bad8" },
+
+  # Archives
+  { mime = "application/zip", fg = "#ffb4ab" },
+  { mime = "application/gzip", fg = "#ffb4ab" },
+  { mime = "application/x-tar", fg = "#ffb4ab" },
+  { mime = "application/x-bzip", fg = "#ffb4ab" },
+  { mime = "application/x-bzip2", fg = "#ffb4ab" },
+  { mime = "application/x-7z-compressed", fg = "#ffb4ab" },
+  { mime = "application/x-rar", fg = "#ffb4ab" },
+
+  # Fallback
+  { name = "*", fg = "#b9c3ff", bold = true },
+  { name = "*/", fg = "#c3c5dd", bold = true },
+]
 [[plugin.prepend_fetchers]]
-id   = "git"
+id = "git"
 name = "*"
-run  = "git"
+run = "git"
 
 [[plugin.prepend_fetchers]]
-id   = "git"
+id = "git"
 name = "*/"
-run  = "git"
+run = "git"

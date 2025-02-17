@@ -42,6 +42,7 @@ for ((i = 0; i < num_files; i++)); do
         fi
         random_pos=$(get_random_pos)
         swww img "${files[$next_index]}" --transition-fps 80 --transition-type grow --transition-pos "$random_pos" --transition-duration 1.3 --transition-bezier 0.43,1.19,1,0.4
+        matugen image "${files[$next_index]}"
         break
     fi
 done

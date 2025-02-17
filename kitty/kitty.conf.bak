@@ -4,36 +4,34 @@
 # BEGIN_KITTY_FONTS
 font_family      family='Maple Mono NF CN' postscript_name=MapleMono-NF-CN-Regular features='cv03 ss01 ss02 ss04 ss05 ss07'
 bold_font        family='Maple Mono NF CN' postscript_name=MapleMono-NF-CN-Bold features='cv03 ss01 ss02 ss04 ss05 ss07'
+italic_font      family="CaskaydiaMono Nerd Font" style=Italic postscript_name=CaskaydiaMonoNerdFont-Italic
+bold_italic_font family="CaskaydiaMono Nerd Font" postscript_name=CaskaydiaMonoNerdFont-BoldItalic
 # italic_font      family='Maple Mono NF CN' style=Italic features='cv03=0 +ss01 +ss02 +ss04 +ss05 +ss07'
 # bold_italic_font family='Maple Mono NF CN' postscript_name=MapleMono-NF-CN-BoldItalic features='-cv03 ss01 ss02 ss04 ss05 ss07'
 
 # font_family      family="CaskaydiaMono Nerd Font"
 # bold_font        auto
-italic_font      family="CaskaydiaMono Nerd Font" style=Italic postscript_name=CaskaydiaMonoNerdFont-Italic
-bold_italic_font family="CaskaydiaMono Nerd Font" postscript_name=CaskaydiaMonoNerdFont-BoldItalic
 font_size 11.5
 # END_KITTY_FONTS
 
 
 #################################### THEME ####################################
 # BEGIN_KITTY_THEME
-# Rosé Pine Moon
+# Matugen
 include current-theme.conf
-# include cyberdream.conf
 # END_KITTY_THEME
 
 #################################### WINDOW ####################################
 hide_window_decorations        no
 dynamic_background_opacity     no
-# window_padding_width           1 7 1 7
-window_padding_width           0
-# background_opacity             1.9
-# background_blur                64
+# window_padding_width           2 5 2 5
+background_opacity             0.75
+# background_blur                1
 
 #################################### CURSOR ####################################
 cursor_blink_interval 0
 #光标颜色补丁，下面没有被注释
-cursor #A6E3A1
+cursor #6c7086
 cursor_trail_start_threshold 10
 detect_urls no
 mouse_hide_wait 0.5
@@ -41,10 +39,17 @@ cursor_trail 3
 cursor_shape beam
 cursor_trail_start_threshold 1
 ##################################### TAB ######################################
-tab_bar_edge                top
-tab_bar_style               powerline
-tab_powerline_style         round
-
+tab_bar_edge                bottom
+# tab_bar_margin_width        9
+# tab_bar_margin_height       9 0
+tab_bar_style               separator
+# tab_bar_min_tabs            0
+tab_separator               ""
+active_tab_font_style   normal
+tab_title_template          "{fmt.fg.color0}{fmt.bg.default}{fmt.fg.color15}{fmt.bg.color0} {title.split()[0]} {fmt.fg.color0}{fmt.bg.default} "
+active_tab_title_template   "{fmt.fg.color4}{fmt.bg.default}{fmt.fg.color8}{fmt.bg.color4} {title.split()[0]} {fmt.fg.color4}{fmt.bg.default} "
+# tab_bar_style               powerline
+# tab_powerline_style         round
 
 
 
@@ -78,14 +83,3 @@ map ctrl+v paste_from_clipboard
 
 
 shell_integration no-title
-# font_family      family='Maple Mono NF CN' postscript_name=MapleMono-NF-CN-Regular features='cv03 ss01 ss02 ss04 ss05 ss07'
-# bold_font        family='Maple Mono NF CN' postscript_name=MapleMono-NF-CN-Bold features='cv03 ss01 ss02 ss04 ss05 ss07'
-# # italic_font      family='Maple Mono NF CN' style=Italic features='cv03=0 +ss01 +ss02 +ss04 +ss05 +ss07'
-# # bold_italic_font family='Maple Mono NF CN' postscript_name=MapleMono-NF-CN-BoldItalic features='-cv03 ss01 ss02 ss04 ss05 ss07'
-#
-# # font_family      family="CaskaydiaMono Nerd Font"
-# # bold_font        auto
-# italic_font      family="CaskaydiaMono Nerd Font" style=Italic postscript_name=CaskaydiaMonoNerdFont-Italic
-# bold_italic_font family="CaskaydiaMono Nerd Font" postscript_name=CaskaydiaMonoNerdFont-BoldItalic
-# font_size 11.5
-#

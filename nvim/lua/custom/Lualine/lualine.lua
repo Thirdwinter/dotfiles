@@ -92,7 +92,7 @@ local config = {
     },
     ignore_focus = { 'neo-tree', 'alpha' },
     -- theme = require('custom.Lualine.themes.cp').catppuccin(),
-    theme = 'tokyonight', ---@type 'catppuccin' | 'rose-pine' | 'tokyonight'
+    theme = 'catppuccin', ---@type 'catppuccin' | 'rose-pine' | 'tokyonight'
     component_separators = '',
     section_separators = '',
   },
@@ -143,13 +143,13 @@ local config = {
       { micro },
     },
     lualine_x = {
-      { lsp_info, separator = { right = right_separators, left = left_separators } },
+      { lsp_info, separator = { left = left_separators } },
     },
 
     lualine_y = {
       {
         file_info,
-        separator = { right = right_separators },
+        separator = { right = right_separators, left = left_separators },
         -- padding = { left = 0, right = 1 },
       },
     },

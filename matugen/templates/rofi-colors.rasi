@@ -63,10 +63,10 @@ configuration {
 * {
     border-colour:               var(primary);
     handle-colour:               var(primary);
-    background-colour:           var(on-tertiary);
+    background-colour:           var(primary-container);
     foreground-colour:           var(on-surface);
-    alternate-background:        var(on-tertiary);
-    normal-background:           var(on-tertiary);
+    alternate-background:        var(primary-container);
+    normal-background:           var(primary-container);
     normal-foreground:           var(on-surface);
     urgent-background:           var(error);
     urgent-foreground:           var(on-error);
@@ -78,11 +78,11 @@ configuration {
     selected-urgent-foreground:  var(on-error-container);
     selected-active-background:  var(secondary);
     selected-active-foreground:  var(on-secondary);
-    alternate-normal-background: var(on-tertiary);
+    alternate-normal-background: var(primary-container);
     alternate-normal-foreground: var(on-surface);
     alternate-urgent-background: var(error);
     alternate-urgent-foreground: var(on-error);
-    alternate-active-background: var(on-tertiary);
+    alternate-active-background: var(primary-container);
     alternate-active-foreground: var(on-secondary-container);
 }
 

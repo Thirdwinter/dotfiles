@@ -20,7 +20,7 @@ window#waybar {
   /*  0.8*/
   /*);*/
   /*opacity: 0.7;*/
-  background-color: @on_secondary_fixed_variant;
+  background-color: @primary_fixed;
   box-shadow: 0 4px 30px rgba(166, 173, 200, 0.9); /* Optional shadow to enhance the effect */
   border-radius: 10px; /* Optional rounded corners */
 }
@@ -52,7 +52,7 @@ window#waybar {
 #workspaces button.active {
   background-color: @primary;
   color: @on_primary;
-  min-width: 20px;
+  /*min-width: 20px;*/
   opacity: 1;
 }
 
@@ -81,7 +81,7 @@ window#waybar {
   border-radius: 15px;
   margin: 0.2rem; /* 均匀外边距 */
   background-color: @surface;
-  color: @on_surface;
+  color: @on_primary_fixed;
 }
 
 #mpris.playing {
@@ -107,26 +107,26 @@ window#waybar.empty #window {
   background-color: transparent;
 }
 window#waybar.fullscreen #window {
-  color: @error;
+  color: @primary_fixed_dim;
 }
 #cpu {
   background-color: transparent;
-  color: @on_surface;
+  /*color: @outline;*/
 }
 
 #memory {
   background-color: transparent;
-  color: @on_surface;
+  /*color: @outline;*/
 }
 
 #clock {
   background-color: transparent;
-  color: @on_surface;
+  /*color: @outline;*/
 }
 
 #network {
   background-color: transparent;
-  color: @on_surface;
+  /*color: @outline;*/
 }
 
 #window {
@@ -136,7 +136,7 @@ window#waybar.fullscreen #window {
 
 #pulseaudio {
   background-color: transparent;
-  color: @on_surface;
+  /*color: @on_surface;*/
 }
 
 #pulseaudio.muted {
@@ -151,7 +151,7 @@ window#waybar.fullscreen #window {
 
 #tray {
   border: 0px solid black;
-  background: @secondary_container;
+  background: @on_primary;
   color: @on_surface;
   border-radius: 10px;
   padding-right: 0.4rem;
@@ -167,7 +167,7 @@ window#waybar.fullscreen #window {
 }
 
 #battery {
-  background-color: @error;
+  background-color: @primary;
   color: @surface_container_lowest;
   font-size: 14px;
   border-radius: 10px;

@@ -5,4 +5,4 @@
 <* for name, value in colors *>
     @define-color {{name}} {{value.default.rgba}};
 <* endfor *>
-    @define-color on_secondary_fixed_variant {{ colors.on_secondary_fixed_variant.default.rgba | set_alpha: 0.7 }};
+    @define-color primary_fixed {{ colors.primary_fixed.default.rgba | set_alpha: 0.5 }};

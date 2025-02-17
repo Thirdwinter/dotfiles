@@ -1,17 +1,19 @@
-[config.wallpaper]
-command = "swww"
-arguments = ["img", "--transition-type", "center"]
-set = false
+[config]
+# [config.wallpaper]
+# command = "swww"
+# arguments = ["img", "--transition-type", "center"]
+# set = false
 
 
 [templates.waybar]
-input_path = '~/.config/matugen/templates/colors.css'
+input_path = '~/.config/matugen/templates/waybar-colors.css'
 output_path = '~/.config/waybar/colors.css'
 post_hook = 'pkill -SIGUSR2 waybar'
-#
+
 [templates.kitty]
 input_path = '~/.config/matugen/templates/kitty-colors.conf'
-output_path = '~/.config/kitty/colors.conf'
+output_path = '~/.config/kitty/themes/matugen.conf'
+post_hook = 'kitten themes --reload-in=all matugen'
 
 [templates.starship]
 input_path = '~/.config/matugen/templates/starship-colors.toml'
@@ -24,9 +26,24 @@ output_path = '~/.config/rofi/config.rasi'
 [templates.hyprland]
 input_path = '~/.config/matugen/templates/hyprland-colors.conf'
 output_path = '~/.config/hypr/colors.conf'
-post_hook = 'hyprctl reload'
+post_hook = 'hyprctl reload;hyprshade on vibrance'
 
-# [templates.neovim]
-# input_path = '~/.config/matugen/templates/catppuccin-mocha-colors.lua'
-# output_path = '~/.local/share/nvim/lazy/catppuccin/lua/catppuccin/palettes/mocha.lua'
-#
+[templates.yazi]
+input_path = '~/.config/matugen/templates/yazi.toml'
+output_path = '~/.config/yazi/yazi.toml'
+
+[templates.neovim]
+input_path = '~/.config/matugen/templates/nvim-catppuccin.lua'
+output_path = '~/.config/nvim/lua/plugins/theme/catppuccin.lua'
+
+[templates.cava]
+input_path = '~/.config/matugen/templates/cava-colors'
+output_path = '~/.config/cava/config'
+
+[config.custom_colors]
+red = "#f38ba8"
+green = "#a6e3a1"
+yellow = "#f9e2af"
+blue = "#89b4fa"
+orange = "#fab387"
+purple = "#cba6f7"

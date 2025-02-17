@@ -35,7 +35,7 @@ return {
     require('bufferline').setup {
       highlights = {
         buffer_selected = {
-          fg = '#94e2d5',
+          -- fg = '#94e2d5',
           bg = '',
           bold = true,
           italic = true,
