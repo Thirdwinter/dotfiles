@@ -107,7 +107,7 @@ window#waybar.empty #window {
   background-color: transparent;
 }
 window#waybar.fullscreen #window {
-  color: @primary_fixed_dim;
+  color: @on_primary_fixed;
 }
 #cpu {
   background-color: transparent;

@@ -4,9 +4,11 @@ return {
   lazy = false,
   opts = {
     bigfile = { enabled = true },
-    dashboard = require 'custom.Snacks.snacks_dashboard',
+    dashboard = require 'custom.Snacks.dashboard',
+    image = { enabled = true },
+    picker = require('custom.Snacks.picker').options,
     input = { enabled = false },
-    indent = require 'custom.Snacks.snacks_indent',
+    indent = require 'custom.Snacks.indent',
     notifier = {
       enabled = false,
     },
@@ -33,5 +35,5 @@ return {
     },
     words = { enabled = false },
   },
-  keys = {},
+  keys = { unpack(require('custom.Snacks.picker').keys) },
 }
