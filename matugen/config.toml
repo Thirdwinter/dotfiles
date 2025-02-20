@@ -5,10 +5,10 @@
 # set = false
 
 
-[templates.waybar]
-input_path = '~/.config/matugen/templates/waybar-colors.css'
-output_path = '~/.config/waybar/colors.css'
-post_hook = 'pkill -SIGUSR2 waybar'
+# [templates.waybar]
+# input_path = '~/.config/matugen/templates/waybar-colors.css'
+# output_path = '~/.config/waybar/colors.css'
+# post_hook = 'pkill -SIGUSR2 waybar'
 
 [templates.kitty]
 input_path = '~/.config/matugen/templates/kitty-colors.conf'
@@ -44,6 +44,12 @@ output_path = '~/.config/cava/config'
 input_path = '~/.config/matugen/templates/ags-colors.scss'
 output_path = '~/.config/ags/styles/matugen-colors.scss'
 post_hook = 'astal reloadcss'
+
+# [templates.tmux]
+# input_path = '~/.config/matugen/templates/tmux.conf'
+# output_path = '~/.tmux.conf'
+# post_hook = 'tmux source-file ~/.tmux.conf'
+
 
 [config.custom_colors]
 red = "#f38ba8"

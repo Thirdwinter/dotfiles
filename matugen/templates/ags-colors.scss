@@ -5,7 +5,7 @@ ${{name}}: {{value.default.rgba}};
 
 
 $theme: 'dark';
-$tertiary_container: color.scale($tertiary_container, $alpha: -15%);
+$inverse_primary: color.scale($inverse_primary, $alpha: -90%);
 // $inverse_surface_transparent: color.scale($inverse_surface, $alpha: -92%);
 // $inverse_surface_transparent_variant: color.scale(
 //   $inverse_surface,

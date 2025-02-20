@@ -13,18 +13,26 @@ return {
       -- 跳转到光标下的单词的定义。
       -- 这是变量首次声明的地方，或者函数定义的地方等。
       -- 要跳回来，按 <C-t>。
-      map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+      map('gd', function()
+        Snacks.picker.lsp_definitions()
+      end, '[G]oto [D]efinition')
 
       -- 查找光标下单词的引用。
-      map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+      map('gr', function()
+        Snacks.picker.lsp_references()
+      end, '[G]oto [R]eferences')
 
       -- 跳转到光标下的单词的实现。
       -- 当你的语言有声明类型但没有实际实现的方式时，这很有用。
-      map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+      map('gI', function()
+        Snacks.picker.lsp_implementations()
+      end, '[G]oto [I]mplementation')
 
       -- 跳转到光标下的单词的类型。
       -- 当你不确定一个变量的类型并且你想要看到它的 *类型* 的定义时，这很有用，而不是它被 *定义* 的地方。
-      map('<leader>lD', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
+      map('<leader>lD', function()
+        Snacks.picker.lsp_type_definitions()
+      end, 'Type [D]efinition')
 
       -- 在当前文档中模糊查找所有符号。
       -- 符号是变量、函数、类型等。
@@ -32,7 +40,9 @@ return {
 
       -- 在当前工作区中模糊查找所有符号。
       -- 类似于文档符号，只是搜索整个项目。
-      map('<leader>lws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+      map('<leader>lws', function()
+        Snacks.picker.lsp_workspace_symbols()
+      end, '[W]orkspace [S]ymbols')
 
       -- 重命名光标下的变量。
       -- 大多数语言服务器支持跨文件重命名等。
@@ -48,7 +58,10 @@ return {
 
       -- 警告：这不是 Goto Definition，这是 Goto Declaration。
       -- 例如，在 C 中，这会带你去头文件。
-      map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+      -- map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+      map('gD', function()
+        Snacks.picker.lsp_declarations()
+      end, '[G]oto [D]eclaration')
 
       -- 以下两个自动命令用于在光标停留在光标下的
       -- 单词上一小段时间后高亮显示引用。

@@ -3,11 +3,11 @@
 * Generated with Matugen
 */
 
-    @define-color background rgba(20, 18, 24, 1.0);
+    @define-color background rgba(14, 21, 20, 1.0);
 
-    @define-color blue rgba(184, 196, 255, 1.0);
+    @define-color blue rgba(153, 204, 250, 1.0);
 
-    @define-color blue_container rgba(55, 67, 121, 1.0);
+    @define-color blue_container rgba(9, 75, 114, 1.0);
 
     @define-color blue_source rgba(137, 180, 250, 1.0);
 
@@ -25,17 +25,17 @@
 
     @define-color green_value rgba(166, 227, 161, 1.0);
 
-    @define-color inverse_on_surface rgba(50, 47, 53, 1.0);
+    @define-color inverse_on_surface rgba(43, 50, 49, 1.0);
 
-    @define-color inverse_primary rgba(100, 85, 143, 1.0);
+    @define-color inverse_primary rgba(0, 106, 100, 1.0);
 
-    @define-color inverse_surface rgba(230, 225, 233, 1.0);
+    @define-color inverse_surface rgba(221, 228, 226, 1.0);
 
-    @define-color on_background rgba(230, 225, 233, 1.0);
+    @define-color on_background rgba(221, 228, 226, 1.0);
 
-    @define-color on_blue rgba(31, 44, 97, 1.0);
+    @define-color on_blue rgba(0, 51, 82, 1.0);
 
-    @define-color on_blue_container rgba(221, 225, 255, 1.0);
+    @define-color on_blue_container rgba(205, 229, 255, 1.0);
 
     @define-color on_error rgba(105, 0, 5, 1.0);
 
@@ -45,73 +45,73 @@
 
     @define-color on_green_container rgba(172, 242, 200, 1.0);
 
-    @define-color on_orange rgba(85, 32, 13, 1.0);
+    @define-color on_orange rgba(73, 41, 0, 1.0);
 
-    @define-color on_orange_container rgba(255, 219, 208, 1.0);
+    @define-color on_orange_container rgba(255, 220, 189, 1.0);
 
-    @define-color on_primary rgba(53, 39, 93, 1.0);
+    @define-color on_primary rgba(0, 55, 52, 1.0);
 
-    @define-color on_primary_container rgba(232, 221, 255, 1.0);
+    @define-color on_primary_container rgba(157, 242, 233, 1.0);
 
-    @define-color on_primary_fixed rgba(32, 16, 71, 1.0);
+    @define-color on_primary_fixed rgba(0, 32, 30, 1.0);
 
-    @define-color on_primary_fixed_variant rgba(76, 62, 117, 1.0);
+    @define-color on_primary_fixed_variant rgba(0, 80, 75, 1.0);
 
-    @define-color on_purple rgba(57, 38, 92, 1.0);
+    @define-color on_purple rgba(48, 40, 95, 1.0);
 
-    @define-color on_purple_container rgba(235, 220, 255, 1.0);
+    @define-color on_purple_container rgba(229, 222, 255, 1.0);
 
     @define-color on_red rgba(81, 29, 61, 1.0);
 
     @define-color on_red_container rgba(255, 216, 234, 1.0);
 
-    @define-color on_secondary rgba(51, 45, 65, 1.0);
+    @define-color on_secondary rgba(28, 53, 50, 1.0);
 
-    @define-color on_secondary_container rgba(232, 222, 248, 1.0);
+    @define-color on_secondary_container rgba(204, 232, 228, 1.0);
 
-    @define-color on_secondary_fixed rgba(30, 25, 43, 1.0);
+    @define-color on_secondary_fixed rgba(5, 31, 29, 1.0);
 
-    @define-color on_secondary_fixed_variant rgba(73, 68, 88, 1.0);
+    @define-color on_secondary_fixed_variant rgba(50, 75, 73, 1.0);
 
-    @define-color on_surface rgba(230, 225, 233, 1.0);
+    @define-color on_surface rgba(221, 228, 226, 1.0);
 
-    @define-color on_surface_variant rgba(202, 196, 207, 1.0);
+    @define-color on_surface_variant rgba(190, 201, 199, 1.0);
 
-    @define-color on_tertiary rgba(73, 37, 50, 1.0);
+    @define-color on_tertiary rgba(24, 50, 74, 1.0);
 
-    @define-color on_tertiary_container rgba(255, 217, 227, 1.0);
+    @define-color on_tertiary_container rgba(207, 229, 255, 1.0);
 
-    @define-color on_tertiary_fixed rgba(49, 16, 29, 1.0);
+    @define-color on_tertiary_fixed rgba(0, 29, 52, 1.0);
 
-    @define-color on_tertiary_fixed_variant rgba(99, 59, 73, 1.0);
+    @define-color on_tertiary_fixed_variant rgba(48, 73, 98, 1.0);
 
-    @define-color on_yellow rgba(69, 43, 0, 1.0);
+    @define-color on_yellow rgba(55, 49, 0, 1.0);
 
-    @define-color on_yellow_container rgba(255, 221, 179, 1.0);
+    @define-color on_yellow_container rgba(241, 228, 138, 1.0);
 
-    @define-color orange rgba(255, 181, 157, 1.0);
+    @define-color orange rgba(252, 185, 116, 1.0);
 
-    @define-color orange_container rgba(114, 53, 32, 1.0);
+    @define-color orange_container rgba(105, 60, 0, 1.0);
 
     @define-color orange_source rgba(250, 179, 135, 1.0);
 
     @define-color orange_value rgba(250, 179, 135, 1.0);
 
-    @define-color outline rgba(148, 143, 153, 1.0);
+    @define-color outline rgba(137, 147, 145, 1.0);
 
-    @define-color outline_variant rgba(73, 69, 78, 1.0);
+    @define-color outline_variant rgba(63, 73, 71, 1.0);
 
-    @define-color primary rgba(207, 189, 254, 1.0);
+    @define-color primary rgba(129, 213, 205, 1.0);
 
-    @define-color primary_container rgba(76, 62, 117, 1.0);
+    @define-color primary_container rgba(0, 80, 75, 1.0);
 
-    @define-color primary_fixed rgba(232, 221, 255, 1.0);
+    @define-color primary_fixed rgba(157, 242, 233, 1.0);
 
-    @define-color primary_fixed_dim rgba(207, 189, 254, 1.0);
+    @define-color primary_fixed_dim rgba(129, 213, 205, 1.0);
 
-    @define-color purple rgba(211, 187, 253, 1.0);
+    @define-color purple rgba(201, 191, 255, 1.0);
 
-    @define-color purple_container rgba(80, 60, 116, 1.0);
+    @define-color purple_container rgba(71, 63, 119, 1.0);
 
     @define-color purple_source rgba(203, 166, 247, 1.0);
 
@@ -127,52 +127,52 @@
 
     @define-color scrim rgba(0, 0, 0, 1.0);
 
-    @define-color secondary rgba(203, 194, 220, 1.0);
+    @define-color secondary rgba(176, 204, 200, 1.0);
 
-    @define-color secondary_container rgba(73, 68, 88, 1.0);
+    @define-color secondary_container rgba(50, 75, 73, 1.0);
 
-    @define-color secondary_fixed rgba(232, 222, 248, 1.0);
+    @define-color secondary_fixed rgba(204, 232, 228, 1.0);
 
-    @define-color secondary_fixed_dim rgba(203, 194, 220, 1.0);
+    @define-color secondary_fixed_dim rgba(176, 204, 200, 1.0);
 
     @define-color shadow rgba(0, 0, 0, 1.0);
 
-    @define-color source_color rgba(60, 49, 91, 1.0);
+    @define-color source_color rgba(78, 145, 139, 1.0);
 
-    @define-color surface rgba(20, 18, 24, 1.0);
+    @define-color surface rgba(14, 21, 20, 1.0);
 
-    @define-color surface_bright rgba(59, 56, 62, 1.0);
+    @define-color surface_bright rgba(52, 58, 57, 1.0);
 
-    @define-color surface_container rgba(33, 31, 36, 1.0);
+    @define-color surface_container rgba(26, 33, 32, 1.0);
 
-    @define-color surface_container_high rgba(43, 41, 47, 1.0);
+    @define-color surface_container_high rgba(37, 43, 42, 1.0);
 
-    @define-color surface_container_highest rgba(54, 52, 58, 1.0);
+    @define-color surface_container_highest rgba(47, 54, 53, 1.0);
 
-    @define-color surface_container_low rgba(29, 27, 32, 1.0);
+    @define-color surface_container_low rgba(22, 29, 28, 1.0);
 
-    @define-color surface_container_lowest rgba(15, 13, 19, 1.0);
+    @define-color surface_container_lowest rgba(9, 15, 15, 1.0);
 
-    @define-color surface_dim rgba(20, 18, 24, 1.0);
+    @define-color surface_dim rgba(14, 21, 20, 1.0);
 
-    @define-color surface_tint rgba(207, 189, 254, 1.0);
+    @define-color surface_tint rgba(129, 213, 205, 1.0);
 
-    @define-color surface_variant rgba(73, 69, 78, 1.0);
+    @define-color surface_variant rgba(63, 73, 71, 1.0);
 
-    @define-color tertiary rgba(239, 184, 200, 1.0);
+    @define-color tertiary rgba(175, 201, 231, 1.0);
 
-    @define-color tertiary_container rgba(99, 59, 73, 1.0);
+    @define-color tertiary_container rgba(48, 73, 98, 1.0);
 
-    @define-color tertiary_fixed rgba(255, 217, 227, 1.0);
+    @define-color tertiary_fixed rgba(207, 229, 255, 1.0);
 
-    @define-color tertiary_fixed_dim rgba(239, 184, 200, 1.0);
+    @define-color tertiary_fixed_dim rgba(175, 201, 231, 1.0);
 
-    @define-color yellow rgba(245, 189, 111, 1.0);
+    @define-color yellow rgba(213, 200, 113, 1.0);
 
-    @define-color yellow_container rgba(99, 63, 0, 1.0);
+    @define-color yellow_container rgba(79, 71, 0, 1.0);
 
     @define-color yellow_source rgba(249, 226, 175, 1.0);
 
     @define-color yellow_value rgba(249, 226, 175, 1.0);
 
-    @define-color primary_fixed rgba(232, 221, 255, 0.6);
+    @define-color primary_fixed rgba(157, 242, 233, 0.6);

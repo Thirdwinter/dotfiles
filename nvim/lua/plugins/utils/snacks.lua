@@ -9,9 +9,9 @@ return {
     picker = require('custom.Snacks.picker').options,
     input = { enabled = false },
     indent = require 'custom.Snacks.indent',
-    notifier = {
-      enabled = false,
-    },
+    -- notifier = {
+    --   enabled = true,
+    -- },
     quickfile = { enabled = true },
     scroll = {
       enabled = true,

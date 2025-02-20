@@ -6,7 +6,7 @@ return {
     vim.keymap.set('n', '<leader>sl', resession.load, { desc = '[L]oad [S]ession' })
     vim.keymap.set('n', '<leader>sd', resession.delete, { desc = '[D]elete [S]ession' })
     -- select a session to load
-    vim.keymap.set('n', '<leader>sS', '<CMD>Telescope resession<CR>', { desc = '[S]elect [S]ession' })
+    -- vim.keymap.set('n', '<leader>sS', '<CMD>Telescope resession<CR>', { desc = '[S]elect [S]ession' })
   end,
   -- keys = {
   --   { '<leader>ss', require('resession').save, { desc = '[S]ave [Session]' } },

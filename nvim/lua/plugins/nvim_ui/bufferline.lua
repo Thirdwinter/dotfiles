@@ -35,10 +35,14 @@ return {
     require('bufferline').setup {
       highlights = {
         buffer_selected = {
-          -- fg = '#94e2d5',
+          fg = '#94e2d5',
           bg = '',
           bold = true,
-          italic = true,
+          italic = false,
+        },
+        indicator_selected = {
+          fg = '#94e2d5',
+          bg = '',
         },
 
         fill = {
@@ -194,9 +198,6 @@ return {
         indicator_visible = {
           bg = '',
         },
-        indicator_selected = {
-          bg = '',
-        },
         pick_selected = {
           bg = '',
         },
@@ -216,8 +217,8 @@ return {
 
       options = {
         indicator = {
-          icon = '', -- this should be omitted if indicator style is not 'icon'
-          style = 'none', ---@type 'icon' | 'underline' | 'none'
+          icon = '┃', -- this should be omitted if indicator style is not 'icon'
+          style = 'icon', ---@type 'icon' | 'underline' | 'none'
         },
 
         get_element_icon = function(element)
@@ -239,7 +240,7 @@ return {
         show_buffer_icons = true,
         show_buffer_close_icons = false,
         show_close_icon = false,
-        show_tab_indicators = false,
+        show_tab_indicators = true,
         tab_size = 5,
       },
     }

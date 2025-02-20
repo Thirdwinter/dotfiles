@@ -32,17 +32,34 @@ get_random_pos() {
     echo "${positions[$rand_index]}"
 }
 
-# Change wallpaper using swww
-for ((i = 0; i < num_files; i++)); do
-    if [ "${files[$i]}" == "$cur_file" ]; then
-        if ((i == num_files - 1)); then
-            next_index=0
-        else
-            next_index=$((i + 1))
-        fi
-        random_pos=$(get_random_pos)
-        swww img "${files[$next_index]}" --transition-fps 80 --transition-type grow --transition-pos "$random_pos" --transition-duration 1.3 --transition-bezier 0.43,1.19,1,0.4
-        matugen image "${files[$next_index]}"
-        break
+# Function to change wallpaper
+change_wallpaper() {
+    local wallpaper_path="$1"
+    local transition_pos
+    transition_pos=$(get_random_pos)
+    swww img "$wallpaper_path" --transition-fps 80 --transition-type grow --transition-pos "$transition_pos" --transition-duration 1.3 --transition-bezier 0.43,1.19,1,0.4
+    matugen image "$wallpaper_path"
+}
+
+# Check if an argument is provided
+if [ -n "$1" ]; then
+    if [ -f "$1" ]; then
+        change_wallpaper "$1"
+    else
+        notify-send -u critical "Failed!" "Specified file does not exist"
+        exit 1
     fi
-done
+else
+    # Change wallpaper using swww
+    for ((i = 0; i < num_files; i++)); do
+        if [ "${files[$i]}" == "$cur_file" ]; then
+            if ((i == num_files - 1)); then
+                next_index=0
+            else
+                next_index=$((i + 1))
+            fi
+            change_wallpaper "${files[$next_index]}"
+            break
+        fi
+    done
+fi

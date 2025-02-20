@@ -26,10 +26,10 @@ end
 return {
   preset = {
     keys = {
-      { icon = ' ', key = 'f', desc = 'Find file', action = ':silent Telescope find_files hidden=true no_ignore=true' },
+      { icon = ' ', key = 'f', desc = 'Find file', action = ':lua Snacks.picker.smart()' },
       { icon = ' ', key = 'g', desc = 'Find Text', action = ":lua Snacks.dashboard.pick('live_grep')" },
       { icon = ' ', key = 'r', desc = 'Recent Files', action = ":lua Snacks.dashboard.pick('oldfiles')" },
-      { icon = ' ', key = 'n', desc = 'Neovim Settings', action = ":lua Snacks.picker.files({ cwd = vim.fn.stdpath('config') })" },
+      { icon = ' ', key = 'n', desc = 'Neovim Settings', action = ":lua Snacks.picker.smart { cwd = vim.fn.stdpath 'config' }" },
       { icon = ' ', key = 'l', desc = 'Load Session', action = ":lua require'resession'.load'last'" },
       { icon = '󱐥 ', key = 'u', desc = 'Update plugins', action = ':Lazy update' },
       { icon = ' ', key = 'q', desc = 'Quit', action = ':qa' },

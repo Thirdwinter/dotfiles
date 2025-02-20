@@ -197,37 +197,37 @@ end
 
 ins_right '%='
 
-ins_right {
-  timing,
-  color = function()
-    return { fg = catppuccin_theme_mode_color[vim.fn.mode()] }
-  end,
-  separator = { right = separators.slant_left },
-  cond = function()
-    local diagnostics = vim.diagnostic.get(0)
-    local count = 0
-    for _ in pairs(diagnostics) do
-      count = count + 1
-    end
-    return count == 0 and vim.api.nvim_win_get_width(0) > 140
-  end,
-}
-
-ins_right {
-  getGreeting,
-  color = function()
-    return { fg = catppuccin_theme_mode_color[vim.fn.mode()] }
-  end,
-  cond = function()
-    local diagnostics = vim.diagnostic.get(0)
-    local count = 0
-    for _ in pairs(diagnostics) do
-      count = count + 1
-    end
-    return count == 0
-  end,
-  -- separator = { right = separators.slant_right_2 },
-}
+-- ins_right {
+--   timing,
+--   color = function()
+--     return { fg = catppuccin_theme_mode_color[vim.fn.mode()] }
+--   end,
+--   separator = { right = separators.slant_left },
+--   cond = function()
+--     local diagnostics = vim.diagnostic.get(0)
+--     local count = 0
+--     for _ in pairs(diagnostics) do
+--       count = count + 1
+--     end
+--     return count == 0 and vim.api.nvim_win_get_width(0) > 140
+--   end,
+-- }
+--
+-- ins_right {
+--   getGreeting,
+--   color = function()
+--     return { fg = catppuccin_theme_mode_color[vim.fn.mode()] }
+--   end,
+--   cond = function()
+--     local diagnostics = vim.diagnostic.get(0)
+--     local count = 0
+--     for _ in pairs(diagnostics) do
+--       count = count + 1
+--     end
+--     return count == 0
+--   end,
+--   -- separator = { right = separators.slant_right_2 },
+-- }
 
 ins_right {
   'diagnostics',

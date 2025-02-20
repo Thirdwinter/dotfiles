@@ -1,3 +1,6 @@
+-- if true then
+--   return {}
+-- end
 return {
   'stevearc/oil.nvim',
   opts = function()

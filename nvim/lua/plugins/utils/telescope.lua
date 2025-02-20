@@ -1,3 +1,6 @@
+if true then
+  return {}
+end
 -- 模糊查找器（文件，lsp 等）
 return {
   'nvim-telescope/telescope.nvim',
@@ -97,33 +100,33 @@ return {
     -- 参见 `:help telescope.builtin`
     -- 参见 `:help telescope.builtin.live_grep()` 了解特定键的信息
 
-    vim.keymap.set('n', '<F8>', '<Cmd>Telescope find_files<CR>', { desc = 'Open Telescope File Explorer', noremap = true, silent = true })
-    vim.keymap.set('t', '<F8>', '<Cmd>Telescope find_files<CR>', { desc = 'Open Telescope File Explorer', noremap = true, silent = true })
-    vim.keymap.set('i', '<F8>', '<Esc><Cmd>Telescope find_files<CR>', { desc = 'Open Telescope File Explorer', noremap = true, silent = true })
-    vim.keymap.set('n', '<Leader>fct', '<Cmd>Telescope colorscheme<CR>', { desc = '[F]ind [C]olorschemes', noremap = true, silent = true })
-    vim.keymap.set(
-      'n',
-      '<Leader>fo',
-      '<Cmd>lua require("telescope").extensions.notify.notify()<CR>',
-      { desc = '[F]ind [O]ld [N]otifications', noremap = true, silent = true }
-    )
-    local builtin = require 'telescope.builtin'
-    vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp' })
-    vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = '[F]ind [K]eymaps' })
-    vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = '[F]ind [F]iles' })
-    vim.keymap.set('n', '<leader>fs', builtin.builtin, { desc = '[F]ind [S]elect Telescope' })
-    vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = '[F]ind current [W]ord' })
-    vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = '[F]ind by [G]rep' })
-    vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = '[F]ind [D]iagnostics' })
-    vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = '[F]ind [R]esume' })
-    vim.keymap.set('n', '<leader>f.', builtin.oldfiles, { desc = '[F]ind Recent Files ("." for repeat)' })
+    -- vim.keymap.set('n', '<F8>', '<Cmd>Telescope find_files<CR>', { desc = 'Open Telescope File Explorer', noremap = true, silent = true })
+    -- vim.keymap.set('t', '<F8>', '<Cmd>Telescope find_files<CR>', { desc = 'Open Telescope File Explorer', noremap = true, silent = true })
+    -- vim.keymap.set('i', '<F8>', '<Esc><Cmd>Telescope find_files<CR>', { desc = 'Open Telescope File Explorer', noremap = true, silent = true })
+    -- vim.keymap.set('n', '<Leader>fct', '<Cmd>Telescope colorscheme<CR>', { desc = '[F]ind [C]olorschemes', noremap = true, silent = true })
+    -- vim.keymap.set(
+    --   'n',
+    --   '<Leader>fo',
+    --   '<Cmd>lua require("telescope").extensions.notify.notify()<CR>',
+    --   { desc = '[F]ind [O]ld [N]otifications', noremap = true, silent = true }
+    -- )
+    -- local builtin = require 'telescope.builtin'
+    -- vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp' })
+    -- vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = '[F]ind [K]eymaps' })
+    -- vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = '[F]ind [F]iles' })
+    -- vim.keymap.set('n', '<leader>fs', builtin.builtin, { desc = '[F]ind [S]elect Telescope' })
+    -- vim.keymap.set('n', '<leader>fw', builtin.grep_string, { desc = '[F]ind current [W]ord' })
+    -- vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = '[F]ind by [G]rep' })
+    -- vim.keymap.set('n', '<leader>fd', builtin.diagnostics, { desc = '[F]ind [D]iagnostics' })
+    -- vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = '[F]ind [R]esume' })
+    -- vim.keymap.set('n', '<leader>f.', builtin.oldfiles, { desc = '[F]ind Recent Files ("." for repeat)' })
     -- vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = '[F]ind existing buffers' })
-    vim.keymap.set('n', '<leader>f/', function()
-      builtin.live_grep {
-        grep_open_files = true,
-        prompt_title = 'Live Grep in Open Files',
-      }
-    end, { desc = '[F]ind [/] in Open Files' })
+    -- vim.keymap.set('n', '<leader>f/', function()
+    --   builtin.live_grep {
+    --     grep_open_files = true,
+    --     prompt_title = 'Live Grep in Open Files',
+    --   }
+    -- end, { desc = '[F]ind [/] in Open Files' })
 
     -- -- 搜索你的 Neovim 配置文件的快捷方式
     -- vim.keymap.set('n', '<leader>fn', function()
