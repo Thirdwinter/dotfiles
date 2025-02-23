@@ -187,6 +187,7 @@ return {
       lazydev = {
         name = 'Development',
         module = 'lazydev.integrations.blink',
+        score_offset = 100,
       },
       markdown = {
         name = 'RenderMarkdown',

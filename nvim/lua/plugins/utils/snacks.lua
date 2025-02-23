@@ -9,6 +9,7 @@ return {
     picker = require('custom.Snacks.picker').options,
     input = { enabled = false },
     indent = require 'custom.Snacks.indent',
+    terminal = {},
     -- notifier = {
     --   enabled = true,
     -- },

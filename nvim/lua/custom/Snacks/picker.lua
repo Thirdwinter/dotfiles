@@ -1,4 +1,3 @@
----@diagnostic disable: undefined-global
 local M = {}
 M.options = {
   win = {
@@ -39,6 +38,7 @@ M.keys = {
   {'<leader>fD', function() Snacks.picker.diagnostics() end, desc = 'Diagnostics'},
   {'<leader>fd', function() Snacks.picker.diagnostics_buffer() end, desc = 'Buffer Diagnostics'},
   {'<leader>fo', function() Snacks.picker.noice() end, desc = '[F]ind [O]ld [N]otifications'},
+  {'<leader>fu', function() Snacks.picker.undo() end, desc = '[F]ind [U]ndo'},
 }
 -- stylua: ignore end
 return M

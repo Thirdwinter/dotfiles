@@ -45,10 +45,10 @@ input_path = '~/.config/matugen/templates/ags-colors.scss'
 output_path = '~/.config/ags/styles/matugen-colors.scss'
 post_hook = 'astal reloadcss'
 
-# [templates.tmux]
-# input_path = '~/.config/matugen/templates/tmux.conf'
-# output_path = '~/.tmux.conf'
-# post_hook = 'tmux source-file ~/.tmux.conf'
+[templates.tmux]
+input_path = '~/.config/matugen/templates/tmux.conf'
+output_path = '~/.tmux.conf'
+post_hook = '~/.config/matugen/scripts/tmux_reload.sh'
 
 
 [config.custom_colors]

@@ -7,8 +7,10 @@ return {
     ft = 'lua',
     opts = {
       library = {
+        { path = 'snacks.nvim', words = { 'Snacks' } },
+        { path = 'lazy.nvim', words = { 'Lazy' } },
         -- 当发现 `vim.uv` 单词时，加载 luvit 类型
-        { path = 'luvit-meta/library', words = { 'vim%.uv' } },
+        { path = 'luvit-meta/library', words = { 'vim%.uv', 'vim%.loop' } },
       },
     },
   },

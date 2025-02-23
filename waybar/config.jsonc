@@ -8,9 +8,8 @@
   "passthrough": false,
   "fixed-center": true,
   "modules-left": [
-    "hyprland/workspaces",
-    "hyprland/window",
-    "mpris"
+    "wlr/workspaces",
+    "hyprland/window"
   ],
   "modules-center": [
     "clock"
