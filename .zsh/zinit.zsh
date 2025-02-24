@@ -8,8 +8,6 @@ zinit light zsh-users/zsh-syntax-highlighting
 # zinit light zdharma-continuum/fast-syntax-highlighting
 zinit light zsh-users/zsh-history-substring-search
 zinit light zsh-users/zsh-autosuggestions
-# zinit light hlissner/zsh-autopair
-# zinit light MichaelAquilina/zsh-you-should-use
 # zinit ice depth"1"
 # zinit light romkatv/powerlevel10k
 zinit light Aloxaf/fzf-tab

@@ -163,24 +163,19 @@ vim.keymap.set('n', '<Leader>pm', '<Cmd>Mason<CR>', { desc = 'Mason', noremap = 
 --     return '<c-b>'
 --   end
 -- end, { silent = true, expr = true })
-
---INFO: oil
-
--- vim.keymap.set('n', '-', '<CMD>Oil --float<CR>', { desc = 'Open parent directory' })
---
 vim.keymap.set('t', '<F7>', '<Cmd>ToggleTerm<CR>', { desc = 'ToggleTerm float' })
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = '退出终端模式' })
 
 --INFO: 关于neo-tree
 
-vim.keymap.set('n', '<leader>e', '<Cmd>Neotree toggle<CR>', { desc = 'Toggle Explorer', noremap = true, silent = true })
-vim.keymap.set('n', '<leader>o', function()
-  if vim.bo.filetype == 'neo-tree' then
-    vim.cmd.wincmd 'p'
-  else
-    vim.cmd 'Neotree focus'
-  end
-end, { desc = 'Toggle Explorer Focus', noremap = true, silent = true })
+-- vim.keymap.set('n', '<leader>e', '<Cmd>Neotree toggle<CR>', { desc = 'Toggle Explorer', noremap = true, silent = true })
+-- vim.keymap.set('n', '<leader>o', function()
+--   if vim.bo.filetype == 'neo-tree' then
+--     vim.cmd.wincmd 'p'
+--   else
+--     vim.cmd 'Neotree focus'
+--   end
+-- end, { desc = 'Toggle Explorer Focus', noremap = true, silent = true })
 
 vim.keymap.set({ 'n', 's' }, '<c-f>', function()
   if not require('noice.lsp').scroll(4) then

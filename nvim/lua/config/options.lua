@@ -18,7 +18,7 @@ vim.g.transparent = function()
   end
 end
 
--- vim.opt.showtabline = 0
+vim.opt.showtabline = 1
 vim.opt.laststatus = 3
 -- [[ 设置选项 ]]
 -- 参见 `:help vim.opt`

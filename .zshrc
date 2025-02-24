@@ -13,5 +13,5 @@ source $HOME/.zsh/fzf.zsh
 source $HOME/.zsh/zoxide.zsh
 source $HOME/.zsh/direnv.zsh
 source $HOME/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
-
+# 设置光标形状为竖线
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
