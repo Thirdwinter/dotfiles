@@ -143,13 +143,13 @@ local config = {
       { micro },
     },
     lualine_x = {
-      { lsp_info, separator = { left = left_separators } },
+      { lsp_info, separator = {} },
     },
 
     lualine_y = {
       {
         file_info,
-        separator = { right = right_separators, left = left_separators },
+        separator = { right = right_separators },
         -- padding = { left = 0, right = 1 },
       },
     },

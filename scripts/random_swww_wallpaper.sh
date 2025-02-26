@@ -38,6 +38,7 @@ change_wallpaper() {
     local transition_pos
     transition_pos=$(get_random_pos)
     swww img "$wallpaper_path" --transition-fps 80 --transition-type grow --transition-pos "$transition_pos" --transition-duration 1.3 --transition-bezier 0.43,1.19,1,0.4
+    sleep 1.3
     matugen image "$wallpaper_path"
 }
 

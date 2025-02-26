@@ -3,7 +3,7 @@
 -- end
 return {
   'rachartier/tiny-inline-diagnostic.nvim',
-  -- event = "LspAttach", -- Or `LspAttach`
+  event = 'LspAttach', -- Or `LspAttach`
   priority = 3000, -- needs to be loaded in first
   branch = 'main',
   init = function()

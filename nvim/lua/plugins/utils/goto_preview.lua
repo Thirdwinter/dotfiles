@@ -9,6 +9,5 @@ return {
     { 'gP', '<cmd>lua require("goto-preview").close_all_win()<CR>', { noremap = true, desc = '关闭所有预览窗口' } },
     { 'gpr', '<cmd>lua require("goto-preview").goto_preview_references()<CR>', { noremap = true, desc = '预览引用' } },
   },
-  event = 'BufEnter',
   config = true, -- necessary as per https://github.com/rmagatti/goto-preview/issues/88
 }

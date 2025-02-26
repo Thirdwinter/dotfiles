@@ -4,10 +4,11 @@ return {
   lazy = false,
   opts = {
     bigfile = {},
+    bufferdelete = {},
     image = {},
     quickfile = {},
     scroll = {},
-    toggle = {},
+    scope = { enabled = false },
     explorer = { replace_netrw = true },
     dashboard = require 'custom.Snacks.dashboard',
     picker = require('custom.Snacks.picker').options,

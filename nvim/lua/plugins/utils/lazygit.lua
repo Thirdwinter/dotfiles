@@ -3,7 +3,8 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
   },
-  event = 'User AstroFile',
+  lazy = true,
+  -- event = 'VeryLazy',
   cmd = { 'LazyGit', 'LazyGitCurrentFile' },
   keys = {
     { '<leader>gg', '<cmd>LazyGitCurrentFile<CR>', desc = 'Open LazyGit' },

@@ -1,5 +1,7 @@
 return {
   'MagicDuck/grug-far.nvim',
+  lazy = true,
+  -- event = 'VeryLazy',
   config = function()
     require('grug-far').setup {
       -- options, see Configuration section below
