@@ -176,6 +176,14 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = '退出终端模式' }
 --     vim.cmd 'Neotree focus'
 --   end
 -- end, { desc = 'Toggle Explorer Focus', noremap = true, silent = true })
+-- vim.keymap.set('n', '<leader>e', function()
+--   if vim.bo.filetype == 'snacks_picker_list' then
+--     vim.cmd.wincmd 'p'
+--   else
+--     Snacks.explorer()
+--   end
+-- end, { desc = 'Toggle Explorer Focus', noremap = true, silent = true })
+--
 
 vim.keymap.set({ 'n', 's' }, '<c-f>', function()
   if not require('noice.lsp').scroll(4) then

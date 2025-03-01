@@ -33,12 +33,12 @@ return {
   },
   keymap = {
     preset = 'none',
-    ['<C-i>'] = { 'show', 'hide' },
-    ['<C-->'] = { 'hide_documentation', 'show_documentation' },
+    ['<C-i>'] = { 'show', 'hide', 'fallback' },
+    ['<C-->'] = { 'hide_documentation', 'show_documentation', 'fallback' },
     ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
     ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
-    ['<C-p>'] = { 'select_prev', 'fallback' },
-    ['<C-n>'] = { 'select_next', 'fallback' },
+    ['<C-p>'] = { 'select_prev', 'fallback_to_mappings' },
+    ['<C-n>'] = { 'select_next', 'fallback_to_mappings' },
     ['<C-j>'] = { 'select_and_accept' },
     ['<CR>'] = { 'select_and_accept', 'fallback' },
     ['<Tab>'] = {
@@ -53,6 +53,7 @@ return {
       'fallback',
     },
     ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
+    ['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
   },
   snippets = {
     preset = 'luasnip',
@@ -102,16 +103,6 @@ return {
       scrollbar = false,
       border = vim.g.borderStyle,
       auto_show = true,
-      -- auto_show = function(ctx)
-      --   -- 判断是否是命令行模式
-      --   ---@diagnostic disable-next-line: unused-local
-      --   local is_cmdline_mode = ctx.mode == 'cmdline'
-      --   -- 判断命令行类型是否为搜索命令（/ 或 ?）
-      --   local is_search_cmd = vim.tbl_contains({ '/', '?' }, vim.fn.getcmdtype())
-      --
-      --   -- 返回 false 当处于命令行模式或搜索模式
-      --   return not is_search_cmd
-      -- end,
       draw = {
         align_to = 'none',
         columns = {
@@ -175,7 +166,6 @@ return {
   },
   sources = {
     default = { 'snippets', 'lsp', 'path', 'buffer', 'lazydev', 'markdown' },
-    -- cmdline = {},
 
     providers = {
       lsp = {

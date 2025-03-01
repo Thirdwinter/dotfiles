@@ -73,7 +73,7 @@ return {
         enabled = true,
       },
       hover = {
-        -- enabled = false,
+        enabled = true,
         silent = true,
       },
       signature = {
@@ -103,6 +103,9 @@ return {
         border = {
           style = vim.g.borderStyle,
         },
+        win_options = {
+          winhighlight = { Normal = 'Pmenu', FloatBorder = 'Character' },
+        },
       },
       popupmenu = {
         relative = 'editor',
@@ -119,24 +122,32 @@ return {
           padding = { 0, 1 },
         },
         win_options = {
-          winhighlight = { Normal = 'UserMenu', FloatBorder = 'UserMenuBorder' },
+          winhighlight = { Normal = 'Pmenu', FloatBorder = 'Label' },
         },
       },
       hover = {
+        -- relative = 'editor',
+        -- position = {
+        --   row = 8,
+        --   col = '50%',
+        -- },
+
+        position = { row = 2, col = 3 },
+
         scrollbar = false,
         size = {
-          max_width = 40,
+          max_width = 45,
         },
         border = {
           style = vim.g.borderStyle,
         },
         win_options = {
-          winhighlight = { Normal = 'UserMenu', FloatBorder = 'UserMenuBorder' },
+          winhighlight = { Normal = 'Pmenu', FloatBorder = 'Label' },
         },
       },
       mini = {
         win_options = {
-          winhighlight = { Normal = 'DiagnosticError', FloatBorder = 'DiagnosticError' },
+          winhighlight = { Normal = 'Label', FloatBorder = 'DiagnosticError' },
           winblend = 0,
         },
       },

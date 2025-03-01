@@ -1,6 +1,6 @@
 require("full-border"):setup({
 	-- Available values: ui.Border.PLAIN, ui.Border.ROUNDED
-	type = ui.Border.ROUNDED,
+	type = ui.Border.PLAIN,
 })
 
 THEME.git = THEME.git or {}

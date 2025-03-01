@@ -1,5 +1,6 @@
 return {
   'stevearc/resession.nvim',
+  event = 'VeryLazy',
   opts = function()
     local resession = require 'resession'
     vim.keymap.set('n', '<leader>ss', resession.save, { desc = '[S]ave [Session]' })

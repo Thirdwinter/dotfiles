@@ -1,13 +1,13 @@
--- if true then
---   return {}
--- end
+if true then
+  return {}
+end
 return {
   'Bekaboo/dropbar.nvim',
   lazy = true,
   event = 'BufEnter',
-  dependencies = {
-    'nvim-telescope/telescope-fzf-native.nvim',
-  },
+  -- dependencies = {
+  --   'nvim-telescope/telescope-fzf-native.nvim',
+  -- },
   config = function()
     require('dropbar').setup {
       -- bar = {

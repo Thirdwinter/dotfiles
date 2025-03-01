@@ -1,4 +1,5 @@
 require('lazy').setup {
+  install = { colorscheme = { 'habamax' } },
   spec = {
     { import = 'plugins.nvim_ui' },
     { import = 'plugins.utils' },

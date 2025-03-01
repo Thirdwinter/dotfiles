@@ -82,6 +82,7 @@ local config = {
     disabled_filetypes = {
       'alpha',
       'dashboard',
+      'snacks_dashboard',
       'neo-tree',
       'mason',
       'lazy',
@@ -90,7 +91,7 @@ local config = {
       'toggleterm',
       'yazi',
     },
-    ignore_focus = { 'neo-tree', 'alpha' },
+    ignore_focus = { 'neo-tree', 'dashboard', 'snacks_dashboard' },
     -- theme = require('custom.Lualine.themes.cp').catppuccin(),
     theme = 'catppuccin', ---@type 'catppuccin' | 'rose-pine' | 'tokyonight'
     component_separators = '',

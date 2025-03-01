@@ -16,7 +16,7 @@ alias rm='rm -vr'
 alias mk='mkdir -p'
 
 alias nv="nvim"
-alias nd="neovide"
+alias nd="neovide & disown"
 
 alias gcl="git clone"
 alias gcld="git clone --depth 1"

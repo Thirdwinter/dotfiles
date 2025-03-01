@@ -1,5 +1,5 @@
-# title-hidden = true
-# frame = "none"
+title-hidden = true
+frame = "none"
 srgb = true
 
 # normal = ["CodeNewRoman Nerd Font Mono"]
@@ -7,8 +7,19 @@ srgb = true
 [font]
 # normal = ["CodeNewRoman Nerd Font Mono"]
 # normal = { family = "Monaspace Radon"}
-normal = {family = "Maple Mono NF CN"}
-size = 11
+size = 12
+
+[[font.normal]]
+family = "Maple Mono NF CN"
+style = "Normal"
+
+[[font.italic]]
+family = "CaskaydiaMono Nerd Font"
+style = "Italic"
+
+[[font.bold_italic]]
+family = "CaskaydiaMono Nerd Font"
+
 
 [font.features]
 "Maple Mono NF CN" = [ "+cv03", "+ss01", "+ss02",  "+ss04", "+ss05", "+ss07", "zero" ]

@@ -8,6 +8,7 @@ return {
     image = {},
     quickfile = {},
     scroll = {},
+    -- notifier = {},
     scope = { enabled = false },
     explorer = { replace_netrw = true },
     dashboard = require 'custom.Snacks.dashboard',
@@ -17,7 +18,7 @@ return {
   },
   keys = vim.list_extend(require('custom.Snacks.picker').keys, {
     {
-      '<leader>o',
+      '<leader>e',
       function()
         Snacks.explorer()
       end,
