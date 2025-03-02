@@ -21,4 +21,4 @@ require 'config.autocmd'
 require 'config.highlights' --INFO: colorscheme setting in 'config.highlights'
 require 'config.keymaps'
 
-vim.cmd.colorscheme 'catppuccin-mocha' ---@type 'tokyonight'|'catppuccin'|'rose-pine-moon'
+vim.cmd.colorscheme 'tokyonight-moon' ---@type 'tokyonight'|'catppuccin'|'rose-pine-moon'

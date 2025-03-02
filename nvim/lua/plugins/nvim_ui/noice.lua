@@ -104,7 +104,7 @@ return {
           style = vim.g.borderStyle,
         },
         win_options = {
-          winhighlight = { Normal = 'Pmenu', FloatBorder = 'Character' },
+          winhighlight = { Normal = 'Normal', FloatBorder = 'Label' },
         },
       },
       popupmenu = {
@@ -122,7 +122,7 @@ return {
           padding = { 0, 1 },
         },
         win_options = {
-          winhighlight = { Normal = 'Pmenu', FloatBorder = 'Label' },
+          winhighlight = { Normal = 'Normal', FloatBorder = 'Label' },
         },
       },
       hover = {
@@ -142,7 +142,7 @@ return {
           style = vim.g.borderStyle,
         },
         win_options = {
-          winhighlight = { Normal = 'Pmenu', FloatBorder = 'Label' },
+          winhighlight = { Normal = 'Normal', FloatBorder = 'Label' },
         },
       },
       mini = {

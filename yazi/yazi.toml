@@ -8,17 +8,17 @@ sort_reverse = false
 sort_dir_first = false
 show_hidden = false 
 show_symlink = true
-cwd = { fg = "#b2cbd1", bold = true }
+cwd = { fg = "#c4c4dd", bold = true }
 
-hovered = { fg = "#a6eeff", bg = "#004e5b" }
+hovered = { fg = "#e0e0ff", bg = "#3d4279" }
 preview_hovered = { underline = true, bold = true }
 
-find_keyword = { fg = "#b2cbd1", italic = true }
-find_position = { fg = "#bdc5eb", bg = "reset", italic = true }
+find_keyword = { fg = "#c4c4dd", italic = true }
+find_position = { fg = "#e7b9d5", bg = "reset", italic = true }
 
 
 border_symbol = "│"
-border_style = { fg = "#83d2e4" }
+border_style = { fg = "#bdc2ff" }
 
 syntect_theme = "~/.config/yazi/Catppuccin-latte.tmTheme"
 
@@ -29,46 +29,46 @@ edit = [
 ]
 
 [mode]
-normal_main = { fg = "#00363f", bg = "#83d2e4", bold = true }
-normal_alt = { fg = "#004e5b", bg = "#dee3e5" }
+normal_main = { fg = "#262b61", bg = "#bdc2ff", bold = true }
+normal_alt = { fg = "#3d4279", bg = "#e4e1e9" }
 
-select_main = { fg = "#1c3439", bg = "#b2cbd1", bold = true }
-select_alt = { fg = "#334a50", bg = "#dee3e5" }
+select_main = { fg = "#2d2f42", bg = "#c4c4dd", bold = true }
+select_alt = { fg = "#444559", bg = "#e4e1e9" }
 
-unset_main = { fg = "#272f4d", bg = "#bdc5eb", bold = true }
-unset_alt = { fg = "#3d4565", bg = "#dee3e5" }
+unset_main = { fg = "#45263c", bg = "#e7b9d5", bold = true }
+unset_alt = { fg = "#5e3c53", bg = "#e4e1e9" }
 
 [status]
 separator_open = ""
 separator_close = ""
 
-perm_type = { fg = "#83d2e4" }
-perm_read = { fg = "#d5c871" }
-perm_write = { fg = "#99ccfa" }
+perm_type = { fg = "#bdc2ff" }
+perm_read = { fg = "#f5bd6f" }
+perm_write = { fg = "#b3c5ff" }
 perm_exec = { fg = "#fbb0d8" }
-perm_sep = { fg = "#dee3e5" }
+perm_sep = { fg = "#e4e1e9" }
 
 [which]
-mask = { bg = "#1b2122" }
-cand = { fg = "#83d2e4" }
-rest = { bg = "#1b2122" }
-desc = { fg = "#b2cbd1" }
+mask = { bg = "#1f1f25" }
+cand = { fg = "#bdc2ff" }
+rest = { bg = "#1f1f25" }
+desc = { fg = "#c4c4dd" }
 separator = "  "
-separator_style = { fg = "#bdc5eb" }
+separator_style = { fg = "#e7b9d5" }
 
 [notify]
 title_info = { fg = "#91d5ad" }
-title_warn = { fg = "#d5c871" }
+title_warn = { fg = "#f5bd6f" }
 title_error = { fg = "#ffb4ab" }
 
 [filetype]
 rules = [
   # Images
-  { mime = "image/*", fg = "#b2cbd1" },
+  { mime = "image/*", fg = "#c4c4dd" },
 
   # Videos
-  { mime = "video/*", fg = "#bdc5eb" },
-  { mime = "audio/*", fg = "#bdc5eb" },
+  { mime = "video/*", fg = "#e7b9d5" },
+  { mime = "audio/*", fg = "#e7b9d5" },
 
   # Archives
   { mime = "application/zip", fg = "#ffb4ab" },
@@ -80,8 +80,8 @@ rules = [
   { mime = "application/x-rar", fg = "#ffb4ab" },
 
   # Fallback
-  { name = "*", fg = "#83d2e4", bold = true },
-  { name = "*/", fg = "#b2cbd1", bold = true },
+  { name = "*", fg = "#bdc2ff", bold = true },
+  { name = "*/", fg = "#c4c4dd", bold = true },
 ]
 [[plugin.prepend_fetchers]]
 id = "git"

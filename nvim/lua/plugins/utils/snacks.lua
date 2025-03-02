@@ -4,10 +4,11 @@ return {
   lazy = false,
   opts = {
     bigfile = {},
+    animate = { enabled = false },
     bufferdelete = {},
     image = {},
     quickfile = {},
-    scroll = {},
+    scroll = { enabled = false },
     -- notifier = {},
     scope = { enabled = false },
     explorer = { replace_netrw = true },

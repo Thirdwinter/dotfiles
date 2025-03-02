@@ -1,3 +1,10 @@
+local color_overrides = {}
+if vim.g.useMatugenCatppuccinColors then
+  local status, color = pcall(dofile, vim.fn.stdpath 'cache' .. '/matugen_catppuccin_colors.lua')
+  color_overrides = status and color or {}
+else
+  color_overrides = {}
+end
 return {
   'catppuccin/nvim',
   name = 'catppuccin',
@@ -44,65 +51,7 @@ return {
       types = {},
       operators = {},
     },
-    color_overrides = {
-      mocha = {
-        rosewater = '#fcb974',
-        flamingo = '#fcb974',
-        pink = '#fbb0d8',
-        mauve = '#c9bfff',
-        red = '#fbb0d8',
-        maroon = '#fbb0d8',
-        peach = '#fab387',
-        yellow = '#d5c871',
-        green = '#bdc5eb',
-        teal = '#91d5ad',
-        sky = '#83d2e4',
-        sapphire = '#83d2e4',
-        blue = '#83d2e4',
-        lavender = '#83d2e4',
-        text = '#dee3e5',
-        subtext1 = '#bbbbbb',
-        subtext0 = '#aaaaaa',
-        overlay2 = '#999999',
-        overlay1 = '#888888',
-        overlay0 = '#777777',
-        surface2 = '#666666',
-        surface1 = '#555555',
-        surface0 = '#444444',
-        base = '#171d1e',
-        mantle = '#090f11',
-        crust = '#0e1416',
-      },
-      latte = {
-        rosewater = '#fab387',
-        flamingo = '#fab387',
-        pink = '#f38ba8',
-        mauve = '#c9bfff',
-        red = '#f38ba8',
-        maroon = '#f38ba8',
-        peach = '#fab387',
-        yellow = '#4f4700',
-        green = '#bdc5eb',
-        teal = '#a6e3a1',
-        sky = '#83d2e4',
-        sapphire = '#83d2e4',
-        blue = '#83d2e4',
-        lavender = '#83d2e4',
-        text = '#dee3e5',
-        subtext1 = '#555555',
-        subtext0 = '#666666',
-        overlay2 = '#777777',
-        overlay1 = '#888888',
-        overlay0 = '#999999',
-        surface2 = '#aaaaaa',
-        surface1 = '#bbbbbb',
-        surface0 = '#cccccc',
-        base = '#171d1e',
-        mantle = '#090f11',
-        crust = '#0e1416',
-      },
-    },
-
+    color_overrides = color_overrides,
     highlight_overrides = {
       mocha = function(mocha)
         return {

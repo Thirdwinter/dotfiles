@@ -9,7 +9,7 @@ return {
   init = function()
     vim.diagnostic.config {
       virtual_text = false,
-      update_in_insert = true,
+      update_in_insert = false,
       virtual_lines = {
         -- only_current_line = true,
         highlight_whole_line = false,

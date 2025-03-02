@@ -39,6 +39,34 @@ M.keys = {
   {'<leader>fd', function() Snacks.picker.diagnostics_buffer() end, desc = 'Buffer Diagnostics'},
   {'<leader>fo', function() Snacks.picker.noice() end, desc = '[F]ind [O]ld [N]otifications'},
   {'<leader>fu', function() Snacks.picker.undo() end, desc = '[F]ind [U]ndo'},
+  {'<leader>fa',
+   function()
+     local bufnr = vim.api.nvim_get_current_buf()
+     local clients = vim.lsp.get_clients { bufnr = bufnr }
+     local function has_lsp_symbols()
+       for _, client in ipairs(clients) do
+         if client.server_capabilities.documentSymbolProvider then
+           return true
+         end
+       end
+       return false
+     end
+
+    local picker_opts = {
+      layout = 'right',
+      tree = true,
+      on_show = function()
+        vim.cmd.stopinsert()
+      end,
+    }
+    if has_lsp_symbols() then
+      Snacks.picker.lsp_symbols(picker_opts)
+    else
+      Snacks.picker.treesitter()
+    end
+   end,
+   desc = 'LSP Symbols'
+  },
 }
 -- stylua: ignore end
 return M

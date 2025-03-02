@@ -1,10 +1,9 @@
 local lualine = require 'lualine'
-local catppuccin_theme_mode_color = require('custom.Lualine.themes.catppuccin').mode_color
 local separators = require('custom.Lualine.chars').separators
 local spinner_chars = require('custom.Lualine.chars').spinner_char
 
-local left_separators = separators.left_some
-local right_separators = separators.right_some
+local left_separators = separators.left_rounded
+local right_separators = separators.right_rounded
 
 local function scroll_bar()
   local chars = setmetatable(spinner_chars, {
@@ -92,8 +91,7 @@ local config = {
       'yazi',
     },
     ignore_focus = { 'neo-tree', 'dashboard', 'snacks_dashboard' },
-    -- theme = require('custom.Lualine.themes.cp').catppuccin(),
-    theme = 'catppuccin', ---@type 'catppuccin' | 'rose-pine' | 'tokyonight'
+    theme = 'auto', ---@type 'catppuccin' | 'rose-pine' | 'tokyonight' | 'auto'
     component_separators = '',
     section_separators = '',
   },
@@ -102,11 +100,11 @@ local config = {
       {
         'mode',
         fmt = function(str)
-          return vim.api.nvim_win_get_width(0) < 110 and str:sub(1, 1) or str
+          return vim.api.nvim_win_get_width(0) < 110 and str:sub(1, 1) or string.format('%-8s', str)
         end,
         icon = '󰀘',
         color = { gui = 'bold' },
-        separator = { left = left_separators, right = right_separators },
+        separator = { left = left_separators, right = ' ' },
       },
     },
 
@@ -150,7 +148,7 @@ local config = {
     lualine_y = {
       {
         file_info,
-        separator = { right = right_separators },
+        separator = { left = left_separators, right = right_separators },
         -- padding = { left = 0, right = 1 },
       },
     },
@@ -177,58 +175,7 @@ local function ins_right(component)
   table.insert(config.sections.lualine_c, component)
 end
 
-local function getGreeting()
-  local tableTime = os.date '*t'
-  local hour = tableTime.hour
-  local greetingsTable = {
-    [1] = ' Sleep well',
-    [2] = ' Good morning',
-    [3] = ' Good afternoon',
-    [4] = ' Good evening',
-    [5] = ' Good night',
-  }
-  local greetingIndex = (hour == 23 or hour < 7) and 1 or (hour < 12) and 2 or (hour < 18) and 3 or (hour < 21) and 4 or 5
-  return vim.api.nvim_win_get_width(0) < 80 and '' or greetingsTable[greetingIndex]
-end
-
-local function timing()
-  local datetime = os.date ' %Y-%m-%d   %H:%M '
-  return string.format('%s', datetime)
-end
-
 ins_right '%='
-
--- ins_right {
---   timing,
---   color = function()
---     return { fg = catppuccin_theme_mode_color[vim.fn.mode()] }
---   end,
---   separator = { right = separators.slant_left },
---   cond = function()
---     local diagnostics = vim.diagnostic.get(0)
---     local count = 0
---     for _ in pairs(diagnostics) do
---       count = count + 1
---     end
---     return count == 0 and vim.api.nvim_win_get_width(0) > 140
---   end,
--- }
---
--- ins_right {
---   getGreeting,
---   color = function()
---     return { fg = catppuccin_theme_mode_color[vim.fn.mode()] }
---   end,
---   cond = function()
---     local diagnostics = vim.diagnostic.get(0)
---     local count = 0
---     for _ in pairs(diagnostics) do
---       count = count + 1
---     end
---     return count == 0
---   end,
---   -- separator = { right = separators.slant_right_2 },
--- }
 
 ins_right {
   'diagnostics',

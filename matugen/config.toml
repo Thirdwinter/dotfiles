@@ -34,7 +34,7 @@ output_path = '~/.config/yazi/yazi.toml'
 
 [templates.neovim]
 input_path = '~/.config/matugen/templates/nvim-catppuccin.lua'
-output_path = '~/.config/nvim/lua/plugins/theme/catppuccin.lua'
+output_path = '~/.cache/nvim/matugen_catppuccin_colors.lua'
 
 [templates.cava]
 input_path = '~/.config/matugen/templates/cava-colors'

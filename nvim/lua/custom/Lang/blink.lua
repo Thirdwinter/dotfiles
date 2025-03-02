@@ -1,37 +1,20 @@
 local max = vim.api.nvim_win_get_width(0)
 
-return {
-  signature = {
+return function(_, opts)
+  vim.cmd 'highlight link BlinkCmpMenuBorder Label'
+  vim.cmd 'highlight link BlinkCmpDocBorder Label'
+  vim.cmd 'highlight link BlinkCmpSignatureHelpBorder Label'
+
+  opts.signature = {
     enabled = true,
     window = {
       border = vim.g.borderStyle,
     },
-  },
-  cmdline = {
+  }
+  opts.cmdline = {
     enabled = false,
-    keymap = {
-      preset = 'none',
-      ['<Tab>'] = {
-        function(cmp)
-          local is_search_cmd = vim.tbl_contains({ '/', '?' }, vim.fn.getcmdtype())
-          if is_search_cmd then
-            cmp.accept {
-              callback = function()
-                vim.api.nvim_feedkeys('\n', 'n', true)
-              end,
-            }
-          else
-            cmp.accept()
-          end
-        end,
-      },
-      ['<CR>'] = { 'select_and_accept', 'fallback' },
-      ['<C-e>'] = { 'show', 'hide' },
-      ['<C-p>'] = { 'select_prev', 'fallback' },
-      ['<C-n>'] = { 'select_next', 'fallback' },
-    },
-  },
-  keymap = {
+  }
+  opts.keymap = {
     preset = 'none',
     ['<C-i>'] = { 'show', 'hide', 'fallback' },
     ['<C-->'] = { 'hide_documentation', 'show_documentation', 'fallback' },
@@ -54,13 +37,11 @@ return {
     },
     ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
     ['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
-  },
-  snippets = {
+  }
+  opts.snippets = {
     preset = 'luasnip',
-  },
-  appearance = {
-    use_nvim_cmp_as_default = true,
-    nerd_font_variant = 'mono',
+  }
+  opts.appearance = {
     kind_icons = {
       Text = '󰉿 ',
       Method = '󰆧 ',
@@ -88,9 +69,10 @@ return {
       Operator = '󰆕 ',
       TypeParameter = '󰬛 ',
     },
-  },
-  completion = {
+  }
+  opts.completion = {
     list = {
+      cycle = { from_bottom = false, from_top = false },
       selection = {
         preselect = true,
         auto_insert = false,
@@ -104,7 +86,7 @@ return {
       border = vim.g.borderStyle,
       auto_show = true,
       draw = {
-        align_to = 'none',
+        align_to = 'cursor',
         columns = {
           { 'kind_icon', 'label' },
           { 'kind' },
@@ -158,21 +140,26 @@ return {
         scrollbar = false,
       },
       auto_show = true,
-      auto_show_delay_ms = 100,
+      auto_show_delay_ms = 500,
     },
 
     -- Display a preview of the selected item on the current line
     ghost_text = { enabled = false },
-  },
-  sources = {
+  }
+  opts.sources = {
+    -- default = { 'snippets', 'lsp', 'path', 'buffer' },
+    -- providers = {
+    --   snippets = { score_offset = 1000 },
+    -- },
+
     default = { 'snippets', 'lsp', 'path', 'buffer', 'lazydev', 'markdown' },
 
     providers = {
       lsp = {
-        name = 'LSP',
-        fallbacks = {
-          'lazydev',
-        },
+        score_offset = 250,
+      },
+      snippets = {
+        score_offset = 200,
       },
       lazydev = {
         name = 'Development',
@@ -185,5 +172,5 @@ return {
         fallbacks = { 'lsp' },
       },
     },
-  },
-}
+  }
+end
