@@ -26,11 +26,11 @@ output_path = '~/.config/rofi/config.rasi'
 [templates.hyprland]
 input_path = '~/.config/matugen/templates/hyprland-colors.conf'
 output_path = '~/.config/hypr/matugen_colors.conf'
-post_hook = 'hyprctl reload;hyprshade on vibrance'
+# post_hook = 'hyprctl reload;hyprshade on vibrance'
 
 [templates.yazi]
-input_path = '~/.config/matugen/templates/yazi.toml'
-output_path = '~/.config/yazi/yazi.toml'
+input_path = '~/.config/matugen/templates/yazi-colors.toml'
+output_path = '~/.config/yazi/theme.toml'
 
 [templates.neovim]
 input_path = '~/.config/matugen/templates/nvim-catppuccin.lua'
@@ -46,8 +46,8 @@ output_path = '~/.config/ags/styles/matugen-colors.scss'
 post_hook = 'astal reloadcss'
 
 [templates.tmux]
-input_path = '~/.config/matugen/templates/tmux.conf'
-output_path = '~/.tmux.conf'
+input_path = '~/.config/matugen/templates/tmux-colors.conf'
+output_path = '~/.tmux.conf.d/colors.conf'
 post_hook = '~/.config/matugen/scripts/tmux_reload.sh'
 
 

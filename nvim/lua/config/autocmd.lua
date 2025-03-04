@@ -23,18 +23,18 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'FileType' }, {
 })
 
 --INFO: resession:
-local resession = require 'resession'
+--local resession = require 'resession'
 -- Automatically save sessions on by working directory on exit
 -- vim.api.nvim_create_autocmd('VimLeavePre', {
 --   callback = function()
 --     resession.save(vim.fn.getcwd(), { notify = true })
 --   end,
 -- })
-vim.api.nvim_create_autocmd('VimLeavePre', {
-  callback = function()
-    resession.save 'last'
-  end,
-})
+-- vim.api.nvim_create_autocmd('VimLeavePre', {
+--   callback = function()
+--     resession.save 'last'
+--   end,
+-- })
 -- vim.api.nvim_create_autocmd({ 'BufNew', 'BufNewFile', 'BufRead' }, {
 --   callback = function()
 --     if #vim.fn.getbufinfo { buflisted = 1 } >= 2 then
@@ -90,3 +90,18 @@ vim.api.nvim_create_autocmd(
   'ExitPre',
   { group = vim.api.nvim_create_augroup('Exit', { clear = true }), command = 'set guicursor=a:ver90', desc = 'Set cursor back to beam when leaving Neovim' }
 )
+
+local function augroup(name)
+  return vim.api.nvim_create_augroup('ths_' .. name, { clear = true })
+end
+
+vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
+  group = augroup 'auto_create_dir',
+  callback = function(event)
+    if event.match:match '^%w%w+:[\\/][\\/]' then
+      return
+    end
+    local file = vim.uv.fs_realpath(event.match) or event.match
+    vim.fn.mkdir(vim.fn.fnamemodify(file, ':p:h'), 'p')
+  end,
+})

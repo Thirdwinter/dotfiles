@@ -1,0 +1,72 @@
+"$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
+
+[manager]
+cwd = { fg = "#cec2db", bold = true }
+
+hovered = { fg = "#ecdcff", bg = "#513c73" }
+preview_hovered = { underline = true, bold = true }
+
+find_keyword = { fg = "#cec2db", italic = true }
+find_position = { fg = "#f1b7c3", bg = "reset", italic = true }
+
+
+border_symbol = "│"
+border_style = { fg = "#d5bbfc" }
+
+syntect_theme = "~/.config/yazi/catppuccin_Mocha.tmTheme"
+
+[mode]
+normal_main = { fg = "#3a255b", bg = "#d5bbfc", bold = true }
+normal_alt = { fg = "#513c73", bg = "#e7e0e8" ,bold = true}
+
+select_main = { fg = "#352d40", bg = "#cec2db", bold = true }
+select_alt = { fg = "#4c4357", bg = "#e7e0e8" ,bold = true}
+
+unset_main = { fg = "#4b252e", bg = "#f1b7c3", bold = true }
+unset_alt = { fg = "#643b44", bg = "#e7e0e8" ,bold = true}
+
+[status]
+separator_open = ""
+separator_close = ""
+
+perm_type = { fg = "#d5bbfc" }
+perm_read = { fg = "#f5bd6f" }
+perm_write = { fg = "#b8c4ff" }
+perm_exec = { fg = "#fbb0d8" }
+perm_sep = { fg = "#e7e0e8" }
+
+[which]
+mask = { bg = "#211e24" }
+cand = { fg = "#d5bbfc" }
+rest = { bg = "#211e24" }
+desc = { fg = "#cec2db" }
+separator = "  "
+separator_style = { fg = "#f1b7c3" }
+
+[notify]
+title_info = { fg = "#91d5ad" }
+title_warn = { fg = "#f5bd6f" }
+title_error = { fg = "#ffb4ab" }
+
+[filetype]
+rules = [
+  # Images
+  { mime = "image/*", fg = "#cec2db" },
+
+  # Videos
+  { mime = "video/*", fg = "#f1b7c3" },
+  { mime = "audio/*", fg = "#f1b7c3" },
+
+  # Archives
+  { mime = "application/zip", fg = "#ffb4ab" },
+  { mime = "application/gzip", fg = "#ffb4ab" },
+  { mime = "application/x-tar", fg = "#ffb4ab" },
+  { mime = "application/x-bzip", fg = "#ffb4ab" },
+  { mime = "application/x-bzip2", fg = "#ffb4ab" },
+  { mime = "application/x-7z-compressed", fg = "#ffb4ab" },
+  { mime = "application/x-rar", fg = "#ffb4ab" },
+
+  # Fallback
+  { name = "*", fg = "#d5bbfc", bold = true },
+  { name = "*/", fg = "#cec2db", bold = true },
+]

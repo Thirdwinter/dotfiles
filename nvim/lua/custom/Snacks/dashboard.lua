@@ -30,7 +30,14 @@ return {
       { icon = ' ', key = 'g', desc = 'Find Text', action = ":lua Snacks.dashboard.pick('live_grep')" },
       { icon = ' ', key = 'r', desc = 'Recent Files', action = ":lua Snacks.dashboard.pick('oldfiles')" },
       { icon = ' ', key = 'n', desc = 'Neovim Settings', action = ":lua Snacks.picker.smart { cwd = vim.fn.stdpath 'config' }" },
-      { icon = ' ', key = 'l', desc = 'Load Session', action = ":lua require'resession'.load'last'" },
+      {
+        icon = ' ',
+        key = 'l',
+        desc = 'Load Session',
+        action = function()
+          require('persistence').load { last = true }
+        end,
+      },
       { icon = '󱐥 ', key = 'u', desc = 'Update plugins', action = ':Lazy update' },
       { icon = ' ', key = 'q', desc = 'Quit', action = ':qa' },
     },

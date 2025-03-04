@@ -9,9 +9,9 @@ return {
 
     -- Make sure to load noice when notify is called
     ---@diagnostic disable-next-line: duplicate-set-field
-    vim.notify = function(...)
-      require('noice').notify(...)
-    end
+    -- vim.notify = function(...)
+    --   require('noice').notify(...)
+    -- end
   end,
   -- version = '4.4.7', -- Make sure to update this to something recent!
   dependencies = {
@@ -20,7 +20,7 @@ return {
     -- OPTIONAL:
     --   `nvim-notify` is only needed, if you want to use the notification view.
     --   If not available, we use `mini` as the fallback
-    'rcarriga/nvim-notify',
+    -- 'rcarriga/nvim-notify',
   },
   opts = {
     presets = {
@@ -49,6 +49,7 @@ return {
         },
       },
     },
+
     messages = {
       -- NOTE: If you enable messages, then the cmdline is enabled automatically.
       -- This is a current Neovim limitation.

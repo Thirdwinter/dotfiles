@@ -18,6 +18,7 @@ local lsp_servers = {
 }
 
 --INFO: mason_ensure_installed
+---@diagnostic disable-next-line: unused-local
 local mason_ensure_installed = {
   'stylua',
   'lua-language-server',
@@ -29,22 +30,15 @@ return {
   dependencies = {
     -- 自动将 LSP 和相关工具安装到 Neovim 的 stdpath
     { 'williamboman/mason.nvim', opts = { ui = { border = vim.g.borderStyle, backdrop = 100 } } }, -- 注意：必须在依赖之前加载
-    'williamboman/mason-lspconfig.nvim',
+    { 'williamboman/mason-lspconfig.nvim' },
     -- 'WhoIsSethDaniel/mason-tool-installer.nvim',
-    'saghen/blink.cmp',
-
-    -- LSP 的有用状态更新。
-    -- 注意：`opts = {}` 与调用 `require('fidget').setup({})` 相同
-    -- { 'j-hui/fidget.nvim' },
-
-    -- 允许由 nvim-cmp 提供的额外功能
-    -- 'hrsh7th/cmp-nvim-lsp',
+    { 'folke/snacks.nvim' },
   },
   config = function()
     --INFO: disable diagnostic using tiny-inline-diagnostic
     require 'custom.Lang.diagnostic'
     --INFO: lsp 相关的自动命令和键位映射
-    require 'custom.Lang.lsp_cmd'
+    require 'custom.Lang.lspAttach'
 
     local lspconfig = require 'lspconfig'
     local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -68,7 +62,6 @@ return {
     for server_name, server_opts in pairs(lsp_servers) do
       server_opts.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server_opts.capabilities or {})
       server_opts.handlers = vim.tbl_deep_extend('force', {}, custom_handlers, server_opts.handlers or {})
-      -- server_opts.handlers = vim.tbl_deep_extend('force', {}, custom_handlers)
       lspconfig[server_name].setup(server_opts)
     end
 
