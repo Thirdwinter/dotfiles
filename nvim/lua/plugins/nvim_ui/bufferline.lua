@@ -18,9 +18,8 @@ return {
     vim.keymap.set('n', '<Leader>c', function()
       Snacks.bufdelete.delete()
     end, { desc = '关闭当前buffer', noremap = true, silent = true })
-    vim.keymap.set('n', '<leader>bo', function()
-      Snacks.bufdelete.delete()
-    end, { desc = '关闭其它buffer', noremap = true, silent = true })
+
+    vim.keymap.set('n', '<leader>bo', '<Cmd>BufferLineCloseOthers<CR>', { desc = '关闭其它buffer', noremap = true, silent = true })
 
     require('bufferline').setup {
       highlights = {
@@ -31,7 +30,7 @@ return {
           },
           bg = '',
           bold = true,
-          italic = false,
+          italic = true,
         },
         indicator_selected = {
           fg = {

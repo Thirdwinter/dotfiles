@@ -23,6 +23,7 @@ local function getGreeting()
   end
   return datetime .. '  ' .. greetingsTable[greetingIndex] .. ', ' .. vim.g.Username
 end
+
 return {
   preset = {
     keys = {
