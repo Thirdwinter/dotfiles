@@ -10,7 +10,9 @@ return {
     quickfile = {},
     scroll = { enabled = false },
     terminal = require 'custom.Snacks.terminal',
-    notifier = {},
+    notifier = {
+      timeout = 1000,
+    },
     -- notifier = {},
     scope = { enabled = false },
     explorer = { replace_netrw = true },
@@ -21,7 +23,7 @@ return {
     styles = {
       notification = {
         border = vim.g.borderStyle,
-        zindex = 100,
+        zindex = 1000,
         ft = 'markdown',
         wo = {
           winblend = 5,

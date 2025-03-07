@@ -22,7 +22,7 @@ local handler = function(virtText, lnum, endLnum, width, truncate)
     end
     curWidth = curWidth + chunkWidth
   end
-  table.insert(newVirtText, { suffix, 'Normal' }) -- Use 'Normal' highlight group for suffix
+  table.insert(newVirtText, { suffix, 'Error' }) -- Use 'Normal' highlight group for suffix
   return newVirtText
 end
 return {

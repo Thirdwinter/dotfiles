@@ -34,6 +34,8 @@ vim.keymap.set('i', '<C-v>', '<C-R>+', { noremap = true, silent = true })
 vim.keymap.set('t', '<C-v>', '<C-R>+', { noremap = true, silent = true })
 vim.keymap.set('v', '<C-v>', '<C-R>+', { noremap = true, silent = true })
 
+vim.keymap.set('n', '<leader>h', '^')
+
 --  参见 `:help wincmd` 了解所有窗口命令的列表
 --INFO: 窗口移动
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = '将焦点移动到左侧窗口' })

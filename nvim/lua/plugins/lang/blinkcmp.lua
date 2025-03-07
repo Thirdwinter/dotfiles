@@ -1,7 +1,7 @@
-if vim.g.cmpUsed ~= 'blink' then
-  return {}
-end
-
+-- if vim.g.cmpUsed ~= 'blink' then
+--   return {}
+-- end
+--
 return {
   'saghen/blink.cmp',
   event = 'InsertEnter',
@@ -10,7 +10,7 @@ return {
     'L3MON4D3/LuaSnip',
     'neovim/nvim-lspconfig',
   },
-  build = 'cargo build --release',
+  -- build = 'cargo build --release',
   version = '*',
   opts = require 'custom.Lang.blink',
 }

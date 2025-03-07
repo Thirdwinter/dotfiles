@@ -155,12 +155,8 @@ return function(_, opts)
     default = { 'snippets', 'lsp', 'path', 'buffer', 'lazydev', 'markdown' },
 
     providers = {
-      lsp = {
-        score_offset = 250,
-      },
-      snippets = {
-        score_offset = 200,
-      },
+      lsp = {},
+      snippets = {},
       lazydev = {
         name = 'Development',
         module = 'lazydev.integrations.blink',

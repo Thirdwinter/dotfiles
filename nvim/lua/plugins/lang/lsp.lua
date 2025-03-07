@@ -32,6 +32,7 @@ return {
     { 'williamboman/mason.nvim', opts = { ui = { border = vim.g.borderStyle, backdrop = 100 } } }, -- 注意：必须在依赖之前加载
     { 'williamboman/mason-lspconfig.nvim' },
     -- 'WhoIsSethDaniel/mason-tool-installer.nvim',
+    { 'saghen/blink.cmp' },
     { 'folke/snacks.nvim' },
   },
   config = function()

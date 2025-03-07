@@ -142,6 +142,19 @@ local config = {
       { micro },
     },
     lualine_x = {
+      {
+        'diagnostics',
+        sources = { 'nvim_diagnostic' },
+        symbols = { error = '  ', warn = '  ', info = '  ', hint = '  ' },
+        cond = function()
+          local diagnostics = vim.diagnostic.get(0)
+          local count = 0
+          for _ in pairs(diagnostics) do
+            count = count + 1
+          end
+          return count ~= 0
+        end,
+      },
       { lsp_info, separator = {} },
     },
 
@@ -201,18 +214,18 @@ end
 
 ins_right '%='
 
-ins_right {
-  'diagnostics',
-  sources = { 'nvim_diagnostic' },
-  symbols = { error = '  ', warn = '  ', info = '  ', hint = '  ' },
-  cond = function()
-    local diagnostics = vim.diagnostic.get(0)
-    local count = 0
-    for _ in pairs(diagnostics) do
-      count = count + 1
-    end
-    return count ~= 0
-  end,
-}
+-- ins_right {
+--   'diagnostics',
+--   sources = { 'nvim_diagnostic' },
+--   symbols = { error = '  ', warn = '  ', info = '  ', hint = '  ' },
+--   cond = function()
+--     local diagnostics = vim.diagnostic.get(0)
+--     local count = 0
+--     for _ in pairs(diagnostics) do
+--       count = count + 1
+--     end
+--     return count ~= 0
+--   end,
+-- }
 
 lualine.setup(config)
