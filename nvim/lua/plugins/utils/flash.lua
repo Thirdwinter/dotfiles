@@ -7,7 +7,7 @@ return {
       search = {
         enabled = true,
         highlight = {
-          backdrop = true,
+          backdrop = false,
         },
       },
     },

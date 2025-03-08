@@ -19,7 +19,7 @@ return {
     'nvim-tree/nvim-web-devicons',
     {
       'linrongbin16/lsp-progress.nvim',
-      enent = 'VimEnter',
+      event = 'VimEnter',
 
       config = function()
         require('lsp-progress').setup(lsp_progress_config)

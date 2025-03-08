@@ -5,6 +5,8 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.g.snacks_animate = true
 
+vim.g.codeium_enabled = true
+
 vim.g.borderStyle = 'single' ---@type 'single'|'rounded'|'none'
 -- vim.g.borderStyle = { '┌', '─', '┐', '│', '┘', '─', '└', '│' }
 -- vim.g.cmpUsed = 'blink' ---@type 'blink' | 'cmp'

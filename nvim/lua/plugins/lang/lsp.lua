@@ -6,6 +6,7 @@ local lsp_servers = {
   jdtls = require 'custom.Lang.lsp.jdtls',
   jsonls = require 'custom.Lang.lsp.jsonls',
   tinymist = {},
+  ['systemd-language-server'] = {},
   cssls = {},
   vtsls = {},
   bashls = {

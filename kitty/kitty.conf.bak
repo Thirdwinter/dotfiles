@@ -12,6 +12,7 @@ bold_italic_font family="CaskaydiaMono Nerd Font" postscript_name=CaskaydiaMonoN
 # font_family      family="CaskaydiaMono Nerd Font"
 # bold_font        auto
 font_size 11.5
+
 # END_KITTY_FONTS
 
 
@@ -22,22 +23,21 @@ include current-theme.conf
 # END_KITTY_THEME
 
 #################################### WINDOW ####################################
-hide_window_decorations        no
+hide_window_decorations        yes
 dynamic_background_opacity     no
 # window_padding_width           2 5 2 5
-background_opacity             0.75
+background_opacity             0.95
 # background_blur                1
+confirm_os_window_close 0
 
 #################################### CURSOR ####################################
 cursor_blink_interval 0
 #光标颜色补丁，下面没有被注释
-cursor #6c7086
+# cursor #6c7086
 cursor_trail_start_threshold 10
 detect_urls no
-mouse_hide_wait 0.5
 cursor_trail 3
 cursor_shape beam
-cursor_trail_start_threshold 1
 ##################################### TAB ######################################
 tab_bar_edge                bottom
 # tab_bar_margin_width        9
@@ -70,16 +70,22 @@ map ctrl+shift+t new_tab_with_cwd
 map ctrl+shift+n new_os_window
 map ctrl+c copy_and_clear_or_interrupt
 map ctrl+v paste_from_clipboard
-# navigate through windows
-# map cmd+shift+h previous_window
-# map cmd+shift+l next_window
-# map cmd+shift+1 first_window
-# map cmd+shift+2 second_window
-# map cmd+shift+3 third_window
-# map cmd+shift+4 fourth_window
-# map cmd+shift+5 fifth_window
-# map ctrl+shift+o next_layout
+map ctrl+shift+p kitten hints --type path --program @
+map ctrl+shift+h kitten hints --type hash --program @
+
+##TMUX
+# map ctrl+1 combine : send_key ctrl+] : send_key 1
+# map ctrl+2 combine : send_key ctrl+] : send_key 2
+# map ctrl+3 combine : send_key ctrl+] : send_key 3
+# map ctrl+4 combine : send_key ctrl+] : send_key 4
+# map ctrl+5 combine : send_key ctrl+] : send_key 5
+# map ctrl+6 combine : send_key ctrl+] : send_key 6
+# map ctrl+7 combine : send_key ctrl+] : send_key 7
+# map ctrl+8 combine : send_key ctrl+] : send_key 8
+# map ctrl+9 combine : send_key ctrl+] : send_key 9
+# map ctrl+t combine : send_key ctrl+] : send_key c
+# map ctrl+w combine : send_key ctrl+] : send_key x
 #
 
 
-shell_integration no-title
+shell_integration enabled
