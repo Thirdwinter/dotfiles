@@ -45,16 +45,6 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'FileType' }, {
 --   end,
 -- })
 
--- INFO: 主题变化时候重新加载自定义高亮
-if not vim.g.transparent() then
-  vim.api.nvim_create_autocmd('ColorScheme', {
-    pattern = '*',
-    callback = function()
-      vim.cmd 'source ~/.config/nvim/lua/config/highlights.lua'
-    end,
-  })
-end
-
 local get_bufs = function()
   return vim.tbl_filter(function(bufnr)
     return vim.api.nvim_get_option_value('buflisted', { buf = bufnr })
@@ -103,5 +93,18 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
     end
     local file = vim.uv.fs_realpath(event.match) or event.match
     vim.fn.mkdir(vim.fn.fnamemodify(file, ':p:h'), 'p')
+  end,
+})
+
+-- Hyprlang LSP
+vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
+  pattern = { '*.hl', 'hypr*.conf' },
+  callback = function(event)
+    print(string.format('starting hyprls for %s', vim.inspect(event)))
+    vim.lsp.start {
+      name = 'hyprlang',
+      cmd = { 'hyprls' },
+      root_dir = vim.fn.getcwd(),
+    }
   end,
 })

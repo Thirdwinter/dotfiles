@@ -10,7 +10,7 @@ vim.g.codeium_enabled = true
 vim.g.borderStyle = 'single' ---@type 'single'|'rounded'|'none'
 -- vim.g.borderStyle = { '┌', '─', '┐', '│', '┘', '─', '└', '│' }
 -- vim.g.cmpUsed = 'blink' ---@type 'blink' | 'cmp'
-vim.g.useMatugenCatppuccinColors = false
+vim.g.useMatugenCatppuccinColors = true
 -- 如果你在终端中安装并选择了 Nerd 字体，则设置为 true
 vim.g.Username = 'ThirdWinter'
 vim.g.have_nerd_font = true

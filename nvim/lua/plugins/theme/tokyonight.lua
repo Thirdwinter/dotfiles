@@ -22,6 +22,7 @@ return { -- You can easily change to a different colorscheme.
       keywords = { italic = true },
       functions = { italic = true },
       variables = { italic = false },
+      Booleam = { italic = true },
       -- Background styles. Can be "dark", "transparent" or "normal"
       sidebars = 'transparent', -- style for sidebars, see below
       floats = 'transparent', -- style for floating windows

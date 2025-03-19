@@ -5,6 +5,7 @@ return {
         enable = true,
       },
       completion = {
+        autoRequire = false,
         callSnippet = 'Replace',
       },
     },

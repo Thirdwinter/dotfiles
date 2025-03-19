@@ -4,21 +4,22 @@
 # BEGIN_KITTY_FONTS
 font_family      family='Maple Mono NF CN' postscript_name=MapleMono-NF-CN-Regular features='cv03 ss01 ss02 ss04 ss05 ss07'
 bold_font        family='Maple Mono NF CN' postscript_name=MapleMono-NF-CN-Bold features='cv03 ss01 ss02 ss04 ss05 ss07'
-italic_font      family="CaskaydiaMono Nerd Font" style=Italic postscript_name=CaskaydiaMonoNerdFont-Italic
-bold_italic_font family="CaskaydiaMono Nerd Font" postscript_name=CaskaydiaMonoNerdFont-BoldItalic
-# italic_font      family='Maple Mono NF CN' style=Italic features='cv03=0 +ss01 +ss02 +ss04 +ss05 +ss07'
-# bold_italic_font family='Maple Mono NF CN' postscript_name=MapleMono-NF-CN-BoldItalic features='-cv03 ss01 ss02 ss04 ss05 ss07'
+# italic_font      family="CaskaydiaMono Nerd Font" style=Italic postscript_name=CaskaydiaMonoNerdFont-Italic
+# bold_italic_font family="CaskaydiaMono Nerd Font" postscript_name=CaskaydiaMonoNerdFont-BoldItalic
+italic_font      family='Maple Mono NF CN' style=Italic features='cv03=0 +ss01 +ss02 +ss04 +ss05 +ss07'
+bold_italic_font family='Maple Mono NF CN' postscript_name=MapleMono-NF-CN-BoldItalic features='-cv03 ss01 ss02 ss04 ss05 ss07'
 
 # font_family      family="CaskaydiaMono Nerd Font"
 # bold_font        auto
 font_size 11.5
+modify_font cell_width 105%
 
 # END_KITTY_FONTS
 
 
 #################################### THEME ####################################
 # BEGIN_KITTY_THEME
-# Matugen
+# Tokyo Night Storm
 include current-theme.conf
 # END_KITTY_THEME
 
@@ -37,6 +38,8 @@ cursor_blink_interval 0
 cursor_trail_start_threshold 10
 detect_urls no
 cursor_trail 3
+cursor_trail_decay 0.2 0.4
+cursor_trail_start_threshold 2
 cursor_shape beam
 ##################################### TAB ######################################
 tab_bar_edge                bottom
