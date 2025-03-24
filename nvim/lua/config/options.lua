@@ -3,14 +3,13 @@
 --  注意：必须在插件加载之前设置（否则会使用错误的 leader）
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
-vim.g.snacks_animate = true
 
 vim.g.codeium_enabled = true
 
 vim.g.borderStyle = 'single' ---@type 'single'|'rounded'|'none'
 -- vim.g.borderStyle = { '┌', '─', '┐', '│', '┘', '─', '└', '│' }
 -- vim.g.cmpUsed = 'blink' ---@type 'blink' | 'cmp'
-vim.g.useMatugenCatppuccinColors = true
+vim.g.useMatugenCatppuccinColors = false
 -- 如果你在终端中安装并选择了 Nerd 字体，则设置为 true
 vim.g.Username = 'ThirdWinter'
 vim.g.have_nerd_font = true

@@ -49,7 +49,22 @@ return {
       'force',
       capabilities,
       require('blink.cmp').get_lsp_capabilities {
-        textDocument = { completion = { completionItem = { snippetSupport = false } } },
+        textDocument = {
+          completion = {
+            completionItem = {
+              snippetSupport = true,
+              resolveSupport = {
+                properties = {
+                  'documentation',
+                  'detail',
+                  'additionalTextEdits',
+                  'deprecated',
+                  'insertText',
+                },
+              },
+            },
+          },
+        },
       }
     )
 

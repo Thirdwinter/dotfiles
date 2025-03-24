@@ -80,7 +80,21 @@ return function(_, opts)
     },
     keyword = { range = 'full' },
     -- NOTE: some LSPs may add auto brackets themselves anyway
-    accept = { auto_brackets = { enabled = true } },
+    accept = {
+      auto_brackets = {
+        -- Whether to auto-insert brackets for functions
+        enabled = true,
+        -- Default brackets to use for unknown languages
+        default_brackets = { '(', ')' },
+        -- Overrides the default blocked filetypes
+        override_brackets_for_filetypes = {},
+        -- Synchronously use the kind of the item to determine if brackets should be added
+        kind_resolution = {
+          enabled = true,
+          blocked_filetypes = { 'typescriptreact', 'javascriptreact', 'vue' },
+        },
+      },
+    },
     menu = {
       scrollbar = false,
       border = vim.g.borderStyle,
