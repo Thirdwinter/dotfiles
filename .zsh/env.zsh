@@ -39,3 +39,4 @@ export GOROOT=/usr/lib/go
 export PATH=$PATH:$GOPATH
 export PATH=$PATH:$GOBIN
 export PATH=$PATH:$GOROOT/bin
+export PATH=$PATH:$HOME/.cargo/bin
