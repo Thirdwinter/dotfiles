@@ -52,8 +52,8 @@ Pictures = " "
 
 
 [git_branch]
-format = "[](fg:overlay)[$symbol $branch]($style)[](fg:overlay) "
-style = "bg:overlay fg:color1"
+format = "[$symbol $branch]($style) "
+style = "fg:color1"
 symbol = " "
 
 
@@ -73,13 +73,13 @@ diverged = '⇕[\[](fg:iris)[⇡\(${ahead_count}\)](fg:foam)[⇣\(${behind_count
 behind = '[⇣\(${count}\)](fg:rose)'
 
 [python]
-format = "[](fg:overlay)[$virtualenv]($style)[](fg:overlay) "
+format = "[$virtualenv]($style) "
 disabled = false
 symbol = ' '
-style = "bg:overlay fg:pine"
+style = "fg:pine"
 
 [conda]
-style = "bg:overlay fg:pine"
-format = "[](fg:overlay)[$symbol$environment]($style)[](fg:overlay) "
+style = "fg:pine"
+format = "[$symbol$environment]($style) "
 disabled = false
 symbol = '🅒 '

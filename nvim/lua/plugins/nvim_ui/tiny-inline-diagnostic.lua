@@ -11,7 +11,7 @@ return {
       virtual_text = false,
       update_in_insert = false,
       virtual_lines = {
-        -- only_current_line = true,
+        only_current_line = false,
         highlight_whole_line = false,
       },
     }
