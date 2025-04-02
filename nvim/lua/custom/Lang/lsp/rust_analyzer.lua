@@ -7,6 +7,11 @@ return {
         },
         prefix = 'self',
       },
+      inlayHints = {
+        bindingModeHints = {
+          enable = true,
+        },
+      },
       cargo = {
         buildScripts = {
           enable = true,
