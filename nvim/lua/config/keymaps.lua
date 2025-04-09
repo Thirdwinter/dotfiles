@@ -90,11 +90,3 @@ vim.api.nvim_set_keymap('i', '<C-y>', '<C-r>+', { noremap = true, silent = true 
 vim.api.nvim_set_keymap('i', '<C-n>', '<Down>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<C-p>', '<Up>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<C-h>', '<BS>', { noremap = true, silent = true })
--- vim.keymap.set('n', '<leader>z', function()
---   local curr_foldcolumn = vim.wo.foldcolumn
---   if curr_foldcolumn ~= '0' then
---     last_active_foldcolumn = curr_foldcolumn
---   end
---   vim.wo.foldcolumn = curr_foldcolumn == '0' and (last_active_foldcolumn or '1') or '0'
---   -- ui_notify(silent, ('foldcolumn=%s'):format(vim.wo.foldcolumn))
--- end, { noremap = true, silent = true })

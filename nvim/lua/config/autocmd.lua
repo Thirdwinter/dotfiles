@@ -22,29 +22,6 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'FileType' }, {
   end,
 })
 
---INFO: resession:
---local resession = require 'resession'
--- Automatically save sessions on by working directory on exit
--- vim.api.nvim_create_autocmd('VimLeavePre', {
---   callback = function()
---     resession.save(vim.fn.getcwd(), { notify = true })
---   end,
--- })
--- vim.api.nvim_create_autocmd('VimLeavePre', {
---   callback = function()
---     resession.save 'last'
---   end,
--- })
--- vim.api.nvim_create_autocmd({ 'BufNew', 'BufNewFile', 'BufRead' }, {
---   callback = function()
---     if #vim.fn.getbufinfo { buflisted = 1 } >= 2 then
---       vim.o.showtabline = 2 -- 总是显示
---     elseif vim.o.showtabline ~= 1 then -- 不重置已经为默认值的选项
---       vim.o.showtabline = 1 -- 仅当标签页多于 1 时显示
---     end
---   end,
--- })
-
 local get_bufs = function()
   return vim.tbl_filter(function(bufnr)
     return vim.api.nvim_get_option_value('buflisted', { buf = bufnr })

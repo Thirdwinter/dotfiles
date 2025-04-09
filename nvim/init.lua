@@ -20,7 +20,7 @@ require 'lazy_setup' --INFO: loadind lazy plugins
 require 'config.autocmd'
 require 'config.keymaps'
 
----@type 'tokyonight'|'catppuccin'|'rose-pine-moon'
-vim.cmd.colorscheme 'catppuccin-mocha'
+---@type 'tokyonight'|'catppuccin'
+vim.cmd.colorscheme 'catppuccin'
 -- NOTE: highlights patch
 require 'config.highlights'

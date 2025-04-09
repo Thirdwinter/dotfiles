@@ -15,12 +15,12 @@ return {
         ft = {},
       },
     }
-    opts.hover = {
-      max_width = 0.5,
-    }
-    opts.ui = { border = vim.g.borderStyle, kind = require('catppuccin.groups.integrations.lsp_saga').custom_kind() }
+    -- opts.hover = {
+    --   max_width = 0.5,
+    -- }
+    -- opts.ui = { border = vim.g.borderStyle, kind = require('catppuccin.groups.integrations.lsp_saga').custom_kind() }
     -- vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>')
-    vim.keymap.set('n', '<leader>lso', '<cmd>Lspsaga outline<CR>', { desc = '[S]ymblol [O]utline' })
+    -- vim.keymap.set('n', '<leader>lso', '<cmd>Lspsaga outline<CR>', { desc = '[S]ymblol [O]utline' })
   end,
   dependencies = {
     'nvim-treesitter/nvim-treesitter', -- optional

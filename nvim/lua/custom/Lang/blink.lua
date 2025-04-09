@@ -38,9 +38,9 @@ return function(_, opts)
     ['<S-Tab>'] = { 'snippet_backward', 'fallback' },
     ['<C-k>'] = { 'show_signature', 'hide_signature', 'fallback' },
   }
-  opts.snippets = {
-    preset = 'luasnip',
-  }
+  -- opts.snippets = {
+  --   preset = 'luasnip',
+  -- }
   opts.appearance = {
     kind_icons = {
       Text = '󰉿 ',

@@ -50,6 +50,7 @@ local function lsp_info()
   return msg
 end
 
+---@diagnostic disable-next-line: unused-local, unused-function
 local function file_info()
   local filename = vim.fn.expand '%:t'
   local extension = vim.fn.expand '%:e'
@@ -155,7 +156,35 @@ local config = {
           return count ~= 0
         end,
       },
-      { lsp_info, separator = {} },
+      {
+        'lsp_status',
+        fmt = function(str)
+          local has_lsp = false
+          for _, client in pairs(vim.lsp.get_clients()) do
+            if client.initialized or client.progress then
+              has_lsp = true
+              break
+            end
+          end
+          if has_lsp then
+            return 'LSP'
+          else
+            return 'None'
+          end
+        end,
+        icon = '', -- f013
+        symbols = {
+          -- Standard unicode symbols to cycle through for LSP progress:
+          spinner = { '⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏' },
+          -- Standard unicode symbol for when LSP is done:
+          done = '',
+          -- Delimiter inserted between LSP names:
+          separator = ' ',
+        },
+        -- List of LSP names to ignore (e.g., `null-ls`):
+        ignore_lsp = {},
+        separator = {},
+      },
     },
 
     lualine_y = {
@@ -179,6 +208,7 @@ local config = {
         },
         fmt = function(name)
           local present, icons = pcall(require, 'nvim-web-devicons')
+          ---@diagnostic disable-next-line: unused-local
           local icon = present and icons.get_icon(name) or '󰈙 '
 
           return name

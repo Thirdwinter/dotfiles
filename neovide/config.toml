@@ -3,6 +3,9 @@ frame = "none"
 srgb = true
 
 # normal = ["CodeNewRoman Nerd Font Mono"]
+[box-drawing]
+# "font-glyph", "native" or "selected-native"
+mode = "font-glyph"
 
 [font]
 # normal = ["CodeNewRoman Nerd Font Mono"]
@@ -11,16 +14,14 @@ size = 12
 
 [[font.normal]]
 family = "Maple Mono NF CN"
-style = "Normal"
 
 [[font.italic]]
-family = "CaskaydiaMono Nerd Font"
-style = "Italic"
+family = "Maple Mono NF CN"
 
 [[font.bold_italic]]
-family = "CaskaydiaMono Nerd Font"
+family = "Maple Mono NF CN"
 
 
-[font.features]
-"Maple Mono NF CN" = [ "+cv03", "+ss01", "+ss02",  "+ss04", "+ss05", "+ss07", "zero" ]
+# [font.features]
+# "Maple Mono NF CN" = [ "+cv03", "+ss01", "+ss02",  "+ss04", "+ss05", "+ss07", "zero" ]
 #cv03 ss01 ss02 ss04 ss05 ss07 zero

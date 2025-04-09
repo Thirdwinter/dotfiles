@@ -1,5 +1,14 @@
 return {
   vim.api.nvim_create_autocmd('LspAttach', {
+    callback = function(args)
+      local client = vim.lsp.get_client_by_id(args.data.client_id)
+      if client:supports_method 'textDocument/foldingRange' then
+        local win = vim.api.nvim_get_current_win()
+        vim.wo[win][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
+      end
+    end,
+  }),
+  vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
     callback = function(event)
       -- 注意：记住 Lua 是一种真正的编程语言，因此你可以定义小型帮助和实用函数，以免重复自己。

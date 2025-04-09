@@ -216,10 +216,10 @@ return {
           style = 'icon', ---@type 'icon' | 'underline' | 'none'
         },
 
-        get_element_icon = function(element)
-          local icon, _ = require('nvim-web-devicons').get_icon_by_filetype(element.filetype, { default = false })
-          return icon
-        end,
+        -- get_element_icon = function(element)
+        --   local icon, _ = require('nvim-web-devicons').get_icon_by_filetype(element.filetype, { default = false })
+        --   return icon
+        -- end,
         separator_style = { '', '' },
         offsets = {
           {

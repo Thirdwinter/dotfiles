@@ -3,26 +3,12 @@ require("full-border"):setup({
 	type = ui.Border.PLAIN,
 })
 
-THEME.git = THEME.git or {}
-THEME.git.added = ui.Style():fg("#a6e3a1")
-THEME.git.untracked = ui.Style():fg("gray")
-THEME.git.modified = ui.Style():fg("#f9e2af")
-THEME.git.added_sign = ""
-THEME.git.untracked_sign = ""
-THEME.git.modified_sign = ""
-THEME.git.deleted_sign = ""
+th.git = th.git or {}
+th.git.added = ui.Style():fg("#a6e3a1")
+th.git.untracked = ui.Style():fg("gray")
+th.git.modified = ui.Style():fg("#f9e2af")
+th.git.added_sign = ""
+th.git.untracked_sign = ""
+th.git.modified_sign = ""
+th.git.deleted_sign = ""
 require("git"):setup()
-
--- function Linemode:size_and_mtime()
--- 	local year = os.date("%Y")
--- 	local time = (self._file.cha.modified or 0)
---
--- 	if time > 0 and os.date("%Y", time) == year then
--- 		time = os.date("%b %d %H:%M", time)
--- 	else
--- 		time = time and os.date("%b %d  %Y", time) or ""
--- 	end
---
--- 	local size = self._file:size()
--- 	return ui.Line(string.format(" %s %s ", size and ya.readable_size(size) or "-", time))
--- end
