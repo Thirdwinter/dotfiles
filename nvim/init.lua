@@ -21,6 +21,6 @@ require 'config.autocmd'
 require 'config.keymaps'
 
 ---@type 'tokyonight'|'catppuccin'
-vim.cmd.colorscheme 'catppuccin'
+vim.cmd.colorscheme 'tokyonight'
 -- NOTE: highlights patch
 require 'config.highlights'

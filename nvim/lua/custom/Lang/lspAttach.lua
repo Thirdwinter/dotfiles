@@ -27,15 +27,25 @@ return {
       end, '[G]oto [D]efinition')
 
       -- 查找光标下单词的引用。
-      map('gr', function()
-        Snacks.picker.lsp_references()
-      end, '[G]oto [R]eferences')
+      map(
+        'gr',
+        -- '<cmd>Glance definitions<cr>',
+        function()
+          Snacks.picker.lsp_references()
+        end,
+        '[G]oto [R]eferences'
+      )
 
       -- 跳转到光标下的单词的实现。
       -- 当你的语言有声明类型但没有实际实现的方式时，这很有用。
-      map('gI', function()
-        Snacks.picker.lsp_implementations()
-      end, '[G]oto [I]mplementation')
+      map(
+        'gI',
+        -- '<CMD>Glance implementations<CR>',
+        function()
+          Snacks.picker.lsp_implementations()
+        end,
+        '[G]oto [I]mplementation'
+      )
 
       -- 跳转到光标下的单词的类型。
       -- 当你不确定一个变量的类型并且你想要看到它的 *类型* 的定义时，这很有用，而不是它被 *定义* 的地方。
@@ -63,7 +73,8 @@ return {
       -- map('<leader>l', '', '[L]sp')
       -- 执行代码操作，通常你的光标需要在错误上
       -- 或者 LSP 的建议上，这才会激活。
-      map('<leader>la', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
+      -- map('<leader>la', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
+      map('<leader>la', '<cmd>Lspsaga code_action<CR>', '[A]ction')
 
       -- 警告：这不是 Goto Definition，这是 Goto Declaration。
       -- 例如，在 C 中，这会带你去头文件。

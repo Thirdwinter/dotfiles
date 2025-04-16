@@ -1,6 +1,7 @@
 return {
   'nvimdev/lspsaga.nvim',
   event = 'VeryLazy',
+  -- enabled = false,
   -- lazy = true,
   opts = function(_, opts)
     opts.lightbulb = {
@@ -15,12 +16,19 @@ return {
         ft = {},
       },
     }
-    -- opts.hover = {
-    --   max_width = 0.5,
-    -- }
-    -- opts.ui = { border = vim.g.borderStyle, kind = require('catppuccin.groups.integrations.lsp_saga').custom_kind() }
-    -- vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>')
-    -- vim.keymap.set('n', '<leader>lso', '<cmd>Lspsaga outline<CR>', { desc = '[S]ymblol [O]utline' })
+    opts.symbol_in_winbar = {
+      enable = true,
+      separator = ' › ',
+      hide_keyword = false,
+      ignore_patterns = nil,
+      show_file = true,
+      folder_level = 1,
+      color_mode = false,
+      delay = 300,
+    }
+    opts.ui = {
+      border = 'single',
+    }
   end,
   dependencies = {
     'nvim-treesitter/nvim-treesitter', -- optional

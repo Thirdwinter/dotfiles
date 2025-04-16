@@ -28,7 +28,10 @@ return {
             attribute = 'fg',
             highlight = 'Label',
           },
-          bg = '',
+          bg = {
+            attribute = 'bg',
+            highlight = 'Normal',
+          },
           bold = true,
           italic = true,
         },
@@ -37,14 +40,23 @@ return {
             attribute = 'fg',
             highlight = 'Label',
           },
-          bg = '',
+          bg = {
+            attribute = 'bg',
+            highlight = 'Normal',
+          },
         },
-
+        --
         fill = {
-          bg = '',
+          bg = {
+            attribute = 'bg',
+            highlight = 'Normal',
+          },
         },
         background = {
-          bg = '',
+          bg = {
+            attribute = 'bg',
+            highlight = 'Normal',
+          },
         },
         tab = {
           bg = '',
@@ -216,10 +228,6 @@ return {
           style = 'icon', ---@type 'icon' | 'underline' | 'none'
         },
 
-        -- get_element_icon = function(element)
-        --   local icon, _ = require('nvim-web-devicons').get_icon_by_filetype(element.filetype, { default = false })
-        --   return icon
-        -- end,
         separator_style = { '', '' },
         offsets = {
           {

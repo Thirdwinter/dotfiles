@@ -14,7 +14,9 @@ return { -- You can easily change to a different colorscheme.
   --   vim.cmd.hi 'Comment gui=none'
   -- end,
   opts = {
+    style = 'storm',
     transparent = true,
+    terminal_colors = false,
     styles = {
       -- Style to be applied to different syntax groups
       -- Value is any valid attr-list value for `:help nvim_set_hl`
@@ -26,6 +28,17 @@ return { -- You can easily change to a different colorscheme.
       -- Background styles. Can be "dark", "transparent" or "normal"
       sidebars = 'transparent', -- style for sidebars, see below
       floats = 'transparent', -- style for floating windows
+    },
+    on_highlights = function(highlights, colors)
+      highlights.WinBar = ''
+      highlights.WinBarNC = ''
+      highlights.TabLine = ''
+      highlights.TabLineFill = ''
+      highlights.StatusLine = ''
+      highlights.StatusLineNC = ''
+    end,
+    plugins = {
+      base = false,
     },
   },
 }
