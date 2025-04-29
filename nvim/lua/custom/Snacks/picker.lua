@@ -1,6 +1,35 @@
 local M = {}
 M.options = {
-  ui_select = false,
+  sources = {
+    explorer = {
+      layout = {
+        preview = 'main',
+        reverse = false,
+
+        layout = {
+          backdrop = false,
+          width = 40,
+          min_width = 40,
+          height = 0,
+          position = 'left',
+          border = 'none',
+          box = 'vertical',
+          {
+            win = 'input',
+            height = 1,
+            border = vim.g.borderStyle,
+            title = '{title} {live} {flags}',
+            title_pos = 'center',
+          },
+          { win = 'list', border = 'none' },
+          -- { win = 'preview', title = '{preview}', height = 0.2, border = 'top' },
+        },
+      },
+      -- your explorer picker configuration comes here
+      -- or leave it empty to use the default settings
+    },
+  },
+  ui_select = true,
   layout = {
     reverse = true,
     layout = {
@@ -68,26 +97,7 @@ M.keys = {
   {
     '<leader>fc',
     function()
-      Snacks.picker.cliphist {
-        -- layout = {
-        --   layout = {
-        --     box = 'vertical',
-        --     backdrop = false,
-        --     row = -1,
-        --     width = 0,
-        --     height = 0.4,
-        --     border = 'top',
-        --     title = ' {title} {live} {flags}',
-        --     title_pos = 'left',
-        --     { win = 'input', height = 1, border = 'bottom' },
-        --     {
-        --       box = 'horizontal',
-        --       { win = 'list', border = 'none' },
-        --       { win = 'preview', title = '{preview}', width = 0.6, border = 'left' },
-        --     },
-        --   },
-        -- },
-      }
+      Snacks.picker.cliphist {}
     end,
     desc = 'Cliphist',
   },
@@ -186,26 +196,7 @@ M.keys = {
   {
     '<leader>fo',
     function()
-      Snacks.picker.noice {
-        -- layout = {
-        --   layout = {
-        --     box = 'vertical',
-        --     backdrop = false,
-        --     row = -1,
-        --     width = 0,
-        --     height = 0.4,
-        --     border = 'top',
-        --     title = ' {title} {live} {flags}',
-        --     title_pos = 'left',
-        --     { win = 'input', height = 1, border = 'bottom' },
-        --     {
-        --       box = 'horizontal',
-        --       { win = 'list', border = 'none' },
-        --       { win = 'preview', title = '{preview}', width = 0.6, border = 'left' },
-        --     },
-        --   },
-        -- },
-      }
+      Snacks.picker.noice {}
     end,
     desc = '[F]ind [O]ld [N]otifications',
   },

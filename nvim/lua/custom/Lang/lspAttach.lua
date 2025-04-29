@@ -73,8 +73,9 @@ return {
       -- map('<leader>l', '', '[L]sp')
       -- 执行代码操作，通常你的光标需要在错误上
       -- 或者 LSP 的建议上，这才会激活。
-      -- map('<leader>la', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
-      map('<leader>la', '<cmd>Lspsaga code_action<CR>', '[A]ction')
+      map('<leader>la', vim.lsp.buf.code_action, '[C]ode [A]ction', { 'n', 'x' })
+
+      -- map('<leader>la', '<cmd>Lspsaga code_action<CR>', '[A]ction', { 'n', 'x' })
 
       -- 警告：这不是 Goto Definition，这是 Goto Declaration。
       -- 例如，在 C 中，这会带你去头文件。

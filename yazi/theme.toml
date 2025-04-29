@@ -1,61 +1,61 @@
 "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
 [manager]
-cwd = { fg = "#b9c8da", bold = true }
+cwd = { fg = "#e7bdb0", bold = true }
 
-hovered = { fg = "#cee5ff", bg = "#0d4a73" }
+hovered = { fg = "#ffdbcf", bg = "#72351f" }
 preview_hovered = { underline = true, bold = true }
 
-find_keyword = { fg = "#b9c8da", italic = true }
-find_position = { fg = "#d3bfe6", bg = "reset", italic = true }
+find_keyword = { fg = "#e7bdb0", italic = true }
+find_position = { fg = "#d6c68e", bg = "reset", italic = true }
 
 
 border_symbol = "│"
-border_style = { fg = "#9bcbfa" }
+border_style = { fg = "#ffb59c" }
 
 syntect_theme = "~/.config/yazi/catppuccin_Mocha.tmTheme"
 
 [mode]
-normal_main = { fg = "#003353", bg = "#9bcbfa", bold = true }
-normal_alt = { fg = "#0d4a73", bg = "#e0e2e8" ,bold = true}
+normal_main = { fg = "#55200b", bg = "#ffb59c", bold = true }
+normal_alt = { fg = "#72351f", bg = "#f1dfd9" ,bold = true}
 
-select_main = { fg = "#233240", bg = "#b9c8da", bold = true }
-select_alt = { fg = "#3a4857", bg = "#e0e2e8" ,bold = true}
+select_main = { fg = "#442a21", bg = "#e7bdb0", bold = true }
+select_alt = { fg = "#5d4036", bg = "#f1dfd9" ,bold = true}
 
-unset_main = { fg = "#382a49", bg = "#d3bfe6", bold = true }
-unset_alt = { fg = "#4f4061", bg = "#e0e2e8" ,bold = true}
+unset_main = { fg = "#393005", bg = "#d6c68e", bold = true }
+unset_alt = { fg = "#51461a", bg = "#f1dfd9" ,bold = true}
 
 [status]
 separator_open = ""
 separator_close = ""
 
-perm_type = { fg = "#9bcbfa" }
-perm_read = { fg = "#d5c871" }
-perm_write = { fg = "#a1c9fd" }
-perm_exec = { fg = "#fbb0d8" }
-perm_sep = { fg = "#e0e2e8" }
+perm_type = { fg = "#ffb59c" }
+perm_read = { fg = "#f5bd6f" }
+perm_write = { fg = "#b8c4ff" }
+perm_exec = { fg = "#ffb3b3" }
+perm_sep = { fg = "#f1dfd9" }
 
 [which]
-mask = { bg = "#1c2024" }
-cand = { fg = "#9bcbfa" }
-rest = { bg = "#1c2024" }
-desc = { fg = "#b9c8da" }
+mask = { bg = "#271d1a" }
+cand = { fg = "#ffb59c" }
+rest = { bg = "#271d1a" }
+desc = { fg = "#e7bdb0" }
 separator = "  "
-separator_style = { fg = "#d3bfe6" }
+separator_style = { fg = "#d6c68e" }
 
 [notify]
-title_info = { fg = "#91d5ad" }
-title_warn = { fg = "#d5c871" }
+title_info = { fg = "#b1d18a" }
+title_warn = { fg = "#f5bd6f" }
 title_error = { fg = "#ffb4ab" }
 
 [filetype]
 rules = [
   # Images
-  { mime = "image/*", fg = "#b9c8da" },
+  { mime = "image/*", fg = "#e7bdb0" },
 
   # Videos
-  { mime = "video/*", fg = "#d3bfe6" },
-  { mime = "audio/*", fg = "#d3bfe6" },
+  { mime = "video/*", fg = "#d6c68e" },
+  { mime = "audio/*", fg = "#d6c68e" },
 
   # Archives
   { mime = "application/zip", fg = "#ffb4ab" },
@@ -67,6 +67,6 @@ rules = [
   { mime = "application/x-rar", fg = "#ffb4ab" },
 
   # Fallback
-  { name = "*", fg = "#9bcbfa", bold = true },
-  { name = "*/", fg = "#b9c8da", bold = true },
+  { name = "*", fg = "#ffb59c", bold = true },
+  { name = "*/", fg = "#e7bdb0", bold = true },
 ]

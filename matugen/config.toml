@@ -32,9 +32,9 @@ output_path = '~/.config/hypr/matugen_colors.conf'
 input_path = '~/.config/matugen/templates/yazi-colors.toml'
 output_path = '~/.config/yazi/theme.toml'
 
-# [templates.neovim]
-# input_path = '~/.config/matugen/templates/nvim-catppuccin.lua'
-# output_path = '~/.cache/nvim/matugen_catppuccin_colors.lua'
+[templates.neovim]
+input_path = '~/.config/matugen/templates/nvim-catppuccin.lua'
+output_path = '~/.cache/nvim/matugen_catppuccin_colors.lua'
 
 [templates.cava]
 input_path = '~/.config/matugen/templates/cava-colors'

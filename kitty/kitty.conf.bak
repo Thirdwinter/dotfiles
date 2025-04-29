@@ -2,7 +2,7 @@ include                font.conf
 
 #################################### THEME ####################################
 # BEGIN_KITTY_THEME
-# Tokyo Night Storm
+# Catppuccin-Mocha
 include current-theme.conf
 # END_KITTY_THEME
 

@@ -43,6 +43,7 @@ local function dir_info()
   return vim.api.nvim_win_get_width(0) < 110 and string.format('%s', '󰉖 ') or string.format('%s %s', '󰉖 ', dir_name)
 end
 
+---@diagnostic disable-next-line: unused-function, unused-local
 local function lsp_info()
   local msg = require('lsp-progress').progress()
   -- return vim.api.nvim_win_get_width(0) < 110 and '' or msg
@@ -83,6 +84,7 @@ local config = {
       'alpha',
       'dashboard',
       'snacks_dashboard',
+      'snacks_picker_list',
       'neo-tree',
       'mason',
       'lazy',
@@ -105,7 +107,7 @@ local config = {
         end,
         icon = '󰀘',
         color = { gui = 'bold' },
-        separator = { left = left_separators, right = ' ' },
+        separator = { left = separators.vertical_bar, right = ' ' },
       },
     },
 
@@ -158,6 +160,7 @@ local config = {
       },
       {
         'lsp_status',
+        ---@diagnostic disable-next-line: unused-local
         fmt = function(str)
           local has_lsp = false
           for _, client in pairs(vim.lsp.get_clients()) do
@@ -215,7 +218,7 @@ local config = {
         end,
 
         -- file_info,
-        separator = { left = left_separators, right = right_separators },
+        separator = { left = left_separators, right = separators.vertical_bar_thin },
         -- padding = { left = 0, right = 1 },
       },
     },
@@ -223,7 +226,7 @@ local config = {
     lualine_z = {
       {
         dir_info,
-        separator = { right = right_separators },
+        separator = { right = separators.vertical_bar },
         color = { gui = 'bold' },
       },
     },
