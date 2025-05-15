@@ -11,6 +11,6 @@ return {
     'neovim/nvim-lspconfig',
   },
   -- build = 'cargo build --release',
-  version = '*',
+  version = '1.*',
   opts = require 'custom.Lang.blink',
 }
