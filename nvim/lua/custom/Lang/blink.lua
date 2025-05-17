@@ -184,5 +184,5 @@ return function(_, opts)
     },
   }
   opts.fuzzy = { implementation = 'prefer_rust_with_warning' }
-  opts.opts_extend = { 'sources.default' }
+  -- opts.opts_extend = { 'sources.default' }
 end

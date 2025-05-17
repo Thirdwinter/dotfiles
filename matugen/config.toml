@@ -5,10 +5,10 @@
 # set = false
 
 
-# [templates.waybar]
-# input_path = '~/.config/matugen/templates/waybar-colors.css'
-# output_path = '~/.config/waybar/colors.css'
-# post_hook = 'pkill -SIGUSR2 waybar'
+[templates.waybar]
+input_path = '~/.config/matugen/templates/waybar-colors.css'
+output_path = '~/.config/waybar/colors.css'
+post_hook = 'pkill -SIGUSR2 waybar'
 
 [templates.kitty]
 input_path = '~/.config/matugen/templates/kitty-colors.conf'

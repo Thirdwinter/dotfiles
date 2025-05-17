@@ -84,9 +84,13 @@ window#waybar {
   color: @on_primary_fixed;
 }
 
+#mpris {
+  background-color: transparent;
+}
+
 #mpris.playing {
   background-color: transparent;
-  color: @on_surface_variant;
+  color: #1e1e2e;
 }
 
 #mpris.paused {
@@ -131,7 +135,7 @@ window#waybar.fullscreen #window {
 
 #window {
   background-color: transparent;
-  color: @on_surface;
+  color: #000000;
 }
 
 #pulseaudio {
