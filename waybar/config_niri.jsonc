@@ -24,12 +24,18 @@
     "tray",
     "battery"
   ],
-  "custom/setwallpaper": {
-    "format": "●",
-    "on-click": "$HOME/.config/hypr/Scripts/random_swww_wallpaper.sh"
+  "niri/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "default": ""
+    },
+    "active-only": false
+  },
+  "niri/window": {
+    "format": "{app_id}"
   },
   "mpris": {
-    "max-length": 40,
+    "max-length": 30,
     "interval": 1,
     "dynamic-order": [
       "artist",
@@ -43,13 +49,6 @@
     "player-icons": {
       "default": ""
     }
-  },
-  "niri/workspaces": {
-    "format": "{index}",
-    "active-only": false
-  },
-  "niri/window": {
-    "format": "{app_id}"
   },
   "tray": {
     "show-passive-items": true,
@@ -98,10 +97,6 @@
       ]
     },
     "on-click": "pavucontrol"
-  },
-  "custom/sep": {
-    "format": "|",
-    "tooltip": false
   },
   "battery": {
     "interval": 60,
