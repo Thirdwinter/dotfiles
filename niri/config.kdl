@@ -127,7 +127,7 @@ layout {
     // You can change how the focus ring looks.
     focus-ring {
         // Uncomment this line to disable the focus ring.
-         // off
+         off
 
         // How many logical pixels the ring extends out from the windows.
         width 3
@@ -180,14 +180,14 @@ layout {
     border {
         // The settings are the same as for the focus ring.
         // If you enable the border, you probably want to disable the focus ring.
-        off
+        // off
 
-        width 4
+        width 3
         
-        active-color "#ffc87f"
+        active-color "#7fc8ff"
         inactive-color "#505050"
 
-        active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
+        active-gradient from="red" to="#bbddff" angle=25
         inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
 
@@ -228,7 +228,7 @@ layout {
 cursor {
     xcursor-theme "Bibata-Modern-Amber"
     xcursor-size 24
-    hide-when-typing
+    // hide-when-typing
     // hide-after-inactive-ms 1000
 }
 
@@ -306,14 +306,6 @@ animations {
 // }
 
 // Open the Firefox picture-in-picture player as floating by default.
-window-rule {
-    // This app-id regular expression will work for both:
-    // - host Firefox (app-id is "firefox")
-    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
-    match app-id=r#"zen$"# title="^Picture-in-Picture$"
-    open-floating true
-}
-
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
 /-window-rule {
@@ -350,6 +342,16 @@ window-rule {
 
   default-column-width { fixed 900; }
   default-window-height { fixed 550; }
+  // default-floating-position x=32 y=32 relative-to="bottom-left"
+}
+
+
+window-rule {
+    match is-urgent=true
+    open-floating true
+    default-column-width { fixed 400; }
+    default-window-height { fixed 550; }
+    default-floating-position x=32 y=32 relative-to="bottom-left"
 }
 
 window-rule {
@@ -379,11 +381,11 @@ binds {
     Mod+X repeat=false { spawn "kitty" "--class" "clipse" "-e" "clipse"; }
     Mod+Z repeat=false { spawn "kitty" "--class" "cava" "-e" "cava"; }
     Mod+Alt+L repeat=false { spawn "hyprlock"; }
+    Mod+Tab repeat=false { toggle-overview; }
 
     Alt+Tab { switch-focus-between-floating-and-tiling; }
     Mod+Ctrl+W { toggle-column-tabbed-display; }
     Mod+C { close-window; }
-    Mod+Tab { toggle-overview; }
     Alt+Shift+Tab { switch-preset-column-width; }
 
     Mod+F { maximize-column; }
