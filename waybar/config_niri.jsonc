@@ -87,11 +87,16 @@
   "cpu": {
     "format": " {usage}%",
     "tooltip": true,
-    "interval": 1
+    "interval": 10,
+    "on-click": "kitty --class btop btop"
   },
   "memory": {
-    "interval": 10,
-    "format": " {used:.1f}G"
+    "tooltip": true,
+    "tooltip-format": "Currently using {used} GB of memory.\n{swapUsed} GB of swap.\n{avail} GB of memory and {swapAvail} GB of swap available.",
+    "interval": 15,
+    "format": " {percentage}%",
+    "max-length": 10,
+    "on-click": "kitty --class btop btop"
   },
   "network": {
     "tooltip-format": "{essid}({ipaddr})  {bandwidthUpBytes}  {bandwidthDownBytes}",

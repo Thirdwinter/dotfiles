@@ -232,6 +232,10 @@ cursor {
     // hide-after-inactive-ms 1000
 }
 
+overview{
+    zoom 0.4
+}
+
 // Add lines like this to spawn processes at startup.
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
@@ -240,7 +244,7 @@ spawn-at-startup "swww-daemon"
 spawn-at-startup "waybar" "-c" "/home/thirdwinter/.config/waybar/config_niri.jsonc" "-s" "/home/thirdwinter/.config/waybar/style_niri.css"
 spawn-at-startup "fcitx5" "--replace" "-d"
 spawn-at-startup "clipse" "--listen"
-spawn-at-startup "swaync"
+// spawn-at-startup "swaync"
 // spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "storel"
 // spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "storel"
 spawn-at-startup "xwayland-satellite" ":12"
@@ -380,6 +384,7 @@ binds {
     Mod+P repeat=false { spawn "~/.local/bin/wlogout_wrapper.sh"; }
     Mod+X repeat=false { spawn "kitty" "--class" "clipse" "-e" "clipse"; }
     Mod+Z repeat=false { spawn "kitty" "--class" "cava" "-e" "cava"; }
+    Mod+T repeat=false { spawn "kitten" "quick-access-terminal"; }
     Mod+Alt+L repeat=false { spawn "hyprlock"; }
     Mod+Tab repeat=false { toggle-overview; }
 

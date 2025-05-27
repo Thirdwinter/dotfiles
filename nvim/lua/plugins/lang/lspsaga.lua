@@ -1,8 +1,6 @@
 return {
   'nvimdev/lspsaga.nvim',
   event = 'VeryLazy',
-  -- enabled = false,
-  -- lazy = true,
   opts = function(_, opts)
     opts.lightbulb = {
       enable = false,

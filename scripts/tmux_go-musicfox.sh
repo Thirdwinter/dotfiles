@@ -5,4 +5,4 @@ SESSION_NAME="music"
 COMMAND="musicfox"
 
 # 使用Kitty启动Tmux，并创建一个新的会话或附加到现有会话
-kitty tmux new-session -A -s $SESSION_NAME $COMMAND
+kitty --class "go-musicfox" tmux new-session -A -s $SESSION_NAME $COMMAND

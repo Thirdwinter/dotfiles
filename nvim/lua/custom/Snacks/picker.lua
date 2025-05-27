@@ -28,6 +28,18 @@ M.options = {
       -- your explorer picker configuration comes here
       -- or leave it empty to use the default settings
     },
+    select = {
+      layout = {
+        layout = {
+          reverse = false,
+          min_height = 8,
+          backdrop = false,
+          width = 0.7,
+          height = 0.9,
+          border = 'none',
+        },
+      },
+    },
   },
   ui_select = true,
   layout = {
@@ -52,6 +64,7 @@ M.options = {
       },
     },
   },
+
   win = {
     input = {
       keys = { ['<a-a>'] = 'cycle_win', mode = { 'i', 'n' } },

@@ -2,6 +2,7 @@ vim.api.nvim_set_hl(0, '@variable.parameter', vim.tbl_extend('force', vim.api.nv
 vim.api.nvim_set_hl(0, 'Boolean', vim.tbl_extend('force', vim.api.nvim_get_hl(0, { name = 'Boolean' }), { italic = true, bold = true }))
 vim.api.nvim_set_hl(0, 'Statement', vim.tbl_extend('force', vim.api.nvim_get_hl(0, { name = 'Statement' }), { italic = true }))
 vim.api.nvim_set_hl(0, 'Comment', vim.tbl_extend('force', vim.api.nvim_get_hl(0, { name = 'Comment' }), { italic = true, bold = true }))
+vim.api.nvim_set_hl(0, 'Type', vim.tbl_extend('force', vim.api.nvim_get_hl(0, { name = 'Type' }), { italic = true, bold = false }))
 
 --INFO: 一些自定义的颜色
 

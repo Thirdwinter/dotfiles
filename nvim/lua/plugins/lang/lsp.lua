@@ -12,6 +12,9 @@ local lsp_servers = {
   bashls = {
     filetypes = { 'sh', 'zsh' },
   },
+  qmlls = {
+    cmd = { 'qmlls', '-E' },
+  },
 
   --INFO: local lsp servers
   gopls = require 'custom.Lang.lsp.gopls',

@@ -9,12 +9,15 @@
 
 window#waybar {
   background-color: @primary_fixed;
-  box-shadow: 0 4px 30px rgba(166, 173, 200, 0.9);
-  border-radius: 0;
+  /* background: transparent; */
+  /* box-shadow: 0 4px 30px rgba(166, 173, 200, 0.9); */
+  border: none;
+  border-radius: 0px 0px 100px 100px;
 }
 
 #workspaces {
   border-radius: 0 100px 0 100px;
+  /* border: 2px solid @on_yellow; */
   margin: 0.2rem;
   padding: 0.2rem 1rem;
   background: @primary;
