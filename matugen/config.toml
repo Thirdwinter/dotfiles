@@ -26,7 +26,6 @@ output_path = '~/.config/rofi/config.rasi'
 [templates.hyprland]
 input_path = '~/.config/matugen/templates/hyprland-colors.conf'
 output_path = '~/.config/hypr/matugen_colors.conf'
-# post_hook = 'hyprctl reload;hyprshade on vibrance'
 
 [templates.yazi]
 input_path = '~/.config/matugen/templates/yazi-colors.toml'

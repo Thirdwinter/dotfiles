@@ -241,14 +241,14 @@ overview{
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 spawn-at-startup "swww-daemon"
-spawn-at-startup "waybar" "-c" "/home/thirdwinter/.config/waybar/config_niri.jsonc" "-s" "/home/thirdwinter/.config/waybar/style_niri.css"
+spawn-at-startup "sh" "-c" "waybar -c ~/.config/waybar/config_niri.jsonc -s ~/.config/waybar/style_niri.css"
 spawn-at-startup "fcitx5" "--replace" "-d"
 spawn-at-startup "clipse" "--listen"
 // spawn-at-startup "swaync"
 // spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "storel"
 // spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "storel"
 spawn-at-startup "xwayland-satellite" ":12"
-spawn-at-startup "xwaylandvideobridge"
+// spawn-at-startup "xwaylandvideobridge"
 spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1"
 
 
@@ -413,8 +413,8 @@ binds {
 
 
     Mod+Left  { focus-column-left; }
-    Mod+Down  { focus-window-down; }
-    Mod+Up    { focus-window-up; }
+    Mod+Down  { focus-window-or-workspace-down; }
+    Mod+Up    { focus-window-or-workspace-up; }
     Mod+Right { focus-column-right; }
     Mod+H     { focus-column-left; }
     Mod+L     { focus-column-right; }

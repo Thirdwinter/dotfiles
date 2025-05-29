@@ -24,8 +24,6 @@
   "hide-on-clear": false,
   "hide-on-action": false,
   "script-fail-notify": true,
-  "scripts": {},
-  "notification-visibility": {},
   "widgets": [
     "title",
     "dnd",
@@ -44,12 +42,10 @@
       "text": "Do Not Disturb"
     },
     "volume": {
-      "label": "",
-      "step": 2
+      "label": ""
     },
     "backlight": {
-      "label": "󰃞",
-      "step": 5
+      "label": "󰃞"
     },
     "label": {
       "max-lines": 5,
