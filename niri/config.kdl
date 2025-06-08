@@ -241,10 +241,10 @@ overview{
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 spawn-at-startup "swww-daemon"
+spawn-at-startup "swaync"
 spawn-at-startup "sh" "-c" "waybar -c ~/.config/waybar/config_niri.jsonc -s ~/.config/waybar/style_niri.css"
 spawn-at-startup "fcitx5" "--replace" "-d"
 spawn-at-startup "clipse" "--listen"
-// spawn-at-startup "swaync"
 // spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "storel"
 // spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "storel"
 spawn-at-startup "xwayland-satellite" ":12"
@@ -350,13 +350,13 @@ window-rule {
 }
 
 
-window-rule {
-    match is-urgent=true
-    open-floating true
-    default-column-width { fixed 400; }
-    default-window-height { fixed 550; }
-    default-floating-position x=32 y=32 relative-to="bottom-left"
-}
+// window-rule {
+//     match is-urgent=true
+//     open-floating true
+//     default-column-width { fixed 400; }
+//     default-window-height { fixed 550; }
+//     default-floating-position x=32 y=32 relative-to="bottom-left"
+// }
 
 window-rule {
     match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
