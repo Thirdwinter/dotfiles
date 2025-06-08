@@ -1,6 +1,6 @@
 "$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
 
-[mgr]
+[manager]
 ratio = [1, 3, 4]
 sort_by = "natural"
 sort_sensitive = false
@@ -15,12 +15,12 @@ edit = [
 	{ run = "nvim %*", block = true, for = "windows" },
 ]
 
-[[plugin.prepend_fetchers]]
-id = "git"
-name = "*"
-run = "git"
-
-[[plugin.prepend_fetchers]]
-id = "git"
-name = "*/"
-run = "git"
+# [[plugin.prepend_fetchers]]
+# id = "git"
+# name = "*"
+# run = "git"
+#
+# [[plugin.prepend_fetchers]]
+# id = "git"
+# name = "*/"
+# run = "git"

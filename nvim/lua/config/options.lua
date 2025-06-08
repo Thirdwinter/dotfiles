@@ -76,7 +76,7 @@ vim.opt.splitbelow = true
 -- 设置 Neovim 如何在编辑器中显示某些空白字符。
 --  参见 `:help 'list'`
 --  和 `:help 'listchars'`
-vim.opt.list = true
+vim.opt.list = false
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- 实时预览替换，边输入边预览！
@@ -122,8 +122,8 @@ vim.wo.wrap = false
 
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 -- vim.o.foldcolumn = '1'
-vim.opt.foldenable = true -- enable fold for nvim-ufo
-vim.opt.foldlevel = 99 -- set high foldlevel for nvim-ufo
+vim.opt.foldenable = true   -- enable fold for nvim-ufo
+vim.opt.foldlevel = 99      -- set high foldlevel for nvim-ufo
 vim.opt.foldlevelstart = 99 -- start with all code unfolded
 vim.opt.cmdheight = 0
 
@@ -142,27 +142,36 @@ if vim.g.neovide then
 end
 
 -- Folding
+vim.o.foldcolumn = '0' -- '0' is not bad
+vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
 vim.o.foldenable = true
-vim.o.foldlevel = 99
 vim.o.foldmethod = 'expr'
+vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-vim.o.foldtext = ''
-vim.opt.foldcolumn = '0'
-vim.opt.fillchars:append { fold = ' ' }
 
-local function fold_virt_text(result, s, lnum, coloff)
-  if not coloff then
-    coloff = 0
-  end
+-- Source: https://www.reddit.com/r/neovim/comments/1fzn1zt/custom_fold_text_function_with_treesitter_syntax/
+local function fold_virt_text(result, start_text, lnum)
   local text = ''
   local hl
-  for i = 1, #s do
-    local char = s:sub(i, i)
-    local hls = vim.treesitter.get_captures_at_pos(0, lnum, coloff + i - 1)
-    local _hl = hls[#hls]
-    if _hl then
-      local new_hl = '@' .. _hl.capture
+  for i = 1, #start_text do
+    local char = start_text:sub(i, i)
+    local new_hl
+
+    -- if semantic tokens unavailable, use treesitter hl
+    local sem_tokens = vim.lsp.semantic_tokens.get_at_pos(0, lnum, i - 1)
+    if sem_tokens and #sem_tokens > 0 then
+      new_hl = '@' .. sem_tokens[#sem_tokens].type
+    else
+      local captured_highlights = vim.treesitter.get_captures_at_pos(0, lnum, i - 1)
+      if captured_highlights[#captured_highlights] then
+        new_hl = '@' .. captured_highlights[#captured_highlights].capture
+      end
+    end
+
+    if new_hl then
       if new_hl ~= hl then
+        -- as soon as new hl appears, push substring with current hl to table
         table.insert(result, { text, hl })
         text = ''
         hl = nil
@@ -175,15 +184,15 @@ local function fold_virt_text(result, s, lnum, coloff)
   end
   table.insert(result, { text, hl })
 end
-
 function _G.custom_foldtext()
-  local start = vim.fn.getline(vim.v.foldstart):gsub('\t', string.rep(' ', vim.o.tabstop))
-  local end_str = vim.fn.getline(vim.v.foldend)
-  local end_ = vim.trim(end_str)
+  local start_text = vim.fn.getline(vim.v.foldstart):gsub('\t', string.rep(' ', vim.o.tabstop))
+  local nline = vim.v.foldend - vim.v.foldstart
   local result = {}
-  fold_virt_text(result, start, vim.v.foldstart - 1)
-  table.insert(result, { ' ... ', 'Delimiter' })
-  fold_virt_text(result, end_, vim.v.foldend - 1, #(end_str:match '^(%s+)' or ''))
+  fold_virt_text(result, start_text, vim.v.foldstart - 1)
+  table.insert(result, { ' ', nil })
+  table.insert(result, { '◖', '@comment.warning.gitcommit' })
+  table.insert(result, { '↙ ' .. nline .. ' lines', '@comment.warning' })
+  table.insert(result, { '◗', '@comment.warning.gitcommit' })
   return result
 end
 

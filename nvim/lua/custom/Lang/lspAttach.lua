@@ -19,12 +19,11 @@ return {
         vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
       end
 
-      -- 跳转到光标下的单词的定义。
-      -- 这是变量首次声明的地方，或者函数定义的地方等。
-      -- 要跳回来，按 <C-t>。
+      -- 跳转到光标下的单词的类型。
+      -- 当你不确定一个变量的类型并且你想要看到它的 *类型* 的定义时，这很有用，而不是它被 *定义* 的地方。
       map('gd', function()
         Snacks.picker.lsp_definitions()
-      end, '[G]oto [D]efinition')
+      end, '[G]oto [D]efinitions')
 
       -- 查找光标下单词的引用。
       map(
@@ -47,11 +46,13 @@ return {
         '[G]oto [I]mplementation'
       )
 
-      -- 跳转到光标下的单词的类型。
-      -- 当你不确定一个变量的类型并且你想要看到它的 *类型* 的定义时，这很有用，而不是它被 *定义* 的地方。
+
+      -- 跳转到光标下的单词的定义。
+      -- 这是变量首次声明的地方，或者函数定义的地方等。
+      -- 要跳回来，按 <C-t>。
       map('<leader>lD', function()
-        Snacks.picker.lsp_type_definitions()
-      end, 'Type [D]efinition')
+        Snacks.picker.lsp_declarations()
+      end, '[G]oto [D]eclarations')
 
       -- 在当前文档中模糊查找所有符号。
       -- 符号是变量、函数、类型等。
@@ -81,8 +82,8 @@ return {
       -- 例如，在 C 中，这会带你去头文件。
       -- map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
       map('gD', function()
-        Snacks.picker.lsp_declarations()
-      end, '[G]oto [D]eclaration')
+        Snacks.picker.lsp_type_definitions()
+      end, '[G]oto [T]ype [D]efinition')
 
       -- 以下两个自动命令用于在光标停留在光标下的
       -- 单词上一小段时间后高亮显示引用。

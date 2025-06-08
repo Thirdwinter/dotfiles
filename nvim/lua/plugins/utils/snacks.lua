@@ -80,7 +80,7 @@ return {
     {
       '<F7>',
       function()
-        Snacks.terminal.toggle '/usr/bin/zsh'
+        Snacks.terminal.toggle 'zsh'
       end,
       mode = { 'n', 'i', 'v', 't' },
       { desc = 'Toggle Float Terminal' },

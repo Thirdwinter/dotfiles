@@ -1,3 +1,6 @@
+if true then
+  return {}
+end
 return {
   'dnlhc/glance.nvim',
   lazy = true,

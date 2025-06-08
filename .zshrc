@@ -9,3 +9,4 @@ source $HOME/.zsh/fzf.zsh
 source $HOME/.zsh/zoxide.zsh
 source $HOME/.zsh/direnv.zsh
 source $HOME/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+source $HOME/.zsh/ent.zsh
