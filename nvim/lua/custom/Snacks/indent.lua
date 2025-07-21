@@ -1,8 +1,8 @@
 return {
   priority = 1,
-  enabled = true, -- enable indent guides
+  enabled = true,       -- enable indent guides
   char = '│',
-  only_scope = false, -- only show indent guides of the scope
+  only_scope = false,   -- only show indent guides of the scope
   only_current = false, -- only show indent guides in the current window
   hl = {
     'SnacksIndent1',
@@ -19,15 +19,15 @@ return {
     style = 'up_down',
     easing = 'linear',
     duration = {
-      step = 20, -- ms per step
+      step = 20,   -- ms per step
       total = 500, -- maximum duration
     },
   },
   scope = {
     enabled = true, -- enable highlighting the current scope
     priority = 200,
-    char = '┋',
-    underline = false, -- underline the start of the scope
+    char = '╎',
+    underline = false,    -- underline the start of the scope
     only_current = false, -- only show scope in the current window
     hl = {
       'SnacksIndent1',
@@ -43,9 +43,9 @@ return {
   chunk = {
     -- when enabled, scopes will be rendered as chunks, except for the
     -- top-level scope which will be rendered as a scope.
-    enabled = true,
+    enabled = false,
     -- only show chunk scopes in the current window
-    only_current = false,
+    only_current = true,
     priority = 200,
     hl = {
       'SnacksIndent1',
@@ -75,8 +75,8 @@ return {
   -- filter for buffers to enable indent guides
   filter = function(buf)
     return vim.g.snacks_indent ~= false
-      and vim.b[buf].snacks_indent ~= false
-      and vim.bo[buf].buftype == ''
-      and (not vim.tbl_contains({ 'lazy', 'help', 'markdow' }, vim.bo[buf].filetype))
+        and vim.b[buf].snacks_indent ~= false
+        and vim.bo[buf].buftype == ''
+        and (not vim.tbl_contains({ 'lazy', 'help', 'markdow' }, vim.bo[buf].filetype))
   end,
 }

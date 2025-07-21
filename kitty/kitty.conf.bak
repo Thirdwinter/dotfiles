@@ -2,17 +2,18 @@ include                font.conf
 
 #################################### THEME ####################################
 # BEGIN_KITTY_THEME
-# Catppuccin-Mocha
+# Matugen
 include current-theme.conf
 # END_KITTY_THEME
 
 #################################### WINDOW ####################################
 # hide_window_decorations        yes
 dynamic_background_opacity     no
-# window_padding_width           2 5 2 5
+window_padding_width           0 2 0 0
 background_opacity             0.95
 # background_blur                1
 confirm_os_window_close 0
+box_drawing_scale      0.5, 0.8, 1.0, 1.5
 
 #################################### CURSOR ####################################
 cursor_blink_interval 0

@@ -10,21 +10,21 @@ end, { noremap = true, silent = true, desc = 'Diagnostic Info' })
 
 -- 分割当前行，光标块内的字符在当前行
 vim.keymap.set('n', '<leader>k', function()
-  local row, col = unpack(vim.api.nvim_win_get_cursor(0)) -- 获取当前光标位置
-  local line = vim.api.nvim_get_current_line() -- 获取当前行内容
-  local before = line:sub(1, col + 1) -- 光标前的内容
-  local after = line:sub(col + 2) -- 光标后的内容
-  vim.api.nvim_set_current_line(before) -- 设置当前行为光标前的内容
+  local row, col = unpack(vim.api.nvim_win_get_cursor(0))   -- 获取当前光标位置
+  local line = vim.api.nvim_get_current_line()              -- 获取当前行内容
+  local before = line:sub(1, col + 1)                       -- 光标前的内容
+  local after = line:sub(col + 2)                           -- 光标后的内容
+  vim.api.nvim_set_current_line(before)                     -- 设置当前行为光标前的内容
   vim.api.nvim_buf_set_lines(0, row, row, false, { after }) -- 在当前行后插入光标后的内容
 end, { desc = '分割当前行', noremap = true, silent = true })
 
 --INFO: NeoVide
 if vim.g.neovide then
-  vim.keymap.set('n', '<C-s>', ':w<CR>', { noremap = true, silent = true }) -- Save
-  vim.keymap.set('v', '<C-c>', '"+y', { noremap = true, silent = true }) -- Copy
-  vim.keymap.set('i', '<C-v>', '"+P', { noremap = true, silent = true }) -- Paste normal mode
+  vim.keymap.set('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })      -- Save
+  vim.keymap.set('v', '<C-c>', '"+y', { noremap = true, silent = true })         -- Copy
+  vim.keymap.set('i', '<C-v>', '"+P', { noremap = true, silent = true })         -- Paste normal mode
   -- vim.keymap.set('v', '<C-v>', '"+P', { noremap = true, silent = true }) -- Paste visual mode
-  vim.keymap.set('c', '<C-v>', '<C-R>+', { noremap = true, silent = true }) -- Paste command mode
+  vim.keymap.set('c', '<C-v>', '<C-R>+', { noremap = true, silent = true })      -- Paste command mode
   vim.keymap.set('i', '<C-v>', '<ESC>l"+Pli', { noremap = true, silent = true }) -- Paste insert mode
 end
 

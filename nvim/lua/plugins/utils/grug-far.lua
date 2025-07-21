@@ -1,3 +1,6 @@
+if true then
+  return {}
+end
 return {
   'MagicDuck/grug-far.nvim',
   lazy = true,

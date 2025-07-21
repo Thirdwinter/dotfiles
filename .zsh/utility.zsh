@@ -105,5 +105,5 @@ function y() {
     if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
         builtin cd -- "$cwd"
     fi
-    /usr/bin/rm -f -- "$tmp"
+    /bin/rm -f -- "$tmp"
 }

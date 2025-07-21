@@ -52,8 +52,8 @@ M.options = {
       border = 'none',
       {
         box = 'vertical',
-        { win = 'list', title = ' Results ', title_pos = 'center', border = vim.g.borderStyle },
-        { win = 'input', height = 1, border = vim.g.borderStyle, title = '{title} {live} {flags}', title_pos = 'center' },
+        { win = 'list',  title = ' Results ', title_pos = 'center',       border = vim.g.borderStyle },
+        { win = 'input', height = 1,          border = vim.g.borderStyle, title = '{title} {live} {flags}', title_pos = 'center' },
       },
       {
         win = 'preview',
@@ -209,7 +209,7 @@ M.keys = {
   {
     '<leader>fo',
     function()
-      Snacks.picker.noice {}
+      Snacks.picker.notifications {}
     end,
     desc = '[F]ind [O]ld [N]otifications',
   },

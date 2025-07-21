@@ -9,6 +9,7 @@ local lsp_servers = {
   systemd_ls = {},
   cssls = {},
   vtsls = {},
+  sqlls = {},
   bashls = {
     filetypes = { 'sh', 'zsh' },
   },
@@ -30,10 +31,10 @@ local mason_ensure_installed = {
 return {
   'neovim/nvim-lspconfig',
   -- event = 'VimEnter',
-  event = { 'BufReadPost', 'BufNewFile' },
+  -- event = { 'BufReadPost', 'BufNewFile' },
   dependencies = {
     -- 自动将 LSP 和相关工具安装到 Neovim 的 stdpath
-    { 'williamboman/mason.nvim', opts = { ui = { border = vim.g.borderStyle, backdrop = 100 } } }, -- 注意：必须在依赖之前加载
+    { 'williamboman/mason.nvim',          opts = { ui = { border = vim.g.borderStyle, backdrop = 100 } } }, -- 注意：必须在依赖之前加载
     { 'williamboman/mason-lspconfig.nvim' },
     -- 'WhoIsSethDaniel/mason-tool-installer.nvim',
     { 'saghen/blink.cmp' },

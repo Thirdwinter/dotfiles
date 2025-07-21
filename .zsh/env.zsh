@@ -22,7 +22,6 @@ export XDG_MUSIC_DIR="$HOME/Music"
 export XDG_PICTURES_DIR="$HOME/Pictures"
 export XDG_VIDEOS_DIR="$HOME/Videos"
 
-
 # # p10k 限制提示符目录长度 方式为限制目录节，最大数量为3
 # export POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_last"
 # export POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
@@ -35,8 +34,12 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
 # [ -s "${HOME}/.g/env" ] && \. "${HOME}/.g/env"  # g shell setup
 export GOPATH=~/.gopath
 export GOBIN=$GOPATH/bin
-export GOROOT=/usr/lib/go
+# export GOROOT=/usr/lib/go
 export PATH=$PATH:$GOPATH
 export PATH=$PATH:$GOBIN
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:$HOME/.cargo/bin
+
+if [ -f $HOME/.gemini_api_key ];then
+    source $HOME/.gemini_api_key
+fi
