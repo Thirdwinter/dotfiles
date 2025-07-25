@@ -67,7 +67,13 @@ M.options = {
 
   win = {
     input = {
-      keys = { ['<a-a>'] = 'cycle_win', mode = { 'i', 'n' } },
+      keys = {
+        ['<Esc>'] = { 'close', mode = { 'n', 'i' } },
+        ['<a-a>'] = {
+          'cycle_win',
+          mode = { 'i', 'n' }
+        }
+      },
     },
     list = {
       keys = { ['<a-a>'] = 'cycle_win' },

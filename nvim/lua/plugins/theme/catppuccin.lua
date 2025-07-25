@@ -10,7 +10,7 @@ return {
   name = 'catppuccin',
   priority = 1000,
   opts = {
-    term_colors = false,
+    term_colors = true,
     transparent_background = true,
     integrations = {
       cmp = true,
@@ -37,7 +37,7 @@ return {
       which_key = true,
     },
     -- transparent_background = transparent_background,
-    styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
+    styles = {                 -- Handles the styles of general hi groups (see `:h highlight-args`):
       comments = { 'italic' }, -- Change the style of comments
       conditionals = { 'italic' },
       loops = {},

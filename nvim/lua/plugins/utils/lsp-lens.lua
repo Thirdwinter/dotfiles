@@ -1,5 +1,16 @@
+-- if true then
+--   return {}
+-- end
 return {
   "VidocqH/lsp-lens.nvim",
+  -- cond = function()
+  --   local buf = vim.api.nvim_get_current_buf()
+  --   local file = vim.api.nvim_buf_get_name(buf)
+  --   if file ~= "" then
+  --     local stat = vim.loop.fs_stat(file)
+  --     return not (stat and stat.size > 150 * 1024)       -- 150KB
+  --   end
+  -- end,
   opts = {
     sections = { -- Enable / Disable specific request, formatter example looks 'Format Requests'
       definition = true,

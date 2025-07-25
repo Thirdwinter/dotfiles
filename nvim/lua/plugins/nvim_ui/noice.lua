@@ -53,7 +53,7 @@ return {
         view = 'hover',
         opts = {
           lang = 'plaintext',
-          replace = true,
+          replace = false,
           render = 'plain',
           format = { '{message}' },
         },
@@ -105,7 +105,7 @@ return {
 
         scrollbar = false,
         size = {
-          max_width = math.ceil(vim.api.nvim_win_get_width(0) * 0.7),
+          max_width = math.ceil(vim.api.nvim_win_get_width(0) * 0.6),
         },
         border = {
           style = vim.g.borderStyle,
