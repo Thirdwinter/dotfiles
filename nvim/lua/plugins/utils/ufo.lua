@@ -1,9 +1,18 @@
 -- if true then
 --   return {}
 -- end
+vim.api.nvim_set_hl(0, 'CustomFoldText', {
+  bg = '#f9e2b0', -- 圆弧/文字颜色
+  fg = '#1e1e2e', -- 椭圆形整体背景
+  bold = true,
+})
+vim.api.nvim_set_hl(0, 'CustomFold', {
+  fg = '#f9e2b0', -- 圆弧/文字颜色
+})
+
 local handler = function(virtText, lnum, endLnum, width, truncate)
   local newVirtText = {}
-  local suffix = (' 󰁂 %d '):format(endLnum - lnum)
+  local suffix = (' 󰁂 %d lines'):format(endLnum - lnum)
   local sufWidth = vim.fn.strdisplaywidth(suffix)
   local targetWidth = width - sufWidth
   local curWidth = 0
@@ -25,7 +34,11 @@ local handler = function(virtText, lnum, endLnum, width, truncate)
     end
     curWidth = curWidth + chunkWidth
   end
-  table.insert(newVirtText, { suffix, 'Error' }) -- Use 'Normal' highlight group for suffix
+
+  table.insert(newVirtText, { ' ', nil })
+  table.insert(newVirtText, { '◖', 'CustomFold' })
+  table.insert(newVirtText, { suffix, 'CustomFoldText' })
+  table.insert(newVirtText, { '◗', 'CustomFold' })
   return newVirtText
 end
 return {
@@ -65,6 +78,4 @@ return {
           end
     end,
   },
-  -- opts = {
-  -- },
 }
