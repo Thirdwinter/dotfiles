@@ -150,6 +150,7 @@ vim.o.foldmethod = 'expr'
 vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 
+-- INFO: flod
 -- Source: https://www.reddit.com/r/neovim/comments/1fzn1zt/custom_fold_text_function_with_treesitter_syntax/
 local function fold_virt_text(result, start_text, lnum)
   local text = ''

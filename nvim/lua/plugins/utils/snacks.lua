@@ -11,7 +11,11 @@ return {
     })
     vim.g.snacks_animate = false
     return {
-      bigfile = { endbled = true },
+      bigfile = {
+        -- size = 1.5 * 1024 * 100, -- 1.5MB
+        -- setup = function(ctx)
+        -- end,
+      },
       dashboard = require 'custom.Snacks.dashboard',
       explorer = { replace_netrw = true },
       indent = require 'custom.Snacks.indent',

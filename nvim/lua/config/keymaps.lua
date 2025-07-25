@@ -66,6 +66,7 @@ vim.api.nvim_set_keymap('v', '<leader>/', 'gcc<Esc>', { desc = '注释' })
 vim.keymap.set('n', '<Leader>pl', '<Cmd>Lazy<CR>', { desc = 'Lazy', noremap = true, silent = true })
 vim.keymap.set('n', '<Leader>pm', '<Cmd>Mason<CR>', { desc = 'Mason', noremap = true, silent = true })
 
+-- INFO: noice hover doc scroll
 vim.keymap.set({ 'n', 's' }, '<c-f>', function()
   if not require('noice.lsp').scroll(4) then
     return '<c-f>'
@@ -77,6 +78,30 @@ vim.keymap.set({ 'n', 's' }, '<c-b>', function()
     return '<c-b>'
   end
 end, { silent = true, expr = true })
+
+-- NOTE: 驼峰转蛇形
+function _G.camel_to_snake()
+  -- 获取当前模式
+  local mode = vim.api.nvim_get_mode().mode
+
+  -- 处理 Visual 模式
+  if mode == 'n' then
+    local word = vim.fn.expand('<cword>')
+    if word == '' then return end
+
+    -- 转换逻辑
+    local converted = word:gsub("([a-z])([A-Z])", "%1_%2")
+        :gsub("([A-Z]+)([A-Z][a-z])", "%1_%2")
+        :lower()
+
+    -- 替换当前单词
+    vim.cmd('normal! ciw' .. converted)
+  end
+end
+
+-- 绑定到 <leader>ts
+vim.api.nvim_set_keymap('n', '<leader>ts', '<cmd>lua camel_to_snake()<CR>', { noremap = true, silent = true })
+
 --INFO: Set Emacs keybindings in insert mode
 vim.api.nvim_set_keymap('i', '<C-a>', '<Home>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<C-e>', '<End>', { noremap = true, silent = true })

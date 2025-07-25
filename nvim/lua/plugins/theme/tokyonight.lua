@@ -27,7 +27,7 @@ return { -- You can easily change to a different colorscheme.
       Booleam = { italic = true },
       -- Background styles. Can be "dark", "transparent" or "normal"
       sidebars = 'transparent', -- style for sidebars, see below
-      floats = 'transparent', -- style for floating windows
+      floats = 'transparent',   -- style for floating windows
     },
     on_highlights = function(highlights, colors)
       highlights.WinBar = ''
