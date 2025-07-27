@@ -378,7 +378,7 @@ binds {
     Mod+E repeat=false { spawn "nautilus"; }
     Mod+R repeat=false { spawn "rofi" "-show" "drun" "-theme" "~/.config/rofi/config.rasi"; }
     Mod+A repeat=false { spawn "foamshot" "-p" "/home/thirdwinter/Pictures/Screenshots/" "-n" "foam_shot-%Y-%m-%d_%H-%M-%S.png"; }
-    Mod+Shift+A repeat=false { spawn "/usr/bin/bash" "-c" "foamshot -p /home/thirdwinter/Pictures/Screenshots/ -n foam_shot-%Y-%m-%d_%H-%M-%S.png --edit; satty -f \"$(wl-paste -p)\""; }
+    Mod+Shift+A repeat=false { spawn "/usr/bin/bash" "-c" "satty -f \"$(foamshot -p /home/thirdwinter/Pictures/Screenshots/ -n foam_shot-%Y-%m-%d_%H-%M-%S.png --edit)\""; }
     Mod+B repeat=false { spawn "/opt/zen-browser-bin/zen-bin"; }
     Mod+M repeat=false { spawn "~/.local/bin/tmux_go-musicfox.sh"; }
     Mod+P repeat=false { spawn "~/.local/bin/wlogout_wrapper.sh"; }
