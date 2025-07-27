@@ -72,7 +72,6 @@ return {
       },
       documentation = {
         view = 'hover',
-        ---@type NoiceViewOptions
         opts = {
           lang = 'plaintext',
           replace = false,
@@ -95,7 +94,7 @@ return {
           style = vim.g.borderStyle,
         },
         win_options = {
-          winhighlight = { Normal = 'Normal', FloatBorder = 'Label' },
+          winhighlight = { Normal = 'Normal', FloatBorder = 'FloatBorder' },
         },
       },
       popupmenu = {
@@ -113,7 +112,7 @@ return {
           padding = { 0, 1 },
         },
         win_options = {
-          winhighlight = { Normal = 'Normal', FloatBorder = 'Label' },
+          winhighlight = { Normal = 'Normal', FloatBorder = 'FloatBorder' },
         },
       },
       hover = {
@@ -133,12 +132,20 @@ return {
           style = vim.g.borderStyle,
         },
         win_options = {
-          winhighlight = { Normal = 'Normal', FloatBorder = 'Label' },
+          winhighlight = { Normal = 'Normal', FloatBorder = 'FloatBorder' },
         },
       },
       mini = {
+        border = {
+          style = vim.g.borderStyle,
+        },
+
+        position = {
+          row = -2,
+          col = '100%',
+        },
         win_options = {
-          winhighlight = { Normal = 'Label', FloatBorder = 'DiagnosticError' },
+          winhighlight = { Normal = 'Label', FloatBorder = 'FloatBorder' },
           winblend = 0,
         },
       },

@@ -11,6 +11,14 @@ vim.api.nvim_set_hl(0, 'Type',
 
 vim.api.nvim_set_hl(0, 'CursorLine', { bg = '#4f536d' })
 vim.api.nvim_set_hl(0, 'markdownCodeBlock', { bg = '' })
+
+-- vim.cmd 'highlight clear Label'
+-- vim.cmd 'highlight link Label NoiceCmdlinePopupBorder'
+
+vim.cmd 'highlight clear FloatBorder'
+vim.cmd 'highlight link FloatBorder NoiceCmdlinePopupBorder'
+
+
 --INFO: 一些自定义的颜色
 
 --INFO: 获取主题背景色
