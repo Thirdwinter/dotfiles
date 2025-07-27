@@ -78,9 +78,8 @@ return {
 
       -- map('<leader>la', '<cmd>Lspsaga code_action<CR>', '[A]ction', { 'n', 'x' })
 
-      -- 警告：这不是 Goto Definition，这是 Goto Declaration。
-      -- 例如，在 C 中，这会带你去头文件。
-      -- map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+      -- 跳转到光标下的单词的类型。
+      -- 当你不确定一个变量的类型并且你想要看到它的 *类型* 的定义时，这很有用，而不是它被 *定义* 的地方。
       map('gD', function()
         Snacks.picker.lsp_type_definitions()
       end, '[G]oto [T]ype [D]efinition')
