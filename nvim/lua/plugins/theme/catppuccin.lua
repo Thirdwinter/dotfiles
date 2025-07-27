@@ -21,7 +21,10 @@ return {
       notify = true,
       mason = true,
       rainbow_delimiters = true,
-      snacks = true,
+      snacks = {
+        enabled = true,
+        picker_style = "nvchad_outlined" ---@type 'classic'|'nvchad' | 'nvchad_outlined'
+      },
       -- mini = {
       --   enabled = true,
       --   indentscope_color = '',
