@@ -34,7 +34,7 @@ vim.keymap.set('i', '<C-v>', '<C-R>+', { noremap = true, silent = true })
 vim.keymap.set('t', '<C-v>', '<C-R>+', { noremap = true, silent = true })
 vim.keymap.set('v', '<C-v>', '<C-R>+', { noremap = true, silent = true })
 
-vim.keymap.set('n', '<leader>h', '^')
+vim.keymap.set('n', '<leader>h', '^', { desc = "jump first char in line" })
 
 --  参见 `:help wincmd` 了解所有窗口命令的列表
 --INFO: 窗口移动

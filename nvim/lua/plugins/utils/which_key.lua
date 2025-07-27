@@ -1,5 +1,5 @@
 return {
-  { -- Useful plugin to show you pending keybinds.
+  {                     -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
     event = 'VeryLazy', -- Sets the loading event to 'VimEnter'
     opts = {
@@ -43,7 +43,7 @@ return {
 
       -- Document existing key chains
       spec = {
-        { '<leader>f', group = '[F]ind', mode = { 'n', 'x' } },
+        { '<leader>f', group = '[F]ind',     mode = { 'n', 'x' } },
         { '<leader>b', group = '[B]uffer' },
         -- { '<leader>d', group = '[D]ocument' },
         { '<leader>p', group = '[P]ackage' },
@@ -52,7 +52,27 @@ return {
         -- { '<leader>w', group = '[W]orkspace' },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>l', group = '[L]anguages' },
-        { '<leader>g', group = '[G]it', mode = { 'n', 'v' } },
+        { '<leader>g', group = '[G]it',      mode = { 'n', 'v' } },
+      },
+      win = {
+        -- don't allow the popup to overlap with the cursor
+        no_overlap = true,
+        -- width = 1,
+        -- height = { min = 4, max = 25 },
+        -- col = 0,
+        -- row = math.huge,
+        border = vim.g.borderStyle,
+        padding = { 1, 2 }, -- extra window padding [top/bottom, right/left]
+        title = true,
+        title_pos = "center",
+        zindex = 1000,
+        -- Additional vim.wo and vim.bo options
+        bo = {},
+        wo = {
+          -- winhighlight = { Normal = 'Normal', FloatBorder = 'NoiceCmdlinePopupBorder' },
+
+          winblend = 0, -- value between 0-100 0 for fully opaque and 100 for fully transparent
+        },
       },
     },
   },
