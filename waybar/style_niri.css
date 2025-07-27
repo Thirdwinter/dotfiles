@@ -12,11 +12,11 @@ window#waybar {
   /* background: transparent; */
   /* box-shadow: 0 4px 30px rgba(166, 173, 200, 0.9); */
   border: none;
-  border-radius: 0px 0px 100px 100px;
+  border-radius: 100px 100px 100px 100px;
 }
 
 #workspaces {
-  border-radius: 0 100px 0 100px;
+  border-radius: 100px 100px 100px 100px;
   /* border: 2px solid @on_yellow; */
   margin: 0.2rem;
   padding: 0.2rem 1rem;
@@ -158,7 +158,7 @@ window#waybar.fullscreen #window {
 #battery {
   background-color: @primary;
   color: @surface_container_lowest;
-  border-radius: 100px 0 100px 0;
+  border-radius: 100px 100px 100px 100px;
   padding: 0 1rem;
 }
 
