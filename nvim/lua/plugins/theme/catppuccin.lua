@@ -23,7 +23,7 @@ return {
       rainbow_delimiters = true,
       snacks = {
         enabled = true,
-        picker_style = "nvchad_outlined" ---@type 'classic'|'nvchad' | 'nvchad_outlined'
+        picker_style = "classic" ---@type 'classic'|'nvchad' | 'nvchad_outlined'
       },
       -- mini = {
       --   enabled = true,

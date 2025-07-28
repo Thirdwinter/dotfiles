@@ -10,6 +10,9 @@ local lsp_servers = {
   cssls = {},
   vtsls = {},
   sqlls = {},
+  html = {
+    filetypes = { 'html', 'xhtml', 'ncx' },
+  },
   bashls = {
     filetypes = { 'sh', 'zsh' },
   },

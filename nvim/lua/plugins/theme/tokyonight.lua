@@ -14,7 +14,7 @@ return { -- You can easily change to a different colorscheme.
   --   vim.cmd.hi 'Comment gui=none'
   -- end,
   opts = {
-    style = 'storm',
+    style = 'moon',
     transparent = true,
     terminal_colors = false,
     styles = {

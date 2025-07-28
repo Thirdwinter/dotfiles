@@ -18,6 +18,9 @@ vim.api.nvim_set_hl(0, 'markdownCodeBlock', { bg = '' })
 vim.cmd 'highlight clear FloatBorder'
 vim.cmd 'highlight link FloatBorder NoiceCmdlinePopupBorder'
 
+vim.cmd 'highlight clear CursorLineNr'
+vim.cmd 'highlight link CursorLineNr NoiceCmdlinePopupBorder'
+
 
 --INFO: 一些自定义的颜色
 
@@ -58,3 +61,8 @@ vim.cmd 'highlight link FloatBorder NoiceCmdlinePopupBorder'
 --   -- vim.api.nvim_set_hl(0, 'BlinkCmpMenu', { bg = '#11111b' })
 --   -- vim.api.nvim_set_hl(0, 'BlinkCmpMenuBorder', { bg = '#11111b' })
 -- end
+-- vim.api.nvim_set_hl(0, 'SnacksPicker', { bg = '#4f536d' })
+vim.api.nvim_set_hl(0, 'SnacksPickerTitle', { fg = '#11111b', bg = '#cba6f7' })
+vim.api.nvim_set_hl(0, 'SnacksPickerInputTitle', { fg = '#11111b', bg = '#f38ba8' })
+vim.api.nvim_set_hl(0, 'SnacksPickerPreviewTitle', { fg = '#11111b', bg = '#a6e3a1' })
+vim.api.nvim_set_hl(0, 'SnacksPickerListTitle', { fg = '#11111b', bg = '#b4befe' })
