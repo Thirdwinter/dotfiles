@@ -2,14 +2,14 @@ include                font.conf
 
 #################################### THEME ####################################
 # BEGIN_KITTY_THEME
-# Matugen
+# Catppuccin-Mocha
 include current-theme.conf
 # END_KITTY_THEME
 
 #################################### WINDOW ####################################
-# hide_window_decorations        yes
+hide_window_decorations        titlebar-only
 dynamic_background_opacity     no
-window_padding_width           0 2 0 0
+window_padding_width           2 5 2 5
 background_opacity             0.95
 # background_blur                1
 confirm_os_window_close 0
@@ -21,7 +21,7 @@ cursor_blink_interval 0
 # cursor #6c7086
 cursor_trail_start_threshold 10
 detect_urls no
-cursor_trail 3
+cursor_trail 10
 cursor_trail_decay 0.2 0.4
 cursor_trail_start_threshold 2
 cursor_shape beam
