@@ -21,11 +21,11 @@ M.meta = {
 ---@field right snacks.statuscolumn.Components
 ---@field enabled? boolean
 local defaults = {
-  left = { "sign", "git" },   -- priority of signs on the left (high to low)
-  right = { "fold", "mark" }, -- priority of signs on the right (high to low)
+  left = { "git", "sign" }, -- priority of signs on the left (high to low)
+  right = { "fold" },       -- priority of signs on the right (high to low)
   folds = {
-    open = true,              -- show open fold icons
-    git_hl = true,            -- use Git Signs hl for fold icons
+    open = true,            -- show open fold icons
+    git_hl = true,          -- use Git Signs hl for fold icons
   },
   git = {
     -- patterns to match Git signs
@@ -297,8 +297,8 @@ function M._get()
 
   -- 3. 拼接最终内容：左侧符号 → 行号 → 分隔线 → 右侧内容
   -- 分隔线使用专门的高亮组（SnacksStatusColumnSeparator），默认字符为 "│"
-  local separator = "%#SnacksStatusColumnSeparator#│%*"
-  local ret = left_content .. line_num_content .. components[3] .. separator
+  local separator = "%#LineNr#│%*"
+  local ret = left_content .. line_num_content .. separator .. components[3]
 
   -- 添加折叠点击区域：点击整个状态列时触发折叠切换（za 命令）
   -- %@...@ 定义点击区域，%T 结束点击区域定义

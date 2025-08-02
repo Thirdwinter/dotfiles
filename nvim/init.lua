@@ -23,7 +23,8 @@ require 'config.keymaps'
 -- TODO:
 -- require "config.lspconfig"
 
----@type 'tokyonight'|'catppuccin'
-vim.cmd.colorscheme 'catppuccin'
+vim.cmd.colorscheme 'rose-pine' ---@type 'tokyonight'|'catppuccin'
+
 -- NOTE: highlights patch
 require 'config.highlights'
+vim.o.statuscolumn = [[%!v:lua.require'config.co'.get()]]
