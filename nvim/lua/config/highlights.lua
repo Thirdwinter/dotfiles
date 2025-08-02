@@ -13,34 +13,12 @@ vim.api.nvim_set_hl(0, 'Comment',
 vim.api.nvim_set_hl(0, 'Type',
   vim.tbl_extend('force', vim.api.nvim_get_hl(0, { name = 'Type' }), { italic = true, bold = false }))
 
--- vim.api.nvim_set_hl(0, '@keyword.return',
---   vim.tbl_extend('force', vim.api.nvim_get_hl(0, { name = '@keyword.return' }), { italic = true, bold = false }))
---
--- vim.api.nvim_set_hl(0, '@keyword.conditional.ternary',
---   vim.tbl_extend('force', vim.api.nvim_get_hl(0, { name = '@keyword.conditional.ternary' }),
---     { italic = true, bold = false }))
---
--- vim.api.nvim_set_hl(0, '@keyword.conditional',
---   vim.tbl_extend('force', vim.api.nvim_get_hl(0, { name = '@keyword.conditional' }),
---     { italic = true, bold = false }))
---
--- vim.api.nvim_set_hl(0, '@function',
---   vim.tbl_extend('force', vim.api.nvim_get_hl(0, { name = '@function' }),
---     { italic = true, bold = false }))
--- vim.api.nvim_set_hl(0, '@function.method',
---   vim.tbl_extend('force', vim.api.nvim_get_hl(0, { name = '@function.method' }),
---     { italic = true, bold = false }))
--- vim.api.nvim_set_hl(0, '@function.builtin',
---   vim.tbl_extend('force', vim.api.nvim_get_hl(0, { name = '@function.builtin' }),
---     { italic = true, bold = false }))
---
--- vim.api.nvim_set_hl(0, 'Function',
---   vim.tbl_extend('force', vim.api.nvim_get_hl(0, { name = 'Function' }),
---     { italic = true, bold = false }))
---
+vim.cmd 'highlight link BlinkCmpMenuBorder FloatBorder'
+vim.cmd 'highlight link BlinkCmpDocBorder FloatBorder'
+vim.cmd 'highlight link BlinkCmpSignatureHelpBorder FloatBorder'
 
-
-
+vim.cmd 'highlight clear BlinkCmpMenuSelection'
+vim.cmd 'highlight link BlinkCmpMenuSelection CursorLine'
 vim.api.nvim_set_hl(0, 'WinBarNc',
   vim.tbl_extend('force', vim.api.nvim_get_hl(0, { name = 'WinBarNc' }), { bg = "" }))
 vim.api.nvim_set_hl(0, 'WinBar',
@@ -50,11 +28,11 @@ vim.api.nvim_set_hl(0, 'WinBar',
 vim.api.nvim_set_hl(0, 'CursorLine', { bg = '#4f536d' })
 vim.api.nvim_set_hl(0, 'markdownCodeBlock', { bg = '' })
 
--- vim.cmd 'highlight clear Label'
--- vim.cmd 'highlight link Label NoiceCmdlinePopupBorder'
-
-vim.cmd 'highlight clear NoiceCmdlinePopupBorder'
 vim.api.nvim_set_hl(0, 'MyBorder', { fg = '#B4BEFF' })
+vim.cmd 'highlight clear Label'
+vim.cmd 'highlight link Label MyBorder'
+
+-- vim.cmd 'highlight clear NoiceCmdlinePopupBorder'
 vim.cmd 'highlight clear FloatBorder'
 vim.cmd 'highlight link FloatBorder MyBorder'
 

@@ -85,6 +85,7 @@ local config = {
       'dashboard',
       'snacks_dashboard',
       'snacks_picker_list',
+      'snacks_terminal',
       'neo-tree',
       'mason',
       'lazy',
@@ -94,7 +95,8 @@ local config = {
       'yazi',
     },
     ignore_focus = { 'neo-tree', 'dashboard', 'snacks_dashboard' },
-    theme = 'rose-pine', ---@type 'catppuccin' | 'rose-pine' | 'tokyonight' | 'auto'
+    -- theme = 'rose-pine', ---@type 'catppuccin' | 'rose-pine' | 'tokyonight' | 'auto'
+    theme = require('custom.Lualine.themes.rose-pine'),
     component_separators = '',
     section_separators = '',
   },

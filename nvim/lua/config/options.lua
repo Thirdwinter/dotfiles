@@ -14,13 +14,13 @@ vim.g.useMatugenCatppuccinColors = false
 -- 如果你在终端中安装并选择了 Nerd 字体，则设置为 true
 vim.g.Username = 'ThirdWinter'
 vim.g.have_nerd_font = true
-vim.g.transparent = function()
-  if vim.g.neovide then
-    return false
-  else
-    return true
-  end
-end
+-- vim.g.transparent = function()
+--   if vim.g.neovide then
+--     return false
+--   else
+--     return true
+--   end
+-- end
 
 vim.opt.showtabline = 1
 vim.opt.laststatus = 3

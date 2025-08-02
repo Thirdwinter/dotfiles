@@ -77,3 +77,45 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
     vim.fn.mkdir(vim.fn.fnamemodify(file, ':p:h'), 'p')
   end,
 })
+
+-- 导入包含高亮定义和应用函数的模块
+-- local my_highlights = require('config.hl_patch')
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+  group = vim.api.nvim_create_augroup("My_Hl_Patch", { clear = true }),
+  callback = function()
+    -- 清除模块缓存，强制重新加载 my_highlights.lua
+    -- 这一步是关键，它确保每次切换颜色主题时，
+    -- my_highlights.lua 中的函数（如 get_existing_hl）能获取到最新的颜色属性
+    package.loaded['config.hl_patch'] = nil
+    local ok, reloaded_my_highlights = pcall(require, 'config.hl_patch')
+    if not ok then
+      vim.notify(string.format("重新加载自定义高亮配置时出错: %s", reloaded_my_highlights), vim.log.levels.ERROR)
+      return
+    end
+
+    -- 调用模块中的 apply 函数
+    reloaded_my_highlights.apply()
+  end,
+})
+
+-- -- 首次启动时应用高亮补丁
+-- -- 强制重新加载以确保初始状态也是基于最新计算的
+-- local function setup_initial_highlights()
+--   package.loaded['config.my_highlights'] = nil
+--   local ok, initial_my_highlights = pcall(require, 'config.hl_patch')
+--   if not ok then
+--     vim.notify(string.format("初始化自定义高亮配置时出错: %s", initial_my_highlights), vim.log.levels.ERROR)
+--     return
+--   end
+--   initial_my_highlights.apply()
+-- end
+--
+-- -- 在配置脚本的最后调用一次
+-- setup_initial_highlights()
+
+-- 如果你希望在所有插件和默认颜色方案加载完毕后再应用，可以考虑放在 VimEnter 事件中：
+-- vim.api.nvim_create_autocmd("VimEnter", {
+--   group = vim.api.nvim_create_augroup("My_Initial_Hl", { clear = true }),
+--   callback = setup_initial_highlights,
+-- })

@@ -1,14 +1,6 @@
 local max = vim.api.nvim_win_get_width(0)
 
 return function(_, opts)
-  vim.cmd 'highlight link BlinkCmpMenuBorder FloatBorder'
-  vim.cmd 'highlight link BlinkCmpDocBorder FloatBorder'
-  vim.cmd 'highlight link BlinkCmpSignatureHelpBorder FloatBorder'
-
-  vim.cmd 'highlight clear BlinkCmpMenuSelection'
-  vim.cmd 'highlight link BlinkCmpMenuSelection CursorLine'
-
-
   opts.signature = {
     enabled = true,
     window = {

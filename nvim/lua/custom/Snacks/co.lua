@@ -1,3 +1,4 @@
+---@diagnostic disable: duplicate-doc-alias, duplicate-doc-field, duplicate-set-field, missing-return-value, param-type-mismatch
 local Snacks = require("snacks")
 
 ---@class snacks.statuscolumn
@@ -21,11 +22,11 @@ M.meta = {
 ---@field right snacks.statuscolumn.Components
 ---@field enabled? boolean
 local defaults = {
-  left = { "git", "sign" }, -- priority of signs on the left (high to low)
-  right = { "fold" },       -- priority of signs on the right (high to low)
+  left = { "sign" },  -- priority of signs on the left (high to low)
+  right = { "fold" }, -- priority of signs on the right (high to low)
   folds = {
-    open = true,            -- show open fold icons
-    git_hl = true,          -- use Git Signs hl for fold icons
+    open = true,      -- show open fold icons
+    git_hl = true,    -- use Git Signs hl for fold icons
   },
   git = {
     -- patterns to match Git signs
@@ -177,85 +178,52 @@ end
 ---@return string
 function M._get()
   -- 检查是否已初始化，如果未初始化则执行 setup 函数
-  -- setup 函数主要用于设置高亮组和定时刷新缓存
   if not did_setup then
     M.setup()
   end
 
-  -- 获取当前状态行所属窗口的 ID（用于后续获取窗口配置）
   local win = vim.g.statusline_winid
-
-  -- 获取当前窗口的行号显示配置：
-  -- nu: 是否显示绝对行号
-  -- rnu: 是否显示相对行号
+  local buf = vim.api.nvim_win_get_buf(win)
   local nu = vim.wo[win].number
   local rnu = vim.wo[win].relativenumber
-
-  -- 决定是否显示符号列：
-  -- 仅当不是虚拟行（vim.v.virtnum == 0）且符号列配置不是 "no" 时显示
   local show_signs = vim.v.virtnum == 0 and vim.wo[win].signcolumn ~= "no"
 
-  -- 初始化组件数组：
-  -- components[1]: 左侧内容（如折叠符号、标记等）
-  -- components[2]: 中间内容（行号）
-  -- components[3]: 右侧内容（如 git 符号等）
-  local components = { "", "", "" }
-  -- 如果不需要显示符号列且不显示行号，则返回空字符串（不渲染状态列）
+  -- Initialize parts that will be built
+  local left_content = ""
+  local right_content = "" -- Renamed from components[3] for clarity in this context
+  local git_sign_hl_group = nil
+
   if not (show_signs or nu or rnu) then
     return ""
   end
 
-  -- 1. 处理行号区域 (middle)
-  local line_num_content = ""
-  -- 仅在显示行号且当前行为实际行（非虚拟行）时生成行号内容
-  if (nu or rnu) and vim.v.virtnum == 0 then
-    local num ---@type number
-    -- 根据相对行号和绝对行号的配置，确定当前行应显示的数字：
-    -- - 当同时开启相对行号和绝对行号，且当前行为光标所在行（relnum == 0）时，显示绝对行号
-    -- - 当仅开启相对行号时，显示相对行号
-    -- - 当仅开启绝对行号时，显示绝对行号
-    if rnu and nu and vim.v.relnum == 0 then
-      num = vim.v.lnum   -- 光标行显示绝对行号
-    elseif rnu then
-      num = vim.v.relnum -- 非光标行显示相对行号
-    else
-      num = vim.v.lnum   -- 仅显示绝对行号
-    end
-    -- 行号内容使用 "%=" 实现右对齐，后面加空格与分隔线分隔
-    line_num_content = "%=" .. num .. " "
-  else
-    -- 虚拟行（如折叠行）用 4 个空格占位，确保与实际行的行号区域宽度一致（保证对齐）
-    line_num_content = string.rep(" ", 4)
-  end
+  -- --- BEGIN MODIFICATIONS ---
 
-  -- 2. 处理左侧内容（折叠符号等, left）
-  local left_content = ""
-  if show_signs then -- 仅当需要显示符号列时处理
-    -- 获取当前窗口关联的缓冲区 ID
-    local buf = vim.api.nvim_win_get_buf(win)
-    -- 判断当前缓冲区是否为普通文件（非终端、非 quickfix 等特殊缓冲区）
+  -- First, construct left and right content to get their actual rendered widths
+  if show_signs then
     local is_file = vim.bo[buf].buftype == ""
-    -- 获取当前行的所有符号（折叠符号、git 符号等）
     local signs = M.line_signs(win, buf, vim.v.lnum)
 
-    -- 解析左右侧的组件配置：如果是函数则执行获取动态列表，否则直接使用配置的列表
+    -- Try to find a Git sign for separator color
+    for _, s in ipairs(signs) do
+      if s.type == "git" and s.texthl then
+        git_sign_hl_group = s.texthl
+        break
+      end
+    end
+
     local left_c = type(config.left) == "function" and config.left(win, buf, vim.v.lnum) or config.left
     local right_c = type(config.right) == "function" and config.right(win, buf, vim.v.lnum) or config.right
 
-    -- If there are signs, we'll try to find the icons for the configured components.
-    -- If no sign is found for a component type, it will be represented by spaces.
-    -- We want to show all configured left signs, each in its own two-character slot.
     for _, comp_type in ipairs(left_c) do
       local found_sign = nil
       for _, s in ipairs(signs) do
         if s.type == comp_type then
           found_sign = s
-          break -- Found the highest priority sign for this type
+          break
         end
       end
 
-      -- If configured to use Git highligh for folds and we found a fold sign,
-      -- and there's a git sign, apply the git sign's highlight to the fold sign.
       if config.folds.git_hl and found_sign and found_sign.type == "fold" then
         for _, s in ipairs(signs) do
           if s.type == "git" then
@@ -267,7 +235,6 @@ function M._get()
       left_content = left_content .. M.icon(found_sign)
     end
 
-    -- Handle the right-side components similarly, but only for file buffers.
     if is_file then
       for _, comp_type in ipairs(right_c) do
         local found_sign = nil
@@ -286,23 +253,75 @@ function M._get()
             end
           end
         end
-        components[3] = components[3] .. M.icon(found_sign)
+        right_content = right_content .. M.icon(found_sign)
       end
     end
   else
-    -- If not showing signs, ensure the left side has a consistent width for potential signs.
-    -- This assumes each configured left component will take 2 characters.
+    -- If not showing signs, use empty spaces based on configured components
     left_content = string.rep("  ", #config.left)
+    right_content = string.rep("  ", #config.right)
   end
 
-  -- 3. 拼接最终内容：左侧符号 → 行号 → 分隔线 → 右侧内容
-  -- 分隔线使用专门的高亮组（SnacksStatusColumnSeparator），默认字符为 "│"
-  local separator = "%#LineNr#│%*"
-  local ret = left_content .. line_num_content .. separator .. components[3]
+  -- Calculate the *actual* rendered width of left_content
+  -- We need to strip highlights to get the true display width
+  local actual_left_width = vim.fn.strdisplaywidth(left_content:gsub("%%#.-#", ""):gsub("%%*", ""))
 
-  -- 添加折叠点击区域：点击整个状态列时触发折叠切换（za 命令）
-  -- %@...@ 定义点击区域，%T 结束点击区域定义
-  return "%@v:lua.require'snacks.statuscolumn'.click_fold@" .. ret .. "%T"
+  -- Determine the expected width for the line number area
+  local max_lnum_digits = #tostring(vim.api.nvim_buf_line_count(buf))
+  -- Line number width includes digits + 1 space before separator
+  local expected_lnum_display_width = max_lnum_digits + 1
+
+  -- Calculate the total width of the column from the configuration.
+  -- Each component is 2 characters wide.
+  -- Line number width will be `max_lnum_digits` + 1 (for space)
+  -- Plus 1 for the separator itself.
+  local total_configured_width = (#(type(config.left) == "function" and config.left(win, buf, vim.v.lnum) or config.left) * 2)
+      + (#(type(config.right) == "function" and config.right(win, buf, vim.v.lnum) or config.right) * 2)
+      + expected_lnum_display_width
+      + 1 -- for the separator
+
+  -- The effective width for the line number area (including its trailing space)
+  -- This ensures a consistent total column width, padding if necessary.
+  local effective_lnum_slot_width = total_configured_width - actual_left_width -
+      vim.fn.strdisplaywidth(right_content:gsub("%%#.-#", ""):gsub("%%*", "")) -
+      1 -- -1 for separator
+
+  -- Adjust for minimum width or ensure it's not negative
+  effective_lnum_slot_width = math.max(expected_lnum_display_width, effective_lnum_slot_width)
+
+  -- Handle line number area (middle)
+  local line_num_content = ""
+  if (nu or rnu) and vim.v.virtnum == 0 then
+    local num ---@type number
+    if rnu and nu and vim.v.relnum == 0 then
+      num = vim.v.lnum
+    elseif rnu then
+      num = vim.v.relnum
+    else
+      num = vim.v.lnum
+    end
+    -- Get the display width of the current line number
+    local current_num_display_width = #tostring(num)
+    -- Pad the number to the effective slot width, minus the single trailing space we add
+    local padding_needed = effective_lnum_slot_width - current_num_display_width - 1
+    if padding_needed < 0 then padding_needed = 0 end -- Ensure non-negative padding
+    line_num_content = string.rep(" ", padding_needed) .. tostring(num) .. " "
+  else
+    -- Virtual lines: fill with spaces to the effective slot width
+    line_num_content = string.rep(" ", effective_lnum_slot_width)
+  end
+
+
+  -- --- END MODIFICATIONS ---
+
+  -- Concatenate final content: Left signs -> Line number -> Separator -> Right signs
+  local separator_hl_group = git_sign_hl_group or "LineNr"
+  local separator = "%#" .. separator_hl_group .. "#┃%*"
+  local ret = left_content .. line_num_content .. separator .. right_content
+
+  -- Add fold click area: clicking the entire status column triggers fold toggle (za command)
+  -- return "%@v:lua.require'snacks.statuscolumn'.click_fold@" .. ret .. "%T"
+  return "%@v:lua.require'" .. CURRENT_MODULE_PATH .. "'.click_fold@" .. ret .. "%T"
 end
 
 function M.get()
@@ -330,6 +349,47 @@ function M.health()
   end
 end
 
+-- 获取当前文件的模块路径
+local function get_current_module_name()
+  -- 获取当前脚本的源信息，"S" 选项返回 source 字段（文件路径）
+  local info = debug.getinfo(1, "S")
+  local file_path = info.source:gsub("^@", "") -- 移除可能的 "@" 前缀（来自加载器）
+
+  -- 获取 Neovim 的运行时路径 (runtimepath)
+  -- vim.opt.runtimepath:get() 替代了弃用的 vim.api.nvim_get_option("runtimepath")
+  local rtp_string = vim.api.nvim_get_option("runtimepath")
+  local module_base_path = ""
+
+  -- 寻找与文件路径匹配的最长 runtimepath 前缀
+  -- vim.split 用于将字符串按逗号分割成表
+  for _, path_entry in ipairs(vim.split(rtp_string, ",")) do
+    -- 标准的 Lua 模块路径通常在 'lua/' 子目录下
+    local lua_path_candidate = path_entry .. "/lua/"
+    -- 检查文件路径是否以这个候选路径开头
+    if file_path:find(lua_path_candidate, 1, true) == 1 then
+      -- 如果匹配且更长，则更新基础路径
+      if #lua_path_candidate > #module_base_path then
+        module_base_path = lua_path_candidate
+      end
+    end
+  end
+
+  -- 如果找到了匹配的前缀，则从中提取模块名
+  if module_base_path ~= "" then
+    -- 移除 base_path 和 .lua 后缀，并将文件分隔符转换为 '.'
+    local module_name = file_path:gsub(module_base_path, ""):gsub("%.lua$", ""):gsub("/", ".")
+    return module_name
+  end
+
+  -- 如果无法推断，返回一个默认值或发出警告
+  vim.notify("无法推断当前模块名，请检查 runtimepath 设置或文件实际位置。", vim.log.levels.WARN)
+  return "unknown_module" -- 返回一个默认值，避免 nil
+end
+
+-- 获取当前模块名，存储起来以便后续使用
+CURRENT_MODULE_PATH = get_current_module_name()
+
+-- click_fold 函数作为 M 的一个方法
 function M.click_fold()
   local pos = vim.fn.getmousepos()
   vim.api.nvim_win_set_cursor(pos.winid, { pos.line, 1 })
