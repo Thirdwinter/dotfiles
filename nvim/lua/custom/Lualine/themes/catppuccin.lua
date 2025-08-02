@@ -1,3 +1,6 @@
+-- NOTE:
+-- unused
+
 local cp = require('catppuccin.palettes').get_palette()
 -- local config = require('catppuccin.config').options
 local catppuccin = {}

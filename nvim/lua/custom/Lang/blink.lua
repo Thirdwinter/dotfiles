@@ -5,6 +5,10 @@ return function(_, opts)
   vim.cmd 'highlight link BlinkCmpDocBorder FloatBorder'
   vim.cmd 'highlight link BlinkCmpSignatureHelpBorder FloatBorder'
 
+  vim.cmd 'highlight clear BlinkCmpMenuSelection'
+  vim.cmd 'highlight link BlinkCmpMenuSelection CursorLine'
+
+
   opts.signature = {
     enabled = true,
     window = {

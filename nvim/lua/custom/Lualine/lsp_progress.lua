@@ -1,3 +1,5 @@
+-- NOTE:
+-- unused
 local spinner_char = require('custom.Lualine.chars').spinner_char
 return {
   --     local lsp_clients = vim.lsp.get_clients()
