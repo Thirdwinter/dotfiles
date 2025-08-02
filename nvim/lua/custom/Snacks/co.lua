@@ -1,4 +1,26 @@
 ---@diagnostic disable: duplicate-doc-alias, duplicate-doc-field, duplicate-set-field, missing-return-value, param-type-mismatch
+
+---@alias snacks.statuscolumn.Component "mark"|"sign"|"fold"|"git"
+---@alias snacks.statuscolumn.Components snacks.statuscolumn.Component[]|fun(win:number,buf:number,lnum:number):snacks.statuscolumn.Component[]
+
+---@class snacks.statuscolumn.Config
+---@field left snacks.statuscolumn.Components
+---@field right snacks.statuscolumn.Components
+---@field enabled? boolean
+local defaults = {
+  left = { "sign", "git" },   -- priority of signs on the left (high to low)
+  right = { "fold", "mark" }, -- priority of signs on the right (high to low)
+  folds = {
+    open = true,              -- show open fold icons
+    git_hl = true,            -- use Git Signs hl for fold icons
+  },
+  git = {
+    -- patterns to match Git signs
+    patterns = { "GitSign", "MiniDiffSign" },
+  },
+  refresh = 50, -- refresh at most every 50ms
+}
+
 local Snacks = require("snacks")
 
 ---@class snacks.statuscolumn
@@ -14,26 +36,6 @@ M.meta = {
   needs_setup = true,
 }
 
----@alias snacks.statuscolumn.Component "mark"|"sign"|"fold"|"git"
----@alias snacks.statuscolumn.Components snacks.statuscolumn.Component[]|fun(win:number,buf:number,lnum:number):snacks.statuscolumn.Component[]
-
----@class snacks.statuscolumn.Config
----@field left snacks.statuscolumn.Components
----@field right snacks.statuscolumn.Components
----@field enabled? boolean
-local defaults = {
-  left = { "sign" },  -- priority of signs on the left (high to low)
-  right = { "fold" }, -- priority of signs on the right (high to low)
-  folds = {
-    open = true,      -- show open fold icons
-    git_hl = true,    -- use Git Signs hl for fold icons
-  },
-  git = {
-    -- patterns to match Git signs
-    patterns = { "GitSign", "MiniDiffSign" },
-  },
-  refresh = 50, -- refresh at most every 50ms
-}
 
 -- local config = Snacks.config.get("statuscolumn", defaults)
 local config = defaults
@@ -47,19 +49,18 @@ local config = defaults
 local sign_cache = {}
 local cache = {} ---@type table<string,string>
 local icon_cache = {} ---@type table<string,string>
-
 local did_setup = false
 
 ---@private
+local hl_patch = require("config.hl_patch")
 function M.setup()
   if did_setup then
     return
   end
   did_setup = true
-  Snacks.util.set_hl({
+  hl_patch.set_hl({
     Mark = "DiagnosticHint",
-    Separator = { fg = "#555555" } -- 分隔线高亮（深灰色，可调整）
-  }, { prefix = "SnacksStatusColumn", default = true })
+  }, { prefix = "MyStatusColumn", default = true })
   local timer = assert((vim.uv or vim.loop).new_timer())
   timer:start(config.refresh, config.refresh, function()
     sign_cache = {}
@@ -121,7 +122,7 @@ function M.buf_signs(buf)
     if mark.pos[1] == buf and mark.mark:match("[a-zA-Z]") then
       local lnum = mark.pos[2]
       signs[lnum] = signs[lnum] or {}
-      table.insert(signs[lnum], { text = mark.mark:sub(2), texthl = "SnacksStatusColumnMark", type = "mark" })
+      table.insert(signs[lnum], { text = mark.mark:sub(2), texthl = "MyStatusColumnMark", type = "mark" })
     end
   end
 
@@ -191,6 +192,7 @@ function M._get()
   -- Initialize parts that will be built
   local left_content = ""
   local right_content = "" -- Renamed from components[3] for clarity in this context
+  ---@diagnostic disable-next-line: unused-local
   local git_sign_hl_group = nil
 
   if not (show_signs or nu or rnu) then
@@ -315,8 +317,10 @@ function M._get()
   -- --- END MODIFICATIONS ---
 
   -- Concatenate final content: Left signs -> Line number -> Separator -> Right signs
-  local separator_hl_group = git_sign_hl_group or "LineNr"
-  local separator = "%#" .. separator_hl_group .. "#┃%*"
+  -- local separator_hl_group = git_sign_hl_group or "LineNr"
+  local separator_hl_group = "LineNr"
+  -- local separator = "%#" .. separator_hl_group .. "#┃%*"
+  local separator = "%#" .. separator_hl_group .. "#│%*"
   local ret = left_content .. line_num_content .. separator .. right_content
 
   -- Add fold click area: clicking the entire status column triggers fold toggle (za command)
@@ -351,39 +355,46 @@ end
 
 -- 获取当前文件的模块路径
 local function get_current_module_name()
-  -- 获取当前脚本的源信息，"S" 选项返回 source 字段（文件路径）
+  -- 获取当前脚本的文件路径（移除开头的@符号）
   local info = debug.getinfo(1, "S")
-  local file_path = info.source:gsub("^@", "") -- 移除可能的 "@" 前缀（来自加载器）
+  local file_path = info.source:gsub("^@", "") -- 例如: "/Users/.../lua/config/hl_patch.lua"
 
-  -- 获取 Neovim 的运行时路径 (runtimepath)
-  -- vim.opt.runtimepath:get() 替代了弃用的 vim.api.nvim_get_option("runtimepath")
-  local rtp_string = vim.api.nvim_get_option("runtimepath")
+  -- 直接获取runtimepath列表（表类型，无需转字符串）
+  local rtp = vim.opt.rtp:get() -- 返回路径数组，如 { "/path1", "/path2", ... }
+
   local module_base_path = ""
 
-  -- 寻找与文件路径匹配的最长 runtimepath 前缀
-  -- vim.split 用于将字符串按逗号分割成表
-  for _, path_entry in ipairs(vim.split(rtp_string, ",")) do
-    -- 标准的 Lua 模块路径通常在 'lua/' 子目录下
-    local lua_path_candidate = path_entry .. "/lua/"
-    -- 检查文件路径是否以这个候选路径开头
-    if file_path:find(lua_path_candidate, 1, true) == 1 then
-      -- 如果匹配且更长，则更新基础路径
-      if #lua_path_candidate > #module_base_path then
-        module_base_path = lua_path_candidate
+  -- 遍历rtp中的每个路径，寻找最长匹配的lua目录前缀
+  for _, rtp_path in ipairs(rtp) do
+    -- 模块通常位于rtp路径下的lua子目录中
+    local lua_dir = rtp_path .. "/lua/" -- 例如: "/Users/.../nvim/lua/"
+
+    -- 检查文件路径是否以当前lua_dir为前缀（精确匹配，不解析模式）
+    if file_path:find(lua_dir, 1, true) == 1 then
+      -- 保留最长的匹配路径（避免子目录被误判）
+      if #lua_dir > #module_base_path then
+        module_base_path = lua_dir
       end
     end
   end
 
-  -- 如果找到了匹配的前缀，则从中提取模块名
+  -- 提取模块名
   if module_base_path ~= "" then
-    -- 移除 base_path 和 .lua 后缀，并将文件分隔符转换为 '.'
-    local module_name = file_path:gsub(module_base_path, ""):gsub("%.lua$", ""):gsub("/", ".")
+    -- 1. 移除lua目录前缀（如从"/Users/.../lua/config/hl_patch.lua"得到"config/hl_patch.lua"）
+    -- 2. 移除.lua后缀（得到"config/hl_patch"）
+    -- 3. 将路径分隔符替换为.（得到"config.hl_patch"）
+    local module_name = file_path
+        :gsub(module_base_path, "")
+        :gsub("%.lua$", "")
+        :gsub("/", ".")
+        :gsub("\\", ".") -- 兼容Windows路径
+
     return module_name
   end
 
-  -- 如果无法推断，返回一个默认值或发出警告
-  vim.notify("无法推断当前模块名，请检查 runtimepath 设置或文件实际位置。", vim.log.levels.WARN)
-  return "unknown_module" -- 返回一个默认值，避免 nil
+  -- 未找到匹配时的容错
+  vim.notify("无法推断模块名：文件不在runtimepath的lua目录中\n文件路径：" .. file_path, vim.log.levels.WARN)
+  return "unknown_module"
 end
 
 -- 获取当前模块名，存储起来以便后续使用

@@ -1,4 +1,4 @@
-local M = {} -- 这个 M 将作为模块的导出表
+local M = {}
 
 ---@private
 -- 辅助函数：获取现有高亮属性，以便进行扩展
@@ -6,10 +6,59 @@ local get_existing_hl = function(name)
   return vim.api.nvim_get_hl(0, { name = name })
 end
 
--- ===============================================
--- 亮点补丁定义 (之前在 highlights_patch.lua 中的内容)
--- 这些定义现在直接作为 M 表的属性，或者在 M.definitions 这样的子表中
--- ===============================================
+---@alias HighlightConfig { [string]: any }
+---@alias HighlightLink string
+---@alias HighlightDefinition HighlightConfig | HighlightLink | fun(): HighlightConfig
+
+---@class SetHlOptions
+---@field prefix? string 高亮组名称前缀
+---@field default? boolean 是否设为默认高亮（允许用户覆盖）
+---@field managed? boolean 是否将高亮组存入M表管理（默认为true）
+---@field clear? boolean 设置前是否清空原有有配置（默认为false）
+
+---@param groups table<string, HighlightDefinition> 键为高亮组名，值为高亮配置或链接目标
+---@param opts? SetHlOptions 配置选项
+function M.set_hl(groups, opts)
+  M.definitions = M.definitions or {}
+  M.links = M.links or {}
+  opts = vim.tbl_extend('force', {
+    clear = false -- 默认不清空原有配置
+  }, opts or {})
+
+  for hl_group, hl in pairs(groups) do
+    -- 处理前缀
+    local full_group_name = opts.prefix and opts.prefix .. hl_group or hl_group
+
+    -- 确保hl_config是表
+    ---@type vim.api.keyset.highlight
+    local hl_config
+    if type(hl) == "string" then
+      -- 字符串表示高亮链接，转换为 { link = 目标 } 格式
+      hl_config = { link = hl } ---@cast hl_config vim.api.keyset.highlight
+    elseif type(hl) == "function" then
+      hl_config = hl() ---@cast hl_config vim.api.keyset.highlight
+    else
+      -- 直接使用表类型配置，明确类型
+      hl_config = hl ---@cast hl_config vim.api.keyset.highlight
+    end
+
+    -- 设置default属性
+    hl_config.default = opts.default
+
+    -- 如果需要清空，先执行清空操作
+    if opts.clear then
+      -- 使用pcall容错，避免高亮组不存在时报错
+      pcall(vim.api.nvim_set_hl, 0, full_group_name, {})
+    end
+
+    -- 存入definitions
+    if opts.managed ~= false then
+      M.definitions[full_group_name] = hl_config
+    end
+
+    vim.api.nvim_set_hl(0, full_group_name, hl_config)
+  end
+end
 
 M.definitions = {} -- 用于存储所有常规高亮定义
 
@@ -41,9 +90,6 @@ M.definitions['Visual'] = function()
   return vim.tbl_extend('force', get_existing_hl('Visual'), { bg = '#45475A' })
 end
 
--- 用于高亮链接和清除的特殊条目
-
--- 不依赖于现有组或链接的特定高亮设置
 M.definitions['WinBarNc'] = function()
   return vim.tbl_extend('force', get_existing_hl('WinBarNc'), { bg = "" })
 end
@@ -57,7 +103,7 @@ M.definitions['BlinkCmpLabelMatch'] = { fg = '#f38ba8' }
 M.definitions['BlinkCmpDocSeparator'] = { bg = '' }
 M.definitions['BlinkCmpDoc'] = { bg = '' }
 
--- SnacksPicker 高亮
+-- SnacksPicker
 M.definitions['SnacksPickerTitle'] = { fg = '#11111b', bg = '#cba6f7' }
 M.definitions['SnacksPickerInputTitle'] = { fg = '#11111b', bg = '#f38ba8' }
 M.definitions['SnacksPickerPreviewTitle'] = { fg = '#11111b', bg = '#a6e3a1' }
@@ -75,7 +121,6 @@ M.links = {
 
 
 --[[
--- 如果你有透明背景的逻辑，并且它会动态修改高亮，可以像这样在这里更新 M.definitions
 if not vim.g.transparent() then
   local normal_hl = vim.api.nvim_get_hl_by_name('Normal', true)
   local label_hl = vim.api.nvim_get_hl_by_name('Label', true)
@@ -91,23 +136,15 @@ if not vim.g.transparent() then
 
   M.definitions['UserMenu'] = { bg = Popbg }
   M.definitions['Pmenu'] = { fg = Popfg, bg = Popbg }
-  -- ... 其他相关定义
 end
 ]] --
 
--- ===============================================
--- 应用高亮补丁的函数 (之前在 apply_highlights.lua 中的内容)
--- 现在这个函数成为 M 的一个方法
--- ===============================================
-
 function M.apply()
-  -- 应用常规高亮
   -- 遍历 M.definitions 来获取配置
   for group_name, hl_attrs in pairs(M.definitions) do
     if type(group_name) == 'string' then
       local final_attrs = hl_attrs
       if type(hl_attrs) == 'function' then
-        -- 如果是函数，执行它以获取属性 (用于动态扩展)
         final_attrs = hl_attrs()
       end
       if type(final_attrs) == 'table' then
@@ -118,7 +155,6 @@ function M.apply()
     end
   end
 
-  -- 应用高亮链接
   if M.links and type(M.links) == 'table' then
     for i, link_def in ipairs(M.links) do
       if type(link_def) == 'table' and #link_def >= 2 then
@@ -135,4 +171,4 @@ function M.apply()
   end
 end
 
-return M -- 导出 M 表，其中包含定义和 apply 函数
+return M
