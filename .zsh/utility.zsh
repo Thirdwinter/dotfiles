@@ -106,7 +106,7 @@ function y() {
         builtin cd -- "$cwd"
     fi
     /bin/rm -f -- "$tmp"
-    echo -ne '\e[5 q'
+    echo -ne '\e[6 q'
 }
 
 
