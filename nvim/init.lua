@@ -25,6 +25,4 @@ require 'config.keymaps'
 
 vim.cmd.colorscheme 'rose-pine' ---@type 'tokyonight'|'catppuccin'
 
--- NOTE: highlights patch
-require 'config.highlights'
-vim.o.statuscolumn = [[%!v:lua.require'config.co'.get()]]
+vim.o.statuscolumn = [[%!v:lua.require'custom.Snacks.co'.get()]]

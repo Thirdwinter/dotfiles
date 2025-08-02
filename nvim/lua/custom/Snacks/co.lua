@@ -1,4 +1,26 @@
 ---@diagnostic disable: duplicate-doc-alias, duplicate-doc-field, duplicate-set-field, missing-return-value, param-type-mismatch
+
+---@alias snacks.statuscolumn.Component "mark"|"sign"|"fold"|"git"
+---@alias snacks.statuscolumn.Components snacks.statuscolumn.Component[]|fun(win:number,buf:number,lnum:number):snacks.statuscolumn.Component[]
+
+---@class snacks.statuscolumn.Config
+---@field left snacks.statuscolumn.Components
+---@field right snacks.statuscolumn.Components
+---@field enabled? boolean
+local defaults = {
+  left = { "sign", "git" }, -- priority of signs on the left (high to low)
+  right = { "fold" },       -- priority of signs on the right (high to low)
+  folds = {
+    open = true,            -- show open fold icons
+    git_hl = true,          -- use Git Signs hl for fold icons
+  },
+  git = {
+    -- patterns to match Git signs
+    patterns = { "GitSign", "MiniDiffSign" },
+  },
+  refresh = 50, -- refresh at most every 50ms
+}
+
 local Snacks = require("snacks")
 
 ---@class snacks.statuscolumn
@@ -14,26 +36,6 @@ M.meta = {
   needs_setup = true,
 }
 
----@alias snacks.statuscolumn.Component "mark"|"sign"|"fold"|"git"
----@alias snacks.statuscolumn.Components snacks.statuscolumn.Component[]|fun(win:number,buf:number,lnum:number):snacks.statuscolumn.Component[]
-
----@class snacks.statuscolumn.Config
----@field left snacks.statuscolumn.Components
----@field right snacks.statuscolumn.Components
----@field enabled? boolean
-local defaults = {
-  left = { "sign" },  -- priority of signs on the left (high to low)
-  right = { "fold" }, -- priority of signs on the right (high to low)
-  folds = {
-    open = true,      -- show open fold icons
-    git_hl = true,    -- use Git Signs hl for fold icons
-  },
-  git = {
-    -- patterns to match Git signs
-    patterns = { "GitSign", "MiniDiffSign" },
-  },
-  refresh = 50, -- refresh at most every 50ms
-}
 
 -- local config = Snacks.config.get("statuscolumn", defaults)
 local config = defaults
@@ -58,7 +60,7 @@ function M.setup()
   did_setup = true
   Snacks.util.set_hl({
     Mark = "DiagnosticHint",
-    Separator = { fg = "#555555" } -- 分隔线高亮（深灰色，可调整）
+    -- Separator = { fg = "#555555" } -- 分隔线高亮（深灰色，可调整）
   }, { prefix = "SnacksStatusColumn", default = true })
   local timer = assert((vim.uv or vim.loop).new_timer())
   timer:start(config.refresh, config.refresh, function()
@@ -191,6 +193,7 @@ function M._get()
   -- Initialize parts that will be built
   local left_content = ""
   local right_content = "" -- Renamed from components[3] for clarity in this context
+  ---@diagnostic disable-next-line: unused-local
   local git_sign_hl_group = nil
 
   if not (show_signs or nu or rnu) then
@@ -315,8 +318,10 @@ function M._get()
   -- --- END MODIFICATIONS ---
 
   -- Concatenate final content: Left signs -> Line number -> Separator -> Right signs
-  local separator_hl_group = git_sign_hl_group or "LineNr"
-  local separator = "%#" .. separator_hl_group .. "#┃%*"
+  -- local separator_hl_group = git_sign_hl_group or "LineNr"
+  local separator_hl_group = "LineNr"
+  -- local separator = "%#" .. separator_hl_group .. "#┃%*"
+  local separator = "%#" .. separator_hl_group .. "#│%*"
   local ret = left_content .. line_num_content .. separator .. right_content
 
   -- Add fold click area: clicking the entire status column triggers fold toggle (za command)

@@ -58,7 +58,7 @@ M.options = {
       {
         win = 'preview',
         title = '{preview:Preview}',
-        width = 0.65,
+        width = 0.7,
         border = vim.g.borderStyle,
         title_pos = 'center',
       },
