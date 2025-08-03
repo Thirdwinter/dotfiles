@@ -10,12 +10,17 @@ local lsp_servers = {
   cssls = {},
   vtsls = {},
   sqlls = {},
+  html = {
+    filetypes = { 'html', 'xhtml', 'ncx' },
+  },
   bashls = {
     filetypes = { 'sh', 'zsh' },
   },
   qmlls = {
     cmd = { 'qmlls', '-E' },
   },
+  intelephense = {},
+  -- glsl_analyzer = {},
 
   --INFO: local lsp servers
   gopls = require 'custom.Lang.lsp.gopls',
@@ -82,9 +87,9 @@ return {
     for server_name, server_opts in pairs(lsp_servers) do
       server_opts.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server_opts.capabilities or {})
       -- server_opts.handlers = vim.tbl_deep_extend('force', {}, custom_handlers, server_opts.handlers or {})
-      -- vim.lsp.config(server_name, server_opts)
-      require('lspconfig')[server_name].setup(server_opts)
-      -- vim.lsp.enable(server_name)
+      vim.lsp.config(server_name, server_opts)
+      -- require('lspconfig')[server_name].setup(server_opts)
+      vim.lsp.enable(server_name)
     end
 
     vim.cmd 'LspStart'

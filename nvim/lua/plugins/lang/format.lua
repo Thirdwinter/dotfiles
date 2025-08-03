@@ -16,6 +16,8 @@ local formaters = {
   typst = { 'typstfmt' },
   css = { 'prettier' },
   scss = { 'prettier' },
+  html = { ' htmlbeautifier' },
+  xhtml = { ' htmlbeautifier' },
 
   -- Conform can also run multiple formatters sequentially
   -- python = { "isort", "black" },

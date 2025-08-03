@@ -106,4 +106,59 @@ function y() {
         builtin cd -- "$cwd"
     fi
     /bin/rm -f -- "$tmp"
+    echo -ne '\e[6 q'
+}
+
+
+
+
+# gonew - 创建并初始化新的 Go 项目，然后进入该目录
+gonew() {
+  # 检查是否提供了目录名作为参数
+  if [ -z "$1" ]; then
+    echo "用法: gonew <项目目录名>"
+    return 1
+  fi
+
+  # 获取项目目录名
+  local project_name="$1"
+
+  # 检查目录是否已存在
+  if [ -d "$project_name" ]; then
+    echo "错误: 目录 '$project_name' 已存在。"
+    return 1
+  fi
+
+  # 创建目录
+  mkdir -p "$project_name"
+
+  # 进入新创建的目录
+  cd "$project_name" || return
+
+  # 初始化 go mod
+  go mod init "$project_name"
+  
+  # 创建一个通用的 .gitignore 文件
+  cat <<EOF > .gitignore
+*.exe
+*.test
+*.prof
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+*~
+.vscode/
+.idea/
+*.iml
+out/
+bin/
+pkg/
+*.log
+*.tmp
+*.zip
+*.tar
+*.tar.gz
+EOF
 }

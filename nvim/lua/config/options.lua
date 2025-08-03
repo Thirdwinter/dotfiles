@@ -14,16 +14,17 @@ vim.g.useMatugenCatppuccinColors = false
 -- 如果你在终端中安装并选择了 Nerd 字体，则设置为 true
 vim.g.Username = 'ThirdWinter'
 vim.g.have_nerd_font = true
-vim.g.transparent = function()
-  if vim.g.neovide then
-    return false
-  else
-    return true
-  end
-end
+-- vim.g.transparent = function()
+--   if vim.g.neovide then
+--     return false
+--   else
+--     return true
+--   end
+-- end
 
 vim.opt.showtabline = 1
 vim.opt.laststatus = 3
+
 -- [[ 设置选项 ]]
 -- 参见 `:help vim.opt`
 -- 注意：你可以根据自己喜好更改这些选项！
@@ -130,14 +131,14 @@ vim.opt.cmdheight = 0
 -- vim.opt.formatoptions = vim.opt.formatoptions - { 'c', 'r', 'o' }
 
 if vim.g.neovide then
-  vim.g.neovide_opacity = 0.8
-  vim.g.transparency = 0.0
-  vim.g.neovide_floating_shadow = false
-  vim.g.neovide_floating_z_height = 10
-  vim.g.neovide_light_angle_degrees = 45
-  vim.g.neovide_light_radius = 5
+  -- vim.g.neovide_opacity = 0.8
+  -- vim.g.transparency = 0.8
+  -- vim.g.neovide_floating_shadow = false
+  -- vim.g.neovide_floating_z_height = 10
+  -- vim.g.neovide_light_angle_degrees = 45
+  -- vim.g.neovide_light_radius = 5
 
-  vim.g.neovide_background_color = '#1e1e2e'
+  -- vim.g.neovide_background_color = '#1e1e2e'
   vim.o.guifont = 'Maple Mono NF CN:h11.5' -- text below applies for VimScript
 end
 

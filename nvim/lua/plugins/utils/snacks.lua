@@ -79,7 +79,7 @@ return {
           },
         }
       end,
-      { desc = 'Toggle explorer' },
+      desc = 'Toggle explorer',
     },
     {
       '<F7>',
@@ -87,14 +87,14 @@ return {
         Snacks.terminal.toggle 'zsh'
       end,
       mode = { 'n', 'i', 'v', 't' },
-      { desc = 'Toggle Float Terminal' },
+      desc = 'Toggle Float Terminal',
     },
     {
       '<leader>gg',
       function()
         Snacks.lazygit.open()
       end,
-      { desc = 'Toggle Float lazygit' },
+      desc = 'Toggle Float lazygit',
     },
   }),
 }

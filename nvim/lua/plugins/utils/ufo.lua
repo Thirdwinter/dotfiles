@@ -36,9 +36,9 @@ local handler = function(virtText, lnum, endLnum, width, truncate)
   end
 
   table.insert(newVirtText, { ' ', nil })
-  table.insert(newVirtText, { '◖', 'CustomFold' })
+  table.insert(newVirtText, { '', 'CustomFold' })
   table.insert(newVirtText, { suffix, 'CustomFoldText' })
-  table.insert(newVirtText, { '◗', 'CustomFold' })
+  table.insert(newVirtText, { '', 'CustomFold' })
   return newVirtText
 end
 return {

@@ -10,23 +10,27 @@ return {
   event = 'VeryLazy',
   config = function()
     vim.keymap.set('n', '<Leader>bp', '<Cmd>BufferLinePick<CR>', { desc = '选择buffer', noremap = true, silent = true })
-    vim.keymap.set('n', '<Leader>bd', '<Cmd>BufferLinePickClose<CR>', { desc = '选择buffer关闭', noremap = true, silent = true })
-    vim.keymap.set('n', '<Leader>bh', '<Cmd>BufferLineCloseLeft<CR>', { desc = '关闭左侧buffer', noremap = true, silent = true })
-    vim.keymap.set('n', '<Leader>bl', '<Cmd>BufferLineCloseRight<CR>', { desc = '关闭右侧buffer', noremap = true, silent = true })
+    vim.keymap.set('n', '<Leader>bd', '<Cmd>BufferLinePickClose<CR>',
+      { desc = '选择buffer关闭', noremap = true, silent = true })
+    vim.keymap.set('n', '<Leader>bh', '<Cmd>BufferLineCloseLeft<CR>',
+      { desc = '关闭左侧buffer', noremap = true, silent = true })
+    vim.keymap.set('n', '<Leader>bl', '<Cmd>BufferLineCloseRight<CR>',
+      { desc = '关闭右侧buffer', noremap = true, silent = true })
     vim.keymap.set('n', 'L', '<Cmd>bnext<CR>', { desc = '下一个buffer', noremap = true, silent = true })
     vim.keymap.set('n', 'H', '<Cmd>bprev<CR>', { desc = '上一个buffer', noremap = true, silent = true })
     vim.keymap.set('n', '<Leader>c', function()
       Snacks.bufdelete.delete()
     end, { desc = '关闭当前buffer', noremap = true, silent = true })
 
-    vim.keymap.set('n', '<leader>bo', '<Cmd>BufferLineCloseOthers<CR>', { desc = '关闭其它buffer', noremap = true, silent = true })
+    vim.keymap.set('n', '<leader>bo', '<Cmd>BufferLineCloseOthers<CR>',
+      { desc = '关闭其它buffer', noremap = true, silent = true })
 
     require('bufferline').setup {
       highlights = {
         buffer_selected = {
           fg = {
             attribute = 'fg',
-            highlight = 'Label',
+            highlight = 'FloatBorder',
           },
           bg = {
             attribute = 'bg',
@@ -38,7 +42,7 @@ return {
         indicator_selected = {
           fg = {
             attribute = 'fg',
-            highlight = 'Label',
+            highlight = 'FloatBorder',
           },
           bg = {
             attribute = 'bg',

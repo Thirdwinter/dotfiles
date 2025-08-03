@@ -1,4 +1,4 @@
-if vim.uv.os_uname().sysname ~= 'Darwin' then
+if true then
   return {}
 end
 return {

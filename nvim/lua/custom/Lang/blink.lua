@@ -1,10 +1,6 @@
 local max = vim.api.nvim_win_get_width(0)
 
 return function(_, opts)
-  vim.cmd 'highlight link BlinkCmpMenuBorder Label'
-  vim.cmd 'highlight link BlinkCmpDocBorder Label'
-  vim.cmd 'highlight link BlinkCmpSignatureHelpBorder Label'
-
   opts.signature = {
     enabled = true,
     window = {
