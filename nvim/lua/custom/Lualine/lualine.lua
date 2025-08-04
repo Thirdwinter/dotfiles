@@ -41,7 +41,7 @@ local function dir_info()
   local current_dir = vim.fn.getcwd()
   local home_dir = vim.fn.expand '~'
   local dir_name = current_dir == home_dir and '~' or vim.fn.fnamemodify(current_dir, ':t')
-  return vim.api.nvim_win_get_width(0) < 110 and string.format('%s', '󰉖 ') or string.format('%s %s', '󰉖 ', dir_name)
+  return vim.api.nvim_win_get_width(0) < 110 and string.format('%s', ' ') or string.format('%s %s', ' ', dir_name)
 end
 
 -- ---@diagnostic disable-next-line: unused-function, unused-local

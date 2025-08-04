@@ -29,10 +29,10 @@ return {
         enabled = true,
         picker_style = "classic" ---@type 'classic'|'nvchad' | 'nvchad_outlined'
       },
-      -- mini = {
-      --   enabled = true,
-      --   indentscope_color = '',
-      -- },
+      mini = {
+        enabled = true,
+        -- indentscope_color = '',
+      },
       dropbar = {
         enabled = true,
         color_mode = true, -- enable color for kind's texts, not just kind's icons
@@ -58,7 +58,7 @@ return {
       types = {},
       operators = {},
     },
-    color_overrides = color_overrides,
+    -- color_overrides = color_overrides,
     highlight_overrides = {
       mocha = function(mocha)
         return {

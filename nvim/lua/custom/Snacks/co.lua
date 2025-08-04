@@ -7,11 +7,11 @@
 ---@field right statuscolumn.Components
 ---@field enabled? boolean
 local defaults = {
-  left = { "sign", "git" },   -- priority of signs on the left (high to low)
-  right = { "fold", "mark" }, -- priority of signs on the right (high to low)
+  left = { "sign", "git" }, -- priority of signs on the left (high to low)
+  right = { "fold" },       -- priority of signs on the right (high to low)
   folds = {
-    open = true,              -- show open fold icons
-    git_hl = true,            -- use Git Signs hl for fold icons
+    open = true,            -- show open fold icons
+    git_hl = true,          -- use Git Signs hl for fold icons
   },
   git = {
     -- patterns to match Git signs

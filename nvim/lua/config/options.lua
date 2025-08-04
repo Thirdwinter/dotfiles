@@ -7,7 +7,7 @@ vim.g.maplocalleader = ' '
 vim.g.codeium_enabled = true
 
 -- vim.o.winborder = 'single'
-vim.g.borderStyle = 'single' ---@type 'single'|'rounded'|'none'
+vim.g.borderStyle = 'single' ---@type 'single'|'rounded'|'none' | 'solid'
 -- vim.g.borderStyle = { '┌', '─', '┐', '│', '┘', '─', '└', '│' }
 -- vim.g.cmpUsed = 'blink' ---@type 'blink' | 'cmp'
 vim.g.useMatugenCatppuccinColors = false

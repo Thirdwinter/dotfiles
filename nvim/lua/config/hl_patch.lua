@@ -110,13 +110,17 @@ M.definitions['SnacksPickerPreviewTitle'] = { fg = '#11111b', bg = '#a6e3a1' }
 M.definitions['SnacksPickerListTitle'] = { fg = '#11111b', bg = '#b4befe' }
 
 M.links = {
-  { 'FloatBorder',                 'MyBorder',    clear = true },
-  { 'CursorLineNr',                'MyBorder',    clear = true },
-  { 'NormalFloat',                 'MyBorder',    clear = true },
-  { 'BlinkCmpMenuBorder',          'FloatBorder', clear = true },
-  { 'BlinkCmpDocBorder',           'FloatBorder', clear = true },
-  { 'BlinkCmpSignatureHelpBorder', 'FloatBorder', clear = true },
-  { 'BlinkCmpMenuSelection',       'CursorLine',  clear = true },
+  { 'FloatBorder',                 'MyBorder',               clear = true },
+  { 'CursorLineNr',                'MyBorder',               clear = true },
+  { 'NormalFloat',                 'MyBorder',               clear = true },
+  { 'BlinkCmpMenuBorder',          'FloatBorder',            clear = true },
+  { 'BlinkCmpDocBorder',           'FloatBorder',            clear = true },
+  { 'BlinkCmpSignatureHelpBorder', 'FloatBorder',            clear = true },
+  { 'BlinkCmpMenuSelection',       'CursorLine',             clear = true },
+  { 'NoiceCmdlinePopupBorder',     'FloatBorder',            clear = true },
+  { 'NoiceCmdlinePopupTitle',      "SnacksPickerInputTitle", clear = true },
+  { 'WhichKeyBorder',              "FloatBorder",            clear = true }
+  -- { 'MiniFilesTitleFocused',       "SnacksPickerPreviewTitle", clear = true },
 }
 
 
