@@ -1,11 +1,10 @@
----@diagnostic disable: duplicate-doc-alias, duplicate-doc-field, duplicate-set-field, missing-return-value, param-type-mismatch
+---@diagnostic disable: param-type-mismatch
+---@alias statuscolumn.Component "mark"|"sign"|"fold"|"git"
+---@alias statuscolumn.Components statuscolumn.Component[]|fun(win:number,buf:number,lnum:number):statuscolumn.Component[]
 
----@alias snacks.statuscolumn.Component "mark"|"sign"|"fold"|"git"
----@alias snacks.statuscolumn.Components snacks.statuscolumn.Component[]|fun(win:number,buf:number,lnum:number):snacks.statuscolumn.Component[]
-
----@class snacks.statuscolumn.Config
----@field left snacks.statuscolumn.Components
----@field right snacks.statuscolumn.Components
+---@class statuscolumn.Config
+---@field left statuscolumn.Components
+---@field right statuscolumn.Components
 ---@field enabled? boolean
 local defaults = {
   left = { "sign", "git" },   -- priority of signs on the left (high to low)
@@ -21,9 +20,9 @@ local defaults = {
   refresh = 50, -- refresh at most every 50ms
 }
 
-local Snacks = require("snacks")
+-- local Snacks = require("snacks")
 
----@class snacks.statuscolumn
+---@class statuscolumn
 ---@overload fun(): string
 local M = setmetatable({}, {
   __call = function(t)
@@ -41,18 +40,19 @@ M.meta = {
 local config = defaults
 
 ---@private
----@alias snacks.statuscolumn.Sign.type "mark"|"sign"|"fold"|"git"
----@alias snacks.statuscolumn.Sign {name:string, text:string, texthl:string, priority:number, type:snacks.statuscolumn.Sign.type}
+---@alias statuscolumn.Sign.type "mark"|"sign"|"fold"|"git"
+---@alias statuscolumn.Sign {name:string, text:string, texthl:string, priority:number, type:statuscolumn.Sign.type}
 
 -- Cache for signs per buffer and line
----@type table<number,table<number,snacks.statuscolumn.Sign[]>>
+---@type table<number,table<number,statuscolumn.Sign[]>>
 local sign_cache = {}
 local cache = {} ---@type table<string,string>
 local icon_cache = {} ---@type table<string,string>
 local did_setup = false
 
----@private
+
 local hl_patch = require("config.hl_patch")
+---@private
 function M.setup()
   if did_setup then
     return
@@ -80,17 +80,17 @@ end
 
 -- Returns a list of regular and extmark signs sorted by priority (low to high)
 ---@private
----@return table<number, snacks.statuscolumn.Sign[]>
+---@return table<number, statuscolumn.Sign[]>
 ---@param buf number
 function M.buf_signs(buf)
   -- Get regular signs
-  ---@type table<number, snacks.statuscolumn.Sign[]>
+  ---@type table<number, statuscolumn.Sign[]>
   local signs = {}
 
   if vim.fn.has("nvim-0.10") == 0 then
     -- Only needed for Neovim <0.10
     for _, sign in ipairs(vim.fn.sign_getplaced(buf, { group = "*" })[1].signs) do
-      local ret = vim.fn.sign_getdefined(sign.name)[1] --[[@as snacks.statuscolumn.Sign]]
+      local ret = vim.fn.sign_getdefined(sign.name)[1] --[[@as statuscolumn.Sign]]
       if ret then
         ret.priority = sign.priority
         ret.type = M.is_git_sign(sign.name) and "git" or "sign"
@@ -134,7 +134,7 @@ end
 ---@param win number
 ---@param buf number
 ---@param lnum number
----@return snacks.statuscolumn.Sign[]
+---@return statuscolumn.Sign[]
 function M.line_signs(win, buf, lnum)
   local buf_signs = sign_cache[buf]
   if not buf_signs then
@@ -160,7 +160,7 @@ function M.line_signs(win, buf, lnum)
 end
 
 ---@private
----@param sign? snacks.statuscolumn.Sign
+---@param sign? statuscolumn.Sign
 function M.icon(sign)
   if not sign then
     return "  "
@@ -175,7 +175,6 @@ function M.icon(sign)
   return icon_cache[key]
 end
 
----@return string
 ---@return string
 function M._get()
   -- 检查是否已初始化，如果未初始化则执行 setup 函数
@@ -349,15 +348,14 @@ function M.get()
   return ""
 end
 
----@private
-function M.health()
-  local ready = vim.o.statuscolumn:find("snacks.statuscolumn", 1, true)
-  if config.enabled and not ready then
-    Snacks.health.warn(("is not configured\n- `vim.o.statuscolumn = %q`"):format(vim.o.statuscolumn))
-  elseif not config.enabled and ready then
-    Snacks.health.ok(("is manually configured\n- `vim.o.statuscolumn = %q`"):format(vim.o.statuscolumn))
-  end
-end
+-- function M.health()
+--   local ready = vim.o.statuscolumn:find("snacks.statuscolumn", 1, true)
+--   if config.enabled and not ready then
+--     Snacks.health.warn(("is not configured\n- `vim.o.statuscolumn = %q`"):format(vim.o.statuscolumn))
+--   elseif not config.enabled and ready then
+--     Snacks.health.ok(("is manually configured\n- `vim.o.statuscolumn = %q`"):format(vim.o.statuscolumn))
+--   end
+-- end
 
 -- 获取当前文件的模块路径
 local function get_current_module_name()

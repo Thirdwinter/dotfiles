@@ -121,11 +121,6 @@ end
 -- 设置全局窗口选项，禁止折行
 vim.wo.wrap = false
 
-vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
--- vim.o.foldcolumn = '1'
-vim.opt.foldenable = true   -- enable fold for nvim-ufo
-vim.opt.foldlevel = 99      -- set high foldlevel for nvim-ufo
-vim.opt.foldlevelstart = 99 -- start with all code unfolded
 vim.opt.cmdheight = 0
 
 -- vim.opt.formatoptions = vim.opt.formatoptions - { 'c', 'r', 'o' }

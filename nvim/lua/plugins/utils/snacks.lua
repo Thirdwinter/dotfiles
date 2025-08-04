@@ -26,7 +26,7 @@ return {
       },
       quickfile = { enabled = true },
       scroll = { enabled = false },
-      statuscolumn = require 'custom.Snacks.status_column',
+      -- statuscolumn = require 'custom.Snacks.status_column',
       bufferdelete = {},
       image = {},
       terminal = require 'custom.Snacks.terminal',
