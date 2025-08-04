@@ -1,4 +1,6 @@
 return {
+
+  cmd = { 'lua-language-server', '--locale=zh-cn' },
   settings = {
     Lua = {
       hint = {
