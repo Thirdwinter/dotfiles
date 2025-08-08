@@ -11,10 +11,10 @@ return {
   priority = 1000,
   opts = {
     term_colors = true,
-    transparent_background = true,
+    transparent_background = not vim.g.neovide,
     float = {
       transparent = true, -- enable transparent floating windows
-      solid = false,      -- use solid styling for floating windows, see |winborder|
+      solid = true,       -- use solid styling for floating windows, see |winborder|
     },
     integrations = {
       cmp = true,

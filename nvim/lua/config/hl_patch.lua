@@ -6,6 +6,29 @@ local get_existing_hl = function(name)
   return vim.api.nvim_get_hl(0, { name = name })
 end
 
+---把 6 位 HEX 颜色加深（变暗）
+---@param hex string  形如 `"#RRGGBB"` 或 `"RRGGBB"`
+---@param factor? number  加深系数，范围 0–1，默认 0.7
+---@return string   加深后的 HEX，格式与输入一致，大写
+M.darken_hex = function(hex, factor)
+  factor = factor or 0.7
+  local has_sharp = hex:sub(1, 1) == '#'
+  local raw = has_sharp and hex:sub(2) or hex
+
+  assert(#raw == 6, 'hex color must be 6 digits')
+
+  local r = tonumber(raw:sub(1, 2), 16) or 0
+  local g = tonumber(raw:sub(3, 4), 16) or 0
+  local b = tonumber(raw:sub(5, 6), 16) or 0
+
+  r = math.max(0, math.min(255, math.floor(r * factor + 0.5)))
+  g = math.max(0, math.min(255, math.floor(g * factor + 0.5)))
+  b = math.max(0, math.min(255, math.floor(b * factor + 0.5)))
+
+  local out = string.format('%02X%02X%02X', r, g, b)
+  return '#' .. out
+end
+
 ---@alias HighlightConfig { [string]: any }
 ---@alias HighlightLink string
 ---@alias HighlightDefinition HighlightConfig | HighlightLink | fun(): HighlightConfig
@@ -96,6 +119,8 @@ end
 M.definitions['WinBar'] = function()
   return vim.tbl_extend('force', get_existing_hl('WinBar'), { bg = "" })
 end
+
+M.definitions['CursorLineNr'] = { fg = '#B4BEFF' }
 M.definitions['CursorLine'] = { bg = '#4f536d' }
 M.definitions['markdownCodeBlock'] = { bg = '' }
 M.definitions['MyBorder'] = { fg = '#B4BEFF' }
@@ -106,14 +131,16 @@ M.definitions['BlinkCmpDoc'] = { bg = '' }
 -- SnacksPicker
 M.definitions['SnacksPickerTitle'] = { fg = '#11111b', bg = '#cba6f7' }
 M.definitions['SnacksPickerInputTitle'] = { fg = '#11111b', bg = '#f38ba8' }
-M.definitions['SnacksPickerPreviewTitle'] = { fg = '#11111b', bg = '#a6e3a1' }
+M.definitions['SnacksPickerPreviewTitle'] = { fg = '#11111b', bg = '#a6e3a1', bold = true }
 M.definitions['SnacksPickerListTitle'] = { fg = '#11111b', bg = '#b4befe' }
 
 M.links = {
   { 'FloatBorder',                 'MyBorder',               clear = true },
-  { 'CursorLineNr',                'MyBorder',               clear = true },
+  -- { 'CursorLineNr',                'MyBorder',               clear = true },
   { 'NormalFloat',                 'MyBorder',               clear = true },
+  { 'BlinkCmpMenu',                'NormalFloat',            clear = true },
   { 'BlinkCmpMenuBorder',          'FloatBorder',            clear = true },
+  { 'BlinkCmpDoc',                 'NormalFloat',            clear = true },
   { 'BlinkCmpDocBorder',           'FloatBorder',            clear = true },
   { 'BlinkCmpSignatureHelpBorder', 'FloatBorder',            clear = true },
   { 'BlinkCmpMenuSelection',       'CursorLine',             clear = true },
@@ -123,25 +150,6 @@ M.links = {
   -- { 'MiniFilesTitleFocused',       "SnacksPickerPreviewTitle", clear = true },
 }
 
-
---[[
-if not vim.g.transparent() then
-  local normal_hl = vim.api.nvim_get_hl_by_name('Normal', true)
-  local label_hl = vim.api.nvim_get_hl_by_name('Label', true)
-  local Popbg = ''
-  local Popfg = '#138376'
-
-  if normal_hl and normal_hl.background then
-    Popbg = string.format('#%06x', normal_hl.background)
-  end
-  if label_hl and label_hl.fg then
-    Popfg = string.format('#%06x', label_hl.fg)
-  end
-
-  M.definitions['UserMenu'] = { bg = Popbg }
-  M.definitions['Pmenu'] = { fg = Popfg, bg = Popbg }
-end
-]] --
 
 function M.apply()
   -- 遍历 M.definitions 来获取配置

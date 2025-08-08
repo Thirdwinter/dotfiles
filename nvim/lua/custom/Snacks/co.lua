@@ -330,7 +330,7 @@ end
 function M.get()
   local win = vim.g.statusline_winid
   local buf = vim.api.nvim_win_get_buf(win)
-  if vim.bo[buf].buftype == "nofile" then
+  if vim.bo[buf].buftype == "nofile" or vim.bo[buf].buftype == "help" then
     -- local key = ("% d:% d:% d:% d:% d"):format(win, buf, vim.v.lnum, vim.v.virtnum ~= 0 and 1 or 0, vim.v.relnum)
     -- cache[key] = "" -- 缓存空结果
     return ""

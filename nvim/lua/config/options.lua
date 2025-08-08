@@ -7,9 +7,11 @@ vim.g.maplocalleader = ' '
 vim.g.codeium_enabled = true
 
 -- vim.o.winborder = 'single'
-vim.g.borderStyle = 'single' ---@type 'single'|'rounded'|'none' | 'solid'
+vim.g.borderStyle = 'single' ---@type 'single'|'rounded'|'double'|'none' | 'solid'
+
+-- vim.g.borderStyle = { '┏', '━', '┓', '┃', '┛', '━', '┗', '┃' }
+-- vim.g.borderStyle = { '/', '-', '\\', '|', '/', '-', '\\', '|' }
 -- vim.g.borderStyle = { '┌', '─', '┐', '│', '┘', '─', '└', '│' }
--- vim.g.cmpUsed = 'blink' ---@type 'blink' | 'cmp'
 vim.g.useMatugenCatppuccinColors = false
 -- 如果你在终端中安装并选择了 Nerd 字体，则设置为 true
 vim.g.Username = 'ThirdWinter'
@@ -126,14 +128,14 @@ vim.opt.cmdheight = 0
 -- vim.opt.formatoptions = vim.opt.formatoptions - { 'c', 'r', 'o' }
 
 if vim.g.neovide then
-  -- vim.g.neovide_opacity = 0.8
-  -- vim.g.transparency = 0.8
-  -- vim.g.neovide_floating_shadow = false
+  vim.g.neovide_opacity = 1
+  vim.g.transparency = 1
+  vim.g.neovide_floating_shadow = false
   -- vim.g.neovide_floating_z_height = 10
   -- vim.g.neovide_light_angle_degrees = 45
   -- vim.g.neovide_light_radius = 5
 
-  -- vim.g.neovide_background_color = '#1e1e2e'
+  vim.g.neovide_background_color = '#1e1e2e'
   vim.o.guifont = 'Maple Mono NF CN:h11.5' -- text below applies for VimScript
 end
 

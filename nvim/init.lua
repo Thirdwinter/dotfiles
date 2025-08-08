@@ -21,4 +21,4 @@ require 'config.autocmd' -- INFO: user auto command
 require 'config.keymaps' -- INFO: base keymaps
 require 'custom'         -- INFO: some plugin config and custom patch
 
-vim.cmd.colorscheme 'rose-pine' ---@type 'tokyonight'|'catppuccin'
+vim.cmd.colorscheme 'catppuccin' ---@type 'tokyonight'|'catppuccin'

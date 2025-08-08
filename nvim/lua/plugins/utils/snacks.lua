@@ -3,19 +3,19 @@ return {
   priority = 1000,
   lazy = false,
   opts = function()
-    vim.api.nvim_create_autocmd('User', {
-      pattern = 'MiniFilesActionRename',
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "MiniFilesActionRename",
       callback = function(event)
         Snacks.rename.on_rename_file(event.data.from, event.data.to)
       end,
     })
     vim.g.snacks_animate = false
     return {
-      bigfile = {
-        -- size = 1.5 * 1024 * 100, -- 1.5MB
-        -- setup = function(ctx)
-        -- end,
-      },
+      -- bigfile = {
+      --   -- size = 1.5 * 1024 * 100, -- 1.5MB
+      --   -- setup = function(ctx)
+      --   -- end,
+      -- },
       dashboard = require 'custom.Snacks.dashboard',
       explorer = { replace_netrw = true },
       indent = require 'custom.Snacks.indent',
@@ -37,15 +37,28 @@ return {
         notification = {
           border = vim.g.borderStyle,
           zindex = 1000,
-          ft = 'markdown',
+          -- ft = 'markdown',
           wo = {
             winblend = 5,
-            wrap = false,
+            wrap = true,
             conceallevel = 2,
             colorcolumn = '',
           },
           bo = { filetype = 'snacks_notify' },
         },
+        notification_history = {
+          border = vim.g.borderStyle,
+          zindex = 100,
+          width = 0.75,
+          height = 0.6,
+          minimal = true,
+          title = " Notification History ",
+          title_pos = "center",
+          ft = "markdown",
+          bo = { filetype = "snacks_notif_history", modifiable = false },
+          wo = { winhighlight = "Normal:SnacksNotifierHistory", wrap = true },
+          keys = { q = "close" },
+        }
       },
     }
   end,
@@ -96,5 +109,13 @@ return {
       end,
       desc = 'Toggle Float lazygit',
     },
+    {
+      '<leader>br',
+      function()
+        Snacks.rename.rename_file()
+      end,
+      desc = "Rename File",
+    }
+
   }),
 }
