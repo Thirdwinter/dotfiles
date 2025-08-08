@@ -35,8 +35,11 @@ return {
         icon = ' ',
         key = 'l',
         desc = 'Load Session',
+        -- action = ":SessionLoad"
         action = function()
-          require('persistence').load { last = true }
+          -- require('persistence').load { last = true }
+          require('custom.resession').load_last()
+          vim.cmd("filetype detect")
         end,
       },
       { icon = '󱐥 ', key = 'u', desc = 'Update plugins', action = ':Lazy update' },
@@ -48,7 +51,7 @@ return {
   -- item field formatters
   sections = {
     { section = 'header' },
-    { section = 'keys', gap = 1, padding = 1 },
+    { section = 'keys',                                    gap = 1, padding = 1 },
     { text = '\n' },
     { text = { getGreeting(), hl = 'SnacksDashboardDesc' } },
     { section = 'startup' },
