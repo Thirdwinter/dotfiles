@@ -99,23 +99,37 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   end,
 })
 
--- -- 首次启动时应用高亮补丁
--- -- 强制重新加载以确保初始状态也是基于最新计算的
--- local function setup_initial_highlights()
---   package.loaded['config.my_highlights'] = nil
---   local ok, initial_my_highlights = pcall(require, 'config.hl_patch')
---   if not ok then
---     vim.notify(string.format("初始化自定义高亮配置时出错: %s", initial_my_highlights), vim.log.levels.ERROR)
---     return
---   end
---   initial_my_highlights.apply()
--- end
---
--- -- 在配置脚本的最后调用一次
--- setup_initial_highlights()
+vim.api.nvim_create_autocmd('VimEnter', {
+  group = vim.api.nvim_create_augroup('TopTrim', { clear = true }),
+  once = true,
+  callback = function()
+    local FILE  = vim.fn.expand(vim.fn.stdpath('state') .. '/lsp.log') -- 目标文件
+    local LIMIT = 1024 * 1024 * 5                                      -- 超过 5 MB 就裁剪
+    local KEEP  = 100                                                  -- 保留最后 100 行
+    local size  = vim.fn.getfsize(FILE)
+    if size == -1 or size <= LIMIT then return end
 
--- 如果你希望在所有插件和默认颜色方案加载完毕后再应用，可以考虑放在 VimEnter 事件中：
--- vim.api.nvim_create_autocmd("VimEnter", {
---   group = vim.api.nvim_create_augroup("My_Initial_Hl", { clear = true }),
---   callback = setup_initial_highlights,
--- })
+    -- 异步 tail
+    vim.system(
+      { 'tail', '-n', tostring(KEEP), FILE },
+      { text = true },
+      function(obj)
+        if obj.code == 0 then
+          vim.schedule(function()
+            vim.fn.writefile(
+              vim.split(obj.stdout, '\n', { plain = true, trimempty = false }),
+              FILE
+            )
+            vim.notify(string.format('已裁剪 %s，仅保留最后 %d 行', FILE, KEEP),
+              vim.log.levels.INFO)
+          end)
+        else
+          vim.schedule(function()
+            vim.notify(string.format('裁剪 %s 失败：%s', FILE, obj.stderr or '未知错误'),
+              vim.log.levels.ERROR)
+          end)
+        end
+      end
+    )
+  end
+})
