@@ -1,7 +1,7 @@
 // credits: https://github.com/rymdlego
 
 const float speed = 0.1;
-const float cube_size = 1.0;
+const float cube_size = 1.3;
 const float cube_brightness = 1.0;
 const float cube_rotation_speed = 2.8;
 const float camera_rotation_speed = 0.1;
