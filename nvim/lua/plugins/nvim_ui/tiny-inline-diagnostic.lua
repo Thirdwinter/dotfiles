@@ -3,7 +3,8 @@
 -- end
 return {
   'rachartier/tiny-inline-diagnostic.nvim',
-  event = 'VeryLazy', -- Or `LspAttach`
+  -- event = 'VeryLazy', -- Or `LspAttach`
+  event = { 'BufReadPost', 'BufNewFile' },
   priority = 3000, -- needs to be loaded in first
   branch = 'main',
   init = function()
@@ -19,14 +20,14 @@ return {
   config = function()
     -- Default configuration
     require('tiny-inline-diagnostic').setup {
-      preset = 'modern', -- Can be: "modern", "classic", "minimal", "ghost", "simple", "nonerdfont", "amongus"
+      preset = 'ghost', -- Can be: "modern", "classic", "minimal", "ghost", "simple", "nonerdfont", "amongus"
       hi = {
         error = 'DiagnosticError',
         warn = 'DiagnosticWarn',
         info = 'DiagnosticInfo',
         hint = 'DiagnosticHint',
         arrow = 'NonText',
-        background = 'CursorLine', -- Can be a highlight or a hexadecimal color (#RRGGBB)
+        background = 'CursorLine',   -- Can be a highlight or a hexadecimal color (#RRGGBB)
         mixing_color = 'CursorLine', -- Can be None or a hexadecimal color (#RRGGBB). Used to blend the background color with the diagnostic background color with another color.
       },
       options = {

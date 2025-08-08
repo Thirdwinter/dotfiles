@@ -43,7 +43,7 @@ local handler = function(virtText, lnum, endLnum, width, truncate)
 end
 return {
   'kevinhwang91/nvim-ufo',
-  event = 'VeryLazy',
+  event = { 'BufReadPost', 'BufNewFile' },
   dependencies = { { 'kevinhwang91/promise-async', lazy = true } },
   opts = {
     fold_virt_text_handler = handler,

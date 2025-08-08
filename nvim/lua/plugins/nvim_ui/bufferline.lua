@@ -7,7 +7,8 @@ return {
     'nvim-tree/nvim-web-devicons',
     'folke/snacks.nvim',
   },
-  event = 'VeryLazy',
+  -- event = 'VeryLazy',
+  event = { 'BufReadPost', 'BufNewFile' },
   config = function()
     vim.keymap.set('n', '<Leader>bp', '<Cmd>BufferLinePick<CR>', { desc = '选择buffer', noremap = true, silent = true })
     vim.keymap.set('n', '<Leader>bd', '<Cmd>BufferLinePickClose<CR>',
