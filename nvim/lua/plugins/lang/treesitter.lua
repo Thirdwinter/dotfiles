@@ -48,9 +48,9 @@ return { -- 高亮显示、编辑和导航代码
         enable = false,
       },
     }
-    -- 开启代码折叠
-    vim.wo.foldmethod = 'expr'
-    vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+    -- -- 开启代码折叠
+    -- vim.wo.foldmethod = 'expr'
+    -- vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
     -- 默认不折叠
     -- vim.wo.foldlevel = 99
   end,

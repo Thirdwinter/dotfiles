@@ -14,7 +14,7 @@ return {
     transparent_background = not vim.g.neovide,
     float = {
       transparent = true, -- enable transparent floating windows
-      solid = true,       -- use solid styling for floating windows, see |winborder|
+      solid = false,      -- use solid styling for floating windows, see |winborder|
     },
     integrations = {
       cmp = true,

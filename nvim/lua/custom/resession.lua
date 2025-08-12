@@ -6,8 +6,12 @@ vim.opt.sessionoptions:append('buffers')
 local SESSION_DIR = vim.fn.stdpath('data') .. '/sessions'
 vim.fn.mkdir(SESSION_DIR, 'p')
 
-local function session_path()
-  return SESSION_DIR .. '/' .. vim.fn.getcwd():gsub('/', '%%') .. '.vim'
+-- 生成会话路径，接受可选的name参数
+-- 如果提供name，则使用name作为会话名，否则使用当前工作目录
+local function session_path(name)
+  local session_name = name or vim.fn.getcwd()
+  -- 替换路径中的斜杠，避免文件系统问题
+  return SESSION_DIR .. '/' .. session_name:gsub('/', '%%') .. '.vim'
 end
 
 -- 离开时自动保存
@@ -30,20 +34,20 @@ vim.api.nvim_create_autocmd('VimLeavePre', {
 
     -- 2. 有正常 buffer 才保存，否则什么也不做
     if has_normal then
-      vim.cmd('mksession! ' .. vim.fn.fnameescape(session_path()))
+      vim.cmd('mksession! ' .. vim.fn.fnameescape(session_path("last")))
     end
   end,
 })
 
 -- 加载
 function M.load_last()
-  local file = session_path()
-  if vim.fn.filereadable(file) == 1 then
-    vim.cmd('silent! source ' .. vim.fn.fnameescape(file))
-    vim.notify('Session restored: \n' .. file)
-  else
-    vim.notify('No session for ' .. vim.fn.getcwd(), vim.log.levels.WARN)
-  end
+  -- local file = session_path()
+  -- if vim.fn.filereadable(file) == 1 then
+  vim.cmd('silent! source ' .. vim.fn.fnameescape(session_path("last")))
+  -- vim.notify('Session restored: ' .. file)
+  -- else
+  -- vim.notify('No session for ' .. vim.fn.getcwd(), vim.log.levels.WARN)
+  -- end
 end
 
 -- 命令
