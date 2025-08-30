@@ -29,18 +29,19 @@ return {
     keys = {
       { icon = ' ', key = 'f', desc = 'Find file', action = ':lua Snacks.picker.smart()' },
       { icon = ' ', key = 'g', desc = 'Find Text', action = ":lua Snacks.dashboard.pick('live_grep')" },
-      { icon = ' ', key = 'r', desc = 'Recent Files', action = ":lua Snacks.dashboard.pick('oldfiles')" },
-      { icon = ' ', key = 'n', desc = 'Neovim Settings', action = ":lua Snacks.picker.smart { cwd = vim.fn.stdpath 'config' }" },
+      { icon = ' ', key = 'r', desc = 'Recent Files', action = ":lua Snacks.dashboard.pick('oldfiles')" },
+      { icon = ' ', key = 'n', desc = 'Neovim Settings', action = ":lua Snacks.picker.smart { cwd = vim.fn.stdpath 'config' }" },
       {
-        icon = ' ',
+        icon = ' ',
         key = 'l',
         desc = 'Load Session',
         action = function()
-          require('persistence').load { last = true }
+          require('custom.resession').load_last()
+          vim.cmd 'filetype detect'
         end,
       },
-      { icon = '󱐥 ', key = 'u', desc = 'Update plugins', action = ':Lazy update' },
-      { icon = ' ', key = 'q', desc = 'Quit', action = ':qa' },
+      { icon = ' ', key = 'u', desc = 'Update plugins', action = ':Lazy update' },
+      { icon = ' ', key = 'q', desc = 'Quit', action = ':qa' },
     },
     -- Used by the `header` section
     header = require('custom.logo').A1,

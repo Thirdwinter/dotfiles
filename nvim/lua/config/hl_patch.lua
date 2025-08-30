@@ -6,6 +6,29 @@ local get_existing_hl = function(name)
   return vim.api.nvim_get_hl(0, { name = name })
 end
 
+---把 6 位 HEX 颜色加深（变暗）
+---@param hex string  形如 `"#RRGGBB"` 或 `"RRGGBB"`
+---@param factor? number  加深系数，范围 0–1，默认 0.7
+---@return string   加深后的 HEX，格式与输入一致，大写
+M.darken_hex = function(hex, factor)
+  factor = factor or 0.7
+  local has_sharp = hex:sub(1, 1) == '#'
+  local raw = has_sharp and hex:sub(2) or hex
+
+  assert(#raw == 6, 'hex color must be 6 digits')
+
+  local r = tonumber(raw:sub(1, 2), 16) or 0
+  local g = tonumber(raw:sub(3, 4), 16) or 0
+  local b = tonumber(raw:sub(5, 6), 16) or 0
+
+  r = math.max(0, math.min(255, math.floor(r * factor + 0.5)))
+  g = math.max(0, math.min(255, math.floor(g * factor + 0.5)))
+  b = math.max(0, math.min(255, math.floor(b * factor + 0.5)))
+
+  local out = string.format('%02X%02X%02X', r, g, b)
+  return '#' .. out
+end
+
 ---@alias HighlightConfig { [string]: any }
 ---@alias HighlightLink string
 ---@alias HighlightDefinition HighlightConfig | HighlightLink | fun(): HighlightConfig
@@ -22,7 +45,7 @@ function M.set_hl(groups, opts)
   M.definitions = M.definitions or {}
   M.links = M.links or {}
   opts = vim.tbl_extend('force', {
-    clear = false -- 默认不清空原有配置
+    clear = false, -- 默认不清空原有配置
   }, opts or {})
 
   for hl_group, hl in pairs(groups) do
@@ -32,10 +55,10 @@ function M.set_hl(groups, opts)
     -- 确保hl_config是表
     ---@type vim.api.keyset.highlight
     local hl_config
-    if type(hl) == "string" then
+    if type(hl) == 'string' then
       -- 字符串表示高亮链接，转换为 { link = 目标 } 格式
       hl_config = { link = hl } ---@cast hl_config vim.api.keyset.highlight
-    elseif type(hl) == "function" then
+    elseif type(hl) == 'function' then
       hl_config = hl() ---@cast hl_config vim.api.keyset.highlight
     else
       -- 直接使用表类型配置，明确类型
@@ -63,42 +86,45 @@ end
 M.definitions = {} -- 用于存储所有常规高亮定义
 
 M.definitions['@variable.parameter'] = function()
-  return vim.tbl_extend('force', get_existing_hl('@variable.parameter'), { italic = true, bold = true })
+  return vim.tbl_extend('force', get_existing_hl '@variable.parameter', { italic = true })
 end
 
 M.definitions['@variable'] = function()
-  return vim.tbl_extend('force', get_existing_hl('@variable'), { italic = true, fg = "#B4BEFF" })
+  return vim.tbl_extend('force', get_existing_hl '@variable', { italic = true, fg = '#B4BEFF' })
 end
 
-M.definitions['Boolean'] = function()
-  return vim.tbl_extend('force', get_existing_hl('Boolean'), { italic = true, bold = true })
-end
+-- M.definitions['Boolean'] = function()
+--   return vim.tbl_extend('force', get_existing_hl 'Boolean', { italic = true, bold = true })
+-- end
 
 M.definitions['Statement'] = function()
-  return vim.tbl_extend('force', get_existing_hl('Statement'), { italic = true })
+  return vim.tbl_extend('force', get_existing_hl 'Statement', { italic = true })
 end
 
-M.definitions['Comment'] = function()
-  return vim.tbl_extend('force', get_existing_hl('Comment'), { italic = true, bold = true })
-end
+-- M.definitions['Comment'] = function()
+--   return vim.tbl_extend('force', get_existing_hl 'Comment', { italic = true, bold = true })
+-- end
 
 M.definitions['Type'] = function()
-  return vim.tbl_extend('force', get_existing_hl('Type'), { italic = true, bold = false })
+  return vim.tbl_extend('force', get_existing_hl 'Type', { italic = true, bold = false })
 end
 
 M.definitions['Visual'] = function()
-  return vim.tbl_extend('force', get_existing_hl('Visual'), { bg = '#45475A' })
+  return vim.tbl_extend('force', get_existing_hl 'Visual', { bg = '#45475A' })
 end
 
 M.definitions['WinBarNc'] = function()
-  return vim.tbl_extend('force', get_existing_hl('WinBarNc'), { bg = "" })
+  return vim.tbl_extend('force', get_existing_hl 'WinBarNc', { bg = '' })
 end
 M.definitions['WinBar'] = function()
-  return vim.tbl_extend('force', get_existing_hl('WinBar'), { bg = "" })
+  return vim.tbl_extend('force', get_existing_hl 'WinBar', { bg = '' })
 end
+
+M.definitions['CursorLineNr'] = { fg = '#B4BEFF' }
 M.definitions['CursorLine'] = { bg = '#4f536d' }
 M.definitions['markdownCodeBlock'] = { bg = '' }
-M.definitions['MyBorder'] = { fg = '#B4BEFF' }
+-- M.definitions['MyBorder'] = { fg = '#B4BEFF' }
+M.definitions['MyBorder'] = { fg = '#f1e4c2' }
 M.definitions['BlinkCmpLabelMatch'] = { fg = '#f38ba8' }
 M.definitions['BlinkCmpDocSeparator'] = { bg = '' }
 M.definitions['BlinkCmpDoc'] = { bg = '' }
@@ -106,38 +132,27 @@ M.definitions['BlinkCmpDoc'] = { bg = '' }
 -- SnacksPicker
 M.definitions['SnacksPickerTitle'] = { fg = '#11111b', bg = '#cba6f7' }
 M.definitions['SnacksPickerInputTitle'] = { fg = '#11111b', bg = '#f38ba8' }
-M.definitions['SnacksPickerPreviewTitle'] = { fg = '#11111b', bg = '#a6e3a1' }
+M.definitions['SnacksPickerPreviewTitle'] = { fg = '#11111b', bg = '#a6e3a1', bold = true }
 M.definitions['SnacksPickerListTitle'] = { fg = '#11111b', bg = '#b4befe' }
 
+M.definitions['MiniFilesTitleFocused'] = { fg = '#f38ba8', bold = true }
+M.definitions['MiniFilesTitle'] = { fg = '#a6e3a1' }
+
 M.links = {
-  { 'FloatBorder',                 'MyBorder',    clear = true },
-  { 'CursorLineNr',                'MyBorder',    clear = true },
-  { 'NormalFloat',                 'MyBorder',    clear = true },
-  { 'BlinkCmpMenuBorder',          'FloatBorder', clear = true },
-  { 'BlinkCmpDocBorder',           'FloatBorder', clear = true },
-  { 'BlinkCmpSignatureHelpBorder', 'FloatBorder', clear = true },
-  { 'BlinkCmpMenuSelection',       'CursorLine',  clear = true },
+  { 'FloatBorder',                 'MyBorder',               clear = true },
+  -- { 'CursorLineNr',                'MyBorder',               clear = true },
+  { 'NormalFloat',                 'MyBorder',               clear = true },
+  { 'BlinkCmpMenu',                'NormalFloat',            clear = true },
+  { 'BlinkCmpMenuBorder',          'FloatBorder',            clear = true },
+  { 'BlinkCmpDoc',                 'NormalFloat',            clear = true },
+  { 'BlinkCmpDocBorder',           'FloatBorder',            clear = true },
+  { 'BlinkCmpSignatureHelpBorder', 'FloatBorder',            clear = true },
+  { 'BlinkCmpMenuSelection',       'CursorLine',             clear = true },
+  { 'NoiceCmdlinePopupBorder',     'FloatBorder',            clear = true },
+  { 'NoiceCmdlinePopupTitle',      'SnacksPickerInputTitle', clear = true },
+  { 'WhichKeyBorder',              'FloatBorder',            clear = true },
+  -- { 'MiniFilesTitleFocused',       "MyBorder",               clear = true },
 }
-
-
---[[
-if not vim.g.transparent() then
-  local normal_hl = vim.api.nvim_get_hl_by_name('Normal', true)
-  local label_hl = vim.api.nvim_get_hl_by_name('Label', true)
-  local Popbg = ''
-  local Popfg = '#138376'
-
-  if normal_hl and normal_hl.background then
-    Popbg = string.format('#%06x', normal_hl.background)
-  end
-  if label_hl and label_hl.fg then
-    Popfg = string.format('#%06x', label_hl.fg)
-  end
-
-  M.definitions['UserMenu'] = { bg = Popbg }
-  M.definitions['Pmenu'] = { fg = Popfg, bg = Popbg }
-end
-]] --
 
 function M.apply()
   -- 遍历 M.definitions 来获取配置
@@ -161,11 +176,15 @@ function M.apply()
         local target = link_def[1]
         local source = link_def[2]
         if link_def.clear then
-          pcall(function() vim.cmd('highlight clear ' .. target) end)               -- Wrap in an anonymous function
+          pcall(function()
+            vim.cmd('highlight clear ' .. target)
+          end) -- Wrap in an anonymous function
         end
-        pcall(function() vim.cmd('highlight link ' .. target .. ' ' .. source) end) -- Wrap in an anonymous function
+        pcall(function()
+          vim.cmd('highlight link ' .. target .. ' ' .. source)
+        end) -- Wrap in an anonymous function
       else
-        vim.notify(string.format("链接定义无效，索引 %d: %s", i, vim.inspect(link_def)), vim.log.levels.WARN)
+        vim.notify(string.format('链接定义无效，索引 %d: %s', i, vim.inspect(link_def)), vim.log.levels.WARN)
       end
     end
   end

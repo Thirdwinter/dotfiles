@@ -3,11 +3,13 @@ font-family = "Maple Mono NF CN"
 # font-codepoint-map = U+e000-U+e00a,U+ea60-U+ebeb,U+e0a0-U+e0c8,U+e0ca,U+e0cc-U+e0d7,U+e200-U+e2a9,U+e300-U+e3e3,U+e5fa-U+e6b1,U+e700-U+e7c5,U+ed00-U+efc1,U+f000-U+f2ff,U+f000-U+f2e0,U+f300-U+f372,U+f400-U+f533,U+f0001-U+f1af0=Symbols Nerd Font Mono
 # font-codepoint-map = U+4E00-U+9FFF,U+3400-U+4DBF=Maple Mono NF CN
 # calt=0 ss01=1 ss02=1 ss04=1 cv35=1
-font-feature = -calt
+
+# font-feature = -calt
 font-feature = +ss01
 font-feature = +ss02
 font-feature = +ss04
-font-feature = +cv35
+# font-feature = +ss06
+# font-feature = +cv35
 
 background-opacity = 0.95
 background-blur = true
@@ -30,7 +32,8 @@ window-decoration = true
 # window-decoration = false
 
 # theme = catppuccin-mocha
-theme = rose-pine-moon
+# theme = rose-pine-moon
+theme = tokyonight_moon
 window-padding-y = 3,3
 window-padding-x = 3
 macos-titlebar-style = hidden
@@ -40,7 +43,8 @@ window-colorspace = srgb
 window-save-state = always
 
 custom-shader = my_cursor_blaze.glsl
-# custom-shader = shaders/cubes.glsl
+custom-shader = shaders/cubes.glsl
+# custom-shader = shaders/in-game-crt.glsl
 # custom-shader = my_cursor_blaze_no_transparent.glsl
 
 #custom-shader = shaders/cursor_smear_fade.glsl

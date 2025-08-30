@@ -39,6 +39,7 @@ export PATH=$PATH:$GOPATH
 export PATH=$PATH:$GOBIN
 export PATH=$PATH:$GOROOT/bin
 export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$PATH:/Applications/Docker.app/Contents/Resources/bin
 
 if [ -f $HOME/.gemini_api_key ];then
     source $HOME/.gemini_api_key

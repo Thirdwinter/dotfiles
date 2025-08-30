@@ -11,6 +11,7 @@ zinit light zsh-users/zsh-autosuggestions
 # zinit ice depth"1"
 # zinit light romkatv/powerlevel10k
 zinit light Aloxaf/fzf-tab
+zinit load ellie/atuin
 
 # zinit snippet OMZP::sudo
 

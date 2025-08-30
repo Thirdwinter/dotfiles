@@ -17,12 +17,9 @@ vim.opt.rtp:prepend(lazypath)
 
 require 'config.options' -- INFO: Options must be loaded before plugins
 require 'lazy_setup'     -- INFO: loadind lazy plugins
-require 'config.autocmd'
-require 'config.keymaps'
+require 'config.autocmd' -- INFO: user auto command
+require 'config.keymaps' -- INFO: base keymaps
+require 'custom'         -- INFO: some plugin config and custom patch
 
--- TODO:
--- require "config.lspconfig"
-
-vim.cmd.colorscheme 'rose-pine' ---@type 'tokyonight'|'catppuccin'
-
-vim.o.statuscolumn = [[%!v:lua.require'custom.Snacks.co'.get()]]
+vim.cmd.colorscheme 'catppuccin' ---@type 'tokyonight'|'catppuccin'
+-- vim.cmd "filetype detect"

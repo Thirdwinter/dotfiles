@@ -8,7 +8,7 @@ return {
   dependencies = {
     'rafamadriz/friendly-snippets',
     -- 'L3MON4D3/LuaSnip',
-    'neovim/nvim-lspconfig',
+    -- 'neovim/nvim-lspconfig',
   },
   -- build = 'cargo build --release',
   version = '1.*',

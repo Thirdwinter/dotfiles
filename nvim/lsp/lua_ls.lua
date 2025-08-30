@@ -22,13 +22,13 @@ return {
       -- Make the server aware of Neovim runtime files
       workspace = {
         checkThirdParty = false,
-        library = {
-          vim.env.VIMRUNTIME,
-          -- Depending on the usage, you might want to add additional paths
-          -- here.
-          -- '${3rd}/luv/library'
-          -- '${3rd}/busted/library'
-        },
+        -- library = {
+        --   vim.env.VIMRUNTIME,
+        --   -- Depending on the usage, you might want to add additional paths
+        --   -- here.
+        --   -- '${3rd}/luv/library'
+        --   -- '${3rd}/busted/library'
+        -- },
         -- Or pull in all of 'runtimepath'.
         -- NOTE: this is a lot slower and will cause issues when working on
         -- your own configuration.
@@ -40,8 +40,26 @@ return {
     })
   end,
   settings = {
-    Lua = {},
+    Lua = {
+      hint = {
+        enable = true,
+      },
+      completion = {
+        autoRequire = false,
+        callSnippet = 'Replace',
+      },
+    },
   },
-  cmd = { 'lua-language-server' },
+  cmd = { 'lua-language-server', '--locale=zh-cn' },
+  root_markers = {
+    '.luarc.json',
+    '.luarc.jsonc',
+    '.luacheckrc',
+    '.stylua.toml',
+    'stylua.toml',
+    'selene.toml',
+    'selene.yml',
+    '.git',
+  },
   filetypes = { 'lua' },
 }

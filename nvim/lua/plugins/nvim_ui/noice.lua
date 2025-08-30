@@ -73,7 +73,7 @@ return {
           style = vim.g.borderStyle,
         },
         win_options = {
-          winhighlight = { Normal = 'Normal', FloatBorder = 'FloatBorder' },
+          -- winhighlight = { Normal = 'Normal', FloatBorder = 'FloatBorder' },
         },
       },
       popupmenu = {
@@ -91,7 +91,7 @@ return {
           padding = { 0, 1 },
         },
         win_options = {
-          winhighlight = { Normal = 'Normal', FloatBorder = 'FloatBorder' },
+          -- winhighlight = { Normal = 'Normal', FloatBorder = 'FloatBorder' },
         },
       },
       hover = {
@@ -101,17 +101,17 @@ return {
         --   col = '50%',
         -- },
 
-        -- position = { row = 2, col = 3 },
+        position = { row = 2 },
 
         scrollbar = false,
         size = {
-          max_width = math.ceil(vim.api.nvim_win_get_width(0) * 0.5),
+          max_width = math.ceil(vim.api.nvim_win_get_width(0) * 0.4),
         },
         border = {
           style = vim.g.borderStyle,
         },
         win_options = {
-          winhighlight = { Normal = 'Normal', FloatBorder = 'FloatBorder' },
+          -- winhighlight = { Normal = 'Normal', FloatBorder = 'FloatBorder' },
         },
       },
       mini = {
@@ -124,7 +124,7 @@ return {
           col = '100%',
         },
         win_options = {
-          winhighlight = { Normal = 'Label', FloatBorder = 'FloatBorder' },
+          -- winhighlight = { Normal = 'Label', FloatBorder = 'FloatBorder' },
           winblend = 0,
         },
       },

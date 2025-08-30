@@ -30,13 +30,21 @@ M.options = {
     },
     select = {
       layout = {
+        preview = false,
+        reverse = false,
         layout = {
-          reverse = false,
-          min_height = 8,
           backdrop = false,
-          width = 0.7,
-          height = 0.9,
-          border = 'none',
+          width = 0.5,
+          min_width = 80,
+          height = 0.4,
+          min_height = 3,
+          box = "vertical",
+          border = vim.g.borderStyle,
+          title = "{title}",
+          title_pos = "center",
+          { win = "input",   height = 1,          border = "bottom" },
+          { win = "list",    border = "none" },
+          { win = "preview", title = "{preview}", height = 0.4,     border = "top" },
         },
       },
     },
@@ -215,7 +223,8 @@ M.keys = {
   {
     '<leader>fo',
     function()
-      Snacks.picker.notifications {}
+      Snacks.notifier.show_history()
+      -- Snacks.picker.notifications {}
     end,
     desc = '[F]ind [O]ld [N]otifications',
   },
