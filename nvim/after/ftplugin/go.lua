@@ -3,4 +3,9 @@
 -- vim.bo.shiftwidth = 4 -- 每一级缩进使用 4 个空格
 -- vim.bo.tabstop = 4 -- Tab 显示为 4 个空格
 -- vim.bo.softtabstop = 4 -- 设置为 4 以确保缩进间可编辑
-vim.lsp.enable 'gopls'
+-- vim.lsp.enable 'gopls'
+vim.lsp.start {
+  name = 'gopls',
+  cmd = { 'gopls' },
+  filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
+}

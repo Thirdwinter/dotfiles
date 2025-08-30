@@ -6,8 +6,9 @@ font-family = "Maple Mono NF CN"
 
 # font-feature = -calt
 font-feature = +ss01
-# font-feature = +ss02
-# font-feature = +ss04
+font-feature = +ss02
+font-feature = +ss04
+# font-feature = +ss06
 # font-feature = +cv35
 
 background-opacity = 0.95
@@ -31,7 +32,8 @@ window-decoration = true
 # window-decoration = false
 
 # theme = catppuccin-mocha
-theme = rose-pine-moon
+# theme = rose-pine-moon
+theme = tokyonight_moon
 window-padding-y = 3,3
 window-padding-x = 3
 macos-titlebar-style = hidden
@@ -42,6 +44,7 @@ window-save-state = always
 
 custom-shader = my_cursor_blaze.glsl
 custom-shader = shaders/cubes.glsl
+# custom-shader = shaders/in-game-crt.glsl
 # custom-shader = my_cursor_blaze_no_transparent.glsl
 
 #custom-shader = shaders/cursor_smear_fade.glsl

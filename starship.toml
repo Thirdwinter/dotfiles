@@ -73,7 +73,7 @@ diverged = '⇕[\[](fg:iris)[⇡\(${ahead_count}\)](fg:foam)[⇣\(${behind_count
 behind = '[⇣\(${count}\)](fg:rose)'
 
 [python]
-format = "[$virtualenv]($style) "
+format = "[  $virtualenv]($style) "
 disabled = false
 symbol = ' '
 style = "fg:pine"

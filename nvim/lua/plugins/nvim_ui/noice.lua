@@ -126,7 +126,7 @@ return {
 
         scrollbar = false,
         size = {
-          max_width = math.ceil(vim.api.nvim_win_get_width(0) * 0.5),
+          max_width = math.ceil(vim.api.nvim_win_get_width(0) * 0.4),
         },
         border = {
           style = vim.g.borderStyle,

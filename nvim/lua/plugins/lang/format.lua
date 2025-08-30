@@ -2,7 +2,7 @@
 local formaters = {
   lua = { 'stylua' },
   yaml = { 'yamlfmt' },
-  go = { 'goimports' },
+  go = { 'gofumpt' },
   xml = { 'xmlformatter' },
   c = { 'clang-format' },
   cpp = { 'clang-format' },
@@ -18,6 +18,7 @@ local formaters = {
   scss = { 'prettier' },
   html = { ' htmlbeautifier' },
   xhtml = { ' htmlbeautifier' },
+  python = { 'yapf', 'isort' },
 
   -- Conform can also run multiple formatters sequentially
   -- python = { "isort", "black" },
@@ -46,5 +47,15 @@ return { -- Autoformat
       timeout_ms = 500,
     },
     formatters_by_ft = formaters,
+    formatters = {
+    -- cbfmt = { command = 'cbfmt', args = { '-w', '--config', vim.fn.expand '~' .. '/.config/cbfmt.toml', '$FILENAME' } },
+    -- taplo = { command = 'taplo', args = { 'fmt', '--option', 'indent_tables=false', '-' } },
+    ruff_fix = {
+      command = 'ruff',
+      args = { 'check', '--select', 'I', '--fix', '--stdin-filename', '$FILENAME', '-' },
+      stdin = true,
+    },
+    -- lcg_clang_format = { command = 'lcg-clang-format-8.0.0', args = { '$FILENAME' } }
+  },
   },
 }

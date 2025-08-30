@@ -95,8 +95,8 @@ local config = {
       'yazi',
     },
     ignore_focus = { 'neo-tree', 'dashboard', 'snacks_dashboard' },
-    -- theme = 'rose-pine', ---@type 'catppuccin' | 'rose-pine' | 'tokyonight' | 'auto'
-    theme = require('custom.Lualine.themes.rose-pine'),
+    theme = 'catppuccin', ---@type 'catppuccin' | 'rose-pine' | 'tokyonight' | 'auto'
+    -- theme = require('custom.Lualine.themes.rose-pine'),
     component_separators = '',
     section_separators = '',
   },
@@ -105,8 +105,7 @@ local config = {
       {
         'mode',
         fmt = function(str)
-          return vim.api.nvim_win_get_width(0) < 110 and string.format('%-2s', str:sub(1, 1)) or
-              string.format('%-8s', str)
+          return vim.api.nvim_win_get_width(0) < 110 and string.format('%-2s', str:sub(1, 1)) or string.format('%-8s', str)
         end,
         icon = '󰀘',
         color = { gui = 'bold' },
@@ -164,9 +163,7 @@ local config = {
               break
             end
           end
-          return (vim.api.nvim_win_get_width(0) < 140)
-              and (has_lsp and " " or "󱏎 ")
-              or (has_lsp and " LSP" or "󱏎 None")
+          return (vim.api.nvim_win_get_width(0) < 140) and (has_lsp and ' ' or '󱏎 ') or (has_lsp and ' LSP' or '󱏎 None')
         end,
         -- icon = '', -- f013
         icon = '', -- f013
@@ -189,7 +186,7 @@ local config = {
         file_info,
         separator = { left = left_separators, right = separators.vertical_bar_thin },
         padding = { left = 0, right = 1 },
-      }
+      },
       -- {
       --   'filename',
       --   file_status = true,     -- Displays file status (readonly status, modified status)

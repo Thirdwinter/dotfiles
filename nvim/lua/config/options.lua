@@ -16,13 +16,6 @@ vim.g.useMatugenCatppuccinColors = false
 -- 如果你在终端中安装并选择了 Nerd 字体，则设置为 true
 vim.g.Username = 'ThirdWinter'
 vim.g.have_nerd_font = true
--- vim.g.transparent = function()
---   if vim.g.neovide then
---     return false
---   else
---     return true
---   end
--- end
 
 vim.opt.showtabline = 1
 vim.opt.laststatus = 3
@@ -104,7 +97,29 @@ vim.opt.showcmd = false
 -- vim.opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus"
 vim.opt.clipboard = 'unnamedplus'
 
-if not vim.g.neovide then
+-- 设置全局窗口选项，禁止折行
+vim.wo.wrap = false
+
+vim.opt.cmdheight = 0
+
+-- vim.opt.formatoptions = vim.opt.formatoptions - { 'c', 'r', 'o' }
+
+if vim.g.neovide then
+  vim.g.neovide_scroll_animation_length = 0.1
+  local alpha = function()
+    return string.format("%x", math.floor((255 * vim.g.transparency) or 1))
+  end
+
+  vim.g.neovide_opacity = 1.0
+  vim.g.neovide_floating_blur_amount_x = 0.0
+  vim.g.neovide_floating_blur_amount_y = 0.0
+  vim.g.neovide_window_blurred = true
+  vim.g.neovide_normal_opacity = 1
+  vim.g.transparency = 1.0
+  vim.g.neovide_background_color = "#1e1e2e" .. alpha()
+  vim.g.neovide_floating_shadow = false
+  vim.o.guifont = 'Maple Mono NF CN:h12' -- text below applies for VimScript
+else
   if vim.fn.exists '$SSH_TTY' == 1 and vim.env.TMUX == nil then
     vim.g.clipboard = {
       name = 'OSC 52',
@@ -118,25 +133,6 @@ if not vim.g.neovide then
       },
     }
   end
-end
-
--- 设置全局窗口选项，禁止折行
-vim.wo.wrap = false
-
-vim.opt.cmdheight = 0
-
--- vim.opt.formatoptions = vim.opt.formatoptions - { 'c', 'r', 'o' }
-
-if vim.g.neovide then
-  vim.g.neovide_opacity = 1
-  vim.g.transparency = 1
-  vim.g.neovide_floating_shadow = false
-  -- vim.g.neovide_floating_z_height = 10
-  -- vim.g.neovide_light_angle_degrees = 45
-  -- vim.g.neovide_light_radius = 5
-
-  vim.g.neovide_background_color = '#1e1e2e'
-  vim.o.guifont = 'Maple Mono NF CN:h11.5' -- text below applies for VimScript
 end
 
 -- Folding
