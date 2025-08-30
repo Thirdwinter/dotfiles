@@ -1,63 +1,95 @@
 @import "colors.css";
 
-/* You can now use all the color variables inside the file. */
-/* 您现在可以使用文件中的所有颜色变量。 */
-
 * {
-  min-height: 0px;
-  min-width: 0px;
+  min-height: 0;
+  min-width: 0;
   font-family: "Maple Mono NF CN", sans-serif;
   font-size: 14px;
-  font-weight: 600;
-  /*background: transparent;*/
 }
 
 window#waybar {
-  /*background-color: rgba(*/
-  /*  127,*/
-  /*  132,*/
-  /*  156,*/
-  /*  0.8*/
-  /*);*/
-  /*opacity: 0.7;*/
   background-color: @primary_fixed;
-  box-shadow: 0 4px 30px rgba(166, 173, 200, 0.9); /* Optional shadow to enhance the effect */
-  border-radius: 10px; /* Optional rounded corners */
+  /* background: transparent; */
+  /* box-shadow: 0 4px 30px rgba(166, 173, 200, 0.9); */
+  border: none;
+  border-radius: 100px 100px 100px 100px;
 }
 
 #workspaces {
-  border-radius: 10px;
-  border: 0px;
-  font-weight: bold;
-  font-style: normal;
-  opacity: 0.85;
-  font-size: 16px;
+  border-radius: 100px 100px 100px 100px;
+  /* border: 2px solid @on_yellow; */
   margin: 0.2rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  background: #585b70;
+  padding: 0.2rem 1rem;
+  background: @primary;
+  font-weight: bold;
 }
 
 #workspaces button {
-  border-radius: 10px;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
+  background-color: @tertiary;
+  border-radius: 100px;
+  transition: all 0.3s;
+  margin: 0.1rem 0.2rem;
+  padding: 0 0.3rem;
+  min-width: 1rem;
 }
 
-#workspaces button:hover {
-  box-shadow: inherit;
-  text-shadow: inherit;
+#workspaces button.empty {
+  background: @outline;
 }
 
 #workspaces button.active {
-  background-color: @primary;
-  color: @on_primary;
-  /*min-width: 20px;*/
-  opacity: 1;
+  background: @on_primary;
+  min-width: 2rem;
 }
 
 #workspaces button.urgent {
-  color: @on_error;
+  color: blueviolet;
+}
+
+#taskbar {
+  background-color: @outline;
+  margin: 0.2rem;
+  padding: 0 1rem;
+  border-radius: 0 100px 0 100px;
+  transition: all 0.2s;
+}
+
+#taskbar.empty {
+  background-color: transparent;
+}
+
+#taskbar button {
+  background-color: @transparent;
+  margin: 1px 3px;
+  padding: 0 4px;
+  font-weight: bolder;
+  color: @foreground;
+  border: none;
+  border-radius: 0;
+  transition: all 0.5s;
+}
+
+#taskbar button:hover {
+  background-color: @transparent;
+  box-shadow: @background-transparent 0 5 0 0;
+  transition: all 0.3s;
+}
+
+#taskbar button.minimized {
+  background-color: @overlay;
+  border-radius: 10px;
+}
+
+#taskbar button.urgent {
+  box-shadow: @red 0 5 0 0;
+  background-color: transparent;
+  padding: 0 8px;
+  border-radius: 10px;
+}
+
+#taskbar button.active {
+  background-color: transparent;
+  box-shadow: @error_container 0 2 0 0;
 }
 
 #clock,
@@ -72,35 +104,25 @@ window#waybar {
 #network,
 #window,
 #mpris {
-  min-height: 0px;
-  min-width: 0px;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  padding-left: 0.4rem; /* 调整内边距 */
-  padding-right: 0.4rem; /* 调整内边距 */
+  min-height: 0;
+  min-width: 0;
+  padding: 0 0.4rem;
   border-radius: 15px;
-  margin: 0.2rem; /* 均匀外边距 */
+  margin: 0.2rem;
   background-color: @surface;
   color: @on_primary_fixed;
 }
 
-#mpris {
+#mpris,
+#mpris.playing,
+#mpris.paused {
   background-color: transparent;
 }
-
 #mpris.playing {
-  background-color: transparent;
   color: #1e1e2e;
 }
-
 #mpris.paused {
   color: @on_surface_variant;
-  background-color: transparent;
-}
-
-#custom-sep {
-  padding: 0px;
-  color: @outline;
 }
 
 #cava {
@@ -113,68 +135,31 @@ window#waybar.empty #window {
 window#waybar.fullscreen #window {
   color: @on_primary_fixed;
 }
-#cpu {
-  background-color: transparent;
-  /*color: @outline;*/
-}
 
-#memory {
-  background-color: transparent;
-  /*color: @outline;*/
-}
-
-#clock {
-  background-color: transparent;
-  /*color: @outline;*/
-}
-
-#network {
-  background-color: transparent;
-  /*color: @outline;*/
-}
-
-#window {
-  background-color: transparent;
-  color: #000000;
-}
-
-#pulseaudio {
-  background-color: transparent;
-  /*color: @on_surface;*/
-}
-
-#pulseaudio.muted {
-  background-color: transparent;
-  color: @on_surface;
-}
-
+#cpu,
+#memory,
+#clock,
+#network,
+#window,
+#pulseaudio,
+#pulseaudio.muted,
 #custom-notification {
   background-color: transparent;
-  color: @error;
+  color: #000;
 }
 
 #tray {
-  border: 0px solid black;
+  border-radius: 100px 0 100px 0;
   background: @on_primary;
   color: @on_surface;
-  border-radius: 10px;
-  padding-right: 0.4rem;
-  padding-left: 0.4rem;
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-}
-
-#custom-setwallpaper {
-  border-radius: 50%;
-  background-color: transparent;
-  color: @primary;
+  padding: 0 1.5rem;
 }
 
 #battery {
   background-color: @primary;
   color: @surface_container_lowest;
-  font-size: 14px;
-  border-radius: 10px;
+  border-radius: 100px 100px 100px 100px;
+  padding: 0 1rem;
 }
 
 tooltip {

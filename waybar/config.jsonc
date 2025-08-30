@@ -8,7 +8,7 @@
   "passthrough": false,
   "fixed-center": true,
   "modules-left": [
-    "wlr/workspaces",
+    "hyprland/workspaces",
     "hyprland/window"
   ],
   "modules-center": [
@@ -45,23 +45,10 @@
   },
   "hyprland/workspaces": {
     "format": "{icon}",
-    "on-click": "activate",
-    "sort-by-number": true,
-    "all-outputs": true,
-    "disable-scroll": false,
-    "active-only": false,
     "format-icons": {
-      "1": "壹",
-      "2": "贰",
-      "3": "叁",
-      "4": "肆",
-      "5": "伍",
-      "6": "陆",
-      "7": "柒",
-      "8": "捌",
-      "9": "玖",
-      "10": "拾"
-    }
+      "default": ""
+    },
+    "active-only": false
   },
   "hyprland/window": {
     "format": "{class}"
