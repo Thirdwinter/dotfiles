@@ -19,6 +19,27 @@ return {
       inc_rename = true,       -- enables an input dialog for inc-rename.nvim
       lsp_doc_border = false,  -- add a border to hover docs and signature help
     },
+    cmdline = {
+      format = {
+        search_down = {
+          view = 'cmdline',
+        },
+        search_up = {
+          view = 'cmdline',
+        },
+        substitute = {
+          pattern = {
+            '^:%s*%%s?n?o?m?/',
+            "^:'<,'>%s*s?n?m?/",
+            '^:%d+,%d+%s*s?n?m?/',
+          },
+          icon = ' /',
+          view = 'cmdline',
+          lang = 'regex',
+        },
+      },
+    },
+
     messages = {
       -- NOTE: If you enable messages, then the cmdline is enabled automatically.
       -- This is a current Neovim limitation.
