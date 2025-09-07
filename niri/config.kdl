@@ -8,7 +8,7 @@ input {
             layout "us,ru"
             // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
         }
-        repeat-delay 450
+        repeat-delay 250
         repeat-rate 35
     }
 
@@ -226,7 +226,7 @@ layout {
 }
 
 cursor {
-    xcursor-theme "Bibata-Modern-Amber"
+    xcursor-theme "Bibata-Original-Amber"
     xcursor-size 24
     // hide-when-typing
     // hide-after-inactive-ms 1000
@@ -240,9 +240,10 @@ overview{
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
-spawn-at-startup "swww-daemon"
-spawn-at-startup "swaync"
-spawn-at-startup "sh" "-c" "waybar -c ~/.config/waybar/config_niri.jsonc -s ~/.config/waybar/style_niri.css"
+// spawn-at-startup "swww-daemon"
+// spawn-at-startup "swaync"
+// spawn-at-startup "sh" "-c" "waybar -c ~/.config/waybar/config_niri.jsonc -s ~/.config/waybar/style_niri.css"
+spawn-at-startup "sh" "-c" "qs -c noctalia-shell"
 spawn-at-startup "fcitx5" "--replace" "-d"
 spawn-at-startup "clipse" "--listen"
 // spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "storel"
@@ -363,15 +364,55 @@ window-rule {
     default-floating-position x=10 y=10 relative-to="bottom-right"
 }
 
+window-rule {
+    match app-id="QQ"
+    open-floating true
+}
+window-rule {
+    match app-id="QQ" title="QQ" 
+    open-floating false
+}
+window-rule {
+    match app-id="wechat"
+    open-floating true
+}
+window-rule {
+    match app-id="wechat" title="微信" 
+    open-floating false
+}
+
+
 layer-rule {
-    match namespace="swww-daemon"
+    match namespace="^swww-daemon$"
     place-within-backdrop true
 }
+
+layer-rule {
+    match namespace="^swww-daemon$"
+}
+window-rule {
+    geometry-corner-radius 3
+    clip-to-geometry true
+}
+
+layer-rule {
+    match namespace="^quickshell-wallpaper$"
+}
+
+layer-rule {
+    match namespace="^quickshell-overview$"
+    place-within-backdrop true
+}
+
+// layer-rule {
+//     match namespace="^swww-overview$"
+//     place-within-backdrop true
+// }
 
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Q repeat=false { spawn "kitty"; }
+    Mod+Q repeat=false { spawn "ghostty"; }
     Mod+W repeat=false { spawn "rofi" "-show" "window" "-theme" "~/.config/rofi/config.rasi"; }
     Mod+Shift+W repeat=false { spawn "~/.local/bin/random_swww_wallpaper.sh"; }
 
