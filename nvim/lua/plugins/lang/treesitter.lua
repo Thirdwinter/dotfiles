@@ -14,8 +14,10 @@ local ensure_installed = {
 }
 return { -- 高亮显示、编辑和导航代码
   'nvim-treesitter/nvim-treesitter',
-  build = ':TSUpdate',
-  main = 'nvim-treesitter.configs', -- 设置用于 opts 的主模块
+  branch = 'master',
+  lazy = false,
+  build = ":TSUpdate",
+  -- main = 'nvim-treesitter.configs', -- 设置用于 opts 的主模块
   -- [[配置 Treesitter]] 参见 `:help nvim-treesitter`
   config = function()
     require('nvim-treesitter.configs').setup {

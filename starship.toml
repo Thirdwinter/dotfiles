@@ -39,7 +39,7 @@ vimcmd_symbol = "[❮](fg:iris)"
 truncate_to_repo=false
 # format = "[](fg:overlay)[󰧱 $path]($style)[](fg:overlay) "
 format = "[󰧱 $path ]($style)"
-style = "fg:color8"
+style = "italic fg:color8"
 # truncation_length = 3
 # truncation_symbol = "…/"
 

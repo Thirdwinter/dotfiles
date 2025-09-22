@@ -34,6 +34,8 @@ return { -- Autoformat
       '<leader>lf',
       function()
         require('conform').format { async = true, lsp_format = 'fallback' }
+
+        vim.cmd "w!"
       end,
       mode = '',
       desc = '[F]ormat buffer',
@@ -48,14 +50,14 @@ return { -- Autoformat
     },
     formatters_by_ft = formaters,
     formatters = {
-    -- cbfmt = { command = 'cbfmt', args = { '-w', '--config', vim.fn.expand '~' .. '/.config/cbfmt.toml', '$FILENAME' } },
-    -- taplo = { command = 'taplo', args = { 'fmt', '--option', 'indent_tables=false', '-' } },
-    ruff_fix = {
-      command = 'ruff',
-      args = { 'check', '--select', 'I', '--fix', '--stdin-filename', '$FILENAME', '-' },
-      stdin = true,
+      -- cbfmt = { command = 'cbfmt', args = { '-w', '--config', vim.fn.expand '~' .. '/.config/cbfmt.toml', '$FILENAME' } },
+      -- taplo = { command = 'taplo', args = { 'fmt', '--option', 'indent_tables=false', '-' } },
+      ruff_fix = {
+        command = 'ruff',
+        args = { 'check', '--select', 'I', '--fix', '--stdin-filename', '$FILENAME', '-' },
+        stdin = true,
+      },
+      -- lcg_clang_format = { command = 'lcg-clang-format-8.0.0', args = { '$FILENAME' } }
     },
-    -- lcg_clang_format = { command = 'lcg-clang-format-8.0.0', args = { '$FILENAME' } }
-  },
   },
 }
