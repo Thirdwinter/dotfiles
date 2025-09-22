@@ -3,7 +3,7 @@
 -- end
 return {
   "VidocqH/lsp-lens.nvim",
-  event = { 'BufReadPost', 'BufNewFile' },
+  event = 'LspAttach',
   -- cond = function()
   --   local buf = vim.api.nvim_get_current_buf()
   --   local file = vim.api.nvim_buf_get_name(buf)

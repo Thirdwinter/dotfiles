@@ -11,8 +11,9 @@ font-feature = +ss04
 # font-feature = +ss06
 # font-feature = +cv35
 
-background-opacity = 0.95
+background-opacity = 0.88
 background-blur = true
+background-blur-radius = 55
 
 # font-codepoint-map = U+4E00-U+9FFF,U+3400-U+4DBF=Maple Mono NF CN
 confirm-close-surface = false
@@ -33,7 +34,7 @@ window-decoration = true
 
 # theme = catppuccin-mocha
 # theme = rose-pine-moon
-theme = tokyonight_moon
+theme = TokyoNight Moon
 window-padding-y = 3,3
 window-padding-x = 3
 macos-titlebar-style = hidden

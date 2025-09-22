@@ -1,6 +1,6 @@
 return {
   'nvim-mini/mini.files',
-  -- event = 'VeryLazy',
+  event = 'VeryLazy',
   version = false,
   opts = function(_, opts)
     vim.api.nvim_create_autocmd('User', {

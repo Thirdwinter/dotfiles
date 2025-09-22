@@ -27,3 +27,4 @@ alias gpl="git pull"
 
 alias lg="lazygit"
 alias f="clear;fastfetch"
+alias ue="open -a Safari start.html"
